@@ -1,6 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
 
+// CORS-Header für alle Responses
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+}
+
+// OPTIONS-Handler für CORS-Preflight
+export async function OPTIONS(request: NextRequest) {
+  return NextResponse.json(
+    {},
+    {
+      status: 200,
+      headers: corsHeaders,
+    }
+  )
+}
+
+// POST-Handler für Kontaktformular
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -10,14 +29,20 @@ export async function POST(request: NextRequest) {
     if (!firstName || !lastName || !email || !service || !message) {
       return NextResponse.json(
         { error: 'Bitte füllen Sie alle Pflichtfelder aus' },
-        { status: 400 }
+        { 
+          status: 400,
+          headers: corsHeaders,
+        }
       )
     }
 
     if (!privacyAccepted) {
       return NextResponse.json(
         { error: 'Bitte akzeptieren Sie die Datenschutzhinweise' },
-        { status: 400 }
+        { 
+          status: 400,
+          headers: corsHeaders,
+        }
       )
     }
 
@@ -26,7 +51,10 @@ export async function POST(request: NextRequest) {
     if (!emailRegex.test(email)) {
       return NextResponse.json(
         { error: 'Ungültige E-Mail-Adresse' },
-        { status: 400 }
+        { 
+          status: 400,
+          headers: corsHeaders,
+        }
       )
     }
 
@@ -35,7 +63,10 @@ export async function POST(request: NextRequest) {
       console.error('SMTP_HOST nicht konfiguriert')
       return NextResponse.json(
         { error: 'SMTP_HOST nicht konfiguriert. Bitte setzen Sie SMTP_HOST in Ihrer .env.local Datei.' },
-        { status: 500 }
+        { 
+          status: 500,
+          headers: corsHeaders,
+        }
       )
     }
     
@@ -43,7 +74,10 @@ export async function POST(request: NextRequest) {
       console.error('SMTP-Credentials nicht konfiguriert')
       return NextResponse.json(
         { error: 'SMTP-Anmeldedaten nicht konfiguriert. Bitte setzen Sie SMTP_USER und SMTP_PASSWORD in Ihrer .env.local Datei.' },
-        { status: 500 }
+        { 
+          status: 500,
+          headers: corsHeaders,
+        }
       )
     }
     
@@ -51,7 +85,10 @@ export async function POST(request: NextRequest) {
       console.error('SMTP_PORT nicht konfiguriert')
       return NextResponse.json(
         { error: 'SMTP_PORT nicht konfiguriert. Bitte setzen Sie SMTP_PORT in Ihrer .env.local Datei.' },
-        { status: 500 }
+        { 
+          status: 500,
+          headers: corsHeaders,
+        }
       )
     }
 
@@ -93,7 +130,10 @@ export async function POST(request: NextRequest) {
       console.error('SMTP-Verbindung fehlgeschlagen:', verifyError)
       return NextResponse.json(
         { error: 'E-Mail-Server-Verbindung fehlgeschlagen. Bitte überprüfen Sie Ihre SMTP-Einstellungen.' },
-        { status: 500 }
+        { 
+          status: 500,
+          headers: corsHeaders,
+        }
       )
     }
 
@@ -153,7 +193,10 @@ ${message}
 
     return NextResponse.json(
       { message: 'E-Mail erfolgreich gesendet' },
-      { status: 200 }
+      { 
+        status: 200,
+        headers: corsHeaders,
+      }
     )
   } catch (error: any) {
     console.error('Fehler beim Senden der E-Mail:', error)
@@ -171,8 +214,10 @@ ${message}
     
     return NextResponse.json(
       { error: errorMessage },
-      { status: 500 }
+      { 
+        status: 500,
+        headers: corsHeaders,
+      }
     )
   }
 }
-

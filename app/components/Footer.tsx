@@ -136,7 +136,7 @@ export default function Footer() {
                 Impressum
               </a>
               <a 
-                href="/impressum" 
+                href="/datenschutz" 
                 className="hover:text-blue-500 transition-colors duration-300"
               >
                 Datenschutz

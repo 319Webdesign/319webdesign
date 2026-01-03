@@ -36,19 +36,28 @@ export default function ImpressumPage() {
                   Angaben gemäß § 5 TMG
                 </h2>
                 <div className="space-y-4 text-slate-300">
-                  <p>
-                    <strong className="text-white">Maik Schmidt</strong><br />
-                    Einzelunternehmer
-                  </p>
-                  <p>
-                    <strong className="text-white">Berufsbezeichnung:</strong> Webdesigner
-                  </p>
-                  <p>
-                    <strong className="text-white">Anschrift:</strong><br />
-                    Nahestrasse 22<br />
-                    64319 Pfungstadt<br />
-                    Deutschland
-                  </p>
+                  <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                    <p>
+                      <strong className="text-white">[PLATZHALTER: Firmenname]</strong><br />
+                      [PLATZHALTER: Rechtsform - z.B. Einzelunternehmer, GbR, GmbH]
+                    </p>
+                    <p className="mt-3">
+                      <strong className="text-white">[PLATZHALTER: Name des Inhabers/Geschäftsführers]</strong>
+                    </p>
+                    <p className="mt-3">
+                      <strong className="text-white">Berufsbezeichnung:</strong> [PLATZHALTER: z.B. Webdesigner]
+                    </p>
+                    <p className="mt-3">
+                      <strong className="text-white">Anschrift:</strong><br />
+                      [PLATZHALTER: Straße und Hausnummer]<br />
+                      [PLATZHALTER: Postleitzahl und Ort]<br />
+                      [PLATZHALTER: Land]
+                    </p>
+                    <p className="mt-3">
+                      <strong className="text-white">Steuernummer:</strong> [PLATZHALTER: Steuernummer]<br />
+                      <strong className="text-white">Umsatzsteuer-ID:</strong> [PLATZHALTER: USt-IdNr. - falls vorhanden]
+                    </p>
+                  </div>
                 </div>
               </motion.section>
 
@@ -64,24 +73,26 @@ export default function ImpressumPage() {
                   Kontakt
                 </h2>
                 <div className="space-y-4 text-slate-300">
-                  <p>
-                    <strong className="text-white">E-Mail:</strong>{' '}
-                    <a 
-                      href="mailto:Kontakt@319webdesign.com" 
-                      className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
-                    >
-                      Kontakt@319webdesign.com
-                    </a>
-                  </p>
-                  <p>
-                    <strong className="text-white">Telefon:</strong>{' '}
-                    <a 
-                      href="tel:+491773236454" 
-                      className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
-                    >
-                      01773236454
-                    </a>
-                  </p>
+                  <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
+                    <p>
+                      <strong className="text-white">E-Mail:</strong>{' '}
+                      <a 
+                        href="mailto:[PLATZHALTER: E-Mail-Adresse]" 
+                        className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
+                      >
+                        [PLATZHALTER: E-Mail-Adresse]
+                      </a>
+                    </p>
+                    <p className="mt-3">
+                      <strong className="text-white">Telefon:</strong>{' '}
+                      <a 
+                        href="tel:[PLATZHALTER: Telefonnummer]" 
+                        className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
+                      >
+                        [PLATZHALTER: Telefonnummer]
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </motion.section>
 

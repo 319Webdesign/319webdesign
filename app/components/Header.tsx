@@ -204,7 +204,8 @@ export default function Header() {
             opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-md -mx-6 px-6 mt-2 rounded-b-lg"
+          className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-md mt-2 rounded-b-lg"
+          style={{ marginLeft: '-1.5rem', marginRight: '-1.5rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
         >
           <div className="pt-4 pb-2 space-y-4">
             {navLinks.map((link, index) => (

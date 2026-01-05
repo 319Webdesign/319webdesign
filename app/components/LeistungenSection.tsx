@@ -46,10 +46,6 @@ export default function LeistungenSection() {
           {leistungen.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
               whileHover={{ 
                 y: -5,
                 transition: { duration: 0.3 }
@@ -67,10 +63,6 @@ export default function LeistungenSection() {
 
         {/* Performance Teaser Card */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
           whileHover={{ 
             y: -5,
             transition: { duration: 0.3 }

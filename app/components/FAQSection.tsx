@@ -60,12 +60,8 @@ export default function FAQSection() {
             {faqData.map((faq, index) => {
               const isOpen = openFaqIndex === index
               return (
-                <motion.div
+                <div
                   key={faq.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden"
                 >
                   <button
@@ -104,18 +100,14 @@ export default function FAQSection() {
                         </div>
                       </motion.div>
                     )}
-                  </AnimatePresence>
-                </motion.div>
+                    </AnimatePresence>
+                </div>
               )
             })}
           </div>
 
           {/* Contact Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+          <div
             className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8 shadow-xl h-fit"
           >
             <div className="flex flex-col items-center text-center">
@@ -134,12 +126,12 @@ export default function FAQSection() {
               >
                 <Mail className="w-5 h-5 group-hover/email:translate-x-1 transition-transform" aria-hidden="true" />
                 <span className="break-all">kontakt@319webdesign.com</span>
-              </a>
+                </a>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
-  )
-}
+      </section>
+    )
+  }
 

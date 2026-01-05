@@ -13,7 +13,7 @@ const fadeInUp = {
 
 export default function DatenschutzPage() {
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-slate-950 overflow-x-hidden w-full">
       <Header />
       
       <section className="py-20 md:py-28 px-6">

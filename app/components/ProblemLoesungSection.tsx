@@ -49,12 +49,8 @@ export default function ProblemLoesungSection() {
 
         <div className="space-y-12">
           {problemLoesungData.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
               className="grid md:grid-cols-2 gap-8 items-center"
             >
               <div className="bg-red-950/20 border border-red-900/50 p-8 rounded-xl">
@@ -74,7 +70,7 @@ export default function ProblemLoesungSection() {
                 <h4 className="text-xl font-semibold mb-2">{item.solution}</h4>
                 <p className="text-slate-400">{item.solutionDesc}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

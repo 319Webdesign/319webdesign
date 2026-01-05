@@ -10,13 +10,7 @@ export default function CTASection() {
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Device Mockup */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative flex justify-center items-center"
-          >
+          <div className="relative flex justify-center items-center">
             <motion.div
               animate={{
                 y: [0, -20, 0],
@@ -52,16 +46,10 @@ export default function CTASection() {
                 />
               </div>
             </motion.div>
-          </motion.div>
+          </div>
 
           {/* Right: Text & CTA */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="space-y-8"
-          >
+          <div className="space-y-8">
             <div className="space-y-6">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                 Bereit für den{' '}
@@ -114,7 +102,7 @@ export default function CTASection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

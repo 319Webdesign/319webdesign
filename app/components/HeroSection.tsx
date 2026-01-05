@@ -104,18 +104,20 @@ export default function HeroSection() {
               },
             }}
             className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 inline-flex items-center gap-2 group/btn"
+            aria-label="Zum Kontaktformular springen - Projekt starten"
           >
             Projekt starten
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
           </motion.a>
           <motion.a
             href="#benefits"
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border border-slate-700 text-slate-300 font-semibold rounded-lg hover:border-slate-600 hover:text-slate-200 transition-all duration-300 inline-flex items-center gap-2 group/btn2"
+            className="px-8 py-4 border border-slate-600 text-slate-200 font-semibold rounded-lg hover:border-slate-500 hover:text-white transition-all duration-300 inline-flex items-center gap-2 group/btn2"
+            aria-label="Zu den Vorteilen scrollen - Mehr erfahren"
           >
             Mehr erfahren
-            <ArrowDown className="w-4 h-4 group-hover/btn2:translate-y-1 transition-transform" />
+            <ArrowDown className="w-4 h-4 group-hover/btn2:translate-y-1 transition-transform" aria-hidden="true" />
           </motion.a>
         </motion.div>
       </motion.div>
@@ -133,7 +135,7 @@ export default function HeroSection() {
           className="flex flex-col items-center gap-2 text-slate-500"
         >
           <span className="text-sm">Scroll</span>
-          <ArrowDown className="w-5 h-5" />
+          <ArrowDown className="w-5 h-5" aria-hidden="true" />
         </motion.div>
       </motion.div>
     </section>

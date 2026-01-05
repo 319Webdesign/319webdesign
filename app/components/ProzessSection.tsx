@@ -153,7 +153,7 @@ export default function ProzessSection() {
                     whileHover={{ rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 0.5 }}
                   >
-                    <item.icon className="w-8 h-8 text-white" />
+                    <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
                   </motion.div>
                   <h3 className="text-xl font-bold mb-4 text-center">{item.title}</h3>
                   <p className="text-slate-400 text-center text-sm leading-relaxed flex-grow">{item.description}</p>
@@ -201,11 +201,12 @@ export default function ProzessSection() {
                     },
                   }}
                   className="group relative inline-block"
+                  aria-label="Zum Kontaktformular springen - Erstgespräch vereinbaren"
                 >
                   <div className="absolute inset-0 bg-cyan-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                   <div className="relative px-8 py-5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold text-lg rounded-xl shadow-md shadow-cyan-500/30 group-hover:shadow-cyan-500/50 transition-all duration-300 inline-flex items-center gap-2">
                     Erstgespräch vereinbaren
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>
                 </motion.a>
               </div>
@@ -245,7 +246,7 @@ export default function ProzessSection() {
                     whileHover={{ rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 0.5 }}
                   >
-                    <item.icon className="w-8 h-8 text-white" />
+                    <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
                   </motion.div>
                   <h3 className="text-2xl font-bold mb-4 text-center">{item.title}</h3>
                   <p className="text-slate-400 text-center">{item.description}</p>
@@ -293,11 +294,12 @@ export default function ProzessSection() {
                     },
                   }}
                   className="group relative inline-block"
+                  aria-label="Zum Kontaktformular springen - Erstgespräch vereinbaren"
                 >
                   <div className="absolute inset-0 bg-cyan-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                   <div className="relative px-8 py-5 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold text-lg rounded-xl shadow-md shadow-cyan-500/30 group-hover:shadow-cyan-500/50 transition-all duration-300 inline-flex items-center gap-2">
                     Erstgespräch vereinbaren
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>
                 </motion.a>
               </div>

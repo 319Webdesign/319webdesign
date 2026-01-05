@@ -59,7 +59,7 @@ export default function ProblemLoesungSection() {
             >
               <div className="bg-red-950/20 border border-red-900/50 p-8 rounded-xl">
                 <div className="flex items-center gap-4 mb-4">
-                  <item.icon className="w-6 h-6 text-red-400" />
+                  <item.icon className="w-6 h-6 text-red-400" aria-hidden="true" />
                   <h3 className="text-2xl font-bold text-red-400">Problem</h3>
                 </div>
                 <h4 className="text-xl font-semibold mb-2">{item.problem}</h4>
@@ -68,7 +68,7 @@ export default function ProblemLoesungSection() {
 
               <div className="bg-green-950/20 border border-green-900/50 p-8 rounded-xl">
                 <div className="flex items-center gap-4 mb-4">
-                  <CheckCircle2 className="w-6 h-6 text-green-400" />
+                  <CheckCircle2 className="w-6 h-6 text-green-400" aria-hidden="true" />
                   <h3 className="text-2xl font-bold text-green-400">Lösung</h3>
                 </div>
                 <h4 className="text-xl font-semibold mb-2">{item.solution}</h4>

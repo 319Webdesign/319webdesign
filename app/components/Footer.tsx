@@ -33,15 +33,15 @@ export default function Footer() {
               <li>
                 <a 
                   href="#prozess" 
-                  className="text-slate-400 hover:text-blue-500 transition-colors duration-300 text-sm"
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Prozess
                 </a>
               </li>
               <li>
                 <a 
-                  href="#leistungen" 
-                  className="text-slate-400 hover:text-blue-500 transition-colors duration-300 text-sm"
+                  href="/leistungen" 
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Leistungen
                 </a>
@@ -49,7 +49,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/portfolio" 
-                  className="text-slate-400 hover:text-blue-500 transition-colors duration-300 text-sm"
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Portfolio
                 </a>
@@ -57,7 +57,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="#kontakt" 
-                  className="text-slate-400 hover:text-blue-500 transition-colors duration-300 text-sm"
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Kontakt
                 </a>
@@ -71,7 +71,7 @@ export default function Footer() {
             <div className="space-y-3">
               <a 
                 href="mailto:kontakt@319webdesign.com" 
-                className="block text-slate-400 hover:text-blue-500 transition-colors duration-300 text-sm"
+                className="block text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
               >
                 kontakt@319webdesign.com
               </a>
@@ -92,7 +92,7 @@ export default function Footer() {
                 className="text-slate-400 hover:text-blue-500 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="https://wa.me/491773236454"
@@ -101,7 +101,7 @@ export default function Footer() {
                 className="text-slate-400 hover:text-blue-500 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
                 aria-label="WhatsApp"
               >
-                <MessageCircle className="w-5 h-5" />
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
               </a>
               <a
                 href="https://www.tiktok.com/@319webdesign"

@@ -79,7 +79,7 @@ export default function WarumSection() {
                     <IconComponent 
                       className="w-7 h-7 text-white" 
                       aria-label={feature.ariaLabel}
-                      role="img"
+                      aria-hidden="false"
                     />
                   </motion.div>
                   <h3 className="text-2xl font-bold mb-4 text-center">{feature.title}</h3>

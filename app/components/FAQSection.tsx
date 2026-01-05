@@ -71,6 +71,8 @@ export default function FAQSection() {
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
                     className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-800/30 transition-colors"
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${faq.id}`}
                   >
                     <h3 className="text-lg font-semibold text-white pr-4">
                       {faq.question}
@@ -81,9 +83,9 @@ export default function FAQSection() {
                       className="flex-shrink-0 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center"
                     >
                       {isOpen ? (
-                        <Minus className="w-5 h-5 text-white" />
+                        <Minus className="w-5 h-5 text-white" aria-hidden="true" />
                       ) : (
-                        <Plus className="w-5 h-5 text-white" />
+                        <Plus className="w-5 h-5 text-white" aria-hidden="true" />
                       )}
                     </motion.div>
                   </button>
@@ -95,6 +97,7 @@ export default function FAQSection() {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
+                        id={`faq-answer-${faq.id}`}
                       >
                         <div className="px-6 pb-4 text-slate-400 leading-relaxed">
                           {faq.answer}
@@ -117,7 +120,7 @@ export default function FAQSection() {
           >
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-6">
-                <HelpCircle className="w-8 h-8 text-white" />
+                <HelpCircle className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
               <h3 className="text-xl font-bold mb-3 text-white">
                 Deine Frage war nicht dabei?
@@ -127,9 +130,9 @@ export default function FAQSection() {
               </p>
               <a
                 href="mailto:kontakt@319webdesign.com"
-                className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors group/email"
+                className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-medium transition-colors group/email"
               >
-                <Mail className="w-5 h-5 group-hover/email:translate-x-1 transition-transform" />
+                <Mail className="w-5 h-5 group-hover/email:translate-x-1 transition-transform" aria-hidden="true" />
                 <span className="break-all">kontakt@319webdesign.com</span>
               </a>
             </div>

@@ -70,13 +70,13 @@ export default function CookieBanner() {
               className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors duration-200"
               aria-label="Cookie-Banner schließen"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5" aria-hidden="true" />
             </button>
 
             {/* Icon */}
             <div className="flex items-start gap-4 mb-4">
               <div className="p-2 bg-blue-500/20 rounded-lg">
-                <Cookie className="w-5 h-5 text-blue-400" />
+                <Cookie className="w-5 h-5 text-blue-400" aria-hidden="true" />
               </div>
               <div className="flex-1">
                 <h3 className="text-lg font-semibold text-white mb-2">
@@ -99,7 +99,7 @@ export default function CookieBanner() {
               </button>
               <button
                 onClick={() => handleAccept('necessary')}
-                className="flex-1 px-6 py-3 bg-slate-800/50 hover:bg-slate-800 text-slate-300 hover:text-white font-medium rounded-lg transition-colors duration-200 border border-slate-700/50"
+                className="flex-1 px-6 py-3 bg-slate-800/50 hover:bg-slate-800 text-slate-200 hover:text-white font-medium rounded-lg transition-colors duration-200 border border-slate-700/50"
               >
                 Nur notwendige
               </button>
@@ -110,7 +110,7 @@ export default function CookieBanner() {
               Weitere Informationen finden Sie in unserer{' '}
               <a
                 href="/datenschutz"
-                className="text-blue-400 hover:text-blue-300 underline transition-colors duration-200"
+                className="text-blue-300 hover:text-blue-200 underline transition-colors duration-200"
               >
                 Datenschutzerklärung
               </a>

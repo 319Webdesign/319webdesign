@@ -90,10 +90,10 @@ export default function PortfolioSection() {
           </h2>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors group/link"
+            className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-medium transition-colors group/link"
           >
             Alle Projekte ansehen
-            <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
           </Link>
         </motion.div>
 
@@ -108,8 +108,9 @@ export default function PortfolioSection() {
               }
             }}
             disabled={portfolioIndex === 0}
+            aria-label="Vorheriges Portfolio-Projekt anzeigen"
           >
-            <ChevronLeft className="w-5 h-5 text-slate-300" />
+            <ChevronLeft className="w-5 h-5 text-slate-200" aria-hidden="true" />
           </motion.button>
 
           <motion.button
@@ -120,8 +121,9 @@ export default function PortfolioSection() {
               }
             }}
             disabled={portfolioIndex >= maxIndex}
+            aria-label="Nächstes Portfolio-Projekt anzeigen"
           >
-            <ChevronRight className="w-5 h-5 text-slate-300" />
+            <ChevronRight className="w-5 h-5 text-slate-200" aria-hidden="true" />
           </motion.button>
 
           {/* Slider Container */}
@@ -172,7 +174,7 @@ export default function PortfolioSection() {
                         <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
                           <Image
                             src={project.imageUrl || '/placeholder-project.jpg'}
-                            alt={project.title}
+                            alt={`Screenshot der Website ${project.title} - ${project.category}`}
                             width={1920}
                             height={820}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
@@ -182,7 +184,7 @@ export default function PortfolioSection() {
                           {/* Overlay Banner */}
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm p-4">
                             <div className="flex flex-col gap-1">
-                              <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">
+                              <span className="text-xs font-semibold text-blue-300 uppercase tracking-wide">
                                 {project.category}
                               </span>
                               <h3 className="text-lg font-bold text-white">
@@ -198,7 +200,7 @@ export default function PortfolioSection() {
                         <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
                           <Image
                             src={project.imageUrl || '/placeholder-project.jpg'}
-                            alt={project.title}
+                            alt={`Screenshot der Website ${project.title} - ${project.category}`}
                             width={1920}
                             height={820}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
@@ -213,14 +215,15 @@ export default function PortfolioSection() {
                             className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm p-2 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 z-10"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
+                            aria-label={`${project.title} Website in neuem Tab öffnen`}
                           >
-                            <ExternalLink className="w-4 h-4 text-slate-300" />
+                            <ExternalLink className="w-4 h-4 text-slate-200" aria-hidden="true" />
                           </motion.a>
 
                           {/* Overlay Banner */}
                           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm p-4">
                             <div className="flex flex-col gap-1">
-                              <span className="text-xs font-semibold text-blue-400 uppercase tracking-wide">
+                              <span className="text-xs font-semibold text-blue-300 uppercase tracking-wide">
                                 {project.category}
                               </span>
                               <h3 className="text-lg font-bold text-white">

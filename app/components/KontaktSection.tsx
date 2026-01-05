@@ -227,7 +227,7 @@ export default function KontaktSection() {
                   aria-required="true"
                 />
                 <label htmlFor="privacyAccepted" className="text-sm text-slate-400 cursor-pointer">
-                  Ich habe die <a href="/datenschutz" className="text-blue-400 hover:text-blue-300 underline" target="_blank" rel="noopener noreferrer">Datenschutzhinweise</a> gelesen und akzeptiere diese. <span className="text-red-400" aria-label="Pflichtfeld">*</span>
+                  Ich habe die <a href="/datenschutz" className="text-blue-300 hover:text-blue-200 underline" target="_blank" rel="noopener noreferrer">Datenschutzhinweise</a> gelesen und akzeptiere diese. <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
               </div>
 
@@ -298,13 +298,13 @@ export default function KontaktSection() {
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-7 h-7 text-white" aria-label="Telefon Icon" />
+                  <Phone className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Telefon</h3>
                   <a 
                     href="tel:+491773236454" 
-                    className="text-blue-400 hover:text-blue-300 transition-colors text-lg"
+                    className="text-blue-300 hover:text-blue-200 transition-colors text-lg"
                     aria-label="Rufen Sie uns an unter +49 177 3236454"
                   >
                     +49 177 3236454
@@ -322,7 +322,7 @@ export default function KontaktSection() {
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-7 h-7 text-white" aria-label="E-Mail Icon" />
+                  <Mail className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-2">E-Mail</h3>

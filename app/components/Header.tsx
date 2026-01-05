@@ -52,7 +52,7 @@ export default function Header() {
 
   const navLinks = [
     { href: '#prozess', label: 'Prozess' },
-    { href: '#leistungen', label: 'Leistungen' },
+    { href: '/leistungen', label: 'Leistungen' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '#kontakt', label: 'Kontakt' },
   ]
@@ -109,9 +109,9 @@ export default function Header() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isMobileMenuOpen
-          ? 'backdrop-blur-md bg-slate-950/95 border-b border-white/10'
+          ? 'backdrop-blur-md bg-slate-950/98 shadow-lg shadow-black/20'
           : isScrolled
-          ? 'backdrop-blur-md bg-slate-950/80 border-b border-white/5'
+          ? 'backdrop-blur-md bg-slate-950/95 shadow-lg shadow-black/10'
           : 'bg-transparent'
       }`}
     >
@@ -154,7 +154,7 @@ export default function Header() {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                  className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
+                  className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
                 >
                   {link.label}
                   <motion.span
@@ -170,7 +170,7 @@ export default function Header() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                    className="text-slate-300 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
+                    className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
                   >
                     {link.label}
                     <motion.span
@@ -185,7 +185,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-slate-300 hover:text-cyan-400 transition-colors p-2"
+            className="md:hidden text-slate-200 hover:text-cyan-400 transition-colors p-2"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -219,7 +219,7 @@ export default function Header() {
                     x: isMobileMenuOpen ? 0 : -20,
                   }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="block text-slate-300 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
+                  className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
                 >
                   {link.label}
                 </motion.a>
@@ -236,7 +236,7 @@ export default function Header() {
                       x: isMobileMenuOpen ? 0 : -20,
                     }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="block text-slate-300 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
+                    className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
                   >
                     {link.label}
                   </motion.div>

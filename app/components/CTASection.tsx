@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
+import Image from 'next/image'
 
 export default function CTASection() {
   return (
@@ -27,11 +28,14 @@ export default function CTASection() {
               }}
               className="relative"
             >
-              <div className="relative max-w-sm">
-                <img
+              <div className="relative max-w-sm aspect-[9/16]">
+                <Image
                   src="/319Web_Mockup_iphone.png"
                   alt="Website Mockup"
-                  className="w-full h-auto object-contain"
+                  width={384}
+                  height={682}
+                  sizes="(max-width: 768px) 300px, 384px"
+                  className="w-full h-full object-contain"
                 />
                 {/* Glow Effect */}
                 <motion.div

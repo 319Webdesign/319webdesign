@@ -126,25 +126,20 @@ export default function Header() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className="flex items-center justify-center relative"
+              animate={{
+                scale: isScrolled ? 0.818 : 1,
+              }}
+              className="relative"
             >
-              <motion.div
-                animate={{
-                  width: isScrolled ? 90 : 110,
-                  height: isScrolled ? 90 : 110,
-                }}
-                transition={{ duration: 0.3, ease: 'easeOut' }}
-                className="relative max-w-[70px] max-h-[70px] md:max-w-none md:max-h-none"
-              >
-                <Image
-                  src="/319.png"
-                  alt="319Webdesign Logo"
-                  width={isScrolled ? 90 : 110}
-                  height={isScrolled ? 90 : 110}
-                  className="object-contain w-full h-full"
-                  priority
-                />
-              </motion.div>
+              <Image
+                src="/319.png"
+                alt="319Webdesign Logo"
+                width={110}
+                height={110}
+                sizes="(max-width: 768px) 70px, 110px"
+                className="object-contain w-[70px] h-[70px] md:w-[110px] md:h-[110px]"
+                priority
+              />
             </motion.div>
           </Link>
 

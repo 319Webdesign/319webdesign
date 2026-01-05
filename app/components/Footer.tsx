@@ -17,7 +17,8 @@ export default function Footer() {
                 alt="319Webdesign Logo"
                 width={110}
                 height={110}
-                className="object-contain"
+                sizes="(max-width: 768px) 70px, 110px"
+                className="object-contain w-[70px] h-[70px] md:w-[110px] md:h-[110px]"
               />
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">

@@ -1,6 +1,15 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import './globals.css'
 import CookieBanner from './components/CookieBanner'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap',
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   title: '319Webdesign - Digitale Exzellenz für Ihr Business',
@@ -18,10 +27,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de">
-      <body className="antialiased">
+    <html lang="de" className={inter.variable}>
+      <body className={`antialiased ${inter.className}`}>
         {children}
         <CookieBanner />
+        <SpeedInsights />
       </body>
     </html>
   )

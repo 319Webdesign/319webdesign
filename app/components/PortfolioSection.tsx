@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -169,9 +170,12 @@ export default function PortfolioSection() {
                       >
                         {/* Image Container */}
                         <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
-                          <img
+                          <Image
                             src={project.imageUrl || '/placeholder-project.jpg'}
                             alt={project.title}
+                            width={1920}
+                            height={820}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
                             className="w-full h-full object-cover object-center"
                           />
 
@@ -192,9 +196,12 @@ export default function PortfolioSection() {
                       <div className="relative rounded-2xl overflow-hidden shadow-xl bg-slate-800/50 backdrop-blur-sm">
                         {/* Image Container */}
                         <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
-                          <img
+                          <Image
                             src={project.imageUrl || '/placeholder-project.jpg'}
                             alt={project.title}
+                            width={1920}
+                            height={820}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
                             className="w-full h-full object-cover object-center"
                           />
                           

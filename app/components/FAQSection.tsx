@@ -15,27 +15,27 @@ const faqData = [
   {
     id: 1,
     question: 'Wie lange dauert es, bis meine Website fertig ist?',
-    answer: 'Die Dauer hängt vom Umfang und den gewünschten Funktionen ab. Eine einfache Website benötigt in der Regel 2-4 Wochen, während größere Projekte entsprechend mehr Zeit in Anspruch nehmen. Wir besprechen den Zeitplan transparent mit Ihnen und halten Sie über den Fortschritt auf dem Laufenden.',
+    answer: 'Schnelligkeit ohne Qualitätsverlust. Zeit ist Geld – besonders für Selbstständige. In der Regel ist Ihre neue Website in 2 bis 4 Wochen komplett startklar. Bei umfangreicheren Projekten erstellen wir Ihnen vorab einen detaillierten Zeitplan. Unser Ziel in Südhessen ist es, Sie so schnell wie möglich online sichtbar zu machen, damit Sie zeitnah neue Kundenanfragen über Ihre Seite generieren können.',
   },
   {
     id: 2,
     question: 'Was kostet eine professionelle Website?',
-    answer: 'Die Kosten variieren je nach Umfang und Anforderungen. Eine einfache Website für kleine Unternehmen beginnt bereits ab einem fairen Preis. Für ein individuelles Angebot kontaktieren Sie uns gerne für ein unverbindliches Beratungsgespräch.',
+    answer: 'Eine professionelle Website ist kein Kostenfaktor, sondern ein digitaler Mitarbeiter, der 24/7 für Sie verkauft. Wir bieten maßgeschneiderte Lösungen für jedes Budget – von der kompakten digitalen Visitenkarte für lokale Betriebe bis hin zum umfangreichen Firmenauftritt. Nach einem kostenlosen Erstgespräch erhalten Sie von uns ein transparentes Festpreisangebot ohne versteckte Kosten. So haben Sie von Anfang an volle Planungssicherheit.',
   },
   {
     id: 3,
     question: 'Kann ich meine Website später selbst bearbeiten?',
-    answer: 'Ja, wir setzen auf moderne Content-Management-Systeme, die benutzerfreundlich sind. Nach dem Launch zeigen wir Ihnen gerne, wie Sie Inhalte selbstständig aktualisieren können. Optional bieten wir auch Schulungen an.',
+    answer: 'Absolut! Wir bauen Ihre Website so auf, dass Sie die volle Kontrolle behalten. Ob Sie Öffnungszeiten ändern, neue Bilder hochladen oder Blogbeiträge verfassen möchten: Dank eines intuitiven Systems können Sie kleine Anpassungen ganz ohne Programmierkenntnisse selbst vornehmen. Natürlich erhalten Sie von uns eine kurze Einweisung, damit Sie sich sofort sicher fühlen.',
   },
   {
     id: 4,
     question: 'Ist meine Website auch für Smartphones optimiert?',
-    answer: 'Absolut! Alle unsere Websites sind vollständig responsive und werden nach dem Mobile-First-Prinzip entwickelt. Ihre Website sieht und funktioniert auf allen Geräten – von Smartphones über Tablets bis hin zu Desktop-Computern – perfekt.',
+    answer: 'Ja, garantiert. Da heutzutage über 60 % der Nutzer in der Region Darmstadt mit dem Smartphone nach Dienstleistern suchen, nutzen wir konsequentes Mobile-First-Design. Ihre Website passt sich automatisch an jedes Endgerät an – ob iPhone, Android-Tablet oder Desktop-PC. Das sorgt nicht nur für begeisterte Besucher, sondern ist auch ein entscheidender Faktor für Ihr Ranking bei Google.',
   },
   {
     id: 5,
     question: 'Bietet ihr auch Wartung und Support an?',
-    answer: 'Ja, wir bieten flexible Wartungs- und Support-Pakete an. Von regelmäßigen Updates über Sicherheitspatches bis hin zu technischem Support – wir sind auch nach dem Launch für Sie da.',
+    answer: 'Wir lassen Sie nach dem Launch nicht allein. Technik entwickelt sich ständig weiter – deshalb kümmern wir uns auf Wunsch um Sicherheits-Updates, regelmäßige Backups und die technische Performance. So bleibt Ihre Seite sicher und blitzschnell, während Sie sich voll und ganz auf Ihr Kerngeschäft in Pfungstadt und Umgebung konzentrieren können. Wir sind Ihr lokaler Partner, der bei Fragen immer nur einen Anruf entfernt ist.',
   },
 ]
 

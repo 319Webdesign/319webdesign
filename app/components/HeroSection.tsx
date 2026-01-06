@@ -76,7 +76,7 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-xl md:text-2xl text-slate-400 mb-10 max-w-3xl mx-auto text-balance"
         >
-          Wir helfen kleinen Unternehmen und Selbstständigen dabei, online sichtbar zu werden und mehr Kunden zu gewinnen.
+          . Wir helfen kleinen Unternehmen und Selbstständigen in Südhessen dabei, online sichtbar zu werden und neue Kunden zu gewinnen.
         </motion.p>
 
         <motion.div

@@ -1,0 +1,19 @@
+# robots.txt für 319Webdesign
+# https://www.319webdesign.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.319webdesign.com/sitemap.xml
+
+# Disallow API-Routen (optional, falls nicht öffentlich)
+Disallow: /api/
+
+# Erlaube alle wichtigen Seiten
+Allow: /
+Allow: /leistungen
+Allow: /portfolio
+Allow: /impressum
+Allow: /datenschutz
+

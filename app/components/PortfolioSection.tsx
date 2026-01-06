@@ -182,7 +182,7 @@ export default function PortfolioSection() {
                       <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
                         <Image
                           src={project.imageUrl || '/placeholder-project.jpg'}
-                          alt={`Screenshot der Website ${project.title} - ${project.category}`}
+                          alt={`Webdesign Portfolio Screenshot für ${project.title} - ${project.category} Projekt von 319Webdesign`}
                           width={1920}
                           height={820}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"

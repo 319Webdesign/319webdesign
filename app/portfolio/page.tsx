@@ -220,7 +220,7 @@ export default function PortfolioPage() {
                   <div className="relative w-full h-full overflow-hidden">
                     <motion.img
                       src={project.imageUrl || '/placeholder-project.jpg'}
-                      alt={project.title}
+                      alt={`Webdesign Portfolio Mockup für ${project.title} - ${project.category} Projekt von 319Webdesign`}
                       className="w-full h-full object-cover"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.6, ease: 'easeOut' }}

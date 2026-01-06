@@ -69,19 +69,22 @@ export default function DatenschutzPage() {
                     </p>
                     <p className="mt-3">
                       <strong className="text-white">Anschrift:</strong><br />
+                      Nahestrasse 22<br />
+                      64319 Pfungstadt<br />
+                      Deutschland
                     </p>
                     <p className="mt-3">
                       <strong className="text-white">Kontakt:</strong><br />
-                      E-Mail:{' '}
+                      E-Mail:{'kontakt@319webdesign.com '}
                       <a 
-                        href="mailto:" 
+                        href="mailto:kontakt@319webdesign.com" 
                         className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
                       >
                       </a>
                       <br />
-                      Telefon:{' '}
+                      Telefon:{'+491773236454 '}
                       <a 
-                        href="tel:" 
+                        href="tel:+491773236454" 
                         className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
                       >
                       </a>

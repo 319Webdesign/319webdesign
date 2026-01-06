@@ -38,20 +38,20 @@ export default function ImpressumPage() {
                 <div className="space-y-4 text-slate-300">
                   <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
                     <p>
-                      <strong className="text-white">[PLATZHALTER: Firmenname]</strong><br />
-                      [PLATZHALTER: Rechtsform - z.B. Einzelunternehmer, GbR, GmbH]
+                      <strong className="text-white">319Webdesign</strong><br />
+                      Einzelunternehmer
                     </p>
                     <p className="mt-3">
-                      <strong className="text-white">[PLATZHALTER: Name des Inhabers/Geschäftsführers]</strong>
+                      <strong className="text-white">Name des Inhabers: Maik Schmidt</strong>
                     </p>
                     <p className="mt-3">
-                      <strong className="text-white">Berufsbezeichnung:</strong> [PLATZHALTER: z.B. Webdesigner]
+                      <strong className="text-white">Berufsbezeichnung:</strong> Webdesigner
                     </p>
                     <p className="mt-3">
                       <strong className="text-white">Anschrift:</strong><br />
-                      [PLATZHALTER: Straße und Hausnummer]<br />
-                      [PLATZHALTER: Postleitzahl und Ort]<br />
-                      [PLATZHALTER: Land]
+                      Nahestrasse 22<br />
+                     64319 Pfungstadt<br />
+                      Deutschland
                     </p>
                     <p className="mt-3">
                       <strong className="text-white">Steuernummer:</strong> [PLATZHALTER: Steuernummer]<br />
@@ -77,19 +77,19 @@ export default function ImpressumPage() {
                     <p>
                       <strong className="text-white">E-Mail:</strong>{' '}
                       <a 
-                        href="mailto:[PLATZHALTER: E-Mail-Adresse]" 
+                        href="mailto:kontakt@319webdesign.com" 
                         className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
                       >
-                        [PLATZHALTER: E-Mail-Adresse]
+                        kontakt@319webdesign.com
                       </a>
                     </p>
                     <p className="mt-3">
                       <strong className="text-white">Telefon:</strong>{' '}
                       <a 
-                        href="tel:[PLATZHALTER: Telefonnummer]" 
+                        href="tel:+491773236454" 
                         className="text-[#3B82F6] hover:text-blue-400 transition-colors duration-300 underline"
                       >
-                        [PLATZHALTER: Telefonnummer]
+                        +49 177 323 64 54
                       </a>
                     </p>
                   </div>

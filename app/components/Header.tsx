@@ -34,19 +34,25 @@ export default function Header() {
   useEffect(() => {
     if (pathname === '/' && window.location.hash) {
       const hash = window.location.hash
-      setTimeout(() => {
+      const scrollToElement = (attempts = 0) => {
+        if (attempts > 10) return // Maximal 10 Versuche
+        
         const element = document.querySelector(hash)
         if (element) {
-          const headerOffset = 100
+          const headerOffset = 120
           const elementPosition = element.getBoundingClientRect().top
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
           window.scrollTo({
-            top: offsetPosition,
+            top: Math.max(0, offsetPosition),
             behavior: 'smooth'
           })
+        } else {
+          // Wenn Element noch nicht gefunden, erneut versuchen
+          setTimeout(() => scrollToElement(attempts + 1), 100)
         }
-      }, 100)
+      }
+      setTimeout(() => scrollToElement(), 200)
     }
   }, [pathname])
 
@@ -67,30 +73,36 @@ export default function Header() {
       // Wenn wir nicht auf der Hauptseite sind, navigieren wir dorthin
       if (pathname !== '/') {
         router.push(`/${href}`)
-        // Scrollen nachdem die Seite geladen wurde
-        setTimeout(() => {
+        // Scrollen nachdem die Seite geladen wurde - mit mehreren Versuchen
+        const scrollToElement = (attempts = 0) => {
+          if (attempts > 10) return // Maximal 10 Versuche
+          
           const element = document.querySelector(href)
           if (element) {
-            const headerOffset = 100
+            const headerOffset = 120
             const elementPosition = element.getBoundingClientRect().top
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
             window.scrollTo({
-              top: offsetPosition,
+              top: Math.max(0, offsetPosition),
               behavior: 'smooth'
             })
+          } else {
+            // Wenn Element noch nicht gefunden, erneut versuchen
+            setTimeout(() => scrollToElement(attempts + 1), 100)
           }
-        }, 300)
+        }
+        setTimeout(() => scrollToElement(), 200)
       } else {
         // Wenn wir bereits auf der Hauptseite sind, normal scrollen
         const element = document.querySelector(href)
         if (element) {
-          const headerOffset = 100
+          const headerOffset = 120
           const elementPosition = element.getBoundingClientRect().top
           const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
           window.scrollTo({
-            top: offsetPosition,
+            top: Math.max(0, offsetPosition),
             behavior: 'smooth'
           })
         }
@@ -121,7 +133,21 @@ export default function Header() {
           <Link
             href="/"
             className="flex items-center group/logo"
-            onClick={handleMobileLinkClick}
+            onClick={(e) => {
+              handleMobileLinkClick()
+              // Wenn wir nicht auf der Startseite sind, scrollen wir nach dem Navigieren nach oben
+              if (pathname !== '/') {
+                // Navigation passiert automatisch durch den Link
+                // Nach der Navigation scrollen wir nach oben
+                setTimeout(() => {
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }, 100)
+              } else {
+                // Wenn wir bereits auf der Startseite sind, scrollen wir nach oben
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+            }}
           >
             <motion.div
               whileHover={{ scale: 1.05 }}

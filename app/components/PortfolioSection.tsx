@@ -162,78 +162,60 @@ export default function PortfolioSection() {
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    {isMobile ? (
-                      <motion.a
-                        href={project.liveUrl || '#'}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block relative rounded-2xl overflow-hidden shadow-xl bg-slate-800/50 backdrop-blur-sm"
-                        whileTap={{ scale: 0.98 }}
-                      >
-                        {/* Image Container */}
-                        <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
-                          <Image
-                            src={project.imageUrl || '/placeholder-project.jpg'}
-                            alt={`Screenshot der Website ${project.title} - ${project.category}`}
-                            width={1920}
-                            height={820}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
-                            className="w-full h-full object-cover object-center"
-                          />
+                    <motion.a
+                      href={project.liveUrl || '#'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block relative rounded-2xl overflow-hidden shadow-xl bg-slate-800/50 backdrop-blur-sm cursor-pointer group/card"
+                      whileHover={{ 
+                        scale: 1.02,
+                        boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ 
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 25
+                      }}
+                    >
+                      {/* Image Container */}
+                      <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
+                        <Image
+                          src={project.imageUrl || '/placeholder-project.jpg'}
+                          alt={`Screenshot der Website ${project.title} - ${project.category}`}
+                          width={1920}
+                          height={820}
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
+                          className="w-full h-full object-cover object-center transition-transform duration-300 group-hover/card:scale-105"
+                        />
 
-                          {/* Overlay Banner */}
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm p-4">
-                            <div className="flex flex-col gap-1">
-                              <span className="text-xs font-semibold text-blue-300 uppercase tracking-wide">
-                                {project.category}
-                              </span>
-                              <h3 className="text-lg font-bold text-white">
-                                {project.title}
-                              </h3>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.a>
-                    ) : (
-                      <div className="relative rounded-2xl overflow-hidden shadow-xl bg-slate-800/50 backdrop-blur-sm">
-                        {/* Image Container */}
-                        <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
-                          <Image
-                            src={project.imageUrl || '/placeholder-project.jpg'}
-                            alt={`Screenshot der Website ${project.title} - ${project.category}`}
-                            width={1920}
-                            height={820}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
-                            className="w-full h-full object-cover object-center"
-                          />
-                          
-                          {/* Live View Button */}
-                          <motion.a
-                            href={project.liveUrl || '#'}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm p-2 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 z-10"
+                        {/* Hover Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
+
+                        {/* Live View Button - nur auf Desktop sichtbar */}
+                        {!isMobile && (
+                          <motion.div
+                            className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm p-2 rounded-lg border border-slate-700/50 group-hover/card:border-blue-500/50 transition-all duration-300 z-10"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
-                            aria-label={`${project.title} Website in neuem Tab öffnen`}
                           >
-                            <ExternalLink className="w-4 h-4 text-slate-200" aria-hidden="true" />
-                          </motion.a>
+                            <ExternalLink className="w-4 h-4 text-slate-200 group-hover/card:text-blue-300 transition-colors" aria-hidden="true" />
+                          </motion.div>
+                        )}
 
-                          {/* Overlay Banner */}
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm p-4">
-                            <div className="flex flex-col gap-1">
-                              <span className="text-xs font-semibold text-blue-300 uppercase tracking-wide">
-                                {project.category}
-                              </span>
-                              <h3 className="text-lg font-bold text-white">
-                                {project.title}
-                              </h3>
-                            </div>
+                        {/* Overlay Banner */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm p-4">
+                          <div className="flex flex-col gap-1">
+                            <span className="text-xs font-semibold text-blue-300 uppercase tracking-wide">
+                              {project.category}
+                            </span>
+                            <h3 className="text-lg font-bold text-white group-hover/card:text-blue-200 transition-colors">
+                              {project.title}
+                            </h3>
                           </div>
                         </div>
                       </div>
-                    )}
+                    </motion.a>
                   </motion.div>
                 )
               })}

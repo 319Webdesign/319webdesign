@@ -18,11 +18,16 @@ const benchmarks = [
 // Circular Progress Component
 function CircularProgress({ value, label, gradient, textGradient }: { value: number; label: string; gradient: { from: string; to: string }; textGradient: string }) {
   const circumference = 2 * Math.PI * 45 // radius = 45
-  const offset = circumference - (value / 100) * circumference
   const gradientId = `gradient-${label.replace(/\s+/g, '-').toLowerCase()}`
 
   return (
-    <div className="relative w-32 h-32 group">
+    <motion.div 
+      className="relative w-32 h-32 group"
+      initial={{ opacity: 0, scale: 0.8 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+    >
       {/* Glow Effect */}
       <motion.div
         className="absolute inset-0 rounded-full blur-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300"
@@ -56,8 +61,8 @@ function CircularProgress({ value, label, gradient, textGradient }: { value: num
           fill="none"
           className="text-slate-800"
         />
-        {/* Progress Circle */}
-        <circle
+        {/* Progress Circle - Animated */}
+        <motion.circle
           cx="50"
           cy="50"
           r="45"
@@ -66,20 +71,39 @@ function CircularProgress({ value, label, gradient, textGradient }: { value: num
           fill="none"
           strokeLinecap="round"
           strokeDasharray={circumference}
-          strokeDashoffset={offset}
+          initial={{ strokeDashoffset: circumference }}
+          whileInView={{ strokeDashoffset: circumference - (value / 100) * circumference }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ 
+            duration: 1.5, 
+            delay: 0.3,
+            ease: "easeOut" 
+          }}
         />
       </svg>
       
-      {/* Value Text */}
+      {/* Value Text - Animated */}
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span
+        <motion.span
           className={`text-2xl font-bold bg-gradient-to-r ${textGradient} bg-clip-text text-transparent`}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.5 }}
         >
           {value}
-        </span>
-        <span className="text-xs text-slate-400 mt-1 text-center px-2">{label}</span>
+        </motion.span>
+        <motion.span 
+          className="text-xs text-slate-400 mt-1 text-center px-2"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+        >
+          {label}
+        </motion.span>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -205,20 +229,29 @@ export default function LeistungenPage() {
   const handleKontaktClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     router.push('/#kontakt')
-    // Scrollen nachdem die Seite geladen wurde
-    setTimeout(() => {
+    
+    // Mehrere Versuche, um sicherzustellen, dass das Element gefunden wird
+    const scrollToContact = (attempts = 0) => {
+      if (attempts > 10) return // Maximal 10 Versuche
+      
       const element = document.querySelector('#kontakt')
       if (element) {
-        const headerOffset = 100
+        const headerOffset = 120 // Etwas mehr Offset für bessere Sichtbarkeit
         const elementPosition = element.getBoundingClientRect().top
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
         window.scrollTo({
-          top: offsetPosition,
+          top: Math.max(0, offsetPosition),
           behavior: 'smooth'
         })
+      } else {
+        // Wenn Element noch nicht gefunden, erneut versuchen
+        setTimeout(() => scrollToContact(attempts + 1), 100)
       }
-    }, 300)
+    }
+    
+    // Starte den Scroll-Versuch nach kurzer Verzögerung
+    setTimeout(() => scrollToContact(), 200)
   }
 
   return (

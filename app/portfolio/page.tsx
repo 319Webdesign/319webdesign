@@ -26,12 +26,12 @@ const allProjects = [
   },
 ]
 
-// Nur Heinerfilm und DemoSeite anzeigen
+// Nur Heinerfilm anzeigen
 const portfolioProjects = allProjects.filter(
-  project => project.title === 'Heinerfilm' || project.title === 'DemoSeite'
+  project => project.title === 'Heinerfilm'
 )
 
-const categories = ['Alle', 'Webdesign', 'Handwerksbetrieb']
+const categories = ['Alle', 'Webdesign']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },

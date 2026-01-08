@@ -21,13 +21,6 @@ const portfolioProjects = [
     imageUrl: '/heinerfilm_header.jpeg',
     liveUrl: 'https://heinerfilm.vercel.app/',
   },
-  {
-    id: 2,
-    title: 'DemoSeite',
-    category: 'Malerbetrieb',
-    imageUrl: '/headerscreen.png',
-    liveUrl: 'https://319webdesign.com/malerbetrieb/',
-  },
 ]
 
 export default function PortfolioSection() {

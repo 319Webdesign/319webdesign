@@ -38,13 +38,13 @@ export default function PortfolioSection() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const itemsPerView = isMobile ? 1.2 : 1.5
+  // Bei nur einem Projekt: größer darstellen
+  const itemsPerView = portfolioProjects.length === 1 ? 1 : (isMobile ? 1.2 : 1.5)
   // Berechne maxIndex: Anzahl der möglichen Scroll-Positionen
   // Wenn wir mehr Items haben als sichtbar sind, können wir scrollen
   const maxIndex = portfolioProjects.length > itemsPerView 
     ? Math.ceil(portfolioProjects.length - itemsPerView)
     : 0
-  const cardWidth = isMobile ? 83.333 : 66.667
 
   return (
     <section className="py-16 px-6 bg-slate-950 relative group">
@@ -94,20 +94,21 @@ export default function PortfolioSection() {
           )}
 
           {/* Slider Container */}
-          <div className="overflow-hidden">
+          <div className={`overflow-hidden ${portfolioProjects.length === 1 ? 'flex justify-center' : ''}`}>
             <motion.div
               ref={portfolioRef}
-              className="flex gap-4"
-              drag="x"
+              className={`flex ${portfolioProjects.length === 1 ? 'justify-center' : ''} gap-4`}
+              drag={portfolioProjects.length > 1 ? "x" : false}
               dragConstraints={{
                 left: -maxIndex * (100 / itemsPerView),
                 right: 0
               }}
               dragElastic={0.2}
               animate={{
-                x: `-${portfolioIndex * (100 / itemsPerView)}%`,
+                x: portfolioProjects.length === 1 ? '0%' : `-${portfolioIndex * (100 / itemsPerView)}%`,
               }}
               onDragEnd={(event, info) => {
+                if (portfolioProjects.length <= 1) return
                 // Optional: Drag-to-swipe functionality
                 const threshold = 50
                 if (info.offset.x > threshold && portfolioIndex > 0) {
@@ -122,19 +123,24 @@ export default function PortfolioSection() {
                 damping: 30,
               }}
               style={{
-                width: `${(portfolioProjects.length / itemsPerView) * 100}%`,
+                width: portfolioProjects.length === 1 ? '100%' : `${(portfolioProjects.length / itemsPerView) * 100}%`,
               }}
             >
               {portfolioProjects.map((project, index) => {
-                const centerIndex = portfolioIndex + (itemsPerView / 2)
+                const centerIndex = portfolioProjects.length === 1 ? 0 : portfolioIndex + (itemsPerView / 2)
                 const distance = Math.abs(index - centerIndex)
-                const scale = Math.max(0.85, 1 - distance * 0.08)
-                const opacity = Math.max(0.5, 1 - distance * 0.15)
+                const scale = portfolioProjects.length === 1 ? 1 : Math.max(0.85, 1 - distance * 0.08)
+                const opacity = portfolioProjects.length === 1 ? 1 : Math.max(0.5, 1 - distance * 0.15)
+                
+                // Breite basierend auf Anzahl der Projekte
+                const cardWidthClass = portfolioProjects.length === 1
+                  ? (isMobile ? 'w-full max-w-full' : 'w-full max-w-5xl mx-auto')
+                  : (isMobile ? 'w-[calc(83.333%-0.67rem)]' : 'w-[calc(66.667%-0.5rem)]')
                 
                 return (
                   <motion.div
                     key={project.id}
-                    className={`flex-shrink-0 ${isMobile ? 'w-[calc(83.333%-0.67rem)]' : 'w-[calc(66.667%-0.5rem)]'}`}
+                    className={`flex-shrink-0 ${cardWidthClass}`}
                     style={{
                       scale,
                       opacity,

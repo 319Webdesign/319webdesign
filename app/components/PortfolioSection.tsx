@@ -18,8 +18,8 @@ const portfolioProjects = [
     id: 1,
     title: 'Heinerfilm',
     category: 'Medienagentur',
-    imageUrl: '/heiner-header.png',
-    liveUrl: 'https://heinerfilm.de',
+    imageUrl: '/heinerfilm_header.jpeg',
+    liveUrl: 'https://heinerfilm.vercel.app/',
   },
   {
     id: 2,
@@ -27,34 +27,6 @@ const portfolioProjects = [
     category: 'Malerbetrieb',
     imageUrl: '/headerscreen.png',
     liveUrl: 'https://319webdesign.com/malerbetrieb/',
-  },
-  {
-    id: 3,
-    title: 'Rechtsanwaltskanzlei Schmidt',
-    category: 'Dienstleister',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-  },
-  {
-    id: 4,
-    title: 'Elektroinstallation Weber',
-    category: 'Handwerk',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-  },
-  {
-    id: 5,
-    title: 'Café am Markt',
-    category: 'Gastronomie',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-  },
-  {
-    id: 6,
-    title: 'Marketing Agentur',
-    category: 'Dienstleister',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
   },
 ]
 
@@ -73,9 +45,13 @@ export default function PortfolioSection() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  const itemsPerView = isMobile ? 1.2 : 3
-  const maxIndex = Math.max(0, portfolioProjects.length - Math.ceil(itemsPerView))
-  const cardWidth = isMobile ? 83.333 : 33.333
+  const itemsPerView = isMobile ? 1.2 : 1.5
+  // Berechne maxIndex: Anzahl der möglichen Scroll-Positionen
+  // Wenn wir mehr Items haben als sichtbar sind, können wir scrollen
+  const maxIndex = portfolioProjects.length > itemsPerView 
+    ? Math.ceil(portfolioProjects.length - itemsPerView)
+    : 0
+  const cardWidth = isMobile ? 83.333 : 66.667
 
   return (
     <section className="py-16 px-6 bg-slate-950 relative group">
@@ -100,31 +76,29 @@ export default function PortfolioSection() {
         {/* Portfolio Slider */}
         <div className="relative">
           {/* Navigation Buttons */}
-          <motion.button
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-slate-800/90 backdrop-blur-sm p-3 rounded-full border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 opacity-0 group-hover:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed"
-            onClick={() => {
-              if (portfolioIndex > 0) {
+          {portfolioIndex > 0 && (
+            <motion.button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-slate-800/90 backdrop-blur-sm p-3 rounded-full border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
+              onClick={() => {
                 setPortfolioIndex(portfolioIndex - 1)
-              }
-            }}
-            disabled={portfolioIndex === 0}
-            aria-label="Vorheriges Portfolio-Projekt anzeigen"
-          >
-            <ChevronLeft className="w-5 h-5 text-slate-200" aria-hidden="true" />
-          </motion.button>
+              }}
+              aria-label="Vorheriges Portfolio-Projekt anzeigen"
+            >
+              <ChevronLeft className="w-5 h-5 text-slate-200" aria-hidden="true" />
+            </motion.button>
+          )}
 
-          <motion.button
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-slate-800/90 backdrop-blur-sm p-3 rounded-full border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 opacity-0 group-hover:opacity-100 disabled:opacity-0 disabled:cursor-not-allowed"
-            onClick={() => {
-              if (portfolioIndex < maxIndex) {
+          {portfolioIndex < maxIndex && (
+            <motion.button
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-slate-800/90 backdrop-blur-sm p-3 rounded-full border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
+              onClick={() => {
                 setPortfolioIndex(portfolioIndex + 1)
-              }
-            }}
-            disabled={portfolioIndex >= maxIndex}
-            aria-label="Nächstes Portfolio-Projekt anzeigen"
-          >
-            <ChevronRight className="w-5 h-5 text-slate-200" aria-hidden="true" />
-          </motion.button>
+              }}
+              aria-label="Nächstes Portfolio-Projekt anzeigen"
+            >
+              <ChevronRight className="w-5 h-5 text-slate-200" aria-hidden="true" />
+            </motion.button>
+          )}
 
           {/* Slider Container */}
           <div className="overflow-hidden">
@@ -132,10 +106,22 @@ export default function PortfolioSection() {
               ref={portfolioRef}
               className="flex gap-4"
               drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
+              dragConstraints={{
+                left: -maxIndex * (100 / itemsPerView),
+                right: 0
+              }}
               dragElastic={0.2}
               animate={{
                 x: `-${portfolioIndex * (100 / itemsPerView)}%`,
+              }}
+              onDragEnd={(event, info) => {
+                // Optional: Drag-to-swipe functionality
+                const threshold = 50
+                if (info.offset.x > threshold && portfolioIndex > 0) {
+                  setPortfolioIndex(portfolioIndex - 1)
+                } else if (info.offset.x < -threshold && portfolioIndex < maxIndex) {
+                  setPortfolioIndex(portfolioIndex + 1)
+                }
               }}
               transition={{
                 type: "spring",
@@ -155,7 +141,7 @@ export default function PortfolioSection() {
                 return (
                   <motion.div
                     key={project.id}
-                    className={`flex-shrink-0 ${isMobile ? 'w-[calc(83.333%-0.67rem)]' : 'w-[calc(33.333%-0.67rem)]'}`}
+                    className={`flex-shrink-0 ${isMobile ? 'w-[calc(83.333%-0.67rem)]' : 'w-[calc(66.667%-0.5rem)]'}`}
                     style={{
                       scale,
                       opacity,
@@ -179,7 +165,7 @@ export default function PortfolioSection() {
                       }}
                     >
                       {/* Image Container */}
-                      <div className="relative aspect-[21/9] md:aspect-video overflow-hidden">
+                      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden">
                         <Image
                           src={project.imageUrl || '/placeholder-project.jpg'}
                           alt={`Webdesign Portfolio Screenshot für ${project.title} - ${project.category} Projekt von 319Webdesign`}

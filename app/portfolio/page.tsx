@@ -7,13 +7,13 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 // Projekt-Daten
-const portfolioProjects = [
+const allProjects = [
   {
     id: 1,
     title: 'Heinerfilm',
     category: 'Webdesign',
-    imageUrl: '/heiner-header.png',
-    liveUrl: 'https://heinerfilm.de',
+    imageUrl: '/heinerfilm_header.jpeg',
+    liveUrl: 'https://heinerfilm.vercel.app/',
     size: 'wide', // breit
   },
   {
@@ -24,49 +24,14 @@ const portfolioProjects = [
     liveUrl: 'https://319webdesign.com/malerbetrieb/',
     size: 'normal', // normal
   },
-  {
-    id: 3,
-    title: 'Gourmet Restaurant',
-    category: 'Branding',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-    size: 'tall', // hoch
-  },
-  {
-    id: 4,
-    title: 'Rechtsanwaltskanzlei Schmidt',
-    category: 'Webdesign',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-    size: 'normal', // normal
-  },
-  {
-    id: 5,
-    title: 'Elektroinstallation Weber',
-    category: 'Marketing',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-    size: 'wide', // breit
-  },
-  {
-    id: 6,
-    title: 'Café am Markt',
-    category: 'Branding',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-    size: 'normal', // normal
-  },
-  {
-    id: 7,
-    title: 'Marketing Agentur',
-    category: 'Marketing',
-    imageUrl: '/placeholder-project.jpg',
-    liveUrl: '#',
-    size: 'tall', // hoch
-  },
 ]
 
-const categories = ['Alle', 'Webdesign', 'Marketing', 'Branding', 'Handwerksbetrieb']
+// Nur Heinerfilm und DemoSeite anzeigen
+const portfolioProjects = allProjects.filter(
+  project => project.title === 'Heinerfilm' || project.title === 'DemoSeite'
+)
+
+const categories = ['Alle', 'Webdesign', 'Handwerksbetrieb']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },

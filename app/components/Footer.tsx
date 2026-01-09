@@ -56,7 +56,7 @@ export default function Footer() {
               </li>
               <li>
                 <a 
-                  href="#kontakt" 
+                  href="/kontakt" 
                   className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Kontakt

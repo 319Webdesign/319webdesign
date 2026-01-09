@@ -226,33 +226,6 @@ const weitereLeistungen = [
 export default function LeistungenPage() {
   const router = useRouter()
 
-  const handleKontaktClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    router.push('/#kontakt')
-    
-    // Mehrere Versuche, um sicherzustellen, dass das Element gefunden wird
-    const scrollToContact = (attempts = 0) => {
-      if (attempts > 10) return // Maximal 10 Versuche
-      
-      const element = document.querySelector('#kontakt')
-      if (element) {
-        const headerOffset = 120 // Etwas mehr Offset für bessere Sichtbarkeit
-        const elementPosition = element.getBoundingClientRect().top
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: 'smooth'
-        })
-      } else {
-        // Wenn Element noch nicht gefunden, erneut versuchen
-        setTimeout(() => scrollToContact(attempts + 1), 100)
-      }
-    }
-    
-    // Starte den Scroll-Versuch nach kurzer Verzögerung
-    setTimeout(() => scrollToContact(), 200)
-  }
 
   return (
     <main className="min-h-screen overflow-x-hidden w-full">
@@ -309,8 +282,7 @@ export default function LeistungenPage() {
           </p>
           <div>
             <motion.a
-              href="/#kontakt"
-              onClick={handleKontaktClick}
+              href="/kontakt"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               animate={{
@@ -580,8 +552,7 @@ export default function LeistungenPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
-                href="/#kontakt"
-                onClick={handleKontaktClick}
+                href="/kontakt"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 animate={{

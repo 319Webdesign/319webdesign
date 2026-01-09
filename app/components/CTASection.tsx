@@ -64,7 +64,7 @@ export default function CTASection() {
 
             <div className="space-y-4">
               <motion.a
-                href="#kontakt"
+                href="/kontakt"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
                 animate={{

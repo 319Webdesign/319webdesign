@@ -175,7 +175,7 @@ export default function ProzessSection() {
                   Jetzt deine Konkurrenz in den Schatten stellen.
                 </h3>
                 <motion.a
-                  href="#kontakt"
+                  href="/kontakt"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   animate={{
@@ -260,7 +260,7 @@ export default function ProzessSection() {
                   Jetzt deine Konkurrenz in den Schatten stellen.
                 </h3>
                 <motion.a
-                  href="#kontakt"
+                  href="/kontakt"
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   animate={{

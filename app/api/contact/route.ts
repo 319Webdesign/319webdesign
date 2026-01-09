@@ -23,10 +23,16 @@ export async function OPTIONS(request: NextRequest) {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { firstName, lastName, company, email, service, message, privacyAccepted } = body
+    const { firstName, lastName, name, company, email, service, betreff, message, privacyAccepted } = body
+
+    // Unterstützung für beide Formate: altes Format (firstName/lastName/service) und neues Format (name/betreff)
+    const finalName = name || (firstName && lastName ? `${firstName} ${lastName}` : '')
+    const finalSubject = betreff || service || ''
+    const finalFirstName = firstName || (name ? name.split(' ')[0] : '')
+    const finalLastName = lastName || (name && name.includes(' ') ? name.split(' ').slice(1).join(' ') : '')
 
     // Validierung
-    if (!firstName || !lastName || !email || !service || !message) {
+    if (!finalName || !email || !finalSubject || !message) {
       return NextResponse.json(
         { error: 'Bitte füllen Sie alle Pflichtfelder aus' },
         { 
@@ -146,13 +152,13 @@ export async function POST(request: NextRequest) {
     }
 
     // Eingaben escapen für Sicherheit
-    const safeFirstName = escapeHtml(firstName)
-    const safeLastName = escapeHtml(lastName)
+    const safeFirstName = escapeHtml(finalFirstName)
+    const safeLastName = escapeHtml(finalLastName)
     const safeCompany = company ? escapeHtml(company) : 'Nicht angegeben'
     const safeEmail = escapeHtml(email)
-    const safeService = serviceLabels[service] || service
+    const safeService = serviceLabels[finalSubject] || finalSubject
     const safeMessage = escapeHtml(message).replace(/\n/g, '<br>')
-    const fullName = `${firstName} ${lastName}`
+    const fullName = finalName
 
     // E-Mail-Inhalt
     const mailOptions = {
@@ -164,13 +170,13 @@ export async function POST(request: NextRequest) {
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3b82f6;">Neue Kontaktanfrage</h2>
           <div style="background-color: #f3f4f6; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p><strong>Name:</strong> ${safeFirstName} ${safeLastName}</p>
-            <p><strong>Unternehmen:</strong> ${safeCompany}</p>
+            <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
+            ${company ? `<p><strong>Unternehmen:</strong> ${safeCompany}</p>` : ''}
             <p><strong>E-Mail:</strong> ${safeEmail}</p>
-            <p><strong>Anfrage zu:</strong> ${safeService}</p>
+            <p><strong>Betreff:</strong> ${safeService}</p>
           </div>
           <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
-            <h3 style="color: #1f2937; margin-top: 0;">Beschreibung:</h3>
+            <h3 style="color: #1f2937; margin-top: 0;">Nachricht:</h3>
             <p style="color: #4b5563; white-space: pre-wrap;">${safeMessage}</p>
           </div>
         </div>
@@ -179,11 +185,11 @@ export async function POST(request: NextRequest) {
 Neue Kontaktanfrage
 
 Name: ${fullName}
-Unternehmen: ${company || 'Nicht angegeben'}
+${company ? `Unternehmen: ${company}` : ''}
 E-Mail: ${email}
-Anfrage zu: ${safeService}
+Betreff: ${safeService}
 
-Beschreibung:
+Nachricht:
 ${message}
       `,
     }

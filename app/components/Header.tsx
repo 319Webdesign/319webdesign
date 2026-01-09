@@ -60,7 +60,7 @@ export default function Header() {
     { href: '#prozess', label: 'Prozess' },
     { href: '/leistungen', label: 'Leistungen' },
     { href: '/portfolio', label: 'Portfolio' },
-    { href: '#kontakt', label: 'Kontakt' },
+    { href: '/kontakt', label: 'Kontakt' },
   ]
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {

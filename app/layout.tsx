@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import CookieBanner from './components/CookieBanner'
+import WhatsAppButton from './components/WhatsAppButton'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={`antialiased ${inter.className}`}>
         {children}
         <CookieBanner />
+        <WhatsAppButton />
         <SpeedInsights />
       </body>
     </html>

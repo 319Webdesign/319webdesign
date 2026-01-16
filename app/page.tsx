@@ -5,6 +5,9 @@ import HeroSection from './components/HeroSection'
 
 // Lazy load components that are not above the fold
 // SEO-relevant components keep SSR, animation-heavy components disable SSR
+const UeberMichSection = dynamic(() => import('./components/UeberMichSection'), {
+  ssr: true,
+})
 const WarumSection = dynamic(() => import('./components/WarumSection'), {
   ssr: true,
 })
@@ -65,6 +68,7 @@ export default function Home() {
     <main className="min-h-screen overflow-x-hidden w-full">
       <Header />
       <HeroSection />
+      <UeberMichSection />
       <WarumSection />
       <ProzessSection />
       <LeistungenSection />

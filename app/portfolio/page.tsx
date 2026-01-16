@@ -24,14 +24,22 @@ const allProjects = [
     liveUrl: 'https://319webdesign.com/malerbetrieb/',
     size: 'normal', // normal
   },
+  {
+    id: 3,
+    title: 'Arena Sportsbar',
+    category: 'Gastronomie',
+    imageUrl: '/arena-sportsbar-header.png',
+    liveUrl: 'https://arena-sportsbar.vercel.app/',
+    size: 'normal', // normal
+  },
 ]
 
-// Nur Heinerfilm anzeigen
+// Nur Heinerfilm und Arena Sportsbar anzeigen
 const portfolioProjects = allProjects.filter(
-  project => project.title === 'Heinerfilm'
+  project => project.title === 'Heinerfilm' || project.title === 'Arena Sportsbar'
 )
 
-const categories = ['Alle', 'Webdesign']
+const categories = ['Alle', 'Webdesign', 'Gastronomie']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -186,7 +194,11 @@ export default function PortfolioPage() {
                     <motion.img
                       src={project.imageUrl || '/placeholder-project.jpg'}
                       alt={`Webdesign Portfolio Mockup für ${project.title} - ${project.category} Projekt von 319Webdesign`}
-                      className="w-full h-full object-cover"
+                      className={`w-full h-full ${
+                        project.title === 'Arena Sportsbar' 
+                          ? 'object-contain object-center' 
+                          : 'object-cover object-center'
+                      }`}
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.6, ease: 'easeOut' }}
                     />

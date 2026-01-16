@@ -21,6 +21,13 @@ const portfolioProjects = [
     imageUrl: '/heinerfilm_header.jpeg',
     liveUrl: 'https://heinerfilm.vercel.app/',
   },
+  {
+    id: 2,
+    title: 'Arena Sportsbar',
+    category: 'Gastronomie',
+    imageUrl: '/arena-sportsbar-header.png',
+    liveUrl: 'https://arena-sportsbar.vercel.app/',
+  },
 ]
 
 export default function PortfolioSection() {
@@ -171,7 +178,11 @@ export default function PortfolioSection() {
                           width={1920}
                           height={820}
                           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
-                          className="w-full h-full object-cover object-center transition-transform duration-300 group-hover/card:scale-105"
+                          className={`w-full h-full transition-transform duration-300 group-hover/card:scale-105 ${
+                            project.title === 'Arena Sportsbar' 
+                              ? 'object-contain object-center' 
+                              : 'object-cover object-center'
+                          }`}
                         />
 
                         {/* Hover Overlay */}

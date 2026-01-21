@@ -61,7 +61,7 @@ export default function HeroSection() {
           className="text-5xl md:text-7xl font-bold mb-6 text-balance"
         >
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-            Design
+            Webdesign
           </span>
           , das überzeugt.{' '}
           <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
@@ -74,9 +74,9 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-400 mb-10 max-w-3xl mx-auto text-balance"
+          className="text-xl md:text-2xl text-slate-400 mb-10 max-w-4xl mx-auto text-balance"
         >
-          Wir helfen kleinen Unternehmen und Selbstständigen in Südhessen dabei, online sichtbar zu werden und neue Kunden zu gewinnen.
+          Wir helfen kleinen Unternehmen und Selbstständigen in Darmstadt, Pfungstadt und ganz Südhessen dabei, mit professionellem Webdesign online sichtbar zu werden und neue Kunden zu gewinnen.
         </motion.p>
 
         <motion.div

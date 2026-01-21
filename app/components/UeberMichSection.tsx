@@ -45,28 +45,33 @@ export default function UeberMichSection() {
             className="space-y-6"
           >
             {/* Kleine Headline */}
-            <p className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
+            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
               Hinter den Kulissen
-            </p>
+            </h3>
 
             {/* Große Haupt-Headline */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Ihr Partner für digitales Wachstum
+                Webdesign & Digitales Wachstum
               </span>
-              {' '}in Südhessen
+              {' '}für Südhessen
             </h2>
 
             {/* Prägnanter Text */}
             <div className="space-y-4 text-lg text-slate-300 leading-relaxed">
               <p>
-                Ich spezialisiere mich auf <span className="text-blue-400 font-semibold">Webdesign für Kleinunternehmen und Selbstständige</span>, die online sichtbar werden und messbare Ergebnisse erzielen wollen.
+                Ich bin dein Partner für professionelles Webdesign in Pfungstadt, Darmstadt und Umgebung. Ich spezialisiere mich auf Kleinunternehmen und Selbstständige, die nicht nur eine schöne Website wollen, sondern messbare Ergebnisse.
               </p>
+              
+              {/* Highlight-Box */}
+              <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 rounded-lg p-6 my-6">
+                <p className="text-lg text-slate-200 leading-relaxed">
+                  Mein Fokus liegt auf <span className="text-blue-400 font-semibold">High-End Performance</span>. Mit modernen Technologien wie Next.js erreiche ich für meine Kunden durchschnittliche PageSpeed-Scores von <span className="text-blue-400 font-semibold">99/100</span>.
+                </p>
+              </div>
+
               <p>
-                Mein Fokus liegt auf <span className="text-blue-400 font-semibold">High-End Performance</span> – jede Website, die ich erstelle, erzielt durchschnittlich <span className="text-blue-400 font-semibold">99/100 Scores</span> bei PageSpeed und Performance-Tests.
-              </p>
-              <p>
-                Projekte in <span className="text-blue-400 font-semibold">Pfungstadt, Darmstadt und Umgebung</span> betreue ich persönlich und direkt – von der ersten Beratung bis zur finalen Umsetzung.
+                Projekte in der Region Südhessen betreue ich persönlich – von der ersten Beratung bis zum Livegang.
               </p>
             </div>
 

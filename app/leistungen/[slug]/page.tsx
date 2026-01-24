@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Check, ArrowLeft } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import Breadcrumbs from '../../components/Breadcrumbs'
 
 // Leistungen-Daten
 const leistungen = {
@@ -184,22 +185,24 @@ export default function LeistungPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-slate-950 pt-24">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-zinc-900" />
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
-          {/* Back Link */}
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition-colors mb-8"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Zurück zur Startseite
-          </Link>
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
+          {/* Breadcrumb mit JSON-LD Schema */}
+          <div className="flex justify-center mb-8">
+            <Breadcrumbs
+              items={[
+                { name: 'Startseite', url: '/' },
+                { name: 'Leistungen', url: '/leistungen' },
+                { name: leistung.title, url: `/leistungen/${params.slug}` },
+              ]}
+            />
+          </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
             {leistung.title}

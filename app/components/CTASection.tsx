@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import Image from 'next/image'
 
@@ -11,17 +10,7 @@ export default function CTASection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Device Mockup */}
           <div className="relative flex justify-center items-center">
-            <motion.div
-              animate={{
-                y: [0, -20, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-              className="relative"
-            >
+            <div className="relative animate-float">
               <div className="relative max-w-sm aspect-[9/16]">
                 <Image
                   src="/319Web_Mockup_iphone.png"
@@ -29,23 +18,14 @@ export default function CTASection() {
                   width={384}
                   height={682}
                   sizes="(max-width: 768px) 300px, 384px"
+                  quality={75}
+                  loading="lazy"
                   className="w-full h-full object-contain"
                 />
                 {/* Glow Effect */}
-                <motion.div
-                  className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-2xl -z-10"
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                    scale: [1, 1.1, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                />
+                <div className="absolute inset-0 bg-blue-500/20 rounded-3xl blur-2xl -z-10 animate-pulse-glow" />
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right: Text & CTA */}
@@ -63,33 +43,17 @@ export default function CTASection() {
             </div>
 
             <div className="space-y-4">
-              <motion.a
+              <a
                 href="/kontakt"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{
-                  boxShadow: [
-                    '0 10px 25px -5px rgba(59, 130, 246, 0.3)',
-                    '0 15px 35px -5px rgba(59, 130, 246, 0.4)',
-                    '0 10px 25px -5px rgba(59, 130, 246, 0.3)',
-                  ],
-                }}
-                transition={{
-                  boxShadow: {
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  },
-                }}
-                className="group relative inline-block"
+                className="group relative inline-block hover:scale-105 active:scale-95 transition-transform duration-300 will-change-transform"
                 aria-label="Zum Kontaktformular springen - Kostenloses Erstgespräch vereinbaren"
               >
-                <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
+                <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity duration-300" />
                 <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
                   Kostenloses Erstgespräch vereinbaren
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" aria-hidden="true" />
                 </div>
-              </motion.a>
+              </a>
 
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-slate-400 pt-2">
                 <div className="flex items-center gap-2">

@@ -7,6 +7,27 @@ export default function Footer() {
   return (
     <footer className="bg-[#030303] border-t border-[rgba(255,255,255,0.05)]">
       <div className="max-w-7xl mx-auto px-6 py-10 md:py-12">
+        {/* Prominent CTA Section */}
+        <div className="mb-12 pb-12 border-b border-[rgba(255,255,255,0.05)]">
+          <div className="text-center max-w-2xl mx-auto">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+              Bereit für dein Projekt?
+            </h3>
+            <p className="text-slate-400 mb-6">
+              Lass uns gemeinsam eine Website erstellen, die dein Business voranbringt.
+            </p>
+            <a
+              href="/kontakt"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
+            >
+              Kostenloses Erstgespräch
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
         {/* Main Footer Content - 5 Spalten */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 lg:gap-8 mb-12">
           {/* Spalte 1: Brand */}
@@ -26,16 +47,16 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Spalte 2: Navigation - Agentur */}
+          {/* Spalte 2: Navigation - Hauptseiten */}
           <div className="space-y-4 text-center md:text-left">
-            <h4 className="text-white font-semibold text-base mb-4">Agentur</h4>
+            <h4 className="text-white font-semibold text-base mb-4">Navigation</h4>
             <ul className="space-y-3">
               <li>
                 <a 
-                  href="#prozess" 
+                  href="/" 
                   className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
-                  Prozess
+                  Startseite
                 </a>
               </li>
               <li>
@@ -57,9 +78,9 @@ export default function Footer() {
               <li>
                 <a 
                   href="/kontakt" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm font-semibold"
                 >
-                  Kontakt
+                  → Kontakt
                 </a>
               </li>
             </ul>

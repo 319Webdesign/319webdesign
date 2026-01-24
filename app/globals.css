@@ -26,5 +26,103 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Performance-optimierte Animationen - nur transform & opacity */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes bounce-slow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+    will-change: transform, opacity;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+    will-change: opacity;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 2s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+    opacity: 0;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+    opacity: 0;
+  }
+
+  .animation-delay-1000 {
+    animation-delay: 1s;
+    opacity: 0;
+  }
+
+  /* will-change für bessere Performance */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  /* Float Animation für Mockups */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Pulse Glow Animation */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
 }
 

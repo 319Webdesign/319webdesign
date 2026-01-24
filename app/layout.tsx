@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import CookieBanner from './components/CookieBanner'
 import WhatsAppButton from './components/WhatsAppButton'
+import OrganizationSchema from './components/OrganizationSchema'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({
@@ -29,6 +30,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={inter.variable}>
+      <head>
+        <OrganizationSchema />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={`antialiased ${inter.className}`}>
         {children}
         <CookieBanner />

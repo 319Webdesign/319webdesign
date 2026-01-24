@@ -11,6 +11,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLeistungenOpen, setIsLeistungenOpen] = useState(false)
+  const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null)
   const { scrollY } = useScroll()
   const pathname = usePathname()
   const router = useRouter()
@@ -30,6 +31,15 @@ export default function Header() {
       document.body.style.overflow = 'unset'
     }
   }, [isMobileMenuOpen])
+
+  // Cleanup timeout beim Unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeout) {
+        clearTimeout(closeTimeout)
+      }
+    }
+  }, [closeTimeout])
 
   // Scroll to hash on page load if hash exists in URL
   useEffect(() => {
@@ -181,12 +191,27 @@ export default function Header() {
             {navLinks.map((link, index) => {
               // Leistungen mit Dropdown
               if (link.hasDropdown) {
+                const handleMouseEnter = () => {
+                  if (closeTimeout) {
+                    clearTimeout(closeTimeout)
+                    setCloseTimeout(null)
+                  }
+                  setIsLeistungenOpen(true)
+                }
+
+                const handleMouseLeave = () => {
+                  const timeout = setTimeout(() => {
+                    setIsLeistungenOpen(false)
+                  }, 150) // 150ms Verzögerung vor dem Schließen
+                  setCloseTimeout(timeout)
+                }
+
                 return (
                   <div
                     key={link.href}
                     className="relative"
-                    onMouseEnter={() => setIsLeistungenOpen(true)}
-                    onMouseLeave={() => setIsLeistungenOpen(false)}
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
                     <Link href={link.href}>
                       <motion.div
@@ -212,8 +237,9 @@ export default function Header() {
                         pointerEvents: isLeistungenOpen ? 'auto' : 'none',
                       }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full mt-2 left-0 min-w-[240px] bg-slate-900/98 backdrop-blur-md rounded-lg shadow-xl border border-slate-700/50 overflow-hidden"
+                      className="absolute top-full pt-2 left-0 min-w-[240px]"
                     >
+                      <div className="bg-slate-900/98 backdrop-blur-md rounded-lg shadow-xl border border-slate-700/50 overflow-hidden">
                       {leistungenItems.map((item, idx) => (
                         <Link
                           key={item.href}
@@ -226,6 +252,7 @@ export default function Header() {
                           </div>
                         </Link>
                       ))}
+                      </div>
                     </motion.div>
                   </div>
                 )

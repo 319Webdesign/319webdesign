@@ -4,6 +4,7 @@ import { ArrowRight, Check, MapPin, Users, Building2 } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
+import Breadcrumbs from '../../components/Breadcrumbs'
 
 // Stadt-Konfiguration
 interface City {
@@ -173,13 +174,15 @@ export default function CityPage({ params }: { params: { city: string } }) {
           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
 
           <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
-            {/* Breadcrumb */}
-            <div className="flex items-center justify-center gap-2 text-sm text-slate-400 mb-6">
-              <Link href="/" className="hover:text-blue-400 transition-colors">
-                Startseite
-              </Link>
-              <span>/</span>
-              <span className="text-blue-400">{city.name}</span>
+            {/* Breadcrumb mit JSON-LD Schema */}
+            <div className="flex justify-center">
+              <Breadcrumbs
+                items={[
+                  { name: 'Startseite', url: '/' },
+                  { name: 'Webdesign', url: '/leistungen/webdesign' },
+                  { name: city.name, url: `/webdesign/${city.slug}` },
+                ]}
+              />
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">

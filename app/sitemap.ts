@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const cities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt']
 
   return [
-    // Homepage
+    // Homepage - Höchste Priorität
     {
       url: baseUrl,
       lastModified: currentDate,
@@ -19,7 +19,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
 
-    // Leistungen Übersicht
+    // Kontakt - Sehr wichtig für Conversions
+    {
+      url: `${baseUrl}/kontakt`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+
+    // Leistungen Übersicht - Hauptseite
     {
       url: `${baseUrl}/leistungen`,
       lastModified: currentDate,
@@ -27,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
 
-    // Leistungen Unterseiten (dynamisch)
+    // Leistungen Unterseiten - Wichtig für SEO
     ...leistungen.map((slug) => ({
       url: `${baseUrl}/leistungen/${slug}`,
       lastModified: currentDate,
@@ -35,44 +43,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     })),
 
-    // Stadt-Landingpages (dynamisch)
-    ...cities.map((city) => ({
-      url: `${baseUrl}/webdesign/${city}`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    })),
-
-    // Portfolio
+    // Portfolio - Wichtig für Vertrauensaufbau
     {
       url: `${baseUrl}/portfolio`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
-      priority: 0.8,
+      priority: 0.85,
     },
 
-    // Kontakt
-    {
-      url: `${baseUrl}/kontakt`,
+    // Stadt-Landingpages - SEO-relevant für lokale Suche
+    ...cities.map((city) => ({
+      url: `${baseUrl}/webdesign/${city}`,
       lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
 
-    // Impressum
+    // Impressum - Rechtlich notwendig, niedrige Priorität
     {
       url: `${baseUrl}/impressum`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.2,
     },
 
-    // Datenschutz
+    // Datenschutz - Rechtlich notwendig, niedrige Priorität
     {
       url: `${baseUrl}/datenschutz`,
       lastModified: currentDate,
       changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.2,
     },
   ]
 }

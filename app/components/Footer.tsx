@@ -7,8 +7,8 @@ export default function Footer() {
   return (
     <footer className="bg-[#030303] border-t border-[rgba(255,255,255,0.05)]">
       <div className="max-w-7xl mx-auto px-6 py-10 md:py-12">
-        {/* Main Footer Content - 4 Spalten */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8 lg:gap-12 mb-12">
+        {/* Main Footer Content - 5 Spalten */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 lg:gap-8 mb-12">
           {/* Spalte 1: Brand */}
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start">
@@ -65,7 +65,46 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Spalte 3: Kontakt */}
+          {/* Spalte 3: Regionen */}
+          <div className="space-y-4 text-center md:text-left">
+            <h4 className="text-white font-semibold text-base mb-4">Regionen</h4>
+            <ul className="space-y-3">
+              <li>
+                <a 
+                  href="/webdesign/darmstadt" 
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                >
+                  Darmstadt
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/webdesign/pfungstadt" 
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                >
+                  Pfungstadt
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/webdesign/griesheim" 
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                >
+                  Griesheim
+                </a>
+              </li>
+              <li>
+                <a 
+                  href="/webdesign/weiterstadt" 
+                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                >
+                  Weiterstadt
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Spalte 4: Kontakt */}
           <div className="space-y-4 text-center md:text-left">
             <h4 className="text-white font-semibold text-base mb-4">Kontakt</h4>
             <div className="space-y-3">
@@ -81,7 +120,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Spalte 4: Social Media */}
+          {/* Spalte 5: Social Media */}
           <div className="space-y-4 text-center md:text-left">
             <h4 className="text-white font-semibold text-base mb-4">Social Media</h4>
             <div className="flex items-center justify-center md:justify-start gap-4">

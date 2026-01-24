@@ -1,13 +1,10 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowDown, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 export default function HeroSection() {
-  const { scrollYProgress } = useScroll()
-  const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0])
-  const y = useTransform(scrollYProgress, [0, 0.3], [0, -50])
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background - Mesh Gradient */}
@@ -50,77 +47,101 @@ export default function HeroSection() {
         />
       </div>
 
-      <motion.div
-        style={{ opacity, y }}
-        className="relative z-10 max-w-5xl mx-auto px-6 text-center"
-      >
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold mb-6 text-balance"
-        >
-          <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-            Webdesign
-          </span>
-          , das überzeugt.{' '}
-          <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-            Technik
-          </span>
-          , die performt.
-        </motion.h1>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-400 mb-10 max-w-4xl mx-auto text-balance"
-        >
-          Wir helfen kleinen Unternehmen und Selbstständigen in Darmstadt, Pfungstadt und ganz Südhessen dabei, mit professionellem Webdesign online sichtbar zu werden und neue Kunden zu gewinnen.
-        </motion.p>
+      {/* 2-Spalten-Grid für Desktop */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center min-h-[80vh]">
+          
+          {/* Linke Spalte: Text und Buttons */}
+          <div className="text-center lg:text-left lg:pr-8">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                Webdesign
+              </span>
+              ,<br className="hidden lg:block" /> das überzeugt.{' '}
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+                Technik
+              </span>
+              ,<br className="hidden lg:block" /> die performt.
+            </motion.h1>
+            
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl lg:max-w-none"
+            >
+              Wir helfen kleinen Unternehmen und Selbstständigen in Darmstadt, Pfungstadt und ganz Südhessen dabei, mit professionellem Webdesign online sichtbar zu werden und neue Kunden zu gewinnen.
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-        >
-          <motion.a
-            href="/kontakt"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            animate={{
-              boxShadow: [
-                '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
-                '0 15px 35px -5px rgba(59, 130, 246, 0.6)',
-                '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
-              ],
-            }}
-            transition={{
-              boxShadow: {
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              },
-            }}
-            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 inline-flex items-center gap-2 group/btn"
-            aria-label="Zum Kontaktformular springen - Projekt starten"
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2"
+            >
+              <motion.a
+                href="/kontakt"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{
+                  boxShadow: [
+                    '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
+                    '0 15px 35px -5px rgba(59, 130, 246, 0.6)',
+                    '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
+                  ],
+                }}
+                transition={{
+                  boxShadow: {
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  },
+                }}
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 inline-flex items-center gap-2 group/btn"
+                aria-label="Zum Kontaktformular springen - Projekt starten"
+              >
+                Projekt starten
+                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
+              </motion.a>
+              <motion.a
+                href="#benefits"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 border border-slate-600 text-slate-200 font-semibold rounded-lg hover:border-slate-500 hover:text-white transition-all duration-300 inline-flex items-center gap-2 group/btn2"
+                aria-label="Zu den Vorteilen scrollen - Mehr erfahren"
+              >
+                Mehr erfahren
+                <ArrowDown className="w-4 h-4 group-hover/btn2:translate-y-1 transition-transform" aria-hidden="true" />
+              </motion.a>
+            </motion.div>
+          </div>
+
+          {/* Rechte Spalte: Porträtfoto */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="relative hidden lg:flex justify-end items-end h-full"
           >
-            Projekt starten
-            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
-          </motion.a>
-          <motion.a
-            href="#benefits"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border border-slate-600 text-slate-200 font-semibold rounded-lg hover:border-slate-500 hover:text-white transition-all duration-300 inline-flex items-center gap-2 group/btn2"
-            aria-label="Zu den Vorteilen scrollen - Mehr erfahren"
-          >
-            Mehr erfahren
-            <ArrowDown className="w-4 h-4 group-hover/btn2:translate-y-1 transition-transform" aria-hidden="true" />
-          </motion.a>
-        </motion.div>
-      </motion.div>
+            <div className="relative w-full h-[650px] flex items-end justify-end">
+              <Image
+                src="/maik-removebg.png"
+                alt="Maik Schmidt - Webdesign Experte aus Pfungstadt"
+                width={550}
+                height={650}
+                priority
+                className="object-contain object-bottom h-full w-auto max-w-none"
+              />
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
 
       {/* Scroll Indicator */}
       <motion.div

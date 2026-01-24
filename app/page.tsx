@@ -1,40 +1,16 @@
 import type { Metadata } from 'next'
-import dynamic from 'next/dynamic'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
-
-// Lazy load components that are not above the fold
-// SEO-relevant components keep SSR, animation-heavy components disable SSR
-const UeberMichSection = dynamic(() => import('./components/UeberMichSection'), {
-  ssr: true,
-})
-const WarumSection = dynamic(() => import('./components/WarumSection'), {
-  ssr: true,
-})
-const ProzessSection = dynamic(() => import('./components/ProzessSection'), {
-  ssr: true,
-})
-const LeistungenSection = dynamic(() => import('./components/LeistungenSection'), {
-  ssr: true,
-})
-const ProblemLoesungSection = dynamic(() => import('./components/ProblemLoesungSection'), {
-  ssr: true,
-})
-const PortfolioSection = dynamic(() => import('./components/PortfolioSection'), {
-  ssr: false, // Animation-heavy, can be client-only
-})
-const CTASection = dynamic(() => import('./components/CTASection'), {
-  ssr: true,
-})
-const FAQSection = dynamic(() => import('./components/FAQSection'), {
-  ssr: true,
-})
-const KontaktSection = dynamic(() => import('./components/KontaktSection'), {
-  ssr: true,
-})
-const Footer = dynamic(() => import('./components/Footer'), {
-  ssr: true,
-})
+import UeberMichSection from './components/UeberMichSection'
+import WarumSection from './components/WarumSection'
+import ProzessSection from './components/ProzessSection'
+import LeistungenSection from './components/LeistungenSection'
+import ProblemLoesungSection from './components/ProblemLoesungSection'
+import PortfolioSection from './components/PortfolioSection'
+import CTASection from './components/CTASection'
+import FAQSection from './components/FAQSection'
+import KontaktSection from './components/KontaktSection'
+import Footer from './components/Footer'
 
 export const metadata: Metadata = {
   title: 'Webdesign & SEO – Conversion-Optimierung | 319Webdesign',

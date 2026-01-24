@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLeistungenOpen, setIsLeistungenOpen] = useState(false)
   const { scrollY } = useScroll()
   const pathname = usePathname()
   const router = useRouter()
@@ -56,9 +57,15 @@ export default function Header() {
     }
   }, [pathname])
 
+  const leistungenItems = [
+    { href: '/leistungen/webdesign', label: 'Webdesign', icon: '⚡' },
+    { href: '/leistungen/seo', label: 'SEO-Optimierung', icon: '🔍' },
+    { href: '/leistungen/wartung', label: 'Website-Wartung', icon: '⚙️' },
+  ]
+
   const navLinks = [
     { href: '#prozess', label: 'Prozess' },
-    { href: '/leistungen', label: 'Leistungen' },
+    { href: '/leistungen', label: 'Leistungen', hasDropdown: true },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/kontakt', label: 'Kontakt' },
   ]
@@ -171,27 +178,82 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => (
-              link.href.startsWith('#') ? (
-                <motion.a
-                  key={link.href}
-                  href={pathname === '/' ? link.href : `/${link.href}`}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                  className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
-                >
-                  {link.label}
-                  <motion.span
-                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 group-hover/nav:w-full transition-all duration-300"
-                  />
-                </motion.a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                >
+            {navLinks.map((link, index) => {
+              // Leistungen mit Dropdown
+              if (link.hasDropdown) {
+                return (
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => setIsLeistungenOpen(true)}
+                    onMouseLeave={() => setIsLeistungenOpen(false)}
+                  >
+                    <Link href={link.href}>
+                      <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                        className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
+                      >
+                        {link.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLeistungenOpen ? 'rotate-180' : ''}`} />
+                        <motion.span
+                          className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 group-hover/nav:w-full transition-all duration-300"
+                        />
+                      </motion.div>
+                    </Link>
+
+                    {/* Dropdown Menu */}
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{
+                        opacity: isLeistungenOpen ? 1 : 0,
+                        y: isLeistungenOpen ? 0 : -10,
+                        pointerEvents: isLeistungenOpen ? 'auto' : 'none',
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full mt-2 left-0 min-w-[240px] bg-slate-900/98 backdrop-blur-md rounded-lg shadow-xl border border-slate-700/50 overflow-hidden"
+                    >
+                      {leistungenItems.map((item, idx) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-4 py-3 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200 border-b border-slate-800/50 last:border-b-0"
+                        >
+                          <div className="flex items-center gap-3">
+                            <span className="text-lg">{item.icon}</span>
+                            <span>{item.label}</span>
+                          </div>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  </div>
+                )
+              }
+
+              // Hash Links
+              if (link.href.startsWith('#')) {
+                return (
+                  <motion.a
+                    key={link.href}
+                    href={pathname === '/' ? link.href : `/${link.href}`}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                    className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
+                  >
+                    {link.label}
+                    <motion.span
+                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 group-hover/nav:w-full transition-all duration-300"
+                    />
+                  </motion.a>
+                )
+              }
+
+              // Normale Links
+              return (
+                <Link key={link.href} href={link.href}>
                   <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -205,7 +267,7 @@ export default function Header() {
                   </motion.div>
                 </Link>
               )
-            ))}
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -233,24 +295,78 @@ export default function Header() {
           className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-md mt-2 rounded-b-lg"
           style={{ marginLeft: '-1.5rem', marginRight: '-1.5rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
         >
-          <div className="pt-4 pb-2 space-y-4">
-            {navLinks.map((link, index) => (
-              link.href.startsWith('#') ? (
-                <motion.a
-                  key={link.href}
-                  href={pathname === '/' ? link.href : `/${link.href}`}
-                  onClick={(e) => handleLinkClick(e, link.href)}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{
-                    opacity: isMobileMenuOpen ? 1 : 0,
-                    x: isMobileMenuOpen ? 0 : -20,
-                  }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                  className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
-                >
-                  {link.label}
-                </motion.a>
-              ) : (
+          <div className="pt-4 pb-2 space-y-2">
+            {navLinks.map((link, index) => {
+              // Leistungen mit Submenü
+              if (link.hasDropdown) {
+                return (
+                  <div key={link.href}>
+                    <Link
+                      href={link.href}
+                      onClick={handleMobileLinkClick}
+                    >
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{
+                          opacity: isMobileMenuOpen ? 1 : 0,
+                          x: isMobileMenuOpen ? 0 : -20,
+                        }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                        className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 cursor-pointer font-medium"
+                      >
+                        {link.label}
+                      </motion.div>
+                    </Link>
+                    {/* Submenu Items */}
+                    <div className="ml-4 space-y-1 mt-1">
+                      {leistungenItems.map((item, idx) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={handleMobileLinkClick}
+                        >
+                          <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{
+                              opacity: isMobileMenuOpen ? 1 : 0,
+                              x: isMobileMenuOpen ? 0 : -20,
+                            }}
+                            transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.05) }}
+                            className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors duration-300 py-2 text-sm"
+                          >
+                            <span>{item.icon}</span>
+                            <span>{item.label}</span>
+                          </motion.div>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="border-b border-slate-800/50 mt-2" />
+                  </div>
+                )
+              }
+
+              // Hash Links
+              if (link.href.startsWith('#')) {
+                return (
+                  <motion.a
+                    key={link.href}
+                    href={pathname === '/' ? link.href : `/${link.href}`}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{
+                      opacity: isMobileMenuOpen ? 1 : 0,
+                      x: isMobileMenuOpen ? 0 : -20,
+                    }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
+                  >
+                    {link.label}
+                  </motion.a>
+                )
+              }
+
+              // Normale Links
+              return (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -269,7 +385,7 @@ export default function Header() {
                   </motion.div>
                 </Link>
               )
-            ))}
+            })}
           </div>
         </motion.div>
       </nav>

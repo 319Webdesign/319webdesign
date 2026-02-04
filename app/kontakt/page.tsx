@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -132,6 +133,14 @@ export default function KontaktPage() {
           {...fadeInUp}
           className="relative z-10 max-w-5xl mx-auto px-6 text-center"
         >
+          <div className="flex justify-center mb-8">
+            <Breadcrumbs
+              items={[
+                { name: 'Startseite', url: '/' },
+                { name: 'Kontakt', url: '/kontakt' },
+              ]}
+            />
+          </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
               Lass uns dein Projekt starten.

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Zap, Search, Settings } from 'lucide-react'
+import Breadcrumbs from '../components/Breadcrumbs'
 
 export const metadata: Metadata = {
   title: 'Leistungen | Webdesign, SEO & Wartung in Südhessen',
@@ -96,6 +97,14 @@ export default function LeistungenPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+          <div className="flex justify-center mb-8">
+            <Breadcrumbs
+              items={[
+                { name: 'Startseite', url: '/' },
+                { name: 'Leistungen', url: '/leistungen' },
+              ]}
+            />
+          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
             Leistungen für Ihr{' '}
             <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">

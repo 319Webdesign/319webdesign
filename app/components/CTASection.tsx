@@ -14,7 +14,7 @@ export default function CTASection() {
               <div className="relative max-w-sm aspect-[9/16]">
                 <Image
                   src="/319Web_Mockup_iphone.png"
-                  alt="Webdesign Portfolio Mockup für responsive Website auf iPhone - Mobile-First Design von 319Webdesign"
+                  alt="Responsive Webdesign für Darmstadt und Pfungstadt – iPhone-Mockup, 319Webdesign"
                   width={384}
                   height={682}
                   sizes="(max-width: 768px) 300px, 384px"

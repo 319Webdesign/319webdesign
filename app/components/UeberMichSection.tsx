@@ -25,11 +25,11 @@ export default function UeberMichSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue-500/20">
               <Image
                 src="/maik.webp"
-                alt="Maik - Ihr Partner für digitales Wachstum in Südhessen"
+                alt="Maik Schmidt – Webdesign Experte für Darmstadt und Pfungstadt, Ihr Partner für digitales Wachstum in Südhessen"
                 width={600}
                 height={800}
                 className="w-full h-auto object-cover"
-                priority
+                loading="lazy"
               />
               {/* Dekorativer Glow-Effekt */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 via-transparent to-transparent pointer-events-none" />
@@ -44,10 +44,10 @@ export default function UeberMichSection() {
             transition={{ delay: 0.2 }}
             className="space-y-6"
           >
-            {/* Kleine Headline */}
-            <h3 className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
+            {/* Kleine Headline (kein H-Tag, damit Hierarchie H1 → H2 nicht übersprungen wird) */}
+            <p className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
               Hinter den Kulissen
-            </h3>
+            </p>
 
             {/* Große Haupt-Headline */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">

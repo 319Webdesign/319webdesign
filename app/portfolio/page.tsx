@@ -210,7 +210,7 @@ export default function PortfolioPage() {
                   <div className="relative w-full h-full overflow-hidden">
                     <motion.img
                       src={project.imageUrl || '/placeholder-project.jpg'}
-                      alt={`Webdesign Portfolio Mockup für ${project.title} - ${project.category} Projekt von 319Webdesign`}
+                      alt={`Webdesign Portfolio Südhessen: ${project.title} – ${project.category} von 319Webdesign, Darmstadt Pfungstadt`}
                       className={`w-full h-full ${
                         project.title === 'Arena Sportsbar' 
                           ? 'object-contain object-center' 

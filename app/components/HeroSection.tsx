@@ -28,15 +28,14 @@ export default function HeroSection() {
           <div className="text-center lg:text-left lg:pr-8">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Webdesign
+                Webdesign Pfungstadt
               </span>
-              ,<br className="hidden lg:block" /> das überzeugt.{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Technik
-              </span>
-              ,<br className="hidden lg:block" /> die performt.
+              <br className="hidden lg:block" />
+              <span className="text-white">– Websites, die überzeugen.</span>
             </h1>
-            
+            <h2 className="text-lg md:text-xl text-slate-500 font-medium mb-2 animate-fade-in-up animation-delay-50">
+              Moderne Websites für Darmstadt und Südhessen
+            </h2>
             <p className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
               Wir helfen kleinen Unternehmen und Selbstständigen in Darmstadt, Pfungstadt und ganz Südhessen dabei, mit professionellem Webdesign online sichtbar zu werden und neue Kunden zu gewinnen.
             </p>
@@ -66,12 +65,13 @@ export default function HeroSection() {
             <div className="relative w-full h-[650px] flex items-end justify-end">
               <Image
                 src="/maik-removebg.png"
-                alt="Maik Schmidt - Webdesign Experte aus Pfungstadt"
+                alt="Webdesign Experte für Darmstadt und Pfungstadt – Maik Schmidt, 319Webdesign"
                 width={550}
                 height={650}
-                priority
-                sizes="(max-width: 1024px) 0vw, 550px"
-                quality={75}
+                priority={true}
+                fetchPriority="high"
+                sizes="(max-width: 1024px) 0vw, (max-width: 1280px) 45vw, 550px"
+                quality={80}
                 className="object-contain object-bottom h-full w-auto max-w-none"
               />
             </div>

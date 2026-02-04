@@ -1,17 +1,20 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
-import UeberMichSection from './components/UeberMichSection'
-import WarumSection from './components/WarumSection'
-import ProzessSection from './components/ProzessSection'
-import LeistungenSection from './components/LeistungenSection'
-import GoogleReviewsSection from './components/GoogleReviewsSection'
-import ProblemLoesungSection from './components/ProblemLoesungSection'
-import PortfolioSection from './components/PortfolioSection'
-import CTASection from './components/CTASection'
-import FAQSection from './components/FAQSection'
-import KontaktSection from './components/KontaktSection'
-import Footer from './components/Footer'
+
+// Code-Splitting: Below-the-fold Sektionen dynamisch laden (weniger initiales JS, besseres LCP)
+const UeberMichSection = dynamic(() => import('./components/UeberMichSection'), { ssr: true })
+const WarumSection = dynamic(() => import('./components/WarumSection'), { ssr: true })
+const ProzessSection = dynamic(() => import('./components/ProzessSection'), { ssr: true })
+const LeistungenSection = dynamic(() => import('./components/LeistungenSection'), { ssr: true })
+const GoogleReviewsSection = dynamic(() => import('./components/GoogleReviewsSection'), { ssr: true })
+const ProblemLoesungSection = dynamic(() => import('./components/ProblemLoesungSection'), { ssr: true })
+const PortfolioSection = dynamic(() => import('./components/PortfolioSection'), { ssr: true })
+const CTASection = dynamic(() => import('./components/CTASection'), { ssr: true })
+const FAQSection = dynamic(() => import('./components/FAQSection'), { ssr: true })
+const KontaktSection = dynamic(() => import('./components/KontaktSection'), { ssr: true })
+const Footer = dynamic(() => import('./components/Footer'), { ssr: true })
 
 export const metadata: Metadata = {
   title: 'Webdesign & SEO – Conversion-Optimierung | 319Webdesign',

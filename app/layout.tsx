@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import CookieBanner from './components/CookieBanner'
-import WhatsAppButton from './components/WhatsAppButton'
 import OrganizationSchema from './components/OrganizationSchema'
+// Schwere/ nicht-SEO-Komponenten erst clientseitig laden → schnelleres SSR, bessere TTFB
+const CookieBanner = dynamic(() => import('./components/CookieBanner'), { ssr: false })
+const WhatsAppButton = dynamic(() => import('./components/WhatsAppButton'), { ssr: false })
 import SiteNavigationSchema from './components/SiteNavigationSchema'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 

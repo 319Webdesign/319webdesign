@@ -7,13 +7,46 @@ Allow: /
 # Sitemap
 Sitemap: https://www.319webdesign.com/sitemap.xml
 
-# Disallow API-Routen (optional, falls nicht öffentlich)
+# API-Routen nicht indexieren
 Disallow: /api/
 
-# Erlaube alle wichtigen Seiten
-Allow: /
+# Spam-/Inject-Pfade blockieren (u. a. aus Audit – z. B. /Outside-Micrometer-Set/)
+Disallow: /products/
+Disallow: /product/
+Disallow: /Outside-Micrometer-Set/
+Disallow: /category/
+Disallow: /tag/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /shop/
+Disallow: /order/
+Disallow: /purchase/
+Disallow: /author/
+Disallow: /page/
+Disallow: /feed/
+Disallow: /search/
+Disallow: /trackback/
+Disallow: /embed/
+Disallow: /comments/
+Disallow: /?replytocom=
+Disallow: /archive/
+Disallow: /item/
+Disallow: /catalog/
+Disallow: /store/
+
+# Wichtige Seiten erlauben (redundant zu Allow: /, zur Klarheit)
 Allow: /leistungen
+Allow: /leistungen/webdesign
+Allow: /leistungen/seo
+Allow: /leistungen/wartung
 Allow: /portfolio
+Allow: /kontakt
 Allow: /impressum
 Allow: /datenschutz
-
+Allow: /webdesign/

@@ -69,7 +69,7 @@ export default function PortfolioSection() {
           className="text-center mb-8"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Unsere neuesten Werke
+            Webdesign Portfolio Südhessen – ausgewählte Projekte
           </h2>
           <Link
             href="/portfolio"
@@ -181,7 +181,7 @@ export default function PortfolioSection() {
                       <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-800/50">
                         <Image
                           src={project.imageUrl || '/placeholder-project.jpg'}
-                          alt={`Webdesign Portfolio Screenshot für ${project.title} - ${project.category} Projekt von 319Webdesign`}
+                          alt={`Webdesign Portfolio Südhessen: ${project.title} – ${project.category} Projekt von 319Webdesign, Darmstadt Pfungstadt`}
                           fill
                           sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px"
                           quality={90}

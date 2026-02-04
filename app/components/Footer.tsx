@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="flex items-center justify-center md:justify-start">
               <Image
                 src="/319.png"
-                alt="319Webdesign Logo - Professionelles Webdesign, SEO und Conversion-Optimierung"
+                alt="319Webdesign Logo – Webdesign und SEO für Darmstadt, Pfungstadt und Südhessen"
                 width={110}
                 height={110}
                 sizes="(max-width: 768px) 70px, 110px"
@@ -47,7 +47,7 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Spalte 2: Navigation - Hauptseiten */}
+          {/* Spalte 2: Navigation - Hauptseiten + Sitelinks für Leistungen */}
           <div className="space-y-4 text-center md:text-left">
             <h4 className="text-white font-semibold text-base mb-4">Navigation</h4>
             <ul className="space-y-3">
@@ -66,6 +66,11 @@ export default function Footer() {
                 >
                   Leistungen
                 </a>
+              </li>
+              <li className="pl-3 border-l border-slate-700 space-y-2 mt-2">
+                <a href="/leistungen/webdesign" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Webdesign</a>
+                <a href="/leistungen/seo" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">SEO-Optimierung</a>
+                <a href="/leistungen/wartung" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Website-Wartung</a>
               </li>
               <li>
                 <a 
@@ -175,6 +180,7 @@ export default function Footer() {
                   viewBox="0 0 24 24" 
                   fill="currentColor"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
                 </svg>

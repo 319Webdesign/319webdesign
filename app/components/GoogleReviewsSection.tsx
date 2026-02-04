@@ -77,8 +77,8 @@ export default function GoogleReviewsSection() {
       <section className="py-24 px-6 bg-slate-900" aria-label="Kundenbewertungen werden geladen">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Kundenbewertungen</h2>
-            <p className="text-slate-400">Bewertungen werden geladen…</p>
+            <h2 id="reviews-heading" className="text-4xl md:text-5xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
+            <p className="text-slate-400" role="status">Bewertungen werden geladen…</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
@@ -104,10 +104,10 @@ export default function GoogleReviewsSection() {
           className="text-center mb-14"
         >
           <h2 id="reviews-heading" className="text-4xl md:text-5xl font-bold mb-4">
-            Kundenbewertungen
+            Das sagen Kunden über 319Webdesign
           </h2>
           <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Das sagen Kunden über 319Webdesign – aktuellste Bewertungen von Google.
+            Aktuelle Google-Bewertungen aus Darmstadt, Pfungstadt und Südhessen.
           </p>
           {data?.rating != null && data?.userRatingsTotal != null && (
             <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700">
@@ -151,7 +151,7 @@ export default function GoogleReviewsSection() {
                 {review.profile_photo_url ? (
                   <img
                     src={review.profile_photo_url}
-                    alt=""
+                    alt={`Profilbild von ${review.author_name}, Google-Bewerter`}
                     width={48}
                     height={48}
                     className="rounded-full w-12 h-12 object-cover"

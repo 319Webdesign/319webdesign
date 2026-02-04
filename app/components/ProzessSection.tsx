@@ -172,7 +172,7 @@ export default function ProzessSection() {
               
               <div className="relative z-10 flex flex-col items-center justify-center text-center flex-grow">
                 <h3 className="text-2xl font-bold mb-6">
-                  Jetzt deine Konkurrenz in den Schatten stellen.
+                  In 5 Schritten zu Ihrer neuen Website – jetzt starten.
                 </h3>
                 <motion.a
                   href="/kontakt"
@@ -257,7 +257,7 @@ export default function ProzessSection() {
               
               <div className="relative z-10 flex flex-col items-center justify-center text-center">
                 <h3 className="text-2xl font-bold mb-6">
-                  Jetzt deine Konkurrenz in den Schatten stellen.
+                  Erstgespräch vereinbaren und gemeinsam durchstarten.
                 </h3>
                 <motion.a
                   href="/kontakt"

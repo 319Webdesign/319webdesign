@@ -15,16 +15,19 @@ const leistungen = [
   {
     icon: Laptop,
     title: 'Webdesign',
+    href: '/leistungen/webdesign',
     description: 'Individuelle Designs, die Ihre Zielgruppe überzeugen. Optimiert für alle Endgeräte.',
   },
   {
     icon: Search,
     title: 'SEO',
+    href: '/leistungen/seo',
     description: 'Lokale Sichtbarkeit erhöhen und organische Anfragen über Google generieren.',
   },
   {
     icon: Shield,
     title: 'Support',
+    href: '/leistungen/wartung',
     description: 'Wir kümmern uns um Updates, Backups und die Sicherheit Ihrer Seite – 365 Tage im Jahr.',
   },
 ]
@@ -38,12 +41,12 @@ export default function LeistungenSection() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Maßgeschneiderte Lösungen für Ihren digitalen Auftritt
+            Webdesign & SEO für Unternehmen in Darmstadt und Pfungstadt
           </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {leistungen.map((item, index) => (
+          {leistungen.map((item) => (
             <motion.div
               key={item.title}
               whileHover={{ 
@@ -55,8 +58,19 @@ export default function LeistungenSection() {
               <div className="flex items-center justify-center w-16 h-16 bg-[#3B82F6]/10 rounded-xl mb-6 group-hover:bg-[#3B82F6]/20 transition-colors duration-300 mx-auto md:mx-0">
                 <item.icon className="w-8 h-8 text-[#3B82F6]" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-white">{item.title}</h3>
-              <p className="text-slate-400 leading-relaxed">{item.description}</p>
+              <h3 className="text-xl font-bold mb-4 text-white">
+                <Link href={item.href} className="text-white hover:text-[#3B82F6] transition-colors focus:outline-none focus:ring-2 focus:ring-[#3B82F6] rounded">
+                  {item.title}
+                </Link>
+              </h3>
+              <p className="text-slate-400 leading-relaxed mb-4">{item.description}</p>
+              <Link
+                href={item.href}
+                className="inline-flex items-center gap-2 text-[#3B82F6] font-semibold hover:gap-3 transition-all group/lk"
+              >
+                Mehr erfahren
+                <ArrowRight className="w-4 h-4 group-hover/lk:translate-x-1 transition-transform" aria-hidden="true" />
+              </Link>
             </motion.div>
           ))}
         </div>

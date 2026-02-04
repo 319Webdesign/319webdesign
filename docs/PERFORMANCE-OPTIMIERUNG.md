@@ -1,4 +1,17 @@
-# Mobile Performance Optimierung - Hero Section
+# Performance Optimierung
+
+## Server, Komprimierung & TTFB (Seobility Server-Score)
+
+- **next.config.js:** `compress: true` – GZip bei `next start` aktiv.
+- **Vercel:** Keine Middleware nötig; Brotli/GZip erfolgt automatisch am Edge. Keine extra Konfiguration, die die Komprimierung stören könnte.
+- **Eigener Node-Server:** `npm run start:compressed` startet `server.js` mit dem Paket `compression` (GZip für alle Antworten inkl. statische Assets und API).
+- **X-Powered-By:** In next.config auf `poweredByHeader: false` gesetzt → weniger Header-Größe, bessere TTFB.
+- **Cache-Control:** `/_next/static/*` mit `max-age=31536000, immutable`; HTML/API mit `s-maxage=60, stale-while-revalidate=300`.
+- **Schwere Komponenten:** CookieBanner und WhatsAppButton werden per `dynamic(..., { ssr: false })` geladen → weniger Blockierung beim initialen Server-Rendering.
+
+---
+
+## Mobile Performance – Hero Section
 
 ## 🎯 Ziel: LCP von 3,9s auf unter 2,5s senken
 

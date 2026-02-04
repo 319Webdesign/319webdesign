@@ -19,6 +19,14 @@ const allProjects = [
   },
   {
     id: 2,
+    title: 'da-sound',
+    category: 'Veranstaltungstechnik',
+    imageUrl: '/dasound-header.png',
+    liveUrl: 'https://www.da-sound.de/',
+    size: 'normal', // normal
+  },
+  {
+    id: 3,
     title: 'DemoSeite',
     category: 'Handwerksbetrieb',
     imageUrl: '/headerscreen.png',
@@ -26,7 +34,7 @@ const allProjects = [
     size: 'normal', // normal
   },
   {
-    id: 3,
+    id: 4,
     title: 'Arena Sportsbar',
     category: 'Gastronomie',
     imageUrl: '/arena-sportsbar-header.png',
@@ -35,12 +43,12 @@ const allProjects = [
   },
 ]
 
-// Nur Heinerfilm und Arena Sportsbar anzeigen
+// Heinerfilm, da-sound und Arena Sportsbar anzeigen
 const portfolioProjects = allProjects.filter(
-  project => project.title === 'Heinerfilm' || project.title === 'Arena Sportsbar'
+  project => project.title === 'Heinerfilm' || project.title === 'da-sound' || project.title === 'Arena Sportsbar'
 )
 
-const categories = ['Alle', 'Webdesign', 'Gastronomie']
+const categories = ['Alle', 'Webdesign', 'Veranstaltungstechnik', 'Gastronomie']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },

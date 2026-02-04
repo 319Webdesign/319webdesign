@@ -7,6 +7,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Leistungen (aktive Slugs aus app/leistungen/[slug]/page.tsx)
   const leistungen = ['webdesign', 'seo', 'wartung']
 
+  // Warum-Unterseiten (app/warum/[slug]/page.tsx)
+  const warumSlugs = ['umsatzstark', 'blitzschnell', 'lokal']
+
   // Städte (aktive Cities aus app/webdesign/[city]/page.tsx)
   const cities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt']
 
@@ -41,6 +44,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
+    })),
+
+    // Warum-Unterseiten (Umsatzstark, Blitzschnell, Lokal)
+    ...warumSlugs.map((slug) => ({
+      url: `${baseUrl}/warum/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
     })),
 
     // Portfolio - Wichtig für Vertrauensaufbau

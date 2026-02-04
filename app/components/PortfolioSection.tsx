@@ -23,6 +23,13 @@ const portfolioProjects = [
   },
   {
     id: 2,
+    title: 'da-sound',
+    category: 'Veranstaltungstechnik',
+    imageUrl: '/dasound-header.png',
+    liveUrl: 'https://www.da-sound.de/',
+  },
+  {
+    id: 3,
     title: 'Arena Sportsbar',
     category: 'Gastronomie',
     imageUrl: '/arena-sportsbar-header.png',
@@ -45,8 +52,8 @@ export default function PortfolioSection() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Bei nur einem Projekt: größer darstellen
-  const itemsPerView = portfolioProjects.length === 1 ? 1 : (isMobile ? 1.2 : 1.5)
+  // Immer eine volle Karte anzeigen, damit nichts abgeschnitten wird
+  const itemsPerView = portfolioProjects.length === 1 ? 1 : (isMobile ? 1 : 1)
   // Berechne maxIndex: Anzahl der möglichen Scroll-Positionen
   // Wenn wir mehr Items haben als sichtbar sind, können wir scrollen
   const maxIndex = portfolioProjects.length > itemsPerView 
@@ -107,12 +114,12 @@ export default function PortfolioSection() {
               className={`flex ${portfolioProjects.length === 1 ? 'justify-center' : ''} gap-4`}
               drag={portfolioProjects.length > 1 ? "x" : false}
               dragConstraints={{
-                left: -maxIndex * (100 / itemsPerView),
+                left: -maxIndex * (100 / portfolioProjects.length),
                 right: 0
               }}
               dragElastic={0.2}
               animate={{
-                x: portfolioProjects.length === 1 ? '0%' : `-${portfolioIndex * (100 / itemsPerView)}%`,
+                x: portfolioProjects.length === 1 ? '0%' : `-${portfolioIndex * (100 / portfolioProjects.length)}%`,
               }}
               onDragEnd={(event, info) => {
                 if (portfolioProjects.length <= 1) return
@@ -139,10 +146,10 @@ export default function PortfolioSection() {
                 const scale = portfolioProjects.length === 1 ? 1 : Math.max(0.85, 1 - distance * 0.08)
                 const opacity = portfolioProjects.length === 1 ? 1 : Math.max(0.5, 1 - distance * 0.15)
                 
-                // Breite basierend auf Anzahl der Projekte
+                // Bei itemsPerView=1: Jede Karte = 1/3 des Containers, volle Ansicht ohne Abschneiden
                 const cardWidthClass = portfolioProjects.length === 1
                   ? (isMobile ? 'w-full max-w-full' : 'w-full max-w-5xl mx-auto')
-                  : (isMobile ? 'w-[calc(83.333%-0.67rem)]' : 'w-[calc(66.667%-0.5rem)]')
+                  : 'min-w-0 flex-[1_0_0]'
                 
                 return (
                   <motion.div
@@ -171,18 +178,14 @@ export default function PortfolioSection() {
                       }}
                     >
                       {/* Image Container */}
-                      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden">
+                      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-800/50">
                         <Image
                           src={project.imageUrl || '/placeholder-project.jpg'}
                           alt={`Webdesign Portfolio Screenshot für ${project.title} - ${project.category} Projekt von 319Webdesign`}
-                          width={1920}
-                          height={820}
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 30vw"
-                          className={`w-full h-full transition-transform duration-300 group-hover/card:scale-105 ${
-                            project.title === 'Arena Sportsbar' 
-                              ? 'object-contain object-center' 
-                              : 'object-cover object-center'
-                          }`}
+                          fill
+                          sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px"
+                          quality={90}
+                          className="object-contain object-center transition-transform duration-300 group-hover/card:scale-[1.02]"
                         />
 
                         {/* Hover Overlay */}

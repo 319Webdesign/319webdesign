@@ -5,6 +5,7 @@ import UeberMichSection from './components/UeberMichSection'
 import WarumSection from './components/WarumSection'
 import ProzessSection from './components/ProzessSection'
 import LeistungenSection from './components/LeistungenSection'
+import GoogleReviewsSection from './components/GoogleReviewsSection'
 import ProblemLoesungSection from './components/ProblemLoesungSection'
 import PortfolioSection from './components/PortfolioSection'
 import CTASection from './components/CTASection'
@@ -48,6 +49,7 @@ export default function Home() {
       <WarumSection />
       <ProzessSection />
       <LeistungenSection />
+      <GoogleReviewsSection />
       <ProblemLoesungSection />
       <PortfolioSection />
       <CTASection />

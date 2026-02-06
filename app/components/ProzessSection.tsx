@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useReduceMotion } from './ReducedMotionProvider'
 import { Search, Palette, FileText, Code, Wrench, ArrowRight } from 'lucide-react'
 
 const fadeInUp = {
@@ -44,20 +45,37 @@ const processSteps = [
 ]
 
 export default function ProzessSection() {
+  const reduceMotion = useReduceMotion()
+
+  const CardEl = reduceMotion ? 'div' : motion.div
+  const cardProps = reduceMotion ? {} : { whileHover: { y: -5, transition: { duration: 0.3 } } }
+  const IconEl = reduceMotion ? 'div' : motion.div
+  const iconProps = reduceMotion ? {} : { whileHover: { rotate: [0, -5, 5, 0] }, transition: { duration: 0.5 } }
+  const LinkEl = reduceMotion ? 'a' : motion.a
+  const linkProps = reduceMotion ? { href: '/kontakt', className: 'group relative inline-block', 'aria-label': 'Zum Kontaktformular springen - Erstgespräch vereinbaren' } : { href: '/kontakt', whileHover: { scale: 1.05, y: -2 }, whileTap: { scale: 0.95 }, animate: { boxShadow: ['0 10px 25px -5px rgba(59, 130, 246, 0.3)', '0 15px 35px -5px rgba(59, 130, 246, 0.4)', '0 10px 25px -5px rgba(59, 130, 246, 0.3)' ] }, transition: { boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }, className: 'group relative inline-block', 'aria-label': 'Zum Kontaktformular springen - Erstgespräch vereinbaren' }
+
   return (
     <section id="prozess" className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          {...fadeInUp}
-          className="text-center mb-16"
-        >
+        {reduceMotion ? (
+          <div className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span> in Hessen.
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ein transparenter Prozess, der auf ein klares Ziel ausgerichtet ist: Ihr Wachstum.
           </p>
-        </motion.div>
+          </div>
+        ) : (
+          <motion.div {...fadeInUp} className="text-center mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span> in Hessen.
+          </h2>
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            Ein transparenter Prozess, der auf ein klares Ziel ausgerichtet ist: Ihr Wachstum.
+          </p>
+          </motion.div>
+        )}
 
         <div className="relative">
           {/* SVG Connection Lines - Desktop */}
@@ -122,13 +140,10 @@ export default function ProzessSection() {
 
           {/* Desktop: 3-Column Grid with 2 rows */}
           <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2 gap-8 items-stretch mt-40">
-            {processSteps.map((item, index) => (
-              <motion.div
+            {processSteps.map((item) => (
+              <CardEl
                 key={item.step}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
+                {...cardProps}
                 className="bg-slate-50 backdrop-blur-sm pt-12 pb-8 px-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/process relative overflow-visible h-full flex flex-col"
               >
                 {/* Glow Effect on Hover */}
@@ -154,15 +169,12 @@ export default function ProzessSection() {
                   <h3 className="text-xl font-bold mb-4 text-center">{item.title}</h3>
                   <p className="text-slate-600 text-center text-sm leading-relaxed flex-grow">{item.description}</p>
                 </div>
-              </motion.div>
+              </CardEl>
             ))}
             
             {/* CTA Card */}
-            <motion.div
-              whileHover={{ 
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
+            <CardEl
+              {...cardProps}
               className="bg-slate-50 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/cta relative overflow-visible h-full flex flex-col"
             >
               {/* Glow Effect on Hover */}
@@ -174,46 +186,23 @@ export default function ProzessSection() {
                 <h3 className="text-2xl font-bold mb-6">
                   In 5 Schritten zu Ihrer neuen Website – jetzt starten.
                 </h3>
-                <motion.a
-                  href="/kontakt"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{
-                    boxShadow: [
-                      '0 10px 25px -5px rgba(59, 130, 246, 0.3)',
-                      '0 15px 35px -5px rgba(59, 130, 246, 0.4)',
-                      '0 10px 25px -5px rgba(59, 130, 246, 0.3)',
-                    ],
-                  }}
-                  transition={{
-                    boxShadow: {
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    },
-                  }}
-                  className="group relative inline-block"
-                  aria-label="Zum Kontaktformular springen - Erstgespräch vereinbaren"
-                >
+                <LinkEl {...linkProps}>
                   <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                   <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
                     Erstgespräch vereinbaren
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>
-                </motion.a>
+                </LinkEl>
               </div>
-            </motion.div>
+            </CardEl>
           </div>
 
           {/* Mobile: Vertical Layout */}
           <div className="md:hidden space-y-8">
-            {processSteps.map((item, index) => (
-              <motion.div
+            {processSteps.map((item) => (
+              <CardEl
                 key={item.step}
-                whileHover={{ 
-                  y: -5,
-                  transition: { duration: 0.3 }
-                }}
+                {...cardProps}
                 className="bg-slate-50 backdrop-blur-sm pt-12 pb-8 px-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/process relative overflow-visible"
               >
                 {/* Glow Effect on Hover */}
@@ -229,25 +218,18 @@ export default function ProzessSection() {
                 </div>
                 
                 <div className="relative z-10">
-                  <motion.div 
-                    className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-6 mx-auto group-hover/process:scale-110 transition-transform duration-300"
-                    whileHover={{ rotate: [0, -5, 5, 0] }}
-                    transition={{ duration: 0.5 }}
-                  >
+                  <IconEl {...iconProps} className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-6 mx-auto group-hover/process:scale-110 transition-transform duration-300">
                     <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
-                  </motion.div>
+                  </IconEl>
                   <h3 className="text-2xl font-bold mb-4 text-center">{item.title}</h3>
                   <p className="text-slate-600 text-center">{item.description}</p>
                 </div>
-              </motion.div>
+              </CardEl>
             ))}
             
             {/* CTA Card Mobile */}
-            <motion.div
-              whileHover={{ 
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
+            <CardEl
+              {...cardProps}
               className="bg-slate-50 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/cta relative overflow-visible"
             >
               {/* Glow Effect on Hover */}
@@ -259,35 +241,15 @@ export default function ProzessSection() {
                 <h3 className="text-2xl font-bold mb-6">
                   Erstgespräch vereinbaren und gemeinsam durchstarten.
                 </h3>
-                <motion.a
-                  href="/kontakt"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{
-                    boxShadow: [
-                      '0 10px 25px -5px rgba(59, 130, 246, 0.3)',
-                      '0 15px 35px -5px rgba(59, 130, 246, 0.4)',
-                      '0 10px 25px -5px rgba(59, 130, 246, 0.3)',
-                    ],
-                  }}
-                  transition={{
-                    boxShadow: {
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    },
-                  }}
-                  className="group relative inline-block"
-                  aria-label="Zum Kontaktformular springen - Erstgespräch vereinbaren"
-                >
+                <LinkEl {...linkProps}>
                   <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                   <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
                     Erstgespräch vereinbaren
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>
-                </motion.a>
+                </LinkEl>
               </div>
-            </motion.div>
+            </CardEl>
           </div>
         </div>
       </div>

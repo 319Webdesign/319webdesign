@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useReduceMotion } from './ReducedMotionProvider'
 import { Phone, Mail, ArrowRight, ChevronDown, MessageCircle } from 'lucide-react'
 
 const fadeInUp = {
@@ -12,6 +13,9 @@ const fadeInUp = {
 }
 
 export default function KontaktSection() {
+  const reduceMotion = useReduceMotion()
+  const HeaderEl = reduceMotion ? 'div' : motion.div
+  const headerProps = reduceMotion ? { className: 'text-center mb-16' } : { ...fadeInUp, className: 'text-center mb-16' }
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -83,17 +87,14 @@ export default function KontaktSection() {
   return (
     <section id="kontakt" className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          {...fadeInUp}
-          className="text-center mb-16"
-        >
+        <HeaderEl {...headerProps}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             Lassen Sie uns <span className="text-blue-600">sprechen</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Bereit für Ihre neue Website? Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
           </p>
-        </motion.div>
+        </HeaderEl>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Kontaktformular */}

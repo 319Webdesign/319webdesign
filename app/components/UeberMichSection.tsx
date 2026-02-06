@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useReduceMotion } from './ReducedMotionProvider'
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,15 +14,20 @@ const fadeInUp = {
 }
 
 export default function UeberMichSection() {
+  const reduceMotion = useReduceMotion()
+  const WrapEl = reduceMotion ? 'div' : motion.div
+  const wrapProps = reduceMotion ? { className: 'relative' } : { ...fadeInUp, className: 'relative' }
+  const textWrapProps = reduceMotion ? { className: 'space-y-6' } : { ...fadeInUp, transition: { delay: 0.2 }, className: 'space-y-6' }
+  const btnWrapProps = reduceMotion ? {} : { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, transition: { duration: 0.6, delay: 0.4 } }
+  const BtnEl = reduceMotion ? 'div' : motion.div
+  const btnProps = reduceMotion ? {} : { whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 }, animate: { boxShadow: ['0 10px 25px -5px rgba(59, 130, 246, 0.5)', '0 15px 35px -5px rgba(59, 130, 246, 0.6)', '0 10px 25px -5px rgba(59, 130, 246, 0.5)' ] }, transition: { boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' } } }
+
   return (
     <section className="pt-32 pb-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Bild links */}
-          <motion.div
-            {...fadeInUp}
-            className="relative"
-          >
+          <WrapEl {...wrapProps}>
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue-500/20">
               <Image
                 src="/maik.webp"
@@ -38,14 +44,10 @@ export default function UeberMichSection() {
             </div>
             {/* Zusätzlicher Glow für extra Effekt */}
             <div className="absolute inset-0 rounded-2xl bg-blue-500/5 blur-2xl -z-10 scale-105" />
-          </motion.div>
+          </WrapEl>
 
           {/* Text rechts */}
-          <motion.div
-            {...fadeInUp}
-            transition={{ delay: 0.2 }}
-            className="space-y-6"
-          >
+          <WrapEl {...textWrapProps}>
             {/* Große Haupt-Headline */}
             <h2 className="text-2xl md:text-4xl font-bold leading-tight text-slate-900">
               Strategische <span className="text-blue-600">Partnerschaft</span> für digitales Wachstum in Hessen
@@ -63,41 +65,15 @@ export default function UeberMichSection() {
             </div>
 
             {/* Call-to-Action Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Link
-                href="#prozess"
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  animate={{
-                    boxShadow: [
-                      '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
-                      '0 15px 35px -5px rgba(59, 130, 246, 0.6)',
-                      '0 10px 25px -5px rgba(59, 130, 246, 0.5)',
-                    ],
-                  }}
-                  transition={{
-                    boxShadow: {
-                      duration: 2,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    },
-                  }}
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 group/btn cursor-pointer"
-                  aria-label="Mehr über die Arbeitsweise erfahren"
-                >
+            <BtnEl {...btnWrapProps}>
+              <Link href="#prozess">
+                <BtnEl {...btnProps} className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 group/btn cursor-pointer" aria-label="Mehr über die Arbeitsweise erfahren">
                   Mehr über meine Arbeitsweise
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
-                </motion.div>
+                </BtnEl>
               </Link>
-            </motion.div>
-          </motion.div>
+            </BtnEl>
+          </WrapEl>
         </div>
       </div>
     </section>

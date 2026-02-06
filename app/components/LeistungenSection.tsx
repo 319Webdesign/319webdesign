@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useReduceMotion } from './ReducedMotionProvider'
 import { Laptop, Search, Shield, Zap, ArrowRight, Award } from 'lucide-react'
 import Link from 'next/link'
 
@@ -33,28 +34,26 @@ const leistungen = [
 ]
 
 export default function LeistungenSection() {
+  const reduceMotion = useReduceMotion()
+
+  const HeaderEl = reduceMotion ? 'div' : motion.div
+  const headerProps = reduceMotion ? { className: 'text-center mb-16' } : { ...fadeInUp, className: 'text-center mb-16' }
+
   return (
     <section id="leistungen" className="py-28 md:py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          {...fadeInUp}
-          className="text-center mb-16"
-        >
+        <HeaderEl {...headerProps}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
           Zahlen lügen nicht: Maximale <span className="text-blue-600">Performance</span> für Ihren <span className="text-blue-600">Erfolg</span>.
           </h2>
-        </motion.div>
+        </HeaderEl>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {leistungen.map((item) => (
-            <motion.div
-              key={item.title}
-              whileHover={{ 
-                y: -5,
-                transition: { duration: 0.3 }
-              }}
-              className="bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left"
-            >
+          {leistungen.map((item) => {
+            const CardEl = reduceMotion ? 'div' : motion.div
+            const cardProps = reduceMotion ? { key: item.title, className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left' } : { key: item.title, whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left' }
+            return (
+            <CardEl {...cardProps}>
               <div className="flex items-center justify-center w-16 h-16 bg-[#3B82F6]/10 rounded-xl mb-6 group-hover:bg-[#3B82F6]/20 transition-colors duration-300 mx-auto md:mx-0">
                 <item.icon className="w-8 h-8 text-[#3B82F6]" aria-hidden="true" />
               </div>
@@ -71,18 +70,17 @@ export default function LeistungenSection() {
                 Mehr erfahren
                 <ArrowRight className="w-4 h-4 group-hover/lk:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
-            </motion.div>
-          ))}
+            </CardEl>
+          )
+          })}
         </div>
 
         {/* Performance Teaser Card */}
-        <motion.div
-          whileHover={{ 
-            y: -5,
-            transition: { duration: 0.3 }
-          }}
-          className="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10 hover:border-[#3B82F6] transition-all duration-300 group relative overflow-hidden"
-        >
+        {(() => {
+          const TeaserEl = reduceMotion ? 'div' : motion.div
+          const teaserProps = reduceMotion ? { className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10 hover:border-[#3B82F6] transition-all duration-300 group relative overflow-hidden' } : { whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10 hover:border-[#3B82F6] transition-all duration-300 group relative overflow-hidden' }
+          return (
+        <TeaserEl {...teaserProps}>
           {/* Glow Effect */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
             <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]" />
@@ -124,7 +122,9 @@ export default function LeistungenSection() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </TeaserEl>
+          )
+        })()}
       </div>
     </section>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useReduceMotion } from './ReducedMotionProvider'
 import { Rocket, TrendingUp, Crown, Check, Server, Wrench, PenTool, Palette } from 'lucide-react'
 
 const fadeInUp = {
@@ -18,6 +19,7 @@ const cardStagger = {
 }
 
 export default function InvestmentSection() {
+  const reduceMotion = useReduceMotion()
   const wachstumsBereiche = [
     {
       icon: Rocket,
@@ -94,40 +96,39 @@ export default function InvestmentSection() {
     <section className="py-24 px-6 bg-slate-50">
       <div className="max-w-6xl mx-auto">
         {/* Headline & Text */}
-        <motion.div
-          {...fadeInUp}
-          className="text-center mb-16"
-        >
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900">
-            Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
-          </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            Jedes Unternehmen in Hessen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
-          </p>
-        </motion.div>
+        {reduceMotion ? (
+          <div className="text-center mb-16">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900">
+              Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              Jedes Unternehmen in Hessen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
+            </p>
+          </div>
+        ) : (
+          <motion.div {...fadeInUp} className="text-center mb-16">
+            <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900">
+              Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
+              Jedes Unternehmen in Hessen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
+            </p>
+          </motion.div>
+        )}
 
         {/* Wachstums-Bereiche Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {wachstumsBereiche.map((bereich, index) => {
             const IconComponent = bereich.icon
-            return (
-              <motion.div
-                key={bereich.title}
-                {...cardStagger}
-                transition={{
-                  ...cardStagger.transition,
-                  delay: index * 0.12,
-                }}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.3 },
-                }}
-                className={`rounded-2xl bg-white border-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] transition-all duration-300 group/card relative ${
+            const CardEl = reduceMotion ? 'div' : motion.div
+            const cardClassName = `rounded-2xl bg-white border-2 hover:shadow-[0_0_30px_rgba(59,130,246,0.25)] transition-all duration-300 group/card relative ${
                   bereich.recommended 
                     ? 'border-blue-500 shadow-lg shadow-blue-500/10 pt-12 pb-8 px-8' 
                     : 'border-slate-200 hover:border-blue-500 p-8'
-                }`}
-              >
+                }`
+            const cardProps = reduceMotion ? { key: bereich.title, className: cardClassName } : { key: bereich.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.12 }, whileHover: { y: -5, transition: { duration: 0.3 } }, className: cardClassName }
+            return (
+              <CardEl {...cardProps}>
                 {/* Empfehlung Badge */}
                 {bereich.recommended && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
@@ -139,17 +140,20 @@ export default function InvestmentSection() {
 
                 <div className="relative z-10">
                   {/* Icon */}
-                  <motion.div
-                    className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300"
-                    whileHover={{ rotate: [0, -5, 5, 0] }}
-                    transition={{ duration: 0.5 }}
-                    aria-label={bereich.ariaLabel}
-                  >
-                    <IconComponent
-                      className="w-7 h-7 text-white"
-                      aria-hidden="true"
-                    />
-                  </motion.div>
+                  {reduceMotion ? (
+                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300" aria-label={bereich.ariaLabel}>
+                      <IconComponent className="w-7 h-7 text-white" aria-hidden="true" />
+                    </div>
+                  ) : (
+                    <motion.div
+                      className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300"
+                      whileHover={{ rotate: [0, -5, 5, 0] }}
+                      transition={{ duration: 0.5 }}
+                      aria-label={bereich.ariaLabel}
+                    >
+                      <IconComponent className="w-7 h-7 text-white" aria-hidden="true" />
+                    </motion.div>
+                  )}
                   
                   {/* Title */}
                   <h3 className="text-xl md:text-2xl font-bold mb-2 text-slate-900">
@@ -173,37 +177,24 @@ export default function InvestmentSection() {
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+              </CardEl>
             )
           })}
         </div>
 
         {/* Zusatzleistungen Section */}
-        <motion.div
-          {...fadeInUp}
-          className="mt-20 mb-16"
-        >
+        {reduceMotion ? (
+          <div className="mt-20 mb-16">
           <h3 className="text-xl md:text-2xl font-bold text-center mb-10 text-slate-900">
             Zusatzleistungen <span className="text-slate-500 font-normal text-lg">(optional)</span>
           </h3>
-          
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {zusatzleistungen.map((leistung, index) => {
               const IconComponent = leistung.icon
+              const ZusatzEl = reduceMotion ? 'div' : motion.div
+              const zusatzProps = reduceMotion ? { key: leistung.title, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' } : { key: leistung.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.1 }, whileHover: { y: -3, transition: { duration: 0.3 } }, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' }
               return (
-                <motion.div
-                  key={leistung.title}
-                  {...cardStagger}
-                  transition={{
-                    ...cardStagger.transition,
-                    delay: index * 0.1,
-                  }}
-                  whileHover={{
-                    y: -3,
-                    transition: { duration: 0.3 },
-                  }}
-                  className="p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz"
-                >
+                <ZusatzEl {...zusatzProps}>
                   {/* Icon */}
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover/zusatz:bg-blue-200 transition-colors duration-300">
                     <IconComponent
@@ -221,29 +212,57 @@ export default function InvestmentSection() {
                   <p className="text-slate-600 text-sm leading-relaxed">
                     {leistung.description}
                   </p>
-                </motion.div>
+                </ZusatzEl>
               )
             })}
           </div>
-        </motion.div>
+          </div>
+        ) : (
+          <motion.div {...fadeInUp} className="mt-20 mb-16">
+          <h3 className="text-xl md:text-2xl font-bold text-center mb-10 text-slate-900">
+            Zusatzleistungen <span className="text-slate-500 font-normal text-lg">(optional)</span>
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {zusatzleistungen.map((leistung, index) => {
+              const IconComponent = leistung.icon
+              const ZusatzEl = motion.div
+              const zusatzProps = { key: leistung.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.1 }, whileHover: { y: -3, transition: { duration: 0.3 } }, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' }
+              return (
+                <ZusatzEl {...zusatzProps}>
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover/zusatz:bg-blue-200 transition-colors duration-300">
+                    <IconComponent className="w-6 h-6 text-blue-600" aria-label={leistung.ariaLabel} />
+                  </div>
+                  <h4 className="text-base font-bold mb-3 text-slate-900">{leistung.title}</h4>
+                  <p className="text-slate-600 text-sm leading-relaxed">{leistung.description}</p>
+                </ZusatzEl>
+              )
+            })}
+          </div>
+          </motion.div>
+        )}
 
         {/* CTA */}
-        <motion.div
-          {...fadeInUp}
-          className="text-center"
-        >
+        {reduceMotion ? (
+          <div className="text-center">
           <a
             href="/kontakt"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300 mb-4"
           >
             Individuelle Strategie anfragen
           </a>
-          
-          {/* Hinweis */}
-          <p className="text-sm text-slate-500 mt-4">
-            Kostenloses Erstgespräch zur Zieldefinition inklusive.
-          </p>
-        </motion.div>
+          <p className="text-sm text-slate-500 mt-4">Kostenloses Erstgespräch zur Zieldefinition inklusive.</p>
+          </div>
+        ) : (
+          <motion.div {...fadeInUp} className="text-center">
+          <a
+            href="/kontakt"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300 mb-4"
+          >
+            Individuelle Strategie anfragen
+          </a>
+          <p className="text-sm text-slate-500 mt-4">Kostenloses Erstgespräch zur Zieldefinition inklusive.</p>
+          </motion.div>
+        )}
       </div>
     </section>
   )

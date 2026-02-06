@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server'
 
+// Verhindert DYNAMIC_SERVER_USAGE beim Build – Route wird nie statisch vorgeführt
+export const dynamic = 'force-dynamic'
+
 const MAX_REVIEWS = 3
 
 export interface GoogleReview {

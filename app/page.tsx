@@ -10,7 +10,7 @@ const WarumSection = dynamic(() => import('./components/WarumSection'), { ssr: t
 const ProzessSection = dynamic(() => import('./components/ProzessSection'), { ssr: true })
 const InvestmentSection = dynamic(() => import('./components/InvestmentSection'), { ssr: true })
 const LeistungenSection = dynamic(() => import('./components/LeistungenSection'), { ssr: true })
-const GoogleReviewsSection = dynamic(() => import('./components/GoogleReviewsSection'), { ssr: true })
+const GoogleReviewsSection = dynamic(() => import('./components/GoogleReviewsSection'), { ssr: false })
 const PortfolioSection = dynamic(() => import('./components/PortfolioSection'), { ssr: true })
 const CTASection = dynamic(() => import('./components/CTASection'), { ssr: true })
 const FAQSection = dynamic(() => import('./components/FAQSection'), { ssr: true })

@@ -8,6 +8,7 @@ import ProfessionalServiceSchema from './components/ProfessionalServiceSchema'
 const CookieBanner = dynamic(() => import('./components/CookieBanner'), { ssr: false })
 const WhatsAppButton = dynamic(() => import('./components/WhatsAppButton'), { ssr: false })
 import SiteNavigationSchema from './components/SiteNavigationSchema'
+import ReducedMotionProvider from './components/ReducedMotionProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({
@@ -43,10 +44,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`antialiased ${inter.className}`}>
-        {children}
-        <CookieBanner />
-        <WhatsAppButton />
-        <SpeedInsights />
+        <ReducedMotionProvider>
+          {children}
+          <CookieBanner />
+          <WhatsAppButton />
+          <SpeedInsights />
+        </ReducedMotionProvider>
       </body>
     </html>
   )

@@ -124,5 +124,25 @@
     animation: pulse-glow 3s ease-in-out infinite;
     will-change: opacity, transform;
   }
+
+  /* Animationen auf Mobile deaktivieren – verhindert Flackern */
+  @media (max-width: 768px) {
+    .animate-fade-in-up,
+    .animate-fade-in,
+    .animate-bounce-slow,
+    .animate-float,
+    .animate-pulse-glow,
+    .animate-pulse {
+      animation: none !important;
+      opacity: 1;
+      transform: none;
+    }
+    .animation-delay-100,
+    .animation-delay-200,
+    .animation-delay-1000 {
+      animation-delay: 0s !important;
+      opacity: 1;
+    }
+  }
 }
 

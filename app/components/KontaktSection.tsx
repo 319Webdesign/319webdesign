@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Phone, Mail, ArrowRight, ChevronDown } from 'lucide-react'
+import { Phone, Mail, ArrowRight, ChevronDown, MessageCircle } from 'lucide-react'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -81,29 +81,29 @@ export default function KontaktSection() {
   }
 
   return (
-    <section id="kontakt" className="py-24 px-6 bg-slate-900">
+    <section id="kontakt" className="py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Lassen Sie uns sprechen
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+            Lassen Sie uns <span className="text-blue-600">sprechen</span>
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Bereit für Ihre neue Website? Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Kontaktformular */}
-          <div className="bg-slate-800/50 p-8 rounded-xl border border-slate-700">
+          <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
             <h3 className="text-2xl font-bold mb-6">Projekt anfragen</h3>
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               {/* Vor- und Nachname in einer Zeile auf Desktop */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-slate-300">
+                  <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-slate-700">
                     Vorname <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                   </label>
                   <input
@@ -113,13 +113,13 @@ export default function KontaktSection() {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-100 placeholder:text-slate-500"
+                    className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
                     placeholder="Max"
                     aria-required="true"
                   />
                 </div>
                 <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-slate-300">
+                  <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-slate-700">
                     Nachname <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                   </label>
                   <input
@@ -129,7 +129,7 @@ export default function KontaktSection() {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-100 placeholder:text-slate-500"
+                    className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
                     placeholder="Mustermann"
                     aria-required="true"
                   />
@@ -137,7 +137,7 @@ export default function KontaktSection() {
               </div>
 
               <div>
-                <label htmlFor="company" className="block text-sm font-medium mb-2 text-slate-300">
+                <label htmlFor="company" className="block text-sm font-medium mb-2 text-slate-700">
                   Name des Unternehmens
                 </label>
                 <input
@@ -146,13 +146,13 @@ export default function KontaktSection() {
                   name="company"
                   value={formData.company}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-100 placeholder:text-slate-500"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
                   placeholder="Musterfirma GmbH (optional)"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 text-slate-300">
+                <label htmlFor="email" className="block text-sm font-medium mb-2 text-slate-700">
                   E-Mail-Adresse <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
                 <input
@@ -162,14 +162,14 @@ export default function KontaktSection() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-100 placeholder:text-slate-500"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
                   placeholder="ihre@email.de"
                   aria-required="true"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium mb-2 text-slate-300">
+                <label htmlFor="service" className="block text-sm font-medium mb-2 text-slate-700">
                   Wie kann ich Ihnen helfen? <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
                 <div className="relative">
@@ -179,21 +179,21 @@ export default function KontaktSection() {
                     value={formData.service}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 pr-10 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-100 appearance-none cursor-pointer"
+                    className="w-full px-4 py-3 pr-10 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 appearance-none cursor-pointer"
                     aria-required="true"
                   >
-                    <option value="" disabled className="bg-slate-900">Bitte wählen Sie eine Option</option>
-                    <option value="neue-website" className="bg-slate-900">Neue Website erstellen</option>
-                    <option value="website-optimieren" className="bg-slate-900">Bestehende Website optimieren</option>
-                    <option value="seo" className="bg-slate-900">SEO & Sichtbarkeit</option>
-                    <option value="sonstiges" className="bg-slate-900">Sonstiges</option>
+                    <option value="" disabled className="bg-white">Bitte wählen Sie eine Option</option>
+                    <option value="neue-website" className="bg-white">Neue Website erstellen</option>
+                    <option value="website-optimieren" className="bg-white">Bestehende Website optimieren</option>
+                    <option value="seo" className="bg-white">SEO & Sichtbarkeit</option>
+                    <option value="sonstiges" className="bg-white">Sonstiges</option>
                   </select>
                   <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" aria-hidden="true" />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 text-slate-300">
+                <label htmlFor="message" className="block text-sm font-medium mb-2 text-slate-700">
                   Beschreiben Sie kurz Ihr Vorhaben <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
                 <textarea
@@ -203,7 +203,7 @@ export default function KontaktSection() {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none text-slate-100 placeholder:text-slate-500"
+                  className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none text-slate-900 placeholder:text-slate-500"
                   placeholder="Erzählen Sie uns von Ihrem Projekt..."
                   aria-required="true"
                 />
@@ -217,10 +217,10 @@ export default function KontaktSection() {
                   checked={formData.privacyAccepted}
                   onChange={handleCheckboxChange}
                   required
-                  className="mt-1 w-4 h-4 bg-slate-900 border-slate-700 rounded focus:ring-2 focus:ring-blue-500 text-blue-600 cursor-pointer"
+                  className="mt-1 w-4 h-4 bg-white border-slate-300 rounded focus:ring-2 focus:ring-blue-500 text-blue-600 cursor-pointer"
                   aria-required="true"
                 />
-                <label htmlFor="privacyAccepted" className="text-sm text-slate-400 cursor-pointer">
+                <label htmlFor="privacyAccepted" className="text-sm text-slate-600 cursor-pointer">
                   Ich habe die <a href="/datenschutz" className="text-blue-300 hover:text-blue-200 underline" target="_blank" rel="noopener noreferrer">Datenschutzhinweise</a> gelesen und akzeptiere diese. <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
               </div>
@@ -282,22 +282,22 @@ export default function KontaktSection() {
             <motion.div
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.2 }}
-              className="bg-slate-800/50 p-8 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300"
+              className="bg-white p-8 rounded-xl border-2 border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Phone className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Telefon</h3>
+                  <h3 className="text-xl font-bold mb-2 text-slate-900">Telefon</h3>
                   <a 
                     href="tel:+491773236454" 
-                    className="text-blue-300 hover:text-blue-200 transition-colors text-lg"
+                    className="text-blue-600 hover:text-blue-700 transition-colors text-lg font-semibold"
                     aria-label="Rufen Sie uns an unter +49 177 3236454"
                   >
                     +49 177 3236454
                   </a>
-                  <p className="text-slate-400 text-sm mt-1">Mo-Fr: 9:00 - 18:00 Uhr</p>
+                  <p className="text-slate-600 text-sm mt-1">Mo-Fr: 9:00 - 18:00 Uhr</p>
                 </div>
               </div>
             </motion.div>
@@ -306,22 +306,48 @@ export default function KontaktSection() {
             <motion.div
               whileHover={{ scale: 1.02, y: -2 }}
               transition={{ duration: 0.2 }}
-              className="bg-slate-800/50 p-8 rounded-xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300"
+              className="bg-white p-8 rounded-xl border-2 border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">E-Mail</h3>
+                  <h3 className="text-xl font-bold mb-2 text-slate-900">E-Mail</h3>
                   <a 
                     href="mailto:kontakt@319webdesign.com" 
-                    className="text-blue-400 hover:text-blue-300 transition-colors text-lg break-all"
+                    className="text-blue-600 hover:text-blue-700 transition-colors text-lg font-semibold break-all"
                     aria-label="Schreiben Sie uns eine E-Mail an kontakt@319webdesign.com"
                   >
                     kontakt@319webdesign.com
                   </a>
-                  <p className="text-slate-400 text-sm mt-1">Wir antworten innerhalb von 24h</p>
+                  <p className="text-slate-600 text-sm mt-1">Wir antworten innerhalb von 24h</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* WhatsApp Card */}
+            <motion.div
+              whileHover={{ scale: 1.02, y: -2 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white p-8 rounded-xl border-2 border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300"
+            >
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MessageCircle className="w-7 h-7 text-white" aria-hidden="true" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold mb-2 text-slate-900">WhatsApp</h3>
+                  <a 
+                    href="https://wa.me/491773236454" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 transition-colors text-lg font-semibold"
+                    aria-label="Kontaktieren Sie uns per WhatsApp"
+                  >
+                    +49 177 3236454
+                  </a>
+                  <p className="text-slate-600 text-sm mt-1">24/7 erreichbar</p>
                 </div>
               </div>
             </motion.div>

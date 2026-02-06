@@ -63,11 +63,11 @@ export default function CookieBanner() {
           }}
           className="fixed bottom-6 right-6 z-50 max-w-md"
         >
-          <div className="relative bg-slate-900/80 backdrop-blur-xl border border-slate-700/50 rounded-2xl p-6 shadow-2xl">
+          <div className="relative bg-white/95 backdrop-blur-xl border border-slate-200 rounded-2xl p-6 shadow-2xl">
             {/* Close Button */}
             <button
               onClick={() => handleAccept('necessary')}
-              className="absolute top-4 right-4 text-slate-400 hover:text-white transition-colors duration-200"
+              className="absolute top-4 right-4 text-slate-500 hover:text-slate-900 transition-colors duration-200"
               aria-label="Cookie-Banner schließen"
             >
               <X className="w-5 h-5" aria-hidden="true" />
@@ -76,13 +76,13 @@ export default function CookieBanner() {
             {/* Icon */}
             <div className="flex items-start gap-4 mb-4">
               <div className="p-2 bg-blue-500/20 rounded-lg">
-                <Cookie className="w-5 h-5 text-blue-400" aria-hidden="true" />
+                <Cookie className="w-5 h-5 text-blue-600" aria-hidden="true" />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-white mb-2">
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">
                   Cookie-Einstellungen
                 </h3>
-                <p className="text-sm text-slate-300 leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. 
                   Einige sind notwendig, andere helfen uns, die Website zu verbessern.
                 </p>
@@ -99,18 +99,18 @@ export default function CookieBanner() {
               </button>
               <button
                 onClick={() => handleAccept('necessary')}
-                className="flex-1 px-6 py-3 bg-slate-800/50 hover:bg-slate-800 text-slate-200 hover:text-white font-medium rounded-lg transition-colors duration-200 border border-slate-700/50"
+                className="flex-1 px-6 py-3 bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-lg transition-colors duration-200 border border-slate-200"
               >
                 Nur notwendige
               </button>
             </div>
 
             {/* Link zu Datenschutz */}
-            <p className="text-xs text-slate-400 mt-4 text-center">
+            <p className="text-xs text-slate-500 mt-4 text-center">
               Weitere Informationen finden Sie in unserer{' '}
               <a
                 href="/datenschutz"
-                className="text-blue-300 hover:text-blue-200 underline transition-colors duration-200"
+                className="text-blue-600 hover:text-blue-700 underline transition-colors duration-200"
               >
                 Datenschutzerklärung
               </a>

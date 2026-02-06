@@ -14,7 +14,7 @@ const fadeInUp = {
 
 export default function UeberMichSection() {
   return (
-    <section className="py-24 px-6 bg-slate-950">
+    <section className="pt-32 pb-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Bild links */}
@@ -25,10 +25,12 @@ export default function UeberMichSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue-500/20">
               <Image
                 src="/maik.webp"
-                alt="Maik Schmidt – Webdesign Experte für Darmstadt und Pfungstadt, Ihr Partner für digitales Wachstum in Südhessen"
+                alt="Maik Schmidt – Webdesign Darmstadt und Pfungstadt, Ihr Partner für digitales Wachstum in Südhessen"
                 width={600}
                 height={800}
-                className="w-full h-auto object-cover"
+                quality={95}
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 600px"
+                className="w-full h-auto object-contain"
                 loading="lazy"
               />
               {/* Dekorativer Glow-Effekt */}
@@ -44,34 +46,19 @@ export default function UeberMichSection() {
             transition={{ delay: 0.2 }}
             className="space-y-6"
           >
-            {/* Kleine Headline (kein H-Tag, damit Hierarchie H1 → H2 nicht übersprungen wird) */}
-            <p className="text-sm font-semibold text-blue-400 uppercase tracking-wide">
-              Hinter den Kulissen
-            </p>
-
             {/* Große Haupt-Headline */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Webdesign & Digitales Wachstum
-              </span>
-              {' '}für Südhessen
+            <h2 className="text-2xl md:text-4xl font-bold leading-tight text-slate-900">
+              Strategische <span className="text-blue-600">Partnerschaft</span> für digitales Wachstum in Hessen
             </h2>
 
             {/* Prägnanter Text */}
-            <div className="space-y-4 text-lg text-slate-300 leading-relaxed">
+            <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
               <p>
-                Ich bin dein Partner für professionelles Webdesign in Pfungstadt, Darmstadt und Umgebung. Ich spezialisiere mich auf Kleinunternehmen und Selbstständige, die nicht nur eine schöne Website wollen, sondern messbare Ergebnisse.
+                Ich bin nicht nur Ihr Webdesigner – ich bin Ihr Partner für nachhaltigen digitalen Erfolg. Von meinem Standort in Pfungstadt aus begleite ich Unternehmen in ganz Hessen dabei, ihre Website von einer digitalen Visitenkarte in eine echte Verkaufsmaschine zu verwandeln. Mein Fokus liegt dabei nicht auf kurzfristigen Projekten, sondern auf einer langfristigen Zusammenarbeit, um Ihren Webauftritt kontinuierlich zu optimieren und Ihre Geschäftsziele messbar zu erreichen.
               </p>
               
-              {/* Highlight-Box */}
-              <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 border border-blue-500/20 rounded-lg p-6 my-6">
-                <p className="text-lg text-slate-200 leading-relaxed">
-                  Mein Fokus liegt auf <span className="text-blue-400 font-semibold">High-End Performance</span>. Mit modernen Technologien wie Next.js erreiche ich für meine Kunden durchschnittliche PageSpeed-Scores von <span className="text-blue-400 font-semibold">99/100</span>.
-                </p>
-              </div>
-
               <p>
-                Projekte in der Region Südhessen betreue ich persönlich – von der ersten Beratung bis zum Livegang.
+                Mit High-End-Technologien wie Next.js erreiche ich Performance-Scores von 99/100, die Ihre Konkurrenz technisch im Rückspiegel lassen. Ob in Darmstadt, Frankfurt oder Kassel: Ich unterstütze den hessischen Mittelstand dabei, online nicht nur sichtbar zu sein, sondern durch Geschwindigkeit und Strategie dauerhaft neue Kunden zu gewinnen.
               </p>
             </div>
 

@@ -5,17 +5,15 @@ import Image from 'next/image'
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       {/* Animated Background - Mesh Gradient (Reduziert für Mobile) */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Base Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-zinc-900" />
-        
-        {/* Statischer Gradient für bessere Performance */}
+        {/* Weißer Hintergrund mit dezentem Blau-Akzent */}
+        <div className="absolute inset-0 bg-white" />
         <div 
           className="absolute inset-0"
           style={{
-            background: 'radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 50%)',
+            background: 'radial-gradient(circle at 50% 30%, rgba(59, 130, 246, 0.06) 0%, transparent 50%)',
           }}
         />
       </div>
@@ -31,13 +29,11 @@ export default function HeroSection() {
                 Webdesign Pfungstadt
               </span>
               <br className="hidden lg:block" />
-              <span className="text-white">– Websites, die überzeugen.</span>
+              <span className="text-slate-900">Websites, die verkaufen.</span>
             </h1>
-            <h2 className="text-lg md:text-xl text-slate-500 font-medium mb-2 animate-fade-in-up animation-delay-50">
-              Moderne Websites für Darmstadt und Südhessen
-            </h2>
-            <p className="text-lg md:text-xl text-slate-400 mb-8 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-              Wir helfen kleinen Unternehmen und Selbstständigen in Darmstadt, Pfungstadt und ganz Südhessen dabei, mit professionellem Webdesign online sichtbar zu werden und neue Kunden zu gewinnen.
+          
+            <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
+            Vergessen Sie langsame Websites, die niemand findet. Wir bieten kleinen Unternehmen und Selbstständigen in Hessen High-Performance Webdesign, das bei Google ganz oben steht und Ihre Zielgruppe durch Geschwindigkeit und Design zu zahlenden Kunden macht.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2 animate-fade-in-up animation-delay-200">
@@ -51,7 +47,7 @@ export default function HeroSection() {
               </a>
               <a
                 href="#benefits"
-                className="px-8 py-4 border border-slate-600 text-slate-200 font-semibold rounded-lg hover:border-slate-500 hover:text-white transition-all duration-300 inline-flex items-center gap-2 group/btn2 hover:scale-105 active:scale-95 will-change-transform"
+                className="px-8 py-4 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 inline-flex items-center gap-2 group/btn2 hover:scale-105 active:scale-95 will-change-transform"
                 aria-label="Zu den Vorteilen scrollen - Mehr erfahren"
               >
                 Mehr erfahren
@@ -65,7 +61,7 @@ export default function HeroSection() {
             <div className="relative w-full h-[650px] flex items-end justify-end">
               <Image
                 src="/maik-removebg.png"
-                alt="Webdesign Experte für Darmstadt und Pfungstadt – Maik Schmidt, 319Webdesign"
+                alt="Webdesign Darmstadt und Pfungstadt – Maik Schmidt, Webdesign-Experte 319Webdesign"
                 width={550}
                 height={650}
                 priority={true}

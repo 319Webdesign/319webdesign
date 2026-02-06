@@ -1,66 +1,54 @@
 import type { Metadata } from 'next'
+import { seoConfig, getSeoMetadata } from '../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, Zap, Search, Settings } from 'lucide-react'
 import Breadcrumbs from '../components/Breadcrumbs'
 
-export const metadata: Metadata = {
-  title: 'Leistungen | Webdesign, SEO & Wartung in Südhessen',
-  description:
-    'Professionelles Webdesign, SEO-Optimierung und Website-Wartung für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
-  openGraph: {
-    title: 'Leistungen | Webdesign, SEO & Wartung in Südhessen',
-    description:
-      'Professionelles Webdesign, SEO-Optimierung und Website-Wartung für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
-    url: 'https://319webdesign.com/leistungen',
-    siteName: '319Webdesign',
-    locale: 'de_DE',
-    type: 'website',
-  },
-}
+export const metadata: Metadata = getSeoMetadata(seoConfig.leistungen)
 
 const leistungen = [
   {
-    slug: 'webdesign',
+    slug: 'webdesign-launch',
     icon: Zap,
-    title: 'Webdesign',
-    subtitle: 'High-Performance Websites, die verkaufen',
+    title: 'Webdesign & Launch',
+    subtitle: 'Von der ersten Idee bis zum erfolgreichen Launch',
     description:
-      'Moderne, blitzschnelle Websites mit PageSpeed-Scores von 99/100. Perfekt für Kleinunternehmen in Südhessen.',
+      'Komplette Website-Entwicklung von Grund auf mit modernster Technologie. PageSpeed 99/100, conversion-optimiert und SEO-ready.',
     features: [
       'PageSpeed 99/100',
       'Mobile-First Design',
-      'SEO-optimiert',
-      'Conversion-optimiert',
+      'SEO-Grundoptimierung',
+      'Launch-Begleitung',
     ],
     color: 'blue',
   },
   {
-    slug: 'seo',
+    slug: 'wachstum-seo',
     icon: Search,
-    title: 'SEO-Optimierung',
-    subtitle: 'Mehr Sichtbarkeit bei Google',
+    title: 'Wachstum & SEO',
+    subtitle: 'Mehr Sichtbarkeit, mehr Kunden',
     description:
-      'Technische und inhaltliche SEO-Optimierung mit lokalem Fokus auf Darmstadt, Pfungstadt und Südhessen.',
+      'Datengetriebene SEO-Strategie für organisches Wachstum. Technisches SEO, Content-Optimierung und lokale Rankings für Darmstadt.',
     features: [
       'Technisches SEO',
       'Keyword-Strategie',
       'Lokales SEO',
-      'Monatliche Reports',
+      'Performance-Reports',
     ],
     color: 'green',
   },
   {
-    slug: 'wartung',
+    slug: 'strategische-begleitung',
     icon: Settings,
-    title: 'Website-Wartung',
-    subtitle: 'Immer aktuell und sicher',
+    title: 'Strategische Begleitung',
+    subtitle: 'Langfristige Partnerschaft für Ihren Erfolg',
     description:
-      'Professionelle Wartung und Support für Ihre Website. Updates, Backups, Security – damit Sie sich aufs Geschäft konzentrieren können.',
+      'Umfassende Website-Betreuung: Wartung, Optimierung, Support und kontinuierliche Weiterentwicklung für nachhaltigen Erfolg.',
     features: [
-      'Regelmäßige Updates',
-      'Tägliche Backups',
-      'Security-Monitoring',
-      'Schneller Support',
+      'Technische Wartung',
+      'Performance-Monitoring',
+      'Strategische Beratung',
+      'Priorisierter Support',
     ],
     color: 'purple',
   },
@@ -68,33 +56,29 @@ const leistungen = [
 
 const colorClasses = {
   blue: {
-    gradient: 'from-blue-500/10 to-blue-600/5',
-    border: 'border-blue-500/30 hover:border-blue-500/50',
-    text: 'text-blue-400',
+    border: 'border-blue-500 hover:border-blue-600',
+    text: 'text-blue-600',
     bg: 'bg-blue-500',
   },
   green: {
-    gradient: 'from-green-500/10 to-green-600/5',
-    border: 'border-green-500/30 hover:border-green-500/50',
-    text: 'text-green-400',
+    border: 'border-green-500 hover:border-green-600',
+    text: 'text-green-600',
     bg: 'bg-green-500',
   },
   purple: {
-    gradient: 'from-purple-500/10 to-purple-600/5',
-    border: 'border-purple-500/30 hover:border-purple-500/50',
-    text: 'text-purple-400',
+    border: 'border-purple-500 hover:border-purple-600',
+    text: 'text-purple-600',
     bg: 'bg-purple-500',
   },
 }
 
 export default function LeistungenPage() {
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50">
         {/* Background Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-zinc-900" />
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
           <div className="flex justify-center mb-8">
@@ -105,20 +89,20 @@ export default function LeistungenPage() {
               ]}
             />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
             Leistungen für Ihr{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
               digitales Wachstum
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto">
-            Webdesign, SEO und Wartung – alles aus einer Hand in Südhessen
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
+            Webdesign, SEO und Wartung – alles aus einer Hand in Darmstadt
           </p>
         </div>
       </section>
 
       {/* Leistungen Grid */}
-      <section className="py-20 px-6">
+      <section className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {leistungen.map((leistung) => {
@@ -129,11 +113,11 @@ export default function LeistungenPage() {
                 <Link
                   key={leistung.slug}
                   href={`/leistungen/${leistung.slug}`}
-                  className={`group bg-gradient-to-br ${colors.gradient} rounded-2xl p-8 border ${colors.border} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
+                  className={`group bg-white rounded-2xl p-8 border-2 ${colors.border} transition-all duration-300 hover:scale-105 hover:shadow-xl`}
                 >
                   {/* Icon */}
                   <div
-                    className={`w-16 h-16 ${colors.bg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
+                    className={`w-16 h-16 ${colors.bg} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-md`}
                   >
                     <Icon className="w-8 h-8 text-white" />
                   </div>
@@ -142,17 +126,17 @@ export default function LeistungenPage() {
                   <h2 className={`text-2xl font-bold mb-2 ${colors.text}`}>
                     {leistung.title}
                   </h2>
-                  <p className="text-lg text-slate-300 mb-4">
+                  <p className="text-lg text-slate-700 mb-4">
                     {leistung.subtitle}
                   </p>
-                  <p className="text-slate-400 mb-6 leading-relaxed">
+                  <p className="text-slate-600 mb-6 leading-relaxed">
                     {leistung.description}
                   </p>
 
                   {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {leistung.features.map((feature, index) => (
-                      <li key={index} className="flex items-center gap-2 text-sm text-slate-400">
+                      <li key={index} className="flex items-center gap-2 text-sm text-slate-600">
                         <div className={`w-1.5 h-1.5 ${colors.bg} rounded-full`} />
                         {feature}
                       </li>
@@ -172,18 +156,18 @@ export default function LeistungenPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-blue-500/10 to-blue-600/5">
+      <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
             Nicht sicher, welche Leistung Sie brauchen?
           </h2>
-          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-700 mb-8 max-w-2xl mx-auto">
             Lassen Sie uns in einem kostenlosen Erstgespräch besprechen, wie ich
             Ihnen helfen kann.
           </p>
           <Link
             href="/kontakt"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
           >
             Kostenlose Erstberatung vereinbaren
             <ArrowRight className="w-5 h-5" />

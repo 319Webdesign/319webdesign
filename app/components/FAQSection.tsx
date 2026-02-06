@@ -43,14 +43,14 @@ export default function FAQSection() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-24 px-6 bg-slate-900">
+    <section className="py-24 px-6 bg-slate-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           {...fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Häufig gestellte Fragen
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+            Häufig gestellte <span className="text-blue-600">Fragen</span>
           </h2>
         </motion.div>
 
@@ -62,15 +62,15 @@ export default function FAQSection() {
               return (
                 <div
                   key={faq.id}
-                  className="bg-slate-800/50 backdrop-blur-sm rounded-xl border border-slate-700/50 overflow-hidden"
+                  className="bg-white backdrop-blur-sm rounded-xl border border-slate-200 overflow-hidden"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-800/30 transition-colors"
+                    className="w-full px-6 py-4 flex items-center justify-between gap-4 text-left hover:bg-slate-50 transition-colors"
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${faq.id}`}
                   >
-                    <h3 className="text-lg font-semibold text-white pr-4">
+                    <h3 className="text-lg font-semibold text-slate-900 pr-4">
                       {faq.question}
                     </h3>
                     <motion.div
@@ -95,7 +95,7 @@ export default function FAQSection() {
                         className="overflow-hidden"
                         id={`faq-answer-${faq.id}`}
                       >
-                        <div className="px-6 pb-4 text-slate-400 leading-relaxed">
+                        <div className="px-6 pb-4 text-slate-600 leading-relaxed">
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -108,21 +108,21 @@ export default function FAQSection() {
 
           {/* Contact Card */}
           <div
-            className="bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/50 p-8 shadow-xl h-fit"
+            className="bg-white backdrop-blur-sm rounded-2xl border border-slate-200 p-8 shadow-xl h-fit"
           >
             <div className="flex flex-col items-center text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-6">
                 <HelpCircle className="w-8 h-8 text-white" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white">
+              <h3 className="text-xl font-bold mb-3 text-slate-900">
                 Deine Frage war nicht dabei?
               </h3>
-              <p className="text-slate-400 mb-6">
+              <p className="text-slate-600 mb-6">
                 Dann schreib uns einfach – wir helfen dir gerne weiter.
               </p>
               <a
                 href="mailto:kontakt@319webdesign.com"
-                className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-medium transition-colors group/email"
+                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors group/email"
               >
                 <Mail className="w-5 h-5 group-hover/email:translate-x-1 transition-transform" aria-hidden="true" />
                 <span className="break-all">kontakt@319webdesign.com</span>

@@ -91,7 +91,7 @@ export default function PortfolioPage() {
         {/* Animated Background - Mesh Gradient (wie auf Startseite) */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Base Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-zinc-900" />
+          <div className="absolute inset-0 bg-white" />
           
           {/* Animated Mesh Gradients */}
           <motion.div
@@ -145,14 +145,14 @@ export default function PortfolioPage() {
               Ausgewählte Arbeiten
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
             Wo Design auf Performance trifft – unsere erfolgreichsten Case Studies.
           </p>
         </motion.div>
       </section>
 
       {/* Filter Menu */}
-      <section className="py-8 px-6 bg-slate-950 border-b border-slate-800/50 sticky top-0 z-40 backdrop-blur-sm bg-slate-950/95">
+      <section className="py-8 px-6 bg-white border-b border-slate-200 sticky top-0 z-40 backdrop-blur-sm bg-white/95">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -167,7 +167,7 @@ export default function PortfolioPage() {
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   activeFilter === category
                     ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
-                    : 'bg-slate-800/50 text-slate-300 hover:bg-slate-800 hover:text-slate-200 border border-slate-700/50'
+                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
                 }`}
               >
                 {category}
@@ -178,7 +178,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Portfolio Grid - Bento Style */}
-      <section className="py-16 px-6 bg-slate-950">
+      <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             key={activeFilter}
@@ -201,7 +201,7 @@ export default function PortfolioPage() {
                   variants={staggerItem}
                   initial="initial"
                   animate="whileInView"
-                  className={`group relative overflow-hidden rounded-2xl bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 hover:border-blue-500/50 transition-all duration-500 ${gridClasses[project.size as keyof typeof gridClasses]}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-slate-50 backdrop-blur-sm border border-slate-200 hover:border-blue-500/50 transition-all duration-500 ${gridClasses[project.size as keyof typeof gridClasses]}`}
                   style={{
                     minHeight: project.size === 'tall' ? '500px' : project.size === 'wide' ? '300px' : '300px',
                   }}
@@ -210,7 +210,7 @@ export default function PortfolioPage() {
                   <div className="relative w-full h-full overflow-hidden">
                     <motion.img
                       src={project.imageUrl || '/placeholder-project.jpg'}
-                      alt={`Webdesign Portfolio Südhessen: ${project.title} – ${project.category} von 319Webdesign, Darmstadt Pfungstadt`}
+                      alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`}
                       className={`w-full h-full ${
                         project.title === 'Arena Sportsbar' 
                           ? 'object-contain object-center' 
@@ -286,7 +286,7 @@ export default function PortfolioPage() {
               animate={{ opacity: 1 }}
               className="text-center py-16"
             >
-              <p className="text-xl text-slate-400">
+              <p className="text-xl text-slate-600">
                 Keine Projekte in dieser Kategorie gefunden.
               </p>
             </motion.div>

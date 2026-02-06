@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="flex items-center justify-center md:justify-start">
               <Image
                 src="/319.png"
-                alt="319Webdesign Logo – Webdesign und SEO für Darmstadt, Pfungstadt und Südhessen"
+                alt="319Webdesign Logo – Webdesign Darmstadt, Pfungstadt und Südhessen"
                 width={110}
                 height={110}
                 sizes="(max-width: 768px) 70px, 110px"
@@ -54,7 +54,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Startseite
                 </a>
@@ -62,20 +62,20 @@ export default function Footer() {
               <li>
                 <a 
                   href="/leistungen" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Leistungen
                 </a>
               </li>
               <li className="pl-3 border-l border-slate-700 space-y-2 mt-2">
-                <a href="/leistungen/webdesign" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Webdesign</a>
-                <a href="/leistungen/seo" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">SEO-Optimierung</a>
-                <a href="/leistungen/wartung" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Website-Wartung</a>
+                <a href="/leistungen/webdesign-launch" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Webdesign & Launch</a>
+                <a href="/leistungen/wachstum-seo" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Wachstum & SEO</a>
+                <a href="/leistungen/strategische-begleitung" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Strategische Begleitung</a>
               </li>
               <li>
                 <a 
                   href="/portfolio" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Portfolio
                 </a>
@@ -83,7 +83,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/kontakt" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm font-semibold"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm font-semibold"
                 >
                   → Kontakt
                 </a>
@@ -98,7 +98,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/webdesign/darmstadt" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Darmstadt
                 </a>
@@ -106,7 +106,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/webdesign/pfungstadt" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Pfungstadt
                 </a>
@@ -114,7 +114,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/webdesign/griesheim" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Griesheim
                 </a>
@@ -122,7 +122,7 @@ export default function Footer() {
               <li>
                 <a 
                   href="/webdesign/weiterstadt" 
-                  className="text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
                   Weiterstadt
                 </a>
@@ -136,7 +136,7 @@ export default function Footer() {
             <div className="space-y-3">
               <a 
                 href="mailto:kontakt@319webdesign.com" 
-                className="block text-slate-300 hover:text-blue-400 transition-colors duration-300 text-sm"
+                className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
               >
                 kontakt@319webdesign.com
               </a>
@@ -154,7 +154,7 @@ export default function Footer() {
                 href="https://instagram.com/319webdesign"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-blue-500 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
                 aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" aria-hidden="true" />
@@ -163,7 +163,7 @@ export default function Footer() {
                 href="https://wa.me/491773236454"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-blue-500 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
                 aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" aria-hidden="true" />
@@ -172,7 +172,7 @@ export default function Footer() {
                 href="https://www.tiktok.com/@319webdesign"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-slate-400 hover:text-blue-500 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300 p-2 hover:bg-white/5 rounded-lg"
                 aria-label="TikTok"
               >
                 <svg 
@@ -198,13 +198,13 @@ export default function Footer() {
             <div className="flex items-center justify-center gap-6">
               <a 
                 href="/impressum" 
-                className="hover:text-blue-500 transition-colors duration-300"
+                className="hover:text-blue-400 transition-colors duration-300"
               >
                 Impressum
               </a>
               <a 
                 href="/datenschutz" 
-                className="hover:text-blue-500 transition-colors duration-300"
+                className="hover:text-blue-400 transition-colors duration-300"
               >
                 Datenschutz
               </a>

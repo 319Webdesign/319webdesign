@@ -14,34 +14,34 @@ const fadeInUp = {
 const leistungen = [
   {
     icon: Laptop,
-    title: 'Webdesign',
-    href: '/leistungen/webdesign',
-    description: 'Individuelle Designs, die Ihre Zielgruppe überzeugen. Optimiert für alle Endgeräte.',
+    title: 'Webdesign & Launch',
+    href: '/leistungen/webdesign-launch',
+    description: 'Individuelle Designs, die Ihre Zielgruppe überzeugen. Von der ersten Idee bis zum erfolgreichen Launch.',
   },
   {
     icon: Search,
-    title: 'SEO',
-    href: '/leistungen/seo',
-    description: 'Lokale Sichtbarkeit erhöhen und organische Anfragen über Google generieren.',
+    title: 'Wachstum & SEO',
+    href: '/leistungen/wachstum-seo',
+    description: 'Mehr Sichtbarkeit bei Google und organisches Wachstum für Ihr Business.',
   },
   {
     icon: Shield,
-    title: 'Support',
-    href: '/leistungen/wartung',
-    description: 'Wir kümmern uns um Updates, Backups und die Sicherheit Ihrer Seite – 365 Tage im Jahr.',
+    title: 'Strategische Begleitung',
+    href: '/leistungen/strategische-begleitung',
+    description: 'Langfristige Partnerschaft für kontinuierliche Optimierung, Wartung und Weiterentwicklung.',
   },
 ]
 
 export default function LeistungenSection() {
   return (
-    <section id="leistungen" className="py-28 md:py-32 px-6 bg-slate-950">
+    <section id="leistungen" className="py-28 md:py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           {...fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Webdesign & SEO für Unternehmen in Darmstadt und Pfungstadt
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+          Zahlen lügen nicht: Maximale <span className="text-blue-600">Performance</span> für Ihren <span className="text-blue-600">Erfolg</span>.
           </h2>
         </motion.div>
 
@@ -53,17 +53,17 @@ export default function LeistungenSection() {
                 y: -5,
                 transition: { duration: 0.3 }
               }}
-              className="bg-slate-900 rounded-2xl border border-slate-800 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left"
+              className="bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left"
             >
               <div className="flex items-center justify-center w-16 h-16 bg-[#3B82F6]/10 rounded-xl mb-6 group-hover:bg-[#3B82F6]/20 transition-colors duration-300 mx-auto md:mx-0">
                 <item.icon className="w-8 h-8 text-[#3B82F6]" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-white">
-                <Link href={item.href} className="text-white hover:text-[#3B82F6] transition-colors focus:outline-none focus:ring-2 focus:ring-[#3B82F6] rounded">
+              <h3 className="text-xl font-bold mb-4 text-slate-900">
+                <Link href={item.href} className="text-slate-900 hover:text-[#3B82F6] transition-colors focus:outline-none focus:ring-2 focus:ring-[#3B82F6] rounded">
                   {item.title}
                 </Link>
               </h3>
-              <p className="text-slate-400 leading-relaxed mb-4">{item.description}</p>
+              <p className="text-slate-600 leading-relaxed mb-4">{item.description}</p>
               <Link
                 href={item.href}
                 className="inline-flex items-center gap-2 text-[#3B82F6] font-semibold hover:gap-3 transition-all group/lk"
@@ -81,7 +81,7 @@ export default function LeistungenSection() {
             y: -5,
             transition: { duration: 0.3 }
           }}
-          className="bg-slate-900 rounded-2xl border border-slate-800 p-8 md:p-10 hover:border-[#3B82F6] transition-all duration-300 group relative overflow-hidden"
+          className="bg-slate-50 rounded-2xl border border-slate-200 p-8 md:p-10 hover:border-[#3B82F6] transition-all duration-300 group relative overflow-hidden"
         >
           {/* Glow Effect */}
           <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -97,19 +97,19 @@ export default function LeistungenSection() {
 
               {/* Content Section */}
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
                   High-Performance Websites
                 </h3>
-                <p className="text-slate-400 leading-relaxed mb-4 text-lg">
+                <p className="text-slate-600 leading-relaxed mb-4 text-lg">
                   <span className="text-[#3B82F6] font-semibold">59% schneller</span> als der Branchendurchschnitt – Optimiert für maximale Geschwindigkeit und beste User Experience.
                 </p>
 
                 {/* PageSpeed Badge */}
                 <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
-                  <div className="flex items-center gap-2 bg-slate-800/50 rounded-lg px-4 py-2 border border-slate-700/50">
+                  <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-2 border border-slate-200">
                     <Award className="w-5 h-5 text-[#3B82F6]" aria-hidden="true" />
-                    <span className="text-white font-bold text-lg">99/100</span>
-                    <span className="text-slate-400 text-sm">PageSpeed</span>
+                    <span className="text-slate-900 font-bold text-lg">99/100</span>
+                    <span className="text-slate-600 text-sm">PageSpeed</span>
                   </div>
                 </div>
 

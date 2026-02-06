@@ -39,7 +39,7 @@ function StarRating({ rating }: { rating: number }) {
           className={`w-5 h-5 ${
             star <= rating
               ? 'fill-amber-400 text-amber-400'
-              : 'fill-slate-700 text-slate-700'
+              : 'fill-slate-300 text-slate-300'
           }`}
           aria-hidden
         />
@@ -74,17 +74,17 @@ export default function GoogleReviewsSection() {
 
   if (loading) {
     return (
-      <section className="py-24 px-6 bg-slate-900" aria-label="Kundenbewertungen werden geladen">
+      <section className="py-24 px-6 bg-slate-50" aria-label="Kundenbewertungen werden geladen">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 id="reviews-heading" className="text-4xl md:text-5xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
-            <p className="text-slate-400" role="status">Bewertungen werden geladen…</p>
+            <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
+            <p className="text-slate-600" role="status">Bewertungen werden geladen…</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="h-48 rounded-2xl bg-slate-800/50 border border-slate-700 animate-pulse"
+                className="h-48 rounded-2xl bg-slate-200 border border-slate-200 animate-pulse"
               />
             ))}
           </div>
@@ -97,22 +97,22 @@ export default function GoogleReviewsSection() {
   const error = data?.error
 
   return (
-    <section className="py-24 px-6 bg-slate-900" id="bewertungen" aria-labelledby="reviews-heading">
+    <section className="py-24 px-6 bg-slate-50" id="bewertungen" aria-labelledby="reviews-heading">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...fadeInUp}
           className="text-center mb-14"
         >
-          <h2 id="reviews-heading" className="text-4xl md:text-5xl font-bold mb-4">
-            Das sagen Kunden über 319Webdesign
+          <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
+            Das sagen <span className="text-blue-600">Kunden</span> über 319Webdesign
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Aktuelle Google-Bewertungen aus Darmstadt, Pfungstadt und Südhessen.
           </p>
           {data?.rating != null && data?.userRatingsTotal != null && (
-            <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-800/80 border border-slate-700">
+            <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200">
               <StarRating rating={Math.round(data.rating)} />
-              <span className="text-slate-300 font-medium">
+              <span className="text-slate-700 font-medium">
                 {data.rating.toFixed(1)} · {data.userRatingsTotal} Bewertungen
               </span>
             </div>
@@ -122,9 +122,9 @@ export default function GoogleReviewsSection() {
         {reviews.length === 0 ? (
           <motion.div
             {...fadeInUp}
-            className="rounded-2xl border border-slate-700 bg-slate-800/50 p-10 text-center"
+            className="rounded-2xl border border-slate-200 bg-white p-10 text-center"
           >
-            <p className="text-slate-300 mb-2">
+            <p className="text-slate-700 mb-2">
               Aktuell werden keine Bewertungen angezeigt.
             </p>
             {error && (
@@ -144,7 +144,7 @@ export default function GoogleReviewsSection() {
               key={reviewId}
               {...fadeInUp}
               transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
-              className="relative bg-slate-800/50 backdrop-blur-sm rounded-2xl border border-slate-700/80 p-6 hover:border-[#3b82f6]/40 transition-colors duration-300"
+              className="relative bg-white backdrop-blur-sm rounded-2xl border border-slate-200 p-6 hover:border-[#3b82f6]/40 transition-colors duration-300"
             >
               <Quote className="absolute top-5 right-5 w-8 h-8 text-[#3b82f6]/20" aria-hidden />
               <div className="flex items-center gap-4 mb-4">
@@ -157,19 +157,19 @@ export default function GoogleReviewsSection() {
                     className="rounded-full w-12 h-12 object-cover"
                   />
                 ) : (
-                  <div className="w-12 h-12 rounded-full bg-slate-600 flex items-center justify-center text-slate-300 font-semibold">
+                  <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 font-semibold">
                     {review.author_name.charAt(0)}
                   </div>
                 )}
                 <div>
-                  <p className="font-semibold text-white">{review.author_name}</p>
+                  <p className="font-semibold text-slate-900">{review.author_name}</p>
                   <StarRating rating={review.rating} />
                 </div>
               </div>
               {review.text && (
                 <div className="mb-3">
                   <p
-                    className={`text-slate-300 leading-relaxed ${!isExpanded && hasLongText ? 'line-clamp-4' : ''}`}
+                    className={`text-slate-600 leading-relaxed ${!isExpanded && hasLongText ? 'line-clamp-4' : ''}`}
                   >
                     &ldquo;{review.text}&rdquo;
                   </p>

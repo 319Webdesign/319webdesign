@@ -131,13 +131,15 @@ export async function generateMetadata({
   if (!page) {
     return { title: 'Seite nicht gefunden | 319Webdesign' }
   }
+  const canonicalUrl = `https://319webdesign.com/warum/${params.slug}`
   return {
     title: page.metaTitle,
     description: page.metaDescription,
+    alternates: { canonical: canonicalUrl },
     openGraph: {
       title: page.metaTitle,
       description: page.metaDescription,
-      url: `https://319webdesign.com/warum/${params.slug}`,
+      url: canonicalUrl,
       siteName: '319Webdesign',
       locale: 'de_DE',
       type: 'website',
@@ -158,11 +160,11 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
   const IconComponent = iconMap[page.icon]
 
   return (
-    <main className="min-h-screen bg-slate-950 pt-24">
+    <main className="min-h-screen bg-white pt-24">
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-zinc-900" />
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/10 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-white" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
           <div className="flex justify-center mb-8">
             <Breadcrumbs
@@ -176,31 +178,31 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
           <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
             <IconComponent className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-slate-900 leading-tight">
             {page.title}
           </h1>
-          <p className="text-xl text-blue-300/90 mb-4">{page.tagline}</p>
-          <p className="text-lg text-slate-400 max-w-2xl mx-auto">{page.intro}</p>
+          <p className="text-xl text-blue-600 mb-4">{page.tagline}</p>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">{page.intro}</p>
         </div>
       </section>
 
       {/* Problem / Lösung */}
-      <section className="py-20 px-6 bg-slate-900/50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-slate-800/50 rounded-2xl p-8 border border-slate-700">
-              <h2 className="text-2xl font-bold mb-4 text-red-400">
+            <div className="bg-white rounded-2xl p-8 border border-slate-200">
+              <h2 className="text-2xl font-bold mb-4 text-red-500">
                 {page.problem.title}
               </h2>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {page.problem.description}
               </p>
             </div>
-            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-2xl p-8 border border-blue-500/30">
-              <h2 className="text-2xl font-bold mb-4 text-blue-400">
+            <div className="bg-gradient-to-br from-blue-500/10 to-blue-600/5 rounded-2xl p-8 border border-blue-200">
+              <h2 className="text-2xl font-bold mb-4 text-blue-600">
                 {page.solution.title}
               </h2>
-              <p className="text-slate-300 leading-relaxed">
+              <p className="text-slate-600 leading-relaxed">
                 {page.solution.description}
               </p>
             </div>
@@ -211,17 +213,17 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
       {/* Features */}
       <section className="py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-slate-900">
             Das bekommen Sie
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {page.features.map((feature, index) => (
               <div
                 key={index}
-                className="flex items-start gap-4 bg-slate-800/50 rounded-xl p-6 border border-slate-700 hover:border-blue-500/50 transition-colors"
+                className="flex items-start gap-4 bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-blue-500/50 transition-colors"
               >
-                <Check className="w-6 h-6 text-blue-400 flex-shrink-0 mt-0.5" />
-                <p className="text-slate-300">{feature}</p>
+                <Check className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
+                <p className="text-slate-600">{feature}</p>
               </div>
             ))}
           </div>
@@ -231,10 +233,10 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
       {/* CTA */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-500/10 to-blue-600/5">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
             Bereit für Ihre moderne Website?
           </h2>
-          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
             Lassen Sie uns in einem kostenlosen Erstgespräch besprechen, wie wir
             Sie in der Region voranbringen.
           </p>
@@ -249,9 +251,9 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
       </section>
 
       {/* Weitere Themen */}
-      <section className="py-20 px-6 bg-slate-900/50">
+      <section className="py-20 px-6 bg-slate-50">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center text-white">
+          <h2 className="text-3xl font-bold mb-8 text-center text-slate-900">
             Weitere Themen
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -259,12 +261,12 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
               <Link
                 key={item.slug}
                 href={`/warum/${item.slug}`}
-                className="bg-slate-800/50 rounded-xl p-8 border border-slate-700 hover:border-blue-500/50 transition-all duration-300 group"
+                className="bg-white rounded-xl p-8 border border-slate-200 hover:border-blue-500/50 transition-all duration-300 group"
               >
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-slate-400 mt-1 inline-flex items-center gap-2 group-hover:text-slate-300 transition-colors">
+                <p className="text-slate-600 mt-1 inline-flex items-center gap-2 group-hover:text-slate-900 transition-colors">
                   Mehr erfahren
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </p>

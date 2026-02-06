@@ -4,9 +4,9 @@
 
 Das Template unterstützt automatisch folgende URLs:
 
-- `/leistungen/webdesign` - Webdesign für Kleinunternehmen
-- `/leistungen/seo` - SEO-Optimierung
-- `/leistungen/wartung` - Website-Wartung & Support
+- `/leistungen/webdesign-launch` - Webdesign & Launch
+- `/leistungen/wachstum-seo` - Wachstum & SEO
+- `/leistungen/strategische-begleitung` - Strategische Begleitung
 
 ## Features
 

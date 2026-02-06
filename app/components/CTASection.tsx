@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function CTASection() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-slate-950 overflow-hidden">
+    <section className="relative py-24 md:py-32 px-6 bg-white overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Device Mockup */}
@@ -14,7 +14,7 @@ export default function CTASection() {
               <div className="relative max-w-sm aspect-[9/16]">
                 <Image
                   src="/319Web_Mockup_iphone.png"
-                  alt="Responsive Webdesign für Darmstadt und Pfungstadt – iPhone-Mockup, 319Webdesign"
+                  alt="Webdesign Darmstadt und Pfungstadt – Responsive iPhone-Mockup, 319Webdesign"
                   width={384}
                   height={682}
                   sizes="(max-width: 768px) 300px, 384px"
@@ -31,13 +31,13 @@ export default function CTASection() {
           {/* Right: Text & CTA */}
           <div className="space-y-8">
             <div className="space-y-6">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              <h2 className="text-2xl md:text-4xl font-bold leading-tight">
                 Bereit für den{' '}
                 <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                   digitalen Vorsprung?
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-slate-400 leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed">
                 Verlieren Sie keine Kunden mehr an die Konkurrenz. Lassen Sie uns gemeinsam Ihre Website modernisieren und Ihre Angebote überzeugend präsentieren.
               </p>
             </div>
@@ -55,13 +55,13 @@ export default function CTASection() {
                 </div>
               </a>
 
-              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-slate-400 pt-2">
+              <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-slate-600 pt-2">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" aria-hidden="true" />
+                  <CheckCircle2 className="w-4 h-4 text-green-600" aria-hidden="true" />
                   <span>100% unverbindlich</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-green-400" aria-hidden="true" />
+                  <CheckCircle2 className="w-4 h-4 text-green-600" aria-hidden="true" />
                   <span>Antwort innerhalb von 24h</span>
                 </div>
               </div>

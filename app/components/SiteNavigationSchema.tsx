@@ -20,20 +20,20 @@ export default function SiteNavigationSchema() {
       {
         '@type': 'SiteNavigationElement',
         position: 3,
-        name: 'Webdesign',
-        url: `${baseUrl}/leistungen/webdesign`,
+        name: 'Webdesign & Launch',
+        url: `${baseUrl}/leistungen/webdesign-launch`,
       },
       {
         '@type': 'SiteNavigationElement',
         position: 4,
-        name: 'SEO-Optimierung',
-        url: `${baseUrl}/leistungen/seo`,
+        name: 'Wachstum & SEO',
+        url: `${baseUrl}/leistungen/wachstum-seo`,
       },
       {
         '@type': 'SiteNavigationElement',
         position: 5,
-        name: 'Website-Wartung',
-        url: `${baseUrl}/leistungen/wartung`,
+        name: 'Strategische Begleitung',
+        url: `${baseUrl}/leistungen/strategische-begleitung`,
       },
       {
         '@type': 'SiteNavigationElement',

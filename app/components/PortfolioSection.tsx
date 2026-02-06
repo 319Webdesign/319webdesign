@@ -61,19 +61,19 @@ export default function PortfolioSection() {
     : 0
 
   return (
-    <section className="py-16 px-6 bg-slate-950 relative group">
+    <section className="py-16 px-6 bg-white relative group">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           {...fadeInUp}
           className="text-center mb-8"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Webdesign Portfolio Südhessen – ausgewählte Projekte
+          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+            Webdesign <span className="text-blue-600">Portfolio</span> – ausgewählte Projekte
           </h2>
           <Link
             href="/portfolio"
-            className="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-medium transition-colors group/link"
+            className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors group/link"
           >
             Alle Projekte ansehen
             <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
@@ -85,25 +85,25 @@ export default function PortfolioSection() {
           {/* Navigation Buttons */}
           {portfolioIndex > 0 && (
             <motion.button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-slate-800/90 backdrop-blur-sm p-3 rounded-full border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 backdrop-blur-sm p-3 rounded-full border border-slate-200 hover:border-blue-500/50 hover:bg-slate-50 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
               onClick={() => {
                 setPortfolioIndex(portfolioIndex - 1)
               }}
               aria-label="Vorheriges Portfolio-Projekt anzeigen"
             >
-              <ChevronLeft className="w-5 h-5 text-slate-200" aria-hidden="true" />
+              <ChevronLeft className="w-5 h-5 text-slate-700" aria-hidden="true" />
             </motion.button>
           )}
 
           {portfolioIndex < maxIndex && (
             <motion.button
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-slate-800/90 backdrop-blur-sm p-3 rounded-full border border-slate-700 hover:border-blue-500/50 hover:bg-slate-800 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 backdrop-blur-sm p-3 rounded-full border border-slate-200 hover:border-blue-500/50 hover:bg-slate-50 transition-all duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 cursor-pointer"
               onClick={() => {
                 setPortfolioIndex(portfolioIndex + 1)
               }}
               aria-label="Nächstes Portfolio-Projekt anzeigen"
             >
-              <ChevronRight className="w-5 h-5 text-slate-200" aria-hidden="true" />
+              <ChevronRight className="w-5 h-5 text-slate-700" aria-hidden="true" />
             </motion.button>
           )}
 
@@ -165,7 +165,7 @@ export default function PortfolioSection() {
                       href={project.liveUrl || '#'}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block relative rounded-2xl overflow-hidden shadow-xl bg-slate-800/50 backdrop-blur-sm cursor-pointer group/card"
+                      className="block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card"
                       whileHover={{ 
                         scale: 1.02,
                         boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)"
@@ -178,10 +178,10 @@ export default function PortfolioSection() {
                       }}
                     >
                       {/* Image Container */}
-                      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-800/50">
+                      <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-200">
                         <Image
                           src={project.imageUrl || '/placeholder-project.jpg'}
-                          alt={`Webdesign Portfolio Südhessen: ${project.title} – ${project.category} Projekt von 319Webdesign, Darmstadt Pfungstadt`}
+                          alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`}
                           fill
                           sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px"
                           quality={90}
@@ -194,11 +194,11 @@ export default function PortfolioSection() {
                         {/* Live View Button - nur auf Desktop sichtbar */}
                         {!isMobile && (
                           <motion.div
-                            className="absolute top-3 right-3 bg-slate-900/80 backdrop-blur-sm p-2 rounded-lg border border-slate-700/50 group-hover/card:border-blue-500/50 transition-all duration-300 z-10"
+                            className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-slate-200 group-hover/card:border-blue-500/50 transition-all duration-300 z-10"
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <ExternalLink className="w-4 h-4 text-slate-200 group-hover/card:text-blue-300 transition-colors" aria-hidden="true" />
+                            <ExternalLink className="w-4 h-4 text-slate-700 group-hover/card:text-blue-600 transition-colors" aria-hidden="true" />
                           </motion.div>
                         )}
 
@@ -222,7 +222,7 @@ export default function PortfolioSection() {
           </div>
 
           {/* Progress Bar */}
-          <div className="mt-6 h-1 bg-slate-800 rounded-full overflow-hidden">
+          <div className="mt-6 h-1 bg-slate-200 rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-gradient-to-r from-blue-500 to-blue-600"
               initial={{ width: 0 }}

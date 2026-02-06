@@ -68,9 +68,9 @@ export default function Header() {
   }, [pathname])
 
   const leistungenItems = [
-    { href: '/leistungen/webdesign', label: 'Webdesign', icon: '⚡' },
-    { href: '/leistungen/seo', label: 'SEO-Optimierung', icon: '🔍' },
-    { href: '/leistungen/wartung', label: 'Website-Wartung', icon: '⚙️' },
+    { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch', icon: '🚀' },
+    { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO', icon: '📈' },
+    { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung', icon: '🎯' },
   ]
 
   const navLinks = [
@@ -138,9 +138,9 @@ export default function Header() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isMobileMenuOpen
-          ? 'backdrop-blur-md bg-slate-950/98 shadow-lg shadow-black/20'
+          ? 'backdrop-blur-md bg-white/98 shadow-lg shadow-slate-200/80'
           : isScrolled
-          ? 'backdrop-blur-md bg-slate-950/95 shadow-lg shadow-black/10'
+          ? 'backdrop-blur-md bg-white/95 shadow-lg shadow-slate-200/50'
           : 'bg-transparent'
       }`}
     >
@@ -176,11 +176,11 @@ export default function Header() {
             >
               <Image
                 src="/319.png"
-                alt="319Webdesign Logo – Webdesign und SEO für Darmstadt, Pfungstadt und Südhessen"
+                alt="319Webdesign Logo – Webdesign Darmstadt, Pfungstadt und Südhessen"
                 width={110}
                 height={110}
                 sizes="(max-width: 768px) 70px, 110px"
-                className="object-contain w-[70px] h-[70px] md:w-[110px] md:h-[110px]"
+                className="object-contain w-[70px] h-[70px] md:w-[110px] md:h-[110px] brightness-0"
                 priority
               />
             </motion.div>
@@ -218,12 +218,12 @@ export default function Header() {
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                        className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
+                        className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
                       >
                         {link.label}
                         <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLeistungenOpen ? 'rotate-180' : ''}`} />
                         <motion.span
-                          className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 group-hover/nav:w-full transition-all duration-300"
+                          className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
                         />
                       </motion.div>
                     </Link>
@@ -239,12 +239,12 @@ export default function Header() {
                       transition={{ duration: 0.2 }}
                       className="absolute top-full pt-2 left-0 min-w-[240px]"
                     >
-                      <div className="bg-slate-900/98 backdrop-blur-md rounded-lg shadow-xl border border-slate-700/50 overflow-hidden">
+                      <div className="bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden">
                       {leistungenItems.map((item, idx) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block px-4 py-3 text-slate-200 hover:bg-cyan-500/10 hover:text-cyan-400 transition-all duration-200 border-b border-slate-800/50 last:border-b-0"
+                          className="block px-4 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-b border-slate-100 last:border-b-0"
                         >
                           <div className="flex items-center gap-3">
                             <span className="text-lg">{item.icon}</span>
@@ -268,11 +268,11 @@ export default function Header() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                    className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
+                    className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
                   >
                     {link.label}
                     <motion.span
-                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 group-hover/nav:w-full transition-all duration-300"
+                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
                     />
                   </motion.a>
                 )
@@ -285,11 +285,11 @@ export default function Header() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
-                    className="text-slate-200 hover:text-cyan-400 transition-colors duration-300 relative group/nav cursor-pointer"
+                    className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
                   >
                     {link.label}
                     <motion.span
-                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-cyan-600 group-hover/nav:w-full transition-all duration-300"
+                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
                     />
                   </motion.div>
                 </Link>
@@ -300,7 +300,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden text-slate-200 hover:text-cyan-400 transition-colors p-2"
+            className="md:hidden text-slate-700 hover:text-blue-600 transition-colors p-2"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -319,7 +319,7 @@ export default function Header() {
             opacity: isMobileMenuOpen ? 1 : 0,
           }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className="md:hidden overflow-hidden bg-slate-950/95 backdrop-blur-md mt-2 rounded-b-lg"
+          className="md:hidden overflow-hidden bg-white/95 backdrop-blur-md mt-2 rounded-b-lg border border-slate-200 shadow-lg"
           style={{ marginLeft: '-1.5rem', marginRight: '-1.5rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
         >
           <div className="pt-4 pb-2 space-y-2">
@@ -339,7 +339,7 @@ export default function Header() {
                           x: isMobileMenuOpen ? 0 : -20,
                         }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 cursor-pointer font-medium"
+                        className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 cursor-pointer font-medium"
                       >
                         {link.label}
                       </motion.div>
@@ -359,7 +359,7 @@ export default function Header() {
                               x: isMobileMenuOpen ? 0 : -20,
                             }}
                             transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.05) }}
-                            className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors duration-300 py-2 text-sm"
+                            className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors duration-300 py-2 text-sm"
                           >
                             <span>{item.icon}</span>
                             <span>{item.label}</span>
@@ -385,7 +385,7 @@ export default function Header() {
                       x: isMobileMenuOpen ? 0 : -20,
                     }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
+                    className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 border-b border-slate-200 cursor-pointer"
                   >
                     {link.label}
                   </motion.a>
@@ -406,7 +406,7 @@ export default function Header() {
                       x: isMobileMenuOpen ? 0 : -20,
                     }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="block text-slate-200 hover:text-cyan-400 transition-colors duration-300 py-2 border-b border-slate-800/50 cursor-pointer"
+                    className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 border-b border-slate-200 cursor-pointer"
                   >
                     {link.label}
                   </motion.div>

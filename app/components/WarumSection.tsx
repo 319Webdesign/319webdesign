@@ -1,8 +1,7 @@
 'use client'
 
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Smartphone, Zap, MapPin, ArrowRight } from 'lucide-react'
+import { Clock, Search, Target } from 'lucide-react'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -21,50 +20,40 @@ const cardStagger = {
 export default function WarumSection() {
   const features = [
     {
-      slug: 'umsatzstark',
-      icon: Zap,
-      title: 'Umsatzstark',
-      tagline: 'Kunden gewinnen statt warten lassen.',
-      description: 'Mit 1,72s Ladezeit sind Sie schneller als 95% Ihrer Konkurrenz in der Region.',
-      ariaLabel: 'Umsatzstark – Conversion',
-      showScoreBadge: false,
+      icon: Clock,
+      title: 'Die Warte-Falle',
+      description: '53 % der Nutzer springen ab, wenn eine Seite länger als 3 Sekunden lädt. Performance ist kein Bonus, sondern die Basis für Ihren Umsatz.',
+      ariaLabel: 'Speed – Die Warte-Falle',
     },
     {
-      slug: 'blitzschnell',
-      icon: Smartphone,
-      title: 'Blitzschnell',
-      tagline: 'Gefunden werden, wenn es zählt.',
-      description: 'Wir bringen Ihr Business in Pfungstadt und Umgebung bei Google ganz nach oben.',
-      ariaLabel: 'Blitzschnell – Performance',
-      showScoreBadge: true,
+      icon: Search,
+      title: 'Die Unsichtbarkeits-Lücke',
+      description: 'Gutes Design ohne SEO ist wie ein Flyer im Müll. Wir sorgen dafür, dass Ihr Business in ganz Hessen (von Darmstadt bis Kassel) auch gefunden wird.',
+      ariaLabel: 'SEO – Die Unsichtbarkeits-Lücke',
     },
     {
-      slug: 'lokal',
-      icon: MapPin,
-      title: 'Lokal',
-      tagline: 'Perfekt auf jedem Smartphone.',
-      description: '80% Ihrer Kunden suchen mobil. Wir sorgen dafür, dass der erste Eindruck sitzt.',
-      ariaLabel: 'Lokal – Regional sichtbar',
-      showScoreBadge: false,
+      icon: Target,
+      title: 'Die digitale Sackgasse',
+      description: 'Besucher müssen zu Kunden werden. Wir eliminieren unnötige Klicks und führen Nutzer direkt zu Ihrem Kontaktformular.',
+      ariaLabel: 'Conversion – Die digitale Sackgasse',
     },
   ]
 
   return (
-    <section id="benefits" className="pt-24 pb-32 px-6 bg-slate-900">
+    <section id="benefits" className="pt-24 pb-32 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
+        {/* Headline */}
         <motion.div
           {...fadeInUp}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Umsatzstark, Blitzschnell, Lokal.
+          <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900">
+            Warum eine „<span className="text-blue-600">schöne</span>" Website heute nicht mehr reicht.
           </h2>
-          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
-            In der digitalen Welt entscheidet der erste Eindruck. Ein professionelles Design schafft Vertrauen und steigert Ihre Conversion-Rate – für Unternehmen in Darmstadt, Pfungstadt und Südhessen.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
           {features.map((feature, index) => {
             const IconComponent = feature.icon
             return (
@@ -76,29 +65,15 @@ export default function WarumSection() {
                   delay: index * 0.12,
                 }}
                 whileHover={{
-                  scale: 1.02,
                   y: -5,
                   transition: { duration: 0.3 },
                 }}
-                className="p-8 rounded-[16px] border border-[#3b82f6]/40 bg-slate-800/30 backdrop-blur-md hover:border-[#3b82f6] hover:shadow-lg hover:shadow-[#3b82f6]/15 transition-all duration-300 group/card relative overflow-visible"
+                className="p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card"
               >
-                {/* Glass-Effect Hintergrund */}
-                <div className="absolute inset-0 rounded-[16px] bg-white/[0.04] pointer-events-none" aria-hidden />
-                <div className="absolute inset-0 rounded-[16px] shadow-[0_0_30px_rgba(59,130,246,0.08)] group-hover/card:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-shadow duration-300 pointer-events-none" />
-
-                {/* 99/100 Score-Badge nur bei Blitzschnell-Card beim Hover */}
-                {feature.showScoreBadge && (
-                  <span
-                    className="absolute top-4 right-4 z-20 px-2.5 py-1 rounded-lg bg-[#3b82f6]/20 border border-[#3b82f6]/50 text-xs font-semibold text-[#3b82f6] backdrop-blur-sm opacity-0 group-hover/card:opacity-100 transition-opacity duration-300"
-                    aria-label="Lighthouse Performance Score 99 von 100"
-                  >
-                    99/100 Score
-                  </span>
-                )}
-
                 <div className="relative z-10">
+                  {/* Icon */}
                   <motion.div
-                    className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto group-hover/card:scale-110 transition-transform duration-300"
+                    className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300"
                     whileHover={{ rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 0.5 }}
                   >
@@ -108,23 +83,39 @@ export default function WarumSection() {
                       aria-hidden="false"
                     />
                   </motion.div>
-                  <h3 className="text-2xl font-bold mb-2 text-center">{feature.title}</h3>
-                  <p className="text-slate-300 font-medium mb-3 text-center">{feature.tagline}</p>
-                  <p className="text-slate-400 text-center text-sm leading-relaxed mb-6">{feature.description}</p>
-                  <div className="text-center">
-                    <Link
-                      href={`/warum/${feature.slug}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-[#3b82f6]/60 text-[#3b82f6] font-medium text-sm hover:bg-[#3b82f6]/10 hover:border-[#3b82f6] transition-all duration-300 group-hover/card:gap-3 group/btn"
-                    >
-                      Mehr erfahren
-                      <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
-                    </Link>
-                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-slate-900">
+                    {feature.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                    {feature.description}
+                  </p>
                 </div>
               </motion.article>
             )
           })}
         </div>
+
+        {/* Strategischer Abschluss */}
+        <motion.div
+          {...fadeInUp}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
+            <span className="font-semibold text-slate-900">Erkenntnis:</span> Eine Website muss ein klares Ziel verfolgen. Ich helfe Ihnen dabei, dieses Ziel nicht nur zu definieren, sondern langfristig zu erreichen.
+          </p>
+          
+          {/* CTA Button */}
+          <a
+            href="/kontakt"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300"
+          >
+            Kontakt aufnehmen
+          </a>
+        </motion.div>
       </div>
     </section>
   )

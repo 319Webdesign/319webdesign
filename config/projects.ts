@@ -55,8 +55,8 @@ export const portfolioProjects: PortfolioProject[] = [
     imageUrl: '/dasound-header.png',
     liveUrl: 'https://www.da-sound.de/',
     size: 'normal',
-    cities: ['darmstadt', 'griesheim'],
-    location: 'Darmstadt',
+    cities: ['pfungstadt', 'darmstadt'],
+    location: 'Pfungstadt',
     lighthouseScore: 99,
     task:
       'da-sound als Anbieter für Veranstaltungstechnik benötigte eine Website, die Equipment, Referenzen und Kontaktmöglichkeiten übersichtlich präsentiert. Ziel war eine schnelle, professionelle Online-Präsenz für die Region.',

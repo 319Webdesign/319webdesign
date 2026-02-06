@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={inter.variable}>
+    <html lang="de" className={inter.variable} suppressHydrationWarning>
       <head>
         <OrganizationSchema />
         <ProfessionalServiceSchema />
@@ -43,7 +43,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={`antialiased ${inter.className}`}>
+      <body className={`antialiased ${inter.className}`} suppressHydrationWarning>
         <ReducedMotionProvider>
           {children}
           <CookieBanner />

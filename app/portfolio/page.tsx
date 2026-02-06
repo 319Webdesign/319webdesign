@@ -2,53 +2,19 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { ArrowRight, ExternalLink } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
+import { portfolioProjects } from '../../config/projects'
 
-// Projekt-Daten
-const allProjects = [
-  {
-    id: 1,
-    title: 'Heinerfilm',
-    category: 'Webdesign',
-    imageUrl: '/heinerfilm_header.jpeg',
-    liveUrl: 'https://heinerfilm.vercel.app/',
-    size: 'wide', // breit
-  },
-  {
-    id: 2,
-    title: 'da-sound',
-    category: 'Veranstaltungstechnik',
-    imageUrl: '/dasound-header.png',
-    liveUrl: 'https://www.da-sound.de/',
-    size: 'normal', // normal
-  },
-  {
-    id: 3,
-    title: 'DemoSeite',
-    category: 'Handwerksbetrieb',
-    imageUrl: '/headerscreen.png',
-    liveUrl: 'https://319webdesign.com/malerbetrieb/',
-    size: 'normal', // normal
-  },
-  {
-    id: 4,
-    title: 'Arena Sportsbar',
-    category: 'Gastronomie',
-    imageUrl: '/arena-sportsbar-header.png',
-    liveUrl: 'https://arena-sportsbar.vercel.app/',
-    size: 'normal', // normal
-  },
-]
-
-// Heinerfilm, da-sound und Arena Sportsbar anzeigen
-const portfolioProjects = allProjects.filter(
-  project => project.title === 'Heinerfilm' || project.title === 'da-sound' || project.title === 'Arena Sportsbar'
+// Heinerfilm, da-sound und Arena Sportsbar anzeigen (ohne DemoSeite)
+const displayProjects = portfolioProjects.filter(
+  (p) => p.slug === 'heinerfilm' || p.slug === 'da-sound' || p.slug === 'arena-sportsbar'
 )
 
-const categories = ['Alle', 'Webdesign', 'Veranstaltungstechnik', 'Gastronomie']
+const categories = ['Alle', 'Medienagentur', 'Veranstaltungstechnik', 'Gastronomie']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -79,13 +45,13 @@ export default function PortfolioPage() {
 
   const filteredProjects =
     activeFilter === 'Alle'
-      ? portfolioProjects
-      : portfolioProjects.filter((project) => project.category === activeFilter)
+      ? displayProjects
+      : displayProjects.filter((project) => project.category === activeFilter)
 
   return (
-    <main className="min-h-screen overflow-x-hidden w-full">
+    <>
       <Header />
-      
+      <main className="min-h-screen overflow-x-hidden w-full">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden pt-24">
         {/* Animated Background - Mesh Gradient (wie auf Startseite) */}
@@ -196,12 +162,13 @@ export default function PortfolioPage() {
               }
 
               return (
+                <Link href={`/portfolio/${project.slug}`} className="block h-full">
                 <motion.div
                   key={`${activeFilter}-${project.id}`}
                   variants={staggerItem}
                   initial="initial"
                   animate="whileInView"
-                  className={`group relative overflow-hidden rounded-2xl bg-slate-50 backdrop-blur-sm border border-slate-200 hover:border-blue-500/50 transition-all duration-500 ${gridClasses[project.size as keyof typeof gridClasses]}`}
+                  className={`group relative overflow-hidden rounded-2xl bg-slate-50 backdrop-blur-sm border border-slate-200 hover:border-blue-500/50 transition-all duration-500 h-full ${gridClasses[project.size]}`}
                   style={{
                     minHeight: project.size === 'tall' ? '500px' : project.size === 'wide' ? '300px' : '300px',
                   }}
@@ -233,26 +200,23 @@ export default function PortfolioPage() {
                           <h3 className="text-2xl md:text-3xl font-bold text-white">
                             {project.title}
                           </h3>
-                          <motion.a
-                            href={project.liveUrl || '#'}
-                            target={project.liveUrl !== '#' ? '_blank' : undefined}
-                            rel={project.liveUrl !== '#' ? 'noopener noreferrer' : undefined}
+                          <Link
+                            href={`/portfolio/${project.slug}`}
                             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors group/link"
-                            whileHover={{ x: 5 }}
-                            transition={{ duration: 0.2 }}
                           >
-                            View Project
+                            Details ansehen
                             <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                          </motion.a>
+                          </Link>
                         </div>
                       </div>
                     </motion.div>
 
-                    {/* View Project Button (immer sichtbar, aber dezent) */}
+                    {/* Live-URL Button (immer sichtbar bei Hover) */}
                     <motion.a
-                      href={project.liveUrl || '#'}
-                      target={project.liveUrl !== '#' ? '_blank' : undefined}
-                      rel={project.liveUrl !== '#' ? 'noopener noreferrer' : undefined}
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 z-10 opacity-0 group-hover:opacity-100"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
@@ -275,6 +239,7 @@ export default function PortfolioPage() {
                     </div>
                   </div>
                 </motion.div>
+                </Link>
               )
             })}
           </motion.div>
@@ -295,7 +260,8 @@ export default function PortfolioPage() {
       </section>
 
       <Footer />
-    </main>
+      </main>
+    </>
   )
 }
 

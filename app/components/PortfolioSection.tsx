@@ -140,10 +140,10 @@ export default function PortfolioSection() {
                 
                 const CardWrapper = reduceMotion ? 'div' : motion.div
                 const CardLink = reduceMotion ? 'a' : motion.a
-                const cardWrapperProps = reduceMotion ? { key: project.id, className: `flex-shrink-0 ${cardWidthClass}`, style: { scale: 1, opacity: 1 } } : { key: project.id, className: `flex-shrink-0 ${cardWidthClass}`, style: { scale, opacity }, transition: { duration: 0.3 } }
+                const cardWrapperProps = reduceMotion ? { className: `flex-shrink-0 ${cardWidthClass}`, style: { scale: 1, opacity: 1 } } : { className: `flex-shrink-0 ${cardWidthClass}`, style: { scale, opacity }, transition: { duration: 0.3 } }
                 const cardLinkProps = reduceMotion ? { href: project.liveUrl || '#', target: '_blank', rel: 'noopener noreferrer', className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card' } : { href: project.liveUrl || '#', target: '_blank', rel: 'noopener noreferrer', className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card', whileHover: { scale: 1.02, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' }, whileTap: { scale: 0.98 }, transition: { type: 'spring', stiffness: 300, damping: 25 } }
                 return (
-                  <CardWrapper {...cardWrapperProps}>
+                  <CardWrapper key={project.id} {...cardWrapperProps}>
                     <CardLink {...cardLinkProps}>
                       {/* Image Container */}
                       <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-200">
@@ -212,10 +212,10 @@ export default function PortfolioSection() {
                 const cardWidthClass = portfolioProjects.length === 1 ? (isMobile ? 'w-full max-w-full' : 'w-full max-w-5xl mx-auto') : 'min-w-0 flex-[1_0_0]'
                 const CardWrapper = motion.div
                 const CardLink = motion.a
-                const cardWrapperProps = { key: project.id, className: `flex-shrink-0 ${cardWidthClass}`, style: { scale, opacity }, transition: { duration: 0.3 } }
+                const cardWrapperProps = { className: `flex-shrink-0 ${cardWidthClass}`, style: { scale, opacity }, transition: { duration: 0.3 } }
                 const cardLinkProps = { href: project.liveUrl || '#', target: '_blank' as const, rel: 'noopener noreferrer', className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card', whileHover: { scale: 1.02, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' }, whileTap: { scale: 0.98 }, transition: { type: 'spring' as const, stiffness: 300, damping: 25 } }
                 return (
-                  <CardWrapper {...cardWrapperProps}>
+                  <CardWrapper key={project.id} {...cardWrapperProps}>
                     <CardLink {...cardLinkProps}>
                       <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-200">
                         <Image src={project.imageUrl || '/placeholder-project.jpg'} alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`} fill sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px" quality={90} className="object-contain object-center transition-transform duration-300 group-hover/card:scale-[1.02]" />

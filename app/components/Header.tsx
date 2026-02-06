@@ -133,9 +133,8 @@ export default function Header() {
 
   return (
     <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      initial={false}
+      animate={{ opacity: 1 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isMobileMenuOpen
           ? 'backdrop-blur-md bg-white/98 shadow-lg shadow-slate-200/80'
@@ -215,9 +214,8 @@ export default function Header() {
                   >
                     <Link href={link.href}>
                       <motion.div
-                        initial={{ opacity: 0, y: -20 }}
+                        initial={false}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
                         className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
                       >
                         {link.label}
@@ -228,16 +226,19 @@ export default function Header() {
                       </motion.div>
                     </Link>
 
-                    {/* Dropdown Menu */}
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{
-                        opacity: isLeistungenOpen ? 1 : 0,
-                        y: isLeistungenOpen ? 0 : -10,
-                        pointerEvents: isLeistungenOpen ? 'auto' : 'none',
-                      }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full pt-2 left-0 min-w-[240px]"
+                    {/* Unsichtbare Brücke – fängt Hover ab, ohne Layout zu verändern */}
+                    <div
+                      className={`absolute top-full left-0 right-0 h-40 z-[55] ${
+                        isLeistungenOpen ? 'pointer-events-auto' : 'pointer-events-none'
+                      }`}
+                      aria-hidden
+                    />
+
+                    {/* Dropdown Menu – direkt unter dem Link */}
+                    <div
+                      className={`absolute top-full pt-2 left-0 min-w-[240px] z-[60] transition-opacity duration-200 ${
+                        isLeistungenOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+                      }`}
                     >
                       <div className="bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden">
                       {leistungenItems.map((item, idx) => (
@@ -253,7 +254,7 @@ export default function Header() {
                         </Link>
                       ))}
                       </div>
-                    </motion.div>
+                    </div>
                   </div>
                 )
               }
@@ -265,9 +266,8 @@ export default function Header() {
                     key={link.href}
                     href={pathname === '/' ? link.href : `/${link.href}`}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
                     className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
                   >
                     {link.label}
@@ -282,9 +282,8 @@ export default function Header() {
               return (
                 <Link key={link.href} href={link.href}>
                   <motion.div
-                    initial={{ opacity: 0, y: -20 }}
+                    initial={false}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
                     className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
                   >
                     {link.label}
@@ -333,7 +332,7 @@ export default function Header() {
                       onClick={handleMobileLinkClick}
                     >
                       <motion.div
-                        initial={{ opacity: 0, x: -20 }}
+                        initial={false}
                         animate={{
                           opacity: isMobileMenuOpen ? 1 : 0,
                           x: isMobileMenuOpen ? 0 : -20,
@@ -353,7 +352,7 @@ export default function Header() {
                           onClick={handleMobileLinkClick}
                         >
                           <motion.div
-                            initial={{ opacity: 0, x: -20 }}
+                            initial={false}
                             animate={{
                               opacity: isMobileMenuOpen ? 1 : 0,
                               x: isMobileMenuOpen ? 0 : -20,
@@ -379,7 +378,7 @@ export default function Header() {
                     key={link.href}
                     href={pathname === '/' ? link.href : `/${link.href}`}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={false}
                     animate={{
                       opacity: isMobileMenuOpen ? 1 : 0,
                       x: isMobileMenuOpen ? 0 : -20,
@@ -400,7 +399,7 @@ export default function Header() {
                   onClick={handleMobileLinkClick}
                 >
                   <motion.div
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={false}
                     animate={{
                       opacity: isMobileMenuOpen ? 1 : 0,
                       x: isMobileMenuOpen ? 0 : -20,

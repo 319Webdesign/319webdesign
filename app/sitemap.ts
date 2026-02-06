@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { getAllProjectSlugs } from '../config/projects'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://319webdesign.com'
@@ -6,6 +7,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
   const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']
+
+  // Portfolio-Projekte (app/portfolio/[slug]/page.tsx)
+  const portfolioSlugs = getAllProjectSlugs()
 
   // Warum-Unterseiten (app/warum/[slug]/page.tsx)
   const warumSlugs = ['umsatzstark', 'blitzschnell', 'lokal']
@@ -62,12 +66,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
 
-    // Stadt-Landingpages - SEO-relevant für lokale Suche
+    // Portfolio-Projekteinzelseiten – Referenzarbeiten
+    ...portfolioSlugs.map((slug) => ({
+      url: `${baseUrl}/portfolio/${slug}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
+
+    // Stadt-Landingpages Webdesign - SEO-relevant für lokale Suche
     ...cities.map((city) => ({
       url: `${baseUrl}/webdesign/${city}`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
+    })),
+
+    // Region-Stadt-Landingpages - mit lokalen Referenzen
+    ...cities.map((city) => ({
+      url: `${baseUrl}/region/${city}`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly' as const,
+      priority: 0.85,
     })),
 
     // Impressum - Rechtlich notwendig, niedrige Priorität

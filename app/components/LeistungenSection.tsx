@@ -51,9 +51,9 @@ export default function LeistungenSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {leistungen.map((item) => {
             const CardEl = reduceMotion ? 'div' : motion.div
-            const cardProps = reduceMotion ? { key: item.title, className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left' } : { key: item.title, whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left' }
+            const cardProps = reduceMotion ? { className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left' } : { whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'bg-slate-50 rounded-2xl border border-slate-200 p-8 hover:border-[#3B82F6] transition-all duration-300 group text-center md:text-left' }
             return (
-            <CardEl {...cardProps}>
+            <CardEl key={item.title} {...cardProps}>
               <div className="flex items-center justify-center w-16 h-16 bg-[#3B82F6]/10 rounded-xl mb-6 group-hover:bg-[#3B82F6]/20 transition-colors duration-300 mx-auto md:mx-0">
                 <item.icon className="w-8 h-8 text-[#3B82F6]" aria-hidden="true" />
               </div>

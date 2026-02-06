@@ -21,9 +21,10 @@ export const metadata: Metadata = getSeoMetadata(seoConfig.home)
 
 export default function Home() {
   return (
-    <main className="min-h-screen overflow-x-hidden w-full">
+    <>
       <Header />
-      <HeroSection />
+      <main className="min-h-screen overflow-x-hidden w-full">
+        <HeroSection />
       <WarumSection />
       <LeistungenSection />
       <UeberMichSection />
@@ -35,6 +36,7 @@ export default function Home() {
       <FAQSection />
       <KontaktSection />
       <Footer />
-    </main>
+      </main>
+    </>
   )
 }

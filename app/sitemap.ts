@@ -1,11 +1,11 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.319webdesign.com'
+  const baseUrl = 'https://319webdesign.com'
   const currentDate = new Date().toISOString().split('T')[0]
 
-  // Leistungen (aktive Slugs aus app/leistungen/[slug]/page.tsx)
-  const leistungen = ['webdesign', 'seo', 'wartung']
+  // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
+  const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']
 
   // Warum-Unterseiten (app/warum/[slug]/page.tsx)
   const warumSlugs = ['umsatzstark', 'blitzschnell', 'lokal']

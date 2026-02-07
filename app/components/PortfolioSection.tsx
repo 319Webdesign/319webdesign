@@ -63,7 +63,7 @@ export default function PortfolioSection() {
     : 0
 
   return (
-    <section className="py-16 px-6 bg-white relative group">
+    <section className="py-10 md:py-16 px-6 bg-white relative group">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         {reduceMotion ? (

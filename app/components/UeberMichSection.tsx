@@ -23,7 +23,7 @@ export default function UeberMichSection() {
   const btnProps = reduceMotion ? {} : { whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 }, animate: { boxShadow: ['0 10px 25px -5px rgba(59, 130, 246, 0.5)', '0 15px 35px -5px rgba(59, 130, 246, 0.6)', '0 10px 25px -5px rgba(59, 130, 246, 0.5)' ] }, transition: { boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' } } }
 
   return (
-    <section className="pt-32 pb-24 px-6 bg-white">
+    <section className="pt-16 pb-12 md:pt-32 md:pb-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Bild links */}

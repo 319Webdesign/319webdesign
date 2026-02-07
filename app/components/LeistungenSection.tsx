@@ -40,7 +40,7 @@ export default function LeistungenSection() {
   const headerProps = reduceMotion ? { className: 'text-center mb-16' } : { ...fadeInUp, className: 'text-center mb-16' }
 
   return (
-    <section id="leistungen" className="py-28 md:py-32 px-6 bg-white">
+    <section id="leistungen" className="py-12 md:py-28 lg:py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <HeaderEl {...headerProps}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">

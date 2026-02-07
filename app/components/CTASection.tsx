@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 export default function CTASection() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-white overflow-hidden">
+    <section className="relative py-12 md:py-24 lg:py-32 px-6 bg-white overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left: Device Mockup */}

@@ -55,7 +55,7 @@ export default function ProzessSection() {
   const linkProps = reduceMotion ? { href: '/kontakt', className: 'group relative inline-block', 'aria-label': 'Zum Kontaktformular springen - Erstgespräch vereinbaren' } : { href: '/kontakt', whileHover: { scale: 1.05, y: -2 }, whileTap: { scale: 0.95 }, animate: { boxShadow: ['0 10px 25px -5px rgba(59, 130, 246, 0.3)', '0 15px 35px -5px rgba(59, 130, 246, 0.4)', '0 10px 25px -5px rgba(59, 130, 246, 0.3)' ] }, transition: { boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }, className: 'group relative inline-block', 'aria-label': 'Zum Kontaktformular springen - Erstgespräch vereinbaren' }
 
   return (
-    <section id="prozess" className="py-24 px-6 bg-white">
+    <section id="prozess" className="py-12 md:py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         {reduceMotion ? (
           <div className="text-center mb-16">

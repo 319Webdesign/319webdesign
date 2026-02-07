@@ -85,7 +85,7 @@ export default function KontaktSection() {
   }
 
   return (
-    <section id="kontakt" className="py-24 px-6 bg-white">
+    <section id="kontakt" className="py-12 md:py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <HeaderEl {...headerProps}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">

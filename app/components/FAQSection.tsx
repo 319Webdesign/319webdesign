@@ -43,7 +43,7 @@ export default function FAQSection() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0)
 
   return (
-    <section className="py-24 px-6 bg-slate-50">
+    <section className="py-12 md:py-24 px-6 bg-slate-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           {...fadeInUp}

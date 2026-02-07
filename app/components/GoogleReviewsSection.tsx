@@ -74,7 +74,7 @@ export default function GoogleReviewsSection() {
 
   if (loading) {
     return (
-      <section className="py-24 px-6 bg-slate-50" aria-label="Kundenbewertungen werden geladen">
+      <section className="py-12 md:py-24 px-6 bg-slate-50" aria-label="Kundenbewertungen werden geladen">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
@@ -97,7 +97,7 @@ export default function GoogleReviewsSection() {
   const error = data?.error
 
   return (
-    <section className="py-24 px-6 bg-slate-50" id="bewertungen" aria-labelledby="reviews-heading">
+    <section className="py-12 md:py-24 px-6 bg-slate-50" id="bewertungen" aria-labelledby="reviews-heading">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...fadeInUp}

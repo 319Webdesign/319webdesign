@@ -30,7 +30,7 @@ export default function WarumSection() {
     {
       icon: Search,
       title: 'Die Unsichtbarkeits-Lücke',
-      description: 'Gutes Design ohne SEO ist wie ein Flyer im Müll. Wir sorgen dafür, dass Ihr Business in ganz Hessen (von Darmstadt bis Kassel) auch gefunden wird.',
+      description: 'Gutes Design ohne SEO ist wie ein Flyer im Müll. Wir sorgen dafür, dass Ihr Business in Darmstadt auch gefunden wird.',
       ariaLabel: 'SEO – Die Unsichtbarkeits-Lücke',
     },
     {
@@ -42,18 +42,18 @@ export default function WarumSection() {
   ]
 
   return (
-    <section id="benefits" className="pt-24 pb-32 px-6 bg-white">
+    <section id="benefits" className="pt-12 pb-16 md:pt-24 md:pb-32 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Headline */}
         {reduceMotion ? (
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900">
+          <div className="text-center mb-16 flex flex-col items-center">
+            <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900 text-center max-w-3xl">
               Warum eine „<span className="text-blue-600">schöne</span>" Website heute nicht mehr reicht.
             </h2>
           </div>
         ) : (
-          <motion.div {...fadeInUp} className="text-center mb-16">
-            <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900">
+          <motion.div {...fadeInUp} className="text-center mb-16 flex flex-col items-center">
+            <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900 text-center max-w-3xl">
               Warum eine „<span className="text-blue-600">schöne</span>" Website heute nicht mehr reicht.
             </h2>
           </motion.div>
@@ -64,18 +64,18 @@ export default function WarumSection() {
           {features.map((feature, index) => {
             const IconComponent = feature.icon
             const CardEl = reduceMotion ? 'article' : motion.article
-            const cardProps = reduceMotion ? { key: feature.title, className: 'p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card' } : { key: feature.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.12 }, whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card' }
+            const cardProps = reduceMotion ? { key: feature.title, className: 'p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card text-center md:text-left' } : { key: feature.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.12 }, whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card text-center md:text-left' }
             return (
               <CardEl {...cardProps}>
                 <div className="relative z-10">
                   {/* Icon */}
                   {reduceMotion ? (
-                    <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300">
+                    <div className="w-14 h-14 mx-auto md:mx-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300">
                       <IconComponent className="w-7 h-7 text-white" aria-label={feature.ariaLabel} aria-hidden="false" />
                     </div>
                   ) : (
                     <motion.div
-                      className="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300"
+                      className="w-14 h-14 mx-auto md:mx-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300"
                       whileHover={{ rotate: [0, -5, 5, 0] }}
                       transition={{ duration: 0.5 }}
                     >

@@ -54,8 +54,7 @@ export default function ImpressumPage() {
                       Deutschland
                     </p>
                     <p className="mt-3">
-                      <strong className="text-white">Steuernummer:</strong> [PLATZHALTER: Steuernummer]<br />
-                      <strong className="text-white">Umsatzsteuer-ID:</strong> [PLATZHALTER: USt-IdNr. - falls vorhanden]
+                      <strong className="text-white">Steuernummer:</strong> 007 866 03257
                     </p>
                   </div>
                 </div>

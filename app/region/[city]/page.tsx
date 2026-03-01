@@ -9,6 +9,11 @@ import Breadcrumbs from '../../components/Breadcrumbs'
 import LocalBusinessSchema from '../../components/LocalBusinessSchema'
 import { getCityBySlug, getAllCitySlugs } from '../../../config/cities'
 import { getProjectsByCity } from '../../../config/projects'
+import {
+  getHeroIntro,
+  getCityPageTexts,
+  getLocalSectionText,
+} from '../../../config/cityPageTemplate'
 
 // =============================================================================
 // ANWEISUNG: Warum Webdesign in [City] wichtig ist
@@ -78,6 +83,7 @@ export default function RegionCityPage({ params }: { params: { city: string } })
   if (!city) notFound()
 
   const localProjects = getProjectsByCity(city.slug)
+  const texts = getCityPageTexts(city)
   const warumContent = warumWebdesignPlaceholder[city.slug] ?? {
     heading: `Warum Webdesign in ${city.name} wichtig ist`,
     content: `[PLATZHALTER – mind. 300 Wörter] Individueller Text für ${city.name} erforderlich. Siehe Anweisung im Quellcode.`,
@@ -115,8 +121,7 @@ export default function RegionCityPage({ params }: { params: { city: string } })
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-8">
-              Professionelles Webdesign in {city.name} mit PageSpeed 99/100.
-              Persönliche Betreuung in {city.region}.
+              {getHeroIntro(city)}
             </p>
             <div className="flex items-center justify-center gap-4 text-slate-600 mb-10">
               <span className="flex items-center gap-2">
@@ -161,8 +166,7 @@ export default function RegionCityPage({ params }: { params: { city: string } })
               Lokale Referenzen aus {city.name}
             </h2>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
-              Ausgewählte Webdesign-Projekte für Unternehmen in {city.name} und
-              Umgebung.
+              {texts.referenzenIntro}
             </p>
 
             {localProjects.length > 0 ? (
@@ -248,10 +252,10 @@ export default function RegionCityPage({ params }: { params: { city: string } })
         <section className="py-20 px-6 bg-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              Bereit für Ihre Website in {city.name}?
+              {texts.ctaHeading}
             </h2>
             <p className="text-xl text-slate-600 mb-8">
-              Kostenloses Erstgespräch – persönlich oder online.
+              {texts.ctaParagraph}
             </p>
             <Link
               href="/kontakt"

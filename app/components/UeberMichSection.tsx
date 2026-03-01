@@ -56,7 +56,7 @@ export default function UeberMichSection() {
             {/* Prägnanter Text */}
             <div className="space-y-4 text-lg text-slate-600 leading-relaxed">
               <p>
-                Ich bin nicht nur Ihr Webdesigner – ich bin Ihr Partner für nachhaltigen digitalen Erfolg. Von meinem Standort in Pfungstadt aus begleite ich Unternehmen in der ganzen Region dabei, ihre Website von einer digitalen Visitenkarte in eine echte Verkaufsmaschine zu verwandeln. Mein Fokus liegt dabei nicht auf kurzfristigen Projekten, sondern auf einer langfristigen Zusammenarbeit, um Ihren Webauftritt kontinuierlich zu optimieren und Ihre Geschäftsziele messbar zu erreichen.
+                Mein Name ist Maik Schmidt und ich bin nicht nur Ihr Webdesigner – ich bin Ihr Partner für nachhaltigen digitalen Erfolg. Von meinem Standort in Pfungstadt aus begleite ich Unternehmen in der ganzen Region dabei, ihre Website von einer digitalen Visitenkarte in eine echte Verkaufsmaschine zu verwandeln. Mein Fokus liegt dabei nicht auf kurzfristigen Projekten, sondern auf einer langfristigen Zusammenarbeit, um Ihren Webauftritt kontinuierlich zu optimieren und Ihre Geschäftsziele messbar zu erreichen.
               </p>
               
               <p>

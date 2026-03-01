@@ -5,84 +5,12 @@ import { notFound } from 'next/navigation'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Breadcrumbs from '../../components/Breadcrumbs'
-
-// Stadt-Konfiguration
-interface City {
-  slug: string
-  name: string
-  region: string
-  description: string
-  keywords: string[]
-  population?: string
-  nearbyPlaces: string[]
-}
-
-const cities: Record<string, City> = {
-  darmstadt: {
-    slug: 'darmstadt',
-    name: 'Darmstadt',
-    region: 'Südhessen',
-    description: 'Die Wissenschaftsstadt Darmstadt ist Zentrum der Region Südhessen und bekannt für Innovation und Technologie.',
-    keywords: [
-      'Webdesign Darmstadt',
-      'Website erstellen Darmstadt',
-      'SEO Darmstadt',
-      'Webentwicklung Darmstadt',
-    ],
-    population: '160.000',
-    nearbyPlaces: ['Pfungstadt', 'Griesheim', 'Weiterstadt', 'Eberstadt'],
-  },
-  pfungstadt: {
-    slug: 'pfungstadt',
-    name: 'Pfungstadt',
-    region: 'Südhessen',
-    description: 'Pfungstadt liegt südlich von Darmstadt und bietet eine ideale Mischung aus städtischem Leben und ländlicher Idylle.',
-    keywords: [
-      'Webdesign Pfungstadt',
-      'Website erstellen Pfungstadt',
-      'SEO Pfungstadt',
-      'Webentwicklung Pfungstadt',
-    ],
-    population: '25.000',
-    nearbyPlaces: ['Darmstadt', 'Griesheim', 'Eberstadt', 'Seeheim-Jugenheim'],
-  },
-  griesheim: {
-    slug: 'griesheim',
-    name: 'Griesheim',
-    region: 'Südhessen',
-    description: 'Griesheim westlich von Darmstadt bietet optimale Bedingungen für lokale Unternehmen und Selbstständige.',
-    keywords: [
-      'Webdesign Griesheim',
-      'Website erstellen Griesheim',
-      'SEO Griesheim',
-      'Webentwicklung Griesheim',
-    ],
-    population: '27.000',
-    nearbyPlaces: ['Darmstadt', 'Pfungstadt', 'Weiterstadt', 'Riedstadt'],
-  },
-  weiterstadt: {
-    slug: 'weiterstadt',
-    name: 'Weiterstadt',
-    region: 'Südhessen',
-    description: 'Weiterstadt ist ein wichtiger Wirtschaftsstandort südlich von Darmstadt mit vielen mittelständischen Unternehmen.',
-    keywords: [
-      'Webdesign Weiterstadt',
-      'Website erstellen Weiterstadt',
-      'SEO Weiterstadt',
-      'Webentwicklung Weiterstadt',
-    ],
-    population: '26.000',
-    nearbyPlaces: ['Darmstadt', 'Griesheim', 'Mörfelden-Walldorf', 'Erzhausen'],
-  },
-}
-
-const getAllCitySlugs = (): string[] => {
-  return Object.keys(cities)
-}
-
-const getCityBySlug = (slug: string): City | undefined => {
-  return cities[slug]
-}
+import { getCityBySlug, getAllCitySlugs } from '../../../config/cities'
+import {
+  getHeroIntro,
+  getCityPageTexts,
+  getLocalSectionText,
+} from '../../../config/cityPageTemplate'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -129,6 +57,8 @@ export default function CityPage({ params }: { params: { city: string } }) {
     notFound()
   }
 
+  const texts = getCityPageTexts(city)
+
   const features = [
     {
       title: 'PageSpeed 99/100',
@@ -144,7 +74,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
     },
     {
       title: 'Persönliche Betreuung',
-      description: `Direkte Ansprechpartner in ${city.region}`,
+      description: texts.personalBetreuung,
     },
     {
       title: 'Conversion-fokussiert',
@@ -157,10 +87,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
   ]
 
   const benefits = [
-    'Kostenloses Erstgespräch vor Ort oder online',
-    'Transparente Preise ohne versteckte Kosten',
-    'Schnelle Umsetzung Ihres Projekts',
-    'Persönlicher Ansprechpartner',
+    ...texts.benefits,
     'Moderne Technologien (Next.js, React)',
     'Barrierefreie Umsetzung (WCAG)',
   ]
@@ -198,9 +125,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-8">
-              Professionelles Webdesign in {city.name} mit PageSpeed-Scores von
-              99/100. Ich helfe Unternehmen und Selbstständigen in {city.region}
-              , online erfolgreich zu sein.
+              {getHeroIntro(city)}
             </p>
 
             {/* Location Info */}
@@ -217,7 +142,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
               )}
               <div className="flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-blue-600" />
-                <span>Persönliche Betreuung vor Ort</span>
+                <span>{texts.personalBetreuung}</span>
               </div>
             </div>
 
@@ -246,10 +171,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
               Performance, die überzeugt
             </h2>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
-              Während viele Agenturen langsame Websites ausliefern, erreiche ich
-              konstant PageSpeed-Scores von 99/100. Das bedeutet: Bessere
-              Google-Rankings, zufriedenere Besucher und mehr Conversions für Ihr
-              Unternehmen in {city.name}.
+              {texts.performanceIntro}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
@@ -300,10 +222,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
             <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-8 border border-blue-200 text-center shadow-sm">
               <p className="text-lg text-slate-700">
                 <strong className="text-blue-600">Warum ist das wichtig?</strong>{' '}
-                Google berücksichtigt die Ladegeschwindigkeit als Rankingfaktor.
-                Schnellere Websites erscheinen weiter oben in den Suchergebnissen
-                – das bedeutet mehr potenzielle Kunden für Ihr Unternehmen in{' '}
-                {city.name}.
+                {texts.performanceWarum}
               </p>
             </div>
           </div>
@@ -316,7 +235,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
               Was Sie bekommen
             </h2>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
-              Professionelles Webdesign für Unternehmen in {city.name} und Umgebung
+              {texts.featuresIntro}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -365,11 +284,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
               Webdesign direkt aus {city.region}
             </h2>
             <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              {city.description} Als lokaler Webdesigner kenne ich die Region und
-              die Bedürfnisse der Unternehmen vor Ort. Ob in {city.name} oder den
-              umliegenden Orten wie {city.nearbyPlaces.slice(0, 3).join(', ')} –
-              ich bin Ihr persönlicher Ansprechpartner für professionelles
-              Webdesign.
+              {city.description} {getLocalSectionText(city)}
             </p>
 
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 max-w-3xl mx-auto shadow-sm">
@@ -394,12 +309,10 @@ export default function CityPage({ params }: { params: { city: string } }) {
         <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              Bereit für Ihre neue Website?
+              {texts.ctaHeading}
             </h2>
             <p className="text-xl text-slate-700 mb-8 max-w-2xl mx-auto">
-              Lassen Sie uns in einem kostenlosen Erstgespräch besprechen, wie ich
-              Ihrem Unternehmen in {city.name} helfen kann, online erfolgreicher
-              zu werden.
+              {texts.ctaParagraph}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link

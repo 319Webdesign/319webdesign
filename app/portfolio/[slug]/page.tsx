@@ -108,21 +108,33 @@ export default function PortfolioProjectPage({
                     {project.category} · {project.location}
                   </p>
                 </div>
-                {/* Lighthouse Badge */}
-                <div className="flex items-center gap-2 px-5 py-3 bg-green-50 border border-green-200 rounded-xl">
-                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
-                    <span className="text-white font-bold text-sm">
-                      {project.lighthouseScore}
-                    </span>
+                {/* Lighthouse Badge + Zum Projekt Button */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="flex items-center gap-2 px-5 py-3 bg-green-50 border border-green-200 rounded-xl">
+                    <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-sm">
+                        {project.lighthouseScore}
+                      </span>
+                    </div>
+                    <div>
+                      <span className="block text-sm font-semibold text-green-800">
+                        Lighthouse Score
+                      </span>
+                      <span className="block text-xs text-green-600">
+                        PageSpeed {project.lighthouseScore}/100
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="block text-sm font-semibold text-green-800">
-                      Lighthouse Score
-                    </span>
-                    <span className="block text-xs text-green-600">
-                      PageSpeed {project.lighthouseScore}/100
-                    </span>
-                  </div>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-colors"
+                    aria-label={`${project.title} – Website besuchen`}
+                  >
+                    Zum Projekt
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             </div>

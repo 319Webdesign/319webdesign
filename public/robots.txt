@@ -16,12 +16,6 @@ Disallow: /product/
 Disallow: /Outside-Micrometer-Set/
 Disallow: /category/
 Disallow: /tag/
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
-Disallow: /wp-json/
-Disallow: /wp-login.php
-Disallow: /xmlrpc.php
 Disallow: /cart/
 Disallow: /checkout/
 Disallow: /shop/

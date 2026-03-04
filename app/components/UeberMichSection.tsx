@@ -31,7 +31,7 @@ export default function UeberMichSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue-500/20">
               <Image
                 src="/maik.webp"
-                alt="Maik Schmidt – Webdesign Darmstadt und Pfungstadt, Ihr Partner für digitales Wachstum in Südhessen"
+                alt="Webdesign für Immobilienmakler und KMU in Darmstadt Pfungstadt Hessen – Maik Schmidt 319Webdesign"
                 width={600}
                 height={800}
                 quality={95}
@@ -50,7 +50,7 @@ export default function UeberMichSection() {
           <WrapEl {...textWrapProps}>
             {/* Große Haupt-Headline */}
             <h2 className="text-2xl md:text-4xl font-bold leading-tight text-slate-900">
-              Strategische <span className="text-blue-600">Partnerschaft</span> für digitales Wachstum in Hessen
+              Strategische <span className="text-blue-600">Partnerschaft</span> für Ihren digitalen Wachstum
             </h2>
 
             {/* Prägnanter Text */}

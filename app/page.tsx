@@ -8,8 +8,10 @@ import HeroSection from './components/HeroSection'
 const UeberMichSection = dynamic(() => import('./components/UeberMichSection'), { ssr: true })
 const WarumSection = dynamic(() => import('./components/WarumSection'), { ssr: true })
 const ProzessSection = dynamic(() => import('./components/ProzessSection'), { ssr: true })
+const MehrwertSection = dynamic(() => import('./components/MehrwertSection'), { ssr: true })
 const InvestmentSection = dynamic(() => import('./components/InvestmentSection'), { ssr: true })
 const LeistungenSection = dynamic(() => import('./components/LeistungenSection'), { ssr: true })
+const MaklerProblemLoesungSection = dynamic(() => import('./components/MaklerProblemLoesungSection'), { ssr: true })
 const GoogleReviewsSection = dynamic(() => import('./components/GoogleReviewsSection'), { ssr: false })
 const PortfolioSection = dynamic(() => import('./components/PortfolioSection'), { ssr: true })
 const CTASection = dynamic(() => import('./components/CTASection'), { ssr: true })
@@ -27,8 +29,10 @@ export default function Home() {
         <HeroSection />
       <WarumSection />
       <LeistungenSection />
+      <MaklerProblemLoesungSection />
       <UeberMichSection />
       <ProzessSection />
+      <MehrwertSection />
       <InvestmentSection />
       <GoogleReviewsSection />
       <PortfolioSection />

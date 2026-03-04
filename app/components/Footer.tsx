@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="flex items-center justify-center md:justify-start">
               <Image
                 src="/319.png"
-                alt="319Webdesign Logo – Webdesign Darmstadt, Pfungstadt und Südhessen"
+                alt="319Webdesign Logo – Webdesign für KMU und Immobilienmakler in Pfungstadt Darmstadt Hessen"
                 width={110}
                 height={110}
                 sizes="(max-width: 768px) 70px, 110px"
@@ -71,6 +71,7 @@ export default function Footer() {
                 <a href="/leistungen/webdesign-launch" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Webdesign & Launch</a>
                 <a href="/leistungen/wachstum-seo" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Wachstum & SEO</a>
                 <a href="/leistungen/strategische-begleitung" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Strategische Begleitung</a>
+                <a href="/immobilienmakler-webdesign" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Immobilienmakler Webdesign</a>
               </li>
               <li>
                 <a 

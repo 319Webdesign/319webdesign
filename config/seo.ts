@@ -1,5 +1,8 @@
 const baseUrl = 'https://319webdesign.com'
 
+/** Title-Template für alle Seiten: %s | 319Webdesign Pfungstadt */
+export const titleTemplate = '%s | 319Webdesign Pfungstadt'
+
 export interface PageSeoConfig {
   title: string
   description: string
@@ -13,8 +16,8 @@ export interface PageSeoConfig {
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign Darmstadt & Pfungstadt | 319Webdesign',
-    description: '319Webdesign – Professionelles Webdesign mit SEO-Optimierung für Unternehmen in Darmstadt, Pfungstadt und Südhessen. Moderne Websites die verkaufen.',
+    title: 'Webdesign Pfungstadt & Immobilien-Automation Hessen | 319Webdesign',
+    description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen sowie spezialisierte Schnittstellen-Lösungen (onOffice) für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
     path: '/',
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
@@ -63,16 +66,21 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     description: 'Datenschutzerklärung von 319Webdesign. Informationen zur Datenverarbeitung gemäß DSGVO und Ihren Rechten als Nutzer.',
     path: '/datenschutz',
   },
+  immobilienmakler: {
+    title: 'Webdesign für Immobilienmakler Hessen | onOffice & Schnittstellen',
+    description: 'Exklusives Webdesign für Immobilienmakler in Hessen. Automatisierte Objekt-Anbindung via onOffice, FlowFact & OpenImmo. Mehr Eigentümer-Anfragen durch maximale Performance.',
+    path: '/immobilienmakler-webdesign',
+  },
 }
 
 export function getCanonicalUrl(path: string): string {
   return `${baseUrl}${path === '/' ? '' : path}`
 }
 
-/** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph */
+/** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt "| 319Webdesign Pfungstadt" hinzu. */
 export function getSeoMetadata(config: PageSeoConfig) {
   const canonicalUrl = getCanonicalUrl(config.path)
-  const title = config.title
+  const title = config.title.replace(/\s*\|\s*319Webdesign\s*$/i, '').trim() || config.title.replace(/\s*\|\s*319Webdesign\s*$/i, '').trim()
   const description = config.description
   const ogTitle = config.openGraph?.title ?? title
   const ogDescription = config.openGraph?.description ?? description

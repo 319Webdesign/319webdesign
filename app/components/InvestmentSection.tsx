@@ -126,9 +126,9 @@ export default function InvestmentSection() {
                     ? 'border-blue-500 shadow-lg shadow-blue-500/10 pt-12 pb-8 px-8' 
                     : 'border-slate-200 hover:border-blue-500 p-8'
                 }`
-            const cardProps = reduceMotion ? { key: bereich.title, className: cardClassName } : { key: bereich.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.12 }, whileHover: { y: -5, transition: { duration: 0.3 } }, className: cardClassName }
+            const cardProps = reduceMotion ? { className: cardClassName } : { ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.12 }, whileHover: { y: -5, transition: { duration: 0.3 } }, className: cardClassName }
             return (
-              <CardEl {...cardProps}>
+              <CardEl key={bereich.title} {...cardProps}>
                 {/* Empfehlung Badge */}
                 {bereich.recommended && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 whitespace-nowrap">
@@ -192,9 +192,9 @@ export default function InvestmentSection() {
             {zusatzleistungen.map((leistung, index) => {
               const IconComponent = leistung.icon
               const ZusatzEl = reduceMotion ? 'div' : motion.div
-              const zusatzProps = reduceMotion ? { key: leistung.title, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' } : { key: leistung.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.1 }, whileHover: { y: -3, transition: { duration: 0.3 } }, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' }
+              const zusatzProps = reduceMotion ? { className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' } : { ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.1 }, whileHover: { y: -3, transition: { duration: 0.3 } }, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' }
               return (
-                <ZusatzEl {...zusatzProps}>
+                <ZusatzEl key={leistung.title} {...zusatzProps}>
                   {/* Icon */}
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover/zusatz:bg-blue-200 transition-colors duration-300">
                     <IconComponent
@@ -226,9 +226,9 @@ export default function InvestmentSection() {
             {zusatzleistungen.map((leistung, index) => {
               const IconComponent = leistung.icon
               const ZusatzEl = motion.div
-              const zusatzProps = { key: leistung.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.1 }, whileHover: { y: -3, transition: { duration: 0.3 } }, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' }
+              const zusatzProps = { ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.1 }, whileHover: { y: -3, transition: { duration: 0.3 } }, className: 'p-6 rounded-xl bg-white border border-slate-200 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 group/zusatz' }
               return (
-                <ZusatzEl {...zusatzProps}>
+                <ZusatzEl key={leistung.title} {...zusatzProps}>
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover/zusatz:bg-blue-200 transition-colors duration-300">
                     <IconComponent className="w-6 h-6 text-blue-600" aria-label={leistung.ariaLabel} />
                   </div>

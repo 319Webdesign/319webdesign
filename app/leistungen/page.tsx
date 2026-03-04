@@ -90,13 +90,13 @@ export default function LeistungenPage() {
             />
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
-            Leistungen für Ihr{' '}
+            Webdesign, SEO und Wartung für Ihr{' '}
             <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
               digitales Wachstum
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
-            Webdesign, SEO und Wartung – alles aus einer Hand in Darmstadt
+            Professionelles Webdesign in Darmstadt und Hessen – alles aus einer Hand. Webdesign, das Ihre Sichtbarkeit steigert.
           </p>
         </div>
       </section>

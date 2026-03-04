@@ -149,7 +149,7 @@ export default function PortfolioSection() {
                       <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-200">
                         <Image
                           src={project.imageUrl || '/placeholder-project.jpg'}
-                          alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`}
+                          alt={`Webdesign für KMU in Darmstadt Pfungstadt Hessen – ${project.title} Portfolio ${project.category} von 319Webdesign`}
                           fill
                           sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px"
                           quality={90}
@@ -218,7 +218,7 @@ export default function PortfolioSection() {
                   <CardWrapper key={project.id} {...cardWrapperProps}>
                     <CardLink {...cardLinkProps}>
                       <div className="relative aspect-[16/10] md:aspect-[16/9] overflow-hidden bg-slate-200">
-                        <Image src={project.imageUrl || '/placeholder-project.jpg'} alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`} fill sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px" quality={90} className="object-contain object-center transition-transform duration-300 group-hover/card:scale-[1.02]" />
+                        <Image src={project.imageUrl || '/placeholder-project.jpg'} alt={`Webdesign für KMU in Darmstadt Pfungstadt Hessen – ${project.title} Portfolio ${project.category} von 319Webdesign`} fill sizes="(max-width: 768px) 95vw, (max-width: 1280px) 60vw, 800px" quality={90} className="object-contain object-center transition-transform duration-300 group-hover/card:scale-[1.02]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
                         {!isMobile && (
                           <motion.div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-slate-200 group-hover/card:border-blue-500/50 transition-all duration-300 z-10" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>

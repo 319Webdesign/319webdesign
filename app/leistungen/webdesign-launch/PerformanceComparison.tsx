@@ -174,17 +174,6 @@ export default function PerformanceComparison() {
           })}
         </motion.div>
 
-        {/* SEO optimized image alternatives */}
-        <div className="sr-only" aria-hidden="true">
-          <img 
-            src="" 
-            alt="Performance Webdesign Darmstadt - schnelle Ladezeiten für bessere Rankings" 
-          />
-          <img 
-            src="" 
-            alt="Webdesign Performance Vergleich Darmstadt - 99/100 PageSpeed Score" 
-          />
-        </div>
       </div>
     </section>
   )

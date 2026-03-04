@@ -5,7 +5,7 @@ export default function OrganizationSchema() {
     name: '319Webdesign',
     url: 'https://www.319webdesign.com',
     logo: 'https://www.319webdesign.com/319.png',
-    description: 'Professionelles Webdesign, SEO-Optimierung und Website-Wartung für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
+    description: 'Professionelles Webdesign für KMU in Pfungstadt und Südhessen sowie Immobilien-Software-Integration für Makler in Hessen.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Pfungstadt',

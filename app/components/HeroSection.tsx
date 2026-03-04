@@ -24,33 +24,32 @@ export default function HeroSection() {
           
           {/* Linke Spalte: Text und Buttons */}
           <div className="text-center lg:text-left lg:pr-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-fade-in-up">
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                Webdesign Pfungstadt
-              </span>
-              <br className="hidden lg:block" />
-              <span className="text-slate-900">Websites, die verkaufen.</span>
+                319Webdesign:
+              </span>{' '}
+              <span className="text-slate-900">Webdesign für KMU & Immobilienmakler in Hessen</span>
             </h1>
           
             <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-            Vergessen Sie langsame Websites, die niemand findet. Wir bieten kleinen Unternehmen und Selbstständigen in Hessen High-Performance Webdesign, das bei Google ganz oben steht und Ihre Zielgruppe durch Geschwindigkeit und Design zu zahlenden Kunden macht.
+            Professionelles Webdesign in Pfungstadt und Hessen: Mehr Anfragen für Ihr KMU und effizientere Vermarktung für Immobilienmakler durch High-Performance Websites. Webdesign, das verkauft.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2 animate-fade-in-up animation-delay-200">
               <a
                 href="/kontakt"
                 className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 inline-flex items-center gap-2 group/btn hover:scale-105 active:scale-95 will-change-transform"
-                aria-label="Zum Kontaktformular springen - Projekt starten"
+                aria-label="Zum Kontaktformular springen - Kostenlose Erstberatung"
               >
-                Projekt starten
+                Kostenlose Erstberatung
                 <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" aria-hidden="true" />
               </a>
               <a
                 href="#benefits"
                 className="px-8 py-4 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 inline-flex items-center gap-2 group/btn2 hover:scale-105 active:scale-95 will-change-transform"
-                aria-label="Zu den Vorteilen scrollen - Mehr erfahren"
+                aria-label="Zu den Lösungen scrollen - Unsere Lösungen ansehen"
               >
-                Mehr erfahren
+                Unsere Lösungen ansehen
                 <ArrowDown className="w-4 h-4 group-hover/btn2:translate-y-1 transition-transform duration-300" aria-hidden="true" />
               </a>
             </div>
@@ -61,7 +60,7 @@ export default function HeroSection() {
             <div className="relative w-full h-[650px] flex items-end justify-end">
               <Image
                 src="/maik-removebg.png"
-                alt="Webdesign Darmstadt und Pfungstadt – Maik Schmidt, Webdesign-Experte 319Webdesign"
+                alt="Webdesign für Immobilienmakler und KMU in Darmstadt, Pfungstadt, Hessen – Maik Schmidt, 319Webdesign"
                 width={550}
                 height={650}
                 priority={true}

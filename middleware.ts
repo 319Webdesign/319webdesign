@@ -10,6 +10,7 @@ const STATIC_PATHS = [
   '/leistungen/webdesign-launch',
   '/leistungen/wachstum-seo',
   '/leistungen/strategische-begleitung',
+  '/immobilienmakler-webdesign',
   '/portfolio',
   '/kontakt',
   '/impressum',
@@ -20,6 +21,11 @@ const WARUM_SLUGS = ['umsatzstark', 'blitzschnell', 'lokal']
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
+
+  // Redirect: alte URL auf neue
+  if (pathname === '/immobilienmakler-webdesign-hessen') {
+    return NextResponse.redirect(new URL('/immobilienmakler-webdesign', request.url), 301)
+  }
 
   // Erlaubt: Statische Seiten
   if (STATIC_PATHS.includes(pathname)) {

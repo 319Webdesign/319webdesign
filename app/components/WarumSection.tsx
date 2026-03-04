@@ -2,7 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
-import { Clock, Search, Target } from 'lucide-react'
+import { AlertTriangle, Ban, TrendingDown } from 'lucide-react'
+import Image from 'next/image'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -11,123 +12,108 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: 'easeOut' },
 }
 
-const cardStagger = {
-  initial: { opacity: 0, y: 24 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-50px' },
-  transition: { duration: 0.5, ease: 'easeOut' },
-}
+const listItems = [
+  {
+    icon: AlertTriangle,
+    iconColor: 'text-amber-500',
+    bgColor: 'bg-amber-50',
+    title: 'Verlorene Kunden',
+    text: 'Sie verlieren potenzielle Kunden, die an Ihrer Professionalität zweifeln und sich der Konkurrenz zuwenden.',
+  },
+  {
+    icon: Ban,
+    iconColor: 'text-rose-500',
+    bgColor: 'bg-rose-50',
+    title: 'Verpasste Bewerber',
+    text: 'Qualifizierte Fachkräfte suchen nach modernen Arbeitgebern. Wenn Ihr Unternehmen digital unsichtbar ist, springen sie ab.',
+  },
+  {
+    icon: TrendingDown,
+    iconColor: 'text-slate-600',
+    bgColor: 'bg-slate-100',
+    title: 'Kein Wettbewerbsvorteil',
+    text: 'Wenn Sie wie alle anderen aussehen, heben Sie sich nicht von der Konkurrenz ab und verlieren Marktanteile.',
+  },
+]
 
 export default function WarumSection() {
   const reduceMotion = useReduceMotion()
-  const features = [
-    {
-      icon: Clock,
-      title: 'Die Warte-Falle',
-      description: '53 % der Nutzer springen ab, wenn eine Seite länger als 3 Sekunden lädt. Performance ist kein Bonus, sondern die Basis für Ihren Umsatz.',
-      ariaLabel: 'Speed – Die Warte-Falle',
-    },
-    {
-      icon: Search,
-      title: 'Die Unsichtbarkeits-Lücke',
-      description: 'Gutes Design ohne SEO ist wie ein Flyer im Müll. Wir sorgen dafür, dass Ihr Business in Darmstadt auch gefunden wird.',
-      ariaLabel: 'SEO – Die Unsichtbarkeits-Lücke',
-    },
-    {
-      icon: Target,
-      title: 'Die digitale Sackgasse',
-      description: 'Besucher müssen zu Kunden werden. Wir eliminieren unnötige Klicks und führen Nutzer direkt zu Ihrem Kontaktformular.',
-      ariaLabel: 'Conversion – Die digitale Sackgasse',
-    },
-  ]
+  const LeftEl = reduceMotion ? 'div' : motion.div
+  const RightEl = reduceMotion ? 'div' : motion.div
+  const leftProps = reduceMotion ? { className: 'flex flex-col justify-center' } : { ...fadeInUp, className: 'flex flex-col justify-center' }
+  const rightProps = reduceMotion ? { className: 'relative' } : { ...fadeInUp, transition: { ...fadeInUp.transition, delay: 0.15 }, className: 'relative' }
 
   return (
-    <section id="benefits" className="pt-12 pb-16 md:pt-24 md:pb-32 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
-        {/* Headline */}
-        {reduceMotion ? (
-          <div className="text-center mb-16 flex flex-col items-center">
-            <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900 text-center max-w-3xl">
-              Warum eine „<span className="text-blue-600">schöne</span>" Website heute nicht mehr reicht.
+    <section id="benefits" className="pt-20 md:pt-32 lg:pt-48 pb-20 md:pb-28 lg:pb-36 px-6 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Linke Spalte: Text und Liste */}
+          <LeftEl {...leftProps}>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-slate-900 leading-tight">
+              Herausforderungen im{' '}
+              <span className="text-blue-600">digitalen Marketing</span>{' '}
+              für <strong className="text-slate-900">KMU & Immobilienmakler</strong>
             </h2>
-          </div>
-        ) : (
-          <motion.div {...fadeInUp} className="text-center mb-16 flex flex-col items-center">
-            <h2 className="text-2xl md:text-4xl font-bold mb-3 text-slate-900 text-center max-w-3xl">
-              Warum eine „<span className="text-blue-600">schöne</span>" Website heute nicht mehr reicht.
-            </h2>
-          </motion.div>
-        )}
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
-            const CardEl = reduceMotion ? 'article' : motion.article
-            const cardProps = reduceMotion ? { key: feature.title, className: 'p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card text-center md:text-left' } : { key: feature.title, ...cardStagger, transition: { ...cardStagger.transition, delay: index * 0.12 }, whileHover: { y: -5, transition: { duration: 0.3 } }, className: 'p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-blue-500 hover:shadow-[0_0_30px_rgba(59,130,246,0.2)] transition-all duration-300 group/card text-center md:text-left' }
-            return (
-              <CardEl {...cardProps}>
-                <div className="relative z-10">
-                  {/* Icon */}
-                  {reduceMotion ? (
-                    <div className="w-14 h-14 mx-auto md:mx-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300">
-                      <IconComponent className="w-7 h-7 text-white" aria-label={feature.ariaLabel} aria-hidden="false" />
+            <p className="text-lg text-slate-600 leading-relaxed mb-8">
+              Viele KMU und Immobilienmakler in Hessen vernachlässigen ihr{' '}
+              <span className="font-medium text-slate-700">Webdesign und digitales Marketing</span>, sei es aus Zeitmangel, fehlendem Budget oder Bedenken bezüglich der Rentabilität. Ein starkes Webdesign ist für{' '}
+              <strong className="text-slate-800">KMU & Immobilienmakler in Südhessen</strong> entscheidend – sonst gewinnt die Konkurrenz.
+            </p>
+
+            <ul className="space-y-5">
+              {listItems.map((item, index) => {
+                const IconComponent = item.icon
+                const ItemEl = reduceMotion ? 'li' : motion.li
+                const itemProps = reduceMotion
+                  ? { className: 'flex gap-4 items-start' }
+                  : { ...fadeInUp, transition: { ...fadeInUp.transition, delay: 0.1 + index * 0.08 }, className: 'flex gap-4 items-start' }
+                return (
+                  <ItemEl key={item.title} {...itemProps}>
+                    <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${item.bgColor} flex items-center justify-center`}>
+                      <IconComponent className={`w-5 h-5 ${item.iconColor}`} aria-hidden="true" />
                     </div>
-                  ) : (
-                    <motion.div
-                      className="w-14 h-14 mx-auto md:mx-0 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300"
-                      whileHover={{ rotate: [0, -5, 5, 0] }}
-                      transition={{ duration: 0.5 }}
-                    >
-                      <IconComponent className="w-7 h-7 text-white" aria-label={feature.ariaLabel} aria-hidden="false" />
-                    </motion.div>
-                  )}
-                  
-                  {/* Title */}
-                  <h3 className="text-xl md:text-2xl font-bold mb-4 text-slate-900">
-                    {feature.title}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                    {feature.description}
-                  </p>
-                </div>
-              </CardEl>
-            )
-          })}
-        </div>
+                    <div>
+                      <strong className="text-slate-900 block mb-1">{item.title}:</strong>
+                      <span className="text-slate-600 leading-relaxed">{item.text}</span>
+                    </div>
+                  </ItemEl>
+                )
+              })}
+            </ul>
 
-        {/* Strategischer Abschluss */}
-        {reduceMotion ? (
-          <div className="text-center max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
-            <span className="font-semibold text-slate-900">Erkenntnis:</span> Eine Website muss ein klares Ziel verfolgen. Ich helfe Ihnen dabei, dieses Ziel nicht nur zu definieren, sondern langfristig zu erreichen.
-          </p>
-          
-          {/* CTA Button */}
-          <a
-            href="/kontakt"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300"
-          >
-            Kontakt aufnehmen
-          </a>
-          </div>
-        ) : (
-          <motion.div {...fadeInUp} className="text-center max-w-4xl mx-auto">
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
-            <span className="font-semibold text-slate-900">Erkenntnis:</span> Eine Website muss ein klares Ziel verfolgen. Ich helfe Ihnen dabei, dieses Ziel nicht nur zu definieren, sondern langfristig zu erreichen.
-          </p>
-          <a
-            href="/kontakt"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300"
-          >
-            Kontakt aufnehmen
-          </a>
-          </motion.div>
-        )}
+            {/* Strategischer Abschluss & CTA */}
+            <div className="mt-10 pt-8 border-t border-slate-200">
+              <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                <span className="font-semibold text-slate-900">Erkenntnis:</span> Eine Website muss ein klares Ziel verfolgen. Ich helfe Ihnen dabei, dieses Ziel nicht nur zu definieren, sondern langfristig zu erreichen.
+              </p>
+              <a
+                href="/kontakt"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300"
+              >
+                Kontakt aufnehmen
+              </a>
+            </div>
+          </LeftEl>
+
+          {/* Rechte Spalte: Bild */}
+          <RightEl {...rightProps}>
+            <div className="relative rounded-lg overflow-hidden">
+              <Image
+                src="/problem.png"
+                alt="Webdesign für Immobilienmakler und KMU in Hessen – Herausforderungen im digitalen Marketing lösen"
+                width={640}
+                height={480}
+                quality={85}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="w-full h-auto object-cover"
+                loading="lazy"
+                priority={false}
+              />
+            </div>
+          </RightEl>
+        </div>
       </div>
     </section>
   )
 }
-

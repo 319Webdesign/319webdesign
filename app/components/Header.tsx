@@ -71,6 +71,7 @@ export default function Header() {
     { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch', icon: '🚀' },
     { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO', icon: '📈' },
     { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung', icon: '🎯' },
+    { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign', icon: '🏠' },
   ]
 
   const navLinks = [
@@ -137,9 +138,9 @@ export default function Header() {
       animate={{ opacity: 1 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isMobileMenuOpen
-          ? 'backdrop-blur-md bg-white/98 shadow-lg shadow-slate-200/80'
+          ? 'backdrop-blur-xl bg-white/90 shadow-lg shadow-slate-200/80'
           : isScrolled
-          ? 'backdrop-blur-md bg-white/95 shadow-lg shadow-slate-200/50'
+          ? 'backdrop-blur-xl bg-white/85 shadow-lg shadow-slate-200/50'
           : 'bg-transparent'
       }`}
     >
@@ -175,7 +176,7 @@ export default function Header() {
             >
               <Image
                 src="/319.png"
-                alt="319Webdesign Logo – Webdesign Darmstadt, Pfungstadt und Südhessen"
+                alt="319Webdesign Logo – Webdesign für KMU und Immobilienmakler in Pfungstadt Darmstadt Hessen"
                 width={110}
                 height={110}
                 sizes="(max-width: 768px) 70px, 110px"

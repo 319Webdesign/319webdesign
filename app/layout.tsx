@@ -20,8 +20,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://319webdesign.com'),
-  title: '319Webdesign - Digitale Exzellenz für Ihr Business',
-  description: 'Professionelle Webdesign-Lösungen für kleine Unternehmen und Selbstständige. Moderne, responsive Websites die verkaufen.',
+  title: {
+    template: '%s | 319Webdesign Pfungstadt',
+    default: 'Webdesign Pfungstadt & Immobilien-Automation Hessen | 319Webdesign',
+  },
+  description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen sowie spezialisierte Schnittstellen-Lösungen (onOffice) für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
   icons: {
     icon: '/browser-logo.png',
     shortcut: '/browser-logo.png',

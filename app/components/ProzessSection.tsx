@@ -60,7 +60,7 @@ export default function ProzessSection() {
         {reduceMotion ? (
           <div className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span> in Hessen.
+            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>.
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ein transparenter Prozess, der auf ein klares Ziel ausgerichtet ist: Ihr Wachstum.
@@ -69,7 +69,7 @@ export default function ProzessSection() {
         ) : (
           <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span> in Hessen.
+            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>.
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
             Ein transparenter Prozess, der auf ein klares Ziel ausgerichtet ist: Ihr Wachstum.

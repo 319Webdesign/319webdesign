@@ -5,11 +5,11 @@ export default function OrganizationSchema() {
     name: '319Webdesign',
     url: 'https://www.319webdesign.com',
     logo: 'https://www.319webdesign.com/319.png',
-    description: 'Professionelles Webdesign für KMU in Pfungstadt und Südhessen sowie Immobilien-Software-Integration für Makler in Hessen.',
+    description: 'Professionelles Webdesign für KMU in Pfungstadt sowie Immobilien-Software-Integration für Makler.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Pfungstadt',
-      addressRegion: 'Hessen',
+      addressRegion: 'Deutschland',
       addressCountry: 'DE',
     },
     contactPoint: {

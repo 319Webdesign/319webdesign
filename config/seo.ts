@@ -17,8 +17,8 @@ export interface PageSeoConfig {
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign Pfungstadt & Immobilien-Automation Hessen | 319Webdesign',
-    description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+    title: 'Webdesign Pfungstadt & Immobilien-Automation | 319Webdesign',
+    description: 'Professionelles Webdesign für KMU in Pfungstadt. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
     path: '/',
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
@@ -31,22 +31,22 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   },
   seo: {
     title: 'SEO Agentur Darmstadt | 319Webdesign',
-    description: 'Mehr Sichtbarkeit in Hessen – Professionelle SEO-Optimierung für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
+    description: 'Mehr Sichtbarkeit – Professionelle SEO-Optimierung für Unternehmen in Darmstadt und Pfungstadt.',
     path: '/leistungen/wachstum-seo',
   },
   wartung: {
     title: 'Website Wartung & Support Darmstadt | 319Webdesign',
-    description: '319Webdesign – Strategische Begleitung, Wartung und Support für Ihre Website in Darmstadt und Südhessen.',
+    description: '319Webdesign – Strategische Begleitung, Wartung und Support für Ihre Website in Darmstadt und Pfungstadt.',
     path: '/leistungen/strategische-begleitung',
   },
   leistungen: {
     title: 'Leistungen | Webdesign, SEO & Wartung Darmstadt',
-    description: 'Professionelles Webdesign, SEO-Optimierung und Website-Wartung für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
+    description: 'Professionelles Webdesign, SEO-Optimierung und Website-Wartung für Unternehmen in Darmstadt und Pfungstadt.',
     path: '/leistungen',
   },
   portfolio: {
     title: 'Webdesign Projekte Darmstadt | 319Webdesign',
-    description: 'Referenzen von 319 – Ausgewählte Webdesign-Projekte für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
+    description: 'Referenzen von 319 – Ausgewählte Webdesign-Projekte für Unternehmen in Darmstadt und Pfungstadt.',
     path: '/portfolio',
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
@@ -54,7 +54,7 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   },
   kontakt: {
     title: 'Jetzt Projekt starten | 319Webdesign',
-    description: 'Webdesigner in Pfungstadt – Kontaktieren Sie 319Webdesign für Ihr Webdesign-Projekt in Darmstadt und Südhessen.',
+    description: 'Webdesigner in Pfungstadt – Kontaktieren Sie 319Webdesign für Ihr Webdesign-Projekt in Darmstadt und Pfungstadt.',
     path: '/kontakt',
   },
   impressum: {
@@ -68,8 +68,8 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     path: '/datenschutz',
   },
   immobilienmakler: {
-    title: 'Webdesign für Immobilienmakler Hessen | onOffice & Schnittstellen',
-    description: 'Exklusives Webdesign für Immobilienmakler in Hessen. onOffice, FlowFact & OpenImmo. Mehr Anfragen durch maximale Performance.',
+    title: 'Webdesign für Immobilienmakler | onOffice & Schnittstellen',
+    description: 'Exklusives Webdesign für Immobilienmakler. onOffice, FlowFact & OpenImmo. Mehr Anfragen durch maximale Performance.',
     path: '/immobilienmakler-webdesign',
   },
 }

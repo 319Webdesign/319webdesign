@@ -15,7 +15,7 @@ const faqData = [
   {
     id: 1,
     question: 'Wie lange dauert es, bis meine Website fertig ist?',
-    answer: 'Schnelligkeit ohne Qualitätsverlust. Zeit ist Geld – besonders für Selbstständige. In der Regel ist Ihre neue Website in 2 bis 4 Wochen komplett startklar. Bei umfangreicheren Projekten erstellen wir Ihnen vorab einen detaillierten Zeitplan. Unser Ziel in Südhessen ist es, Sie so schnell wie möglich online sichtbar zu machen, damit Sie zeitnah neue Kundenanfragen über Ihre Seite generieren können.',
+    answer: 'Schnelligkeit ohne Qualitätsverlust. Zeit ist Geld – besonders für Selbstständige. In der Regel ist Ihre neue Website in 2 bis 4 Wochen komplett startklar. Bei umfangreicheren Projekten erstellen wir Ihnen vorab einen detaillierten Zeitplan. Unser Ziel ist es, Sie so schnell wie möglich online sichtbar zu machen, damit Sie zeitnah neue Kundenanfragen über Ihre Seite generieren können.',
   },
   {
     id: 2,

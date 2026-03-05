@@ -45,7 +45,7 @@ export default function LaunchFoundation() {
 
   const benefits = [
     {
-      text: 'Klare Struktur für maximale Conversions in der Region Südhessen.',
+      text: 'Klare Struktur für maximale Conversions in der Region.',
     },
     {
       text: 'Next.js Performance: Blitzschnell auf dem Luisenplatz oder im Büro.',

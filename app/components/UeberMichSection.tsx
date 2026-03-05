@@ -31,7 +31,7 @@ export default function UeberMichSection() {
             <div className="relative rounded-2xl overflow-hidden shadow-xl shadow-blue-500/20">
               <Image
                 src="/maik.webp"
-                alt="Webdesign für Immobilienmakler und KMU in Darmstadt Pfungstadt Hessen – Maik Schmidt 319Webdesign"
+                alt="Webdesign für Immobilienmakler und KMU in Darmstadt und Pfungstadt – Maik Schmidt 319Webdesign"
                 width={600}
                 height={800}
                 quality={95}

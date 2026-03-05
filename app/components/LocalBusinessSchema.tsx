@@ -7,7 +7,7 @@ interface LocalBusinessSchemaProps {
 
 export default function LocalBusinessSchema({
   cityName,
-  additionalAreas = ['Pfungstadt', 'Darmstadt', 'Südhessen'],
+  additionalAreas = ['Pfungstadt', 'Darmstadt'],
 }: LocalBusinessSchemaProps) {
   const areaServed = [
     { '@type': 'City' as const, name: cityName },
@@ -26,7 +26,7 @@ export default function LocalBusinessSchema({
       streetAddress: 'Nahestrasse 22',
       addressLocality: 'Pfungstadt',
       postalCode: '64319',
-      addressRegion: 'Hessen',
+      addressRegion: 'Deutschland',
       addressCountry: 'DE',
     },
     geo: {

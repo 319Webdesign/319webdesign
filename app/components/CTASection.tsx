@@ -14,7 +14,7 @@ export default function CTASection() {
               <div className="relative max-w-sm aspect-[9/16]">
                 <Image
                   src="/319Web_Mockup_iphone.png"
-                  alt="Webdesign für Immobilienmakler und KMU in Pfungstadt Darmstadt Hessen – Responsive iPhone-Mockup"
+                  alt="Webdesign für Immobilienmakler und KMU in Pfungstadt und Darmstadt – Responsive iPhone-Mockup"
                   width={384}
                   height={682}
                   sizes="(max-width: 768px) 300px, 384px"

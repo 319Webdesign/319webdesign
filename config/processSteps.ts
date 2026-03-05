@@ -17,7 +17,7 @@ export interface ProcessStepTexts {
 const processStepVariants: Record<string, ProcessStepTexts> = {
   darmstadt: {
     analyse:
-      'Gemeinsam definieren wir Ihre Ziele – und prüfen, wie die Konkurrenz in der Wissenschaftsstadt Darmstadt auftritt. Ihr Webdesign positioniert Sie gezielt in Südhessen.',
+      'Gemeinsam definieren wir Ihre Ziele – und prüfen, wie die Konkurrenz in der Wissenschaftsstadt Darmstadt auftritt. Ihr Webdesign positioniert Sie gezielt.',
     design:
       'Ein Design, das Ihre Marke stärkt und Besucher zum Handeln führt. Für KMUs und Immobilienmakler in Darmstadt: psychologisch auf Konversion optimiert.',
     inhalte:
@@ -25,7 +25,7 @@ const processStepVariants: Record<string, ProcessStepTexts> = {
     entwicklung:
       'Next.js und moderne Technik: PageSpeed 99/100 und schnelle Ladezeiten. Webdesign in Darmstadt, das technisch überzeugt und zuverlässig läuft.',
     begleitung:
-      'Nach dem Go-live optimieren wir kontinuierlich – für dauerhaften Erfolg in Darmstadt und Südhessen. Ihr Partner für Wachstum vor Ort.',
+      'Nach dem Go-live optimieren wir kontinuierlich – für dauerhaften Erfolg. Ihr Partner für Wachstum vor Ort.',
   },
   pfungstadt: {
     analyse:
@@ -33,7 +33,7 @@ const processStepVariants: Record<string, ProcessStepTexts> = {
     design:
       'Ein Look, der zu Ihrer Marke passt und Besucher überzeugt. Ob KMU oder Immobilienmakler in Pfungstadt: konversionsorientiert von der ersten Idee an.',
     inhalte:
-      'Überzeugende Inhalte für Pfungstadt und Südhessen. Lokale Expertise für KMUs und Immobilienmakler – Texte, die Vertrauen schaffen und ranken.',
+      'Überzeugende Inhalte für Pfungstadt. Lokale Expertise für KMUs und Immobilienmakler – Texte, die Vertrauen schaffen und ranken.',
     entwicklung:
       'Technik auf Spitzenniveau: PageSpeed 99/100, schnelle Ladezeiten, stabile Performance. Webdesign in Pfungstadt, das vor Ort überzeugt.',
     begleitung:
@@ -45,7 +45,7 @@ const processStepVariants: Record<string, ProcessStepTexts> = {
     design:
       'Design, das zu Ihrer Marke passt und Besucher zum Handeln bringt. Für KMUs in Griesheim und Umgebung: konversionsorientiert und zielgerichtet.',
     inhalte:
-      'Texte mit lokalem Bezug – für Griesheim und Südhessen. KMU und Immobilienmakler profitieren von Expertise, die vor Ort zählt.',
+      'Texte mit lokalem Bezug – für Griesheim. KMU und Immobilienmakler profitieren von Expertise, die vor Ort zählt.',
     entwicklung:
       'PageSpeed 99/100 und optimierte Performance. Webdesign in Griesheim, das technisch stabil und schnell läuft – für Ihre Sichtbarkeit.',
     begleitung:
@@ -57,7 +57,7 @@ const processStepVariants: Record<string, ProcessStepTexts> = {
     design:
       'Ein Erscheinungsbild, das Ihre Marke widerspiegelt und Besucher überzeugt. Für Unternehmen in Weiterstadt: konversionsoptimiert und lokal wirksam.',
     inhalte:
-      'Verkaufsstarke Inhalte für Weiterstadt und Südhessen. Lokale Expertise für KMUs und Immobilienmakler – Texte, die ranken und überzeugen.',
+      'Verkaufsstarke Inhalte für Weiterstadt. Lokale Expertise für KMUs und Immobilienmakler – Texte, die ranken und überzeugen.',
     entwicklung:
       'Moderne Technik für maximale Performance: PageSpeed 99/100. Webdesign in Weiterstadt, das schnell läuft und technisch überzeugt.',
     begleitung:
@@ -66,15 +66,15 @@ const processStepVariants: Record<string, ProcessStepTexts> = {
   /** Fallback für Startseite / allgemeine Nutzung */
   default: {
     analyse:
-      'Zuerst schärfen wir Ihre Ziele – und prüfen, wie die Konkurrenz in Darmstadt, Pfungstadt und Südhessen auftritt. So positionieren wir Ihr Webdesign gezielt vor Ort.',
+      'Zuerst schärfen wir Ihre Ziele – und prüfen, wie die Konkurrenz in Darmstadt und Pfungstadt auftritt. So positionieren wir Ihr Webdesign gezielt vor Ort.',
     design:
       'Ein Look, der zu Ihrer Marke passt und Besucher zum Handeln bewegt. Ob KMU oder Immobilienmakler: konversionsorientiert von Anfang an.',
     inhalte:
-      'Überzeugende Texte statt Füllwörter. Gerade für KMUs und Immobilienmakler in Hessen zählt lokale Expertise – die bringen wir in Ihre Inhalte.',
+      'Überzeugende Texte statt Füllwörter. Gerade für KMUs und Immobilienmakler zählt lokale Expertise – die bringen wir in Ihre Inhalte.',
     entwicklung:
       'Moderne Technik für Spitzenergebnisse: PageSpeed 99/100, schnelle Ladezeiten und stabile Performance – für Webdesign, das in Pfungstadt und der Region überzeugt.',
     begleitung:
-      'Der Launch ist erst der Start. Danach optimieren wir gemeinsam – mit Blick auf Ihre Ziele in Darmstadt, Südhessen und darüber hinaus.',
+      'Der Launch ist erst der Start. Danach optimieren wir gemeinsam – mit Blick auf Ihre Ziele.',
   },
 }
 

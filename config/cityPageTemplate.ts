@@ -19,19 +19,19 @@ function getVariantIndex(city: City): number {
 }
 
 /**
- * Erster Textabschnitt (Hero) – Keywords "Webdesign" + Stadt + Südhessen mind. 2x
+ * Erster Textabschnitt (Hero) – Keywords "Webdesign" + Stadt mind. 2x
  * Stadt-spezifisch: Darmstadt (Tech-KMUs, Premium-Makler), Pfungstadt (Handwerk, Maklerbüros)
  */
 export function getHeroIntro(city: City): string {
   const citySpecific: Record<string, string> = {
     darmstadt:
-      'Webdesign in Darmstadt für Tech-KMUs und Premium-Makler: Die Wissenschaftsstadt lebt von Innovation und starken Immobilien. Mit PageSpeed 99/100 unterstütze ich IT-Firmen, Forschungseinrichtungen sowie Makler von Villen und Jugendstil-Immobilien in Südhessen – online sichtbar und conversion-stark.',
+      'Webdesign in Darmstadt für Tech-KMUs und Premium-Makler: Die Wissenschaftsstadt lebt von Innovation und starken Immobilien. Mit PageSpeed 99/100 unterstütze ich IT-Firmen, Forschungseinrichtungen sowie Makler von Villen und Jugendstil-Immobilien – online sichtbar und conversion-stark.',
     pfungstadt:
-      'Webdesign in Pfungstadt für Handwerksbetriebe und regionale Maklerbüros: Als Ihr Webdesigner in Südhessen helfe ich lokale Betriebe und Makler vor Ort mit einer professionellen Website – persönlich, nah und mit PageSpeed 99/100. Webdesign, das Vertrauen schafft und Kunden bringt.',
+      'Webdesign in Pfungstadt für Handwerksbetriebe und regionale Maklerbüros: Als Ihr Webdesigner helfe ich lokale Betriebe und Makler vor Ort mit einer professionellen Website – persönlich, nah und mit PageSpeed 99/100. Webdesign, das Vertrauen schafft und Kunden bringt.',
     griesheim:
-      'Webdesign in Griesheim – für Unternehmen westlich von Darmstadt: Mit professionellem Webdesign und PageSpeed 99/100 unterstütze ich Firmen in Südhessen, online gefunden zu werden. Lokale Sichtbarkeit, moderne Technik, persönliche Betreuung vor Ort.',
+      'Webdesign in Griesheim – für Unternehmen westlich von Darmstadt: Mit professionellem Webdesign und PageSpeed 99/100 unterstütze ich Firmen, online gefunden zu werden. Lokale Sichtbarkeit, moderne Technik, persönliche Betreuung vor Ort.',
     weiterstadt:
-      'Webdesign in Weiterstadt für den Mittelstand: Logistik, Industrie und Dienstleister brauchen eine starke Online-Präsenz. In Südhessen entwickle ich High-Performance-Websites mit PageSpeed 99/100 – Webdesign, das zu Ihrem Wirtschaftsstandort passt.',
+      'Webdesign in Weiterstadt für den Mittelstand: Logistik, Industrie und Dienstleister brauchen eine starke Online-Präsenz. Mit PageSpeed 99/100 entwickle ich High-Performance-Websites – Webdesign, das zu Ihrem Wirtschaftsstandort passt.',
   }
   if (citySpecific[city.slug]) return citySpecific[city.slug]
   return `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Für Unternehmen in ${city.region} – persönliche Betreuung und moderne Websites.`
@@ -41,23 +41,23 @@ export function getHeroIntro(city: City): string {
 const citySpecificTexts: Record<string, Partial<ReturnType<typeof getCityPageTextsBase>>> = {
   darmstadt: {
     performanceIntro: 'In der Wissenschaftsstadt Darmstadt zählen technische Exzellenz und Performance. Ich erreiche konstant PageSpeed 99/100 – für Tech-KMUs und Makler, die mit ihrer Website überzeugen wollen.',
-    performanceWarum: 'Google belohnt schnelle Websites mit besseren Rankings. Für IT-Firmen und Premium-Makler in Darmstadt und Südhessen ist das entscheidend – Ihre Zielgruppe erwartet moderne, schnelle Webauftritte.',
+    performanceWarum: 'Google belohnt schnelle Websites mit besseren Rankings. Für IT-Firmen und Premium-Makler in Darmstadt ist das entscheidend – Ihre Zielgruppe erwartet moderne, schnelle Webauftritte.',
     featuresIntro: 'Webdesign für Tech-KMUs und Makler in Darmstadt: High-Performance, klare Struktur, konversionsorientiert.',
-    referenzenIntro: 'Webdesign-Projekte für Unternehmen in Darmstadt und Südhessen – von der Tech-Firma bis zum Maklerbüro.',
+    referenzenIntro: 'Webdesign-Projekte für Unternehmen in Darmstadt – von der Tech-Firma bis zum Maklerbüro.',
     personalBetreuung: 'Persönlicher Ansprechpartner vor Ort in Darmstadt',
-    localSectionLead: `Als Webdesigner in Darmstadt kenne ich die Wissenschaftsstadt und die Anforderungen von Tech-KMUs sowie Maklern. Ob Villen, Jugendstil-Immobilien oder digitale Produkte – in {nearby} und Südhessen bin ich Ihr Partner für professionelles Webdesign.`,
+    localSectionLead: `Als Webdesigner in Darmstadt kenne ich die Wissenschaftsstadt und die Anforderungen von Tech-KMUs sowie Maklern. Ob Villen, Jugendstil-Immobilien oder digitale Produkte – in {nearby} bin ich Ihr Partner für professionelles Webdesign.`,
     ctaHeading: 'Bereit für Ihr Webdesign in Darmstadt?',
-    ctaParagraph: 'Kostenloses Erstgespräch – ob Tech-KMU oder Makler: Gemeinsam entwickeln wir Ihre Strategie für Darmstadt und Südhessen.',
+    ctaParagraph: 'Kostenloses Erstgespräch – ob Tech-KMU oder Makler: Gemeinsam entwickeln wir Ihre Strategie.',
   },
   pfungstadt: {
-    performanceIntro: 'Handwerksbetriebe und Maklerbüros in Pfungstadt brauchen Websites, die schnell laden und vertrauenswürdig wirken. PageSpeed 99/100 ist bei mir Standard – für mehr Sichtbarkeit in Südhessen.',
+    performanceIntro: 'Handwerksbetriebe und Maklerbüros in Pfungstadt brauchen Websites, die schnell laden und vertrauenswürdig wirken. PageSpeed 99/100 ist bei mir Standard – für mehr Sichtbarkeit.',
     performanceWarum: 'Potenzielle Kunden suchen Handwerker und Makler oft mobil. Eine schnelle Seite hält Besucher bei Ihnen – in Pfungstadt und Umgebung zählt jeder Klick.',
     featuresIntro: 'Webdesign für Handwerk und Makler in Pfungstadt: übersichtlich, vertrauenswürdig, suchmaschinenoptimiert.',
     referenzenIntro: 'Referenzen aus Pfungstadt und der Region – Websites für Handwerksbetriebe, Makler und Dienstleister.',
-    personalBetreuung: 'Lokale Betreuung aus Pfungstadt und Südhessen',
+    personalBetreuung: 'Lokale Betreuung aus Pfungstadt',
     localSectionLead: `In Pfungstadt und {nearby} arbeite ich mit Handwerksbetrieben und regionalen Maklerbüros. Webdesign aus der Nähe – für Unternehmen, die vor Ort bekannt sein wollen.`,
     ctaHeading: 'Starten wir Ihr Webprojekt in Pfungstadt?',
-    ctaParagraph: 'Unverbindliches Erstgespräch – ob Handwerk oder Makler: Ich unterstütze Sie mit Webdesign in Pfungstadt und Südhessen.',
+    ctaParagraph: 'Unverbindliches Erstgespräch – ob Handwerk oder Makler: Ich unterstütze Sie mit Webdesign in Pfungstadt.',
   },
 }
 

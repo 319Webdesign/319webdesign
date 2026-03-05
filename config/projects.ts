@@ -36,7 +36,7 @@ export const portfolioProjects: PortfolioProject[] = [
     location: 'Darmstadt',
     lighthouseScore: 99,
     task:
-      'Heinerfilm benötigte eine präsentable Website, die ihre Medienproduktionen und Dienstleistungen professionell präsentiert. Die Seite sollte schnell laden, mobil optimiert sein und potenzielle Kunden aus der Region Darmstadt und Südhessen ansprechen.',
+      'Heinerfilm benötigte eine präsentable Website, die ihre Medienproduktionen und Dienstleistungen professionell präsentiert. Die Seite sollte schnell laden, mobil optimiert sein und potenzielle Kunden aus der Region ansprechen.',
     technicalSolution:
       'Entwicklung einer modernen One-Page-Website mit Next.js und optimierten Bildern. Klare Struktur, Call-to-Action-Elemente und Integration von Kontaktmöglichkeiten. Server-Side Rendering für beste SEO-Performance.',
     results: [
@@ -102,7 +102,7 @@ export const portfolioProjects: PortfolioProject[] = [
     liveUrl: 'https://319webdesign.com/malerbetrieb/',
     size: 'normal',
     cities: ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt'],
-    location: 'Südhessen',
+    location: 'Pfungstadt',
     lighthouseScore: 99,
     task:
       'Demonstrationsseite für einen Malerbetrieb – zeigt die typische Struktur einer Handwerks-Website: Leistungen, Referenzen, Kontakt. Als Vorlage für ähnliche Projekte in der Region.',

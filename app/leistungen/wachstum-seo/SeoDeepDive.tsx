@@ -17,7 +17,7 @@ export default function SeoDeepDive() {
     {
       title: 'Local Search Dominanz',
       subtitle: 'SEO Agentur Darmstadt',
-      description: 'Gezielte Optimierung für Suchanfragen in Darmstadt, Pfungstadt und Südhessen.',
+      description: 'Gezielte Optimierung für Suchanfragen in Darmstadt und Pfungstadt.',
     },
     {
       title: 'Semantische Struktur',

@@ -121,7 +121,7 @@ export default function KontaktPage() {
             <p className="text-xl md:text-2xl text-slate-600">
               Deine Webdesign Agentur für <span className="text-blue-600 font-semibold">Pfungstadt</span>,{' '}
               <span className="text-blue-600 font-semibold">Darmstadt</span> und{' '}
-              <span className="text-blue-600 font-semibold">Südhessen</span>.
+              <span className="text-blue-600 font-semibold">der Region</span>.
             </p>
           </motion.div>
         </div>

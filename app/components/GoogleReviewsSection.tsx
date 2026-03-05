@@ -107,7 +107,7 @@ export default function GoogleReviewsSection() {
             Das sagen <span className="text-blue-600">Kunden</span> über 319Webdesign
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Aktuelle Google-Bewertungen aus Darmstadt, Pfungstadt und Südhessen.
+            Aktuelle Google-Bewertungen aus Darmstadt und Pfungstadt.
           </p>
           {data?.rating != null && data?.userRatingsTotal != null && (
             <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200">

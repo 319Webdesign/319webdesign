@@ -99,7 +99,7 @@ export default function LeistungenPage() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
-            Professionelles Webdesign in Darmstadt und Hessen – alles aus einer Hand. Webdesign, das Ihre Sichtbarkeit steigert.
+            Professionelles Webdesign in Darmstadt und Pfungstadt – alles aus einer Hand. Webdesign, das Ihre Sichtbarkeit steigert.
           </p>
         </div>
       </section>

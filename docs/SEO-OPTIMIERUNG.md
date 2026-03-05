@@ -26,7 +26,7 @@
 **Enthält:**
 - Firmeninformationen (Name, Logo, URL)
 - Kontaktdaten (Telefon, E-Mail)
-- Standortinformationen (Pfungstadt, Hessen)
+- Standortinformationen (Pfungstadt)
 - Service-Regionen (Darmstadt, Pfungstadt, Griesheim, Weiterstadt)
 - Dienstleistungen (Webdesign, SEO, Wartung)
 - Social Media Profile (Instagram, TikTok)
@@ -46,7 +46,7 @@
 **Beispiele:**
 - Startseite: "Webdesign & SEO – Conversion-Optimierung | 319Webdesign"
 - Stadt-Page: "Webdesign Darmstadt | High-Performance Websites | 319Webdesign"
-- Leistung: "SEO-Optimierung für lokale Unternehmen in Südhessen"
+- Leistung: "SEO-Optimierung für lokale Unternehmen"
 
 ### 5. Sitemap-Priorisierung
 **Neue Prioritäten in `app/sitemap.ts`:**

@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign Pfungstadt',
-    default: 'Webdesign Pfungstadt & Immobilien-Automation Hessen | 319Webdesign',
+    default: 'Webdesign Pfungstadt & Immobilien-Automation | 319Webdesign',
   },
-  description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+  description: 'Professionelles Webdesign für KMU in Pfungstadt. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
   icons: {
     icon: '/browser-logo.png',
     shortcut: '/browser-logo.png',

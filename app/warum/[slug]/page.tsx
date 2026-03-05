@@ -24,9 +24,9 @@ const warumPages: Record<
 > = {
   umsatzstark: {
     title: 'Umsatzstark',
-    metaTitle: 'Umsatzstark durch Speed | Schnelle Websites in Südhessen',
+    metaTitle: 'Umsatzstark durch Speed | Schnelle Websites',
     metaDescription:
-      'Mit 1,72s Ladezeit sind Sie schneller als 95% Ihrer Konkurrenz. Kunden gewinnen statt warten lassen – Webdesign für Darmstadt, Pfungstadt und Südhessen.',
+      'Mit 1,72s Ladezeit sind Sie schneller als 95% Ihrer Konkurrenz. Kunden gewinnen statt warten lassen – Webdesign für Darmstadt und Pfungstadt.',
     tagline: 'Kunden gewinnen statt warten lassen.',
     intro:
       'Jede Sekunde Ladezeit kostet Conversions. Eine schnelle Website überzeugt Besucher und rankt besser bei Google – gerade in Ihrer Region.',
@@ -57,10 +57,10 @@ const warumPages: Record<
     title: 'Blitzschnell',
     metaTitle: 'Bei Google gefunden | SEO Pfungstadt & Umgebung',
     metaDescription:
-      'Wir bringen Ihr Business in Pfungstadt und Umgebung bei Google ganz nach oben. Gefunden werden, wenn es zählt – lokale SEO für Südhessen.',
+      'Wir bringen Ihr Business in Pfungstadt und Umgebung bei Google ganz nach oben. Gefunden werden, wenn es zählt – lokale SEO.',
     tagline: 'Gefunden werden, wenn es zählt.',
     intro:
-      'Sichtbarkeit bei Google entscheidet über Kundenanfragen. Mit lokaler SEO und technischer Optimierung bringen wir Sie in Pfungstadt, Darmstadt und Südhessen nach vorne.',
+      'Sichtbarkeit bei Google entscheidet über Kundenanfragen. Mit lokaler SEO und technischer Optimierung bringen wir Sie in Pfungstadt und Darmstadt nach vorne.',
     problem: {
       title: 'Das Problem',
       description:
@@ -72,7 +72,7 @@ const warumPages: Record<
         'Technische SEO, lokale Optimierung und zielgerichtete Inhalte: So bringen wir Ihr Business in Pfungstadt und Umgebung bei Google ganz nach oben. Sie werden gefunden, wenn Kunden suchen.',
     },
     features: [
-      'Lokales SEO für Pfungstadt, Darmstadt und Südhessen',
+      'Lokales SEO für Pfungstadt und Darmstadt',
       'Technische SEO (Core Web Vitals, PageSpeed)',
       'Google Business Profile & lokale Suchergebnisse',
       'Keyword-Optimierung für Ihre Branche',
@@ -88,7 +88,7 @@ const warumPages: Record<
     title: 'Lokal',
     metaTitle: 'Perfekt auf jedem Smartphone | Mobile-First Webdesign',
     metaDescription:
-      '80% Ihrer Kunden suchen mobil. Wir sorgen dafür, dass der erste Eindruck sitzt – responsive Webdesign für Unternehmen in Darmstadt, Pfungstadt und Südhessen.',
+      '80% Ihrer Kunden suchen mobil. Wir sorgen dafür, dass der erste Eindruck sitzt – responsive Webdesign für Unternehmen in Darmstadt und Pfungstadt.',
     tagline: 'Perfekt auf jedem Smartphone.',
     intro:
       'Die meisten Menschen suchen heute mit dem Smartphone. Wenn Ihre Website auf dem Handy nicht überzeugt, verlieren Sie Kunden – oft an die Konkurrenz vor Ort.',
@@ -100,7 +100,7 @@ const warumPages: Record<
     solution: {
       title: 'Meine Lösung',
       description:
-        'Mobile-First bedeutet: Die Website wird zuerst fürs Smartphone gebaut. Schnell, übersichtlich, mit dem richtigen ersten Eindruck. So sitzt der Kontakt – in Darmstadt, Pfungstadt und überall in Südhessen.',
+        'Mobile-First bedeutet: Die Website wird zuerst fürs Smartphone gebaut. Schnell, übersichtlich, mit dem richtigen ersten Eindruck. So sitzt der Kontakt – in Darmstadt, Pfungstadt und darüber hinaus.',
     },
     features: [
       'Mobile-First Design für alle Geräte',

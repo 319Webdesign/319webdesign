@@ -176,7 +176,7 @@ export default function Header() {
             >
               <Image
                 src="/319.png"
-                alt="319Webdesign Logo – Webdesign für KMU und Immobilienmakler in Pfungstadt Darmstadt Hessen"
+                alt="319Webdesign Logo – Webdesign für KMU und Immobilienmakler in Pfungstadt und Darmstadt"
                 width={110}
                 height={110}
                 sizes="(max-width: 768px) 70px, 110px"

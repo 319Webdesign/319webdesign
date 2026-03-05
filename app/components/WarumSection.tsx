@@ -56,9 +56,9 @@ export default function WarumSection() {
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              Viele KMU und Immobilienmakler in Hessen vernachlässigen ihr{' '}
+              Viele KMU und Immobilienmakler vernachlässigen ihr{' '}
               <span className="font-medium text-slate-700">Webdesign und digitales Marketing</span>, sei es aus Zeitmangel, fehlendem Budget oder Bedenken bezüglich der Rentabilität. Ein starkes Webdesign ist für{' '}
-              <strong className="text-slate-800">KMU & Immobilienmakler in Südhessen</strong> entscheidend – sonst gewinnt die Konkurrenz.
+              <strong className="text-slate-800">KMU & Immobilienmakler</strong> entscheidend – sonst gewinnt die Konkurrenz.
             </p>
 
             <ul className="space-y-5">
@@ -101,7 +101,7 @@ export default function WarumSection() {
             <div className="relative rounded-lg overflow-hidden">
               <Image
                 src="/problem.png"
-                alt="Webdesign für Immobilienmakler und KMU in Hessen – Herausforderungen im digitalen Marketing lösen"
+                alt="Webdesign für Immobilienmakler und KMU – Herausforderungen im digitalen Marketing lösen"
                 width={640}
                 height={480}
                 quality={85}

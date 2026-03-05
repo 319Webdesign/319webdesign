@@ -18,13 +18,13 @@ const benefits = [
     icon: CheckCircle2,
     title: 'Langfristige Unterstützung',
     description:
-      'Von Darmstadt bis Pfungstadt: Wir begleiten Sie nicht nur beim Launch, sondern optimieren Ihre Präsenz dauerhaft – für messbares Wachstum in Südhessen.',
+      'Von Darmstadt bis Pfungstadt: Wir begleiten Sie nicht nur beim Launch, sondern optimieren Ihre Präsenz dauerhaft – für messbares Wachstum.',
   },
   {
     icon: CheckCircle2,
     title: 'Starke Marke',
     description:
-      'Ob KMU oder Immobilienmakler: Ihr Webdesign hebt Sie in Hessen ab – online sichtbar und glaubwürdig für Ihre Zielgruppe vor Ort.',
+      'Ob KMU oder Immobilienmakler: Ihr Webdesign hebt Sie ab – online sichtbar und glaubwürdig für Ihre Zielgruppe vor Ort.',
   },
   {
     icon: CheckCircle2,
@@ -48,11 +48,11 @@ export default function MehrwertSection() {
           {/* Linke Spalte: Text und Vorteile */}
           <LeftEl {...leftProps}>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-slate-900 leading-tight">
-              Ihr Partner für regionalen Erfolg – digital sichtbar in Südhessen 💡
+              Ihr Partner für regionalen Erfolg – digital sichtbar 💡
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              Webdesign in Pfungstadt und Südhessen: KMUs punkten mit regionaler Nähe und Vertrauen vor Ort. Immobilienmakler nutzen Immobilien-Automation – onOffice, FlowFact, OpenImmo – für mehr Mandatsanfragen und weniger manuelle Arbeit. Beide Zielgruppen profitieren von professionellem Webdesign in Hessen.
+              Webdesign in Pfungstadt: KMUs punkten mit regionaler Nähe und Vertrauen vor Ort. Immobilienmakler nutzen Immobilien-Automation – onOffice, FlowFact, OpenImmo – für mehr Mandatsanfragen und weniger manuelle Arbeit. Beide Zielgruppen profitieren von professionellem Webdesign.
             </p>
 
             <dl className="space-y-6 mb-10">
@@ -93,7 +93,7 @@ export default function MehrwertSection() {
               <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <Image
                   src="/expertenteam-laptop.png"
-                  alt="Webdesign für Immobilienmakler und KMU in Hessen – Laptop-Arbeitsplatz professionelle Websites"
+                  alt="Webdesign für Immobilienmakler und KMU – Laptop-Arbeitsplatz professionelle Websites"
                   width={600}
                   height={450}
                   quality={90}

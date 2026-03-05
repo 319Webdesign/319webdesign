@@ -6,9 +6,9 @@ export default function MaklerServiceSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Webdesign für Immobilienmakler in Hessen',
+    name: 'Webdesign für Immobilienmakler',
     description:
-      'Professionelles Webdesign und Immobilien-Software-Integration für Makler in Hessen. Automatisierte Objekt-Anbindung via onOffice, FlowFact & OpenImmo. Schnittstellen-Lösungen für maximale Effizienz.',
+      'Professionelles Webdesign und Immobilien-Software-Integration für Makler. Automatisierte Objekt-Anbindung via onOffice, FlowFact & OpenImmo. Schnittstellen-Lösungen für maximale Effizienz.',
     provider: {
       '@type': 'Organization',
       name: '319Webdesign',
@@ -16,7 +16,7 @@ export default function MaklerServiceSchema() {
     },
     areaServed: {
       '@type': 'State',
-      name: 'Hessen',
+      name: 'Deutschland',
     },
     serviceType: ['Webdesign', 'Immobilien-Software-Integration', 'Schnittstellen-Anbindung'],
     hasOfferCatalog: {

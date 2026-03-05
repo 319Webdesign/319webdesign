@@ -2,7 +2,7 @@
 
 ## Übersicht
 
-Dieses System erstellt automatisch SEO-optimierte Landingpages für Städte in Südhessen.
+Dieses System erstellt automatisch SEO-optimierte Landingpages für Städte in der Region.
 
 ## Verfügbare Stadt-Seiten
 
@@ -20,7 +20,7 @@ Dieses System erstellt automatisch SEO-optimierte Landingpages für Städte in S
 'stadtname': {
   slug: 'stadtname',
   name: 'Stadtname',
-  region: 'Südhessen',
+  region: 'Umgebung',
   description: 'Beschreibung der Stadt...',
   keywords: [
     'Webdesign Stadtname',

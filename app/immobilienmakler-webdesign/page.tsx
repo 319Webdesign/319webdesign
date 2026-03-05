@@ -104,7 +104,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                   <div className="relative rounded-lg overflow-hidden shadow-2xl shadow-slate-300/40 ring-1 ring-slate-200/80">
                     <Image
                       src="/expertenteam-laptop.png"
-                      alt="Webdesign für Immobilienmakler in Darmstadt Hessen – Objekt-Schnittstelle onOffice Laptop"
+                      alt="Webdesign für Immobilienmakler in Darmstadt – Objekt-Schnittstelle onOffice Laptop"
                       width={560}
                       height={360}
                       quality={90}
@@ -178,7 +178,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                   ],
                 },
                 {
-                  title: 'Immo-Partner Südhessen',
+                  title: 'Immo-Partner Darmstadt',
                   kernleistung: 'FlowFact-Integration & Mandatsakquise',
                   badge: 'Custom SEO',
                   image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
@@ -207,7 +207,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                   <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
                     <Image
                       src={project.image}
-                      alt={`Referenz Webdesign für Immobilienmakler in Hessen - ${project.title}`}
+                      alt={`Referenz Webdesign für Immobilienmakler - ${project.title}`}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"

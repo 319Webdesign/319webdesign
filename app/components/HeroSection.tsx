@@ -28,11 +28,11 @@ export default function HeroSection() {
               <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
                 319Webdesign:
               </span>{' '}
-              <span className="text-slate-900">Webdesign für KMU & Immobilienmakler in Hessen</span>
+              <span className="text-slate-900">Webdesign für KMU & Immobilienmakler</span>
             </h1>
           
             <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-            Professionelles Webdesign in Pfungstadt und Hessen: Mehr Anfragen für Ihr KMU und effizientere Vermarktung für Immobilienmakler durch High-Performance Websites. Webdesign, das verkauft.
+            Professionelles Webdesign in Pfungstadt: Mehr Anfragen für Ihr KMU und effizientere Vermarktung für Immobilienmakler durch High-Performance Websites. Webdesign, das verkauft.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2 animate-fade-in-up animation-delay-200">
@@ -60,7 +60,7 @@ export default function HeroSection() {
             <div className="relative w-full h-[650px] flex items-end justify-end">
               <Image
                 src="/maik-removebg.png"
-                alt="Webdesign für Immobilienmakler und KMU in Darmstadt, Pfungstadt, Hessen – Maik Schmidt, 319Webdesign"
+                alt="Webdesign für Immobilienmakler und KMU in Darmstadt und Pfungstadt – Maik Schmidt, 319Webdesign"
                 width={550}
                 height={650}
                 priority={true}

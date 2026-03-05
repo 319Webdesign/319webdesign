@@ -177,7 +177,7 @@ export default function WebdesignLaunchPage() {
                   </svg>
                 </div>
                 <p className="text-slate-700 font-medium">
-                  Persönlich in Südhessen
+                  Persönliche Betreuung
                 </p>
               </div>
 

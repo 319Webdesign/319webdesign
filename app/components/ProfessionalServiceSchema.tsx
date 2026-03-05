@@ -12,7 +12,7 @@ export default function ProfessionalServiceSchema() {
       streetAddress: 'Nahestrasse 22',
       addressLocality: 'Pfungstadt',
       postalCode: '64319',
-      addressRegion: 'Hessen',
+      addressRegion: 'Deutschland',
       addressCountry: 'DE',
     },
     geo: {
@@ -20,7 +20,7 @@ export default function ProfessionalServiceSchema() {
       latitude: 49.8028,
       longitude: 8.6042,
     },
-    areaServed: ['Darmstadt', 'Pfungstadt', 'Südhessen'],
+    areaServed: ['Darmstadt', 'Pfungstadt'],
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

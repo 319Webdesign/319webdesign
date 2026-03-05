@@ -36,7 +36,7 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
   const texts = getProcessStepTexts(citySlug)
   const intro = citySlug && introTexts[citySlug]
     ? introTexts[citySlug]
-    : 'Webdesign für Pfungstadt, Darmstadt und Südhessen – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz.'
+    : 'Webdesign für Pfungstadt und Darmstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz.'
   const processSteps = stepConfig.map(({ step, icon, title, key }) => ({
     step,
     icon,

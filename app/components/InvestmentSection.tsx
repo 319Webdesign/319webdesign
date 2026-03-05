@@ -30,7 +30,7 @@ export default function InvestmentSection() {
         'PageSpeed-Score 99/100 als technisches Fundament',
         'Responsive Design für alle Endgeräte optimiert',
         'Blitzschnelle Ladezeiten unter 2 Sekunden',
-        'SEO-Grundlagen für lokale Sichtbarkeit in Hessen',
+        'SEO-Grundlagen für lokale Sichtbarkeit',
       ],
       ariaLabel: 'Launch - Professioneller Start',
       recommended: false,
@@ -38,8 +38,8 @@ export default function InvestmentSection() {
     {
       icon: TrendingUp,
       title: 'Scale',
-      subtitle: 'Reichweite in ganz Hessen & SEO-Dominanz',
-      description: 'Kontinuierliche Optimierung und SEO für Hessen.',
+      subtitle: 'Reichweite & SEO-Dominanz',
+      description: 'Kontinuierliche Optimierung und SEO.',
       benefits: [
         'Gezielte SEO-Strategie für Darmstadt bis Kassel',
         'Monatliche Performance-Analysen & Anpassungen',
@@ -69,13 +69,13 @@ export default function InvestmentSection() {
     {
       icon: Server,
       title: 'High-Performance Hosting',
-      description: 'SSL, tägliche Backups und maximale Stabilität – das Fundament für PageSpeed 99/100 und sicheres Webdesign in Hessen.',
+      description: 'SSL, tägliche Backups und maximale Stabilität – das Fundament für PageSpeed 99/100 und sicheres Webdesign.',
       ariaLabel: 'High-Performance Hosting',
     },
     {
       icon: Wrench,
       title: 'Wachstum & Betreuung',
-      description: 'Nach dem Go-live geht es weiter: Updates, Performance-Checks und Feintuning – so bleibt Ihr Webauftritt in Darmstadt und Südhessen auf Kurs.',
+      description: 'Nach dem Go-live geht es weiter: Updates, Performance-Checks und Feintuning – so bleibt Ihr Webauftritt auf Kurs.',
       ariaLabel: 'Wachstum & Betreuung',
     },
     {
@@ -87,7 +87,7 @@ export default function InvestmentSection() {
     {
       icon: Palette,
       title: 'Corporate Identity Fokus',
-      description: 'Stimmiges Erscheinungsbild von Logo bis Website. Gerade vor Ort in Südhessen schafft ein klarer Look Vertrauen bei Kunden.',
+      description: 'Stimmiges Erscheinungsbild von Logo bis Website. Gerade vor Ort schafft ein klarer Look Vertrauen bei Kunden.',
       ariaLabel: 'Corporate Identity Fokus',
     },
   ]
@@ -102,7 +102,7 @@ export default function InvestmentSection() {
               Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Jedes Unternehmen in Hessen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
+              Jedes Unternehmen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
             </p>
           </div>
         ) : (
@@ -111,7 +111,7 @@ export default function InvestmentSection() {
               Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Jedes Unternehmen in Hessen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
+              Jedes Unternehmen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
             </p>
           </motion.div>
         )}

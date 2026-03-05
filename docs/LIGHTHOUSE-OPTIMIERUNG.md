@@ -414,7 +414,7 @@ URL: https://pagespeed.web.dev/
 ### 🎯 Ziel erreicht:
 **LCP < 2.5s** ✅  
 **Ohne Design-Beeinträchtigung** ✅  
-**Optimiert für Südhessen Zielgruppe** ✅
+**Optimiert für regionale Zielgruppe** ✅
 
 ---
 

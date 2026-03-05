@@ -12,8 +12,8 @@ export const cities: Record<string, City> = {
   darmstadt: {
     slug: 'darmstadt',
     name: 'Darmstadt',
-    region: 'Südhessen',
-    description: 'Die Wissenschaftsstadt Darmstadt ist Zentrum der Region Südhessen und bekannt für Innovation und Technologie.',
+    region: 'Umgebung',
+    description: 'Die Wissenschaftsstadt Darmstadt ist bekannt für Innovation und Technologie.',
     keywords: [
       'Webdesign Darmstadt',
       'Website erstellen Darmstadt',
@@ -26,7 +26,7 @@ export const cities: Record<string, City> = {
   pfungstadt: {
     slug: 'pfungstadt',
     name: 'Pfungstadt',
-    region: 'Südhessen',
+    region: 'Umgebung',
     description: 'Pfungstadt liegt südlich von Darmstadt und bietet eine ideale Mischung aus städtischem Leben und ländlicher Idylle.',
     keywords: [
       'Webdesign Pfungstadt',
@@ -40,7 +40,7 @@ export const cities: Record<string, City> = {
   griesheim: {
     slug: 'griesheim',
     name: 'Griesheim',
-    region: 'Südhessen',
+    region: 'Umgebung',
     description: 'Griesheim westlich von Darmstadt bietet optimale Bedingungen für lokale Unternehmen und Selbstständige.',
     keywords: [
       'Webdesign Griesheim',
@@ -54,7 +54,7 @@ export const cities: Record<string, City> = {
   weiterstadt: {
     slug: 'weiterstadt',
     name: 'Weiterstadt',
-    region: 'Südhessen',
+    region: 'Umgebung',
     description: 'Weiterstadt ist ein wichtiger Wirtschaftsstandort südlich von Darmstadt mit vielen mittelständischen Unternehmen.',
     keywords: [
       'Webdesign Weiterstadt',

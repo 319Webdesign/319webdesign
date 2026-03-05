@@ -2,17 +2,7 @@
 const nextConfig = {
   // output: 'export' entfernt - wird für API-Routen benötigt
   trailingSlash: false,
-  // www → non-www Redirect für konsistenten Canonical
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.319webdesign.com' }],
-        destination: 'https://319webdesign.com/:path*',
-        permanent: true,
-      },
-    ]
-  },
+  // Hinweis: www↔non-www Redirects in Vercel Domain-Settings konfigurieren, nicht hier (sonst Redirect-Loop)
   // GZip-Komprimierung aktiv (next start). Vercel liefert HTML/JS/CSS automatisch Brotli/GZip-komprimiert.
   compress: true,
   // X-Powered-By entfernen → weniger Header-Größe, bessere TTFB

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { seoConfig, getSeoMetadata } from '../../config/seo'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { ArrowRight, Zap, Database, Users } from 'lucide-react'
+import { ArrowRight, Zap, Database, Users, Gauge, Check } from 'lucide-react'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Image from 'next/image'
 import MaklerServiceSchema from '../components/MaklerServiceSchema'
@@ -53,10 +53,13 @@ export default function ImmobilienmaklerWebdesignPage() {
               ]}
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] leading-[1.1] tracking-tight mb-8">
-              Webdesign für Immobilienmakler in Hessen
+              Webdesign für{' '}
+              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                Immobilienmakler
+              </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Webdesign für Immobilienmakler in Hessen: Automatisierte Objekt-Schnittstellen (onOffice, FlowFact), mehr Eigentümer-Anfragen und maximale Performance durch High-End Webdesign.
+              Automatisierte Objekt-Schnittstellen, mehr Eigentümer-Anfragen und maximale Performance durch High-End Webdesign.
             </p>
           </div>
         </section>
@@ -68,7 +71,11 @@ export default function ImmobilienmaklerWebdesignPage() {
               {/* Links: Text + Makler-Vorteile */}
               <div>
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0f172a] leading-tight mb-6">
-                  Ihr Expertenteam für Immobilien-Automation
+                  Ihr{' '}
+                  <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                    Experte
+                  </span>{' '}
+                  für Immobilien-Automation
                 </h2>
                 <p className="text-lg text-slate-600 leading-relaxed mb-12">
                   Wir verbinden Ihre Makler-Software nahtlos mit einer hochperformanten Website – weniger Arbeit, mehr Mandate.
@@ -78,7 +85,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                     const Icon = item.icon
                     return (
                       <li key={item.title} className="flex gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-slate-900 text-white flex items-center justify-center">
+                        <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-blue-500 text-white flex items-center justify-center">
                           <Icon className="w-6 h-6" aria-hidden="true" />
                         </div>
                         <div>
@@ -128,7 +135,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                   className="group flex items-center justify-center px-8 py-5 bg-white rounded-xl border border-slate-200/80 shadow-sm hover:shadow-md hover:border-slate-300/80 transition-all duration-300 min-w-[160px]"
                 >
                   <span
-                    className="text-lg md:text-xl font-semibold text-slate-400 group-hover:text-slate-700 transition-colors duration-300"
+                    className="text-lg md:text-xl font-semibold text-slate-400 group-hover:text-blue-600 transition-colors duration-300"
                     aria-label={item.name}
                   >
                     {item.name}
@@ -142,22 +149,155 @@ export default function ImmobilienmaklerWebdesignPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-24 md:py-32 px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0f172a] mb-6">
-              Bereit für Ihre Makler-Website?
+        {/* Portfolio-Sektion – Immobilienmakler Referenzen */}
+        <section className="py-24 md:py-32 px-6 bg-white">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0f172a] leading-tight mb-6 text-center">
+              Digitale Maßarbeit für{' '}
+              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                Immobilienmakler
+              </span>
+              :<br />
+              Projekte, die Eigentümer überzeugen.
             </h2>
-            <p className="text-lg text-slate-600 mb-10">
-              Vereinbaren Sie ein unverbindliches Erstgespräch – wir zeigen Ihnen, wie Sie mit einer performanten Website mehr Mandate generieren.
+            <p className="text-lg text-slate-600 text-center max-w-2xl mx-auto mb-16 leading-relaxed">
+              Ein kleiner Einblick in meine Arbeit. Ich entwickle für meine Kunden nicht nur Webseiten, sondern digitale Verkaufsmaschinen mit direkter Software-Anbindung.
             </p>
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-slate-900 text-white font-semibold rounded-lg hover:bg-slate-800 transition-colors duration-300 group"
-            >
-              Kostenloses Erstgespräch
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-            </Link>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Premium-Immobilien Darmstadt',
+                  kernleistung: 'Automatisierter Objekt-Import & Lead-Generierung',
+                  badge: 'onOffice API',
+                  image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800',
+                  details: [
+                    { icon: Database, label: 'Schnittstelle: onOffice' },
+                    { icon: Zap, label: 'Framework: Next.js' },
+                    { icon: Gauge, label: 'Ladezeit: < 0.5s' },
+                  ],
+                },
+                {
+                  title: 'Immo-Partner Südhessen',
+                  kernleistung: 'FlowFact-Integration & Mandatsakquise',
+                  badge: 'Custom SEO',
+                  image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
+                  details: [
+                    { icon: Database, label: 'Schnittstelle: FlowFact' },
+                    { icon: Zap, label: 'Framework: Next.js' },
+                    { icon: Gauge, label: 'Ladezeit: < 0.5s' },
+                  ],
+                },
+                {
+                  title: 'Objektportal Rhein-Main',
+                  kernleistung: 'OpenImmo-Anbindung & Eigentümer-Portal',
+                  badge: 'OpenImmo API',
+                  image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
+                  details: [
+                    { icon: Database, label: 'Schnittstelle: OpenImmo' },
+                    { icon: Zap, label: 'Framework: Next.js' },
+                    { icon: Gauge, label: 'Ladezeit: < 0.5s' },
+                  ],
+                },
+              ].map((project) => (
+                <article
+                  key={project.title}
+                  className="group bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-slate-300"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                    <Image
+                      src={project.image}
+                      alt={`Referenz Webdesign für Immobilienmakler in Hessen - ${project.title}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Hover-Overlay mit technischen Details */}
+                    <div className="absolute inset-0 bg-slate-900/80 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ul className="space-y-2 text-sm text-white">
+                        {project.details.map((d) => {
+                          const Icon = d.icon
+                          return (
+                            <li key={d.label} className="flex items-center gap-2">
+                              <Icon className="w-4 h-4 text-blue-400 flex-shrink-0" aria-hidden />
+                              <span>{d.label}</span>
+                            </li>
+                          )
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-50 rounded-full mb-3">
+                      {project.badge}
+                    </span>
+                    <h3 className="text-lg font-bold text-slate-900 mb-2">{project.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{project.kernleistung}</p>
+                    <p className="text-slate-400 text-xs mt-4 italic">Hier könnte bald Ihr Projekt stehen.</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section – persönlich & konversionsstark */}
+        <section className="py-24 md:py-32 px-6 bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-[30%_1fr] gap-12 lg:gap-16 items-center">
+              {/* Links: Profilbild – Kreis, 30% Spalte, links ausgerichtet */}
+              <div className="flex justify-center md:justify-start order-2 md:order-1">
+                <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden shadow-[0_20px_40px_-12px_rgba(0,0,0,0.15)] ring-4 ring-white">
+                  <Image
+                    src="/maik-removebg.png"
+                    alt="Maik Schmidt – Ihr Partner für Webdesign und Immobilien-Automation in Pfungstadt"
+                    width={224}
+                    height={224}
+                    quality={90}
+                    sizes="(max-width: 768px) 192px, 224px"
+                    className="w-full h-full object-cover object-top bg-white/80"
+                  />
+                </div>
+              </div>
+
+              {/* Rechts: Text & CTA */}
+              <div className="order-1 md:order-2">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0f172a] leading-tight mb-6">
+                  Lass uns dein Business gemeinsam auf das nächste Level heben.
+                </h2>
+                <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                  Kein anonymes Call-Center, keine wechselnden Ansprechpartner. Ich begleite dich persönlich von der ersten Idee bis zur fertigen High-End-Website. Ich kümmere mich darum, dass die Technik läuft, damit du dich auf dein Kerngeschäft konzentrieren kannst.
+                </p>
+
+                <ul className="space-y-3 mb-10">
+                  {[
+                    '100% persönliche Betreuung',
+                    'Experten-Know-how in Next.js & API-Schnittstellen',
+                    'Fokus auf echte Ergebnisse & Anfragen',
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-3">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center">
+                        <Check className="w-4 h-4" strokeWidth={2.5} aria-hidden />
+                      </span>
+                      <span className="text-slate-700 font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div>
+                  <Link
+                    href="/kontakt"
+                    className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 hover:scale-105 transition-all duration-300 group"
+                  >
+                    Jetzt kostenloses Erstgespräch vereinbaren
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                  </Link>
+                  <p className="text-slate-500 text-sm mt-3">
+                    Antwort meist innerhalb von 24 Stunden.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 

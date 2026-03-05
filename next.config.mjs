@@ -37,6 +37,11 @@ const nextConfig = {
         hostname: 'cms.319webdesign.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
     ],
   },
 };

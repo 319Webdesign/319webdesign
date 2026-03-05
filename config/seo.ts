@@ -1,4 +1,5 @@
-const baseUrl = 'https://319webdesign.com'
+/** Kanonische Basis-URL – konsistent für Canonical, OpenGraph und Sitemap. Kein www. */
+export const baseUrl = 'https://319webdesign.com'
 
 /** Title-Template für alle Seiten: %s | 319Webdesign Pfungstadt */
 export const titleTemplate = '%s | 319Webdesign Pfungstadt'
@@ -17,7 +18,7 @@ export interface PageSeoConfig {
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
     title: 'Webdesign Pfungstadt & Immobilien-Automation Hessen | 319Webdesign',
-    description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen sowie spezialisierte Schnittstellen-Lösungen (onOffice) für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+    description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
     path: '/',
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
@@ -68,13 +69,15 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   },
   immobilienmakler: {
     title: 'Webdesign für Immobilienmakler Hessen | onOffice & Schnittstellen',
-    description: 'Exklusives Webdesign für Immobilienmakler in Hessen. Automatisierte Objekt-Anbindung via onOffice, FlowFact & OpenImmo. Mehr Eigentümer-Anfragen durch maximale Performance.',
+    description: 'Exklusives Webdesign für Immobilienmakler in Hessen. onOffice, FlowFact & OpenImmo. Mehr Anfragen durch maximale Performance.',
     path: '/immobilienmakler-webdesign',
   },
 }
 
+/** Erzeugt die kanonische URL: baseUrl + current-path (ohne Trailing Slash). */
 export function getCanonicalUrl(path: string): string {
-  return `${baseUrl}${path === '/' ? '' : path}`
+  const normalized = path === '/' ? '' : path.replace(/\/$/, '')
+  return `${baseUrl}${normalized}`
 }
 
 /** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt "| 319Webdesign Pfungstadt" hinzu. */
@@ -117,4 +120,3 @@ export function getSeoMetadata(config: PageSeoConfig) {
   }
 }
 
-export { baseUrl }

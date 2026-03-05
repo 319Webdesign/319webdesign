@@ -204,7 +204,7 @@ export default function PortfolioPage() {
                             href={`/portfolio/${project.slug}`}
                             className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors group/link"
                           >
-                            Details ansehen
+                            Projekt {project.title} ansehen
                             <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                           </Link>
                         </div>

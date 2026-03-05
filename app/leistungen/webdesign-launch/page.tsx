@@ -211,7 +211,7 @@ export default function WebdesignLaunchPage() {
                 Wachstum & SEO
               </h3>
               <p className="text-slate-600 group-hover:text-blue-600 transition-colors inline-flex items-center gap-2">
-                Mehr erfahren
+                Zur SEO-Strategie
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </p>
             </Link>
@@ -223,7 +223,7 @@ export default function WebdesignLaunchPage() {
                 Strategische Begleitung
               </h3>
               <p className="text-slate-600 group-hover:text-blue-600 transition-colors inline-flex items-center gap-2">
-                Mehr erfahren
+                Zur strategischen Begleitung
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </p>
             </Link>

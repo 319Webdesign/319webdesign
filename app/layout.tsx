@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { baseUrl } from '../config/seo'
 import OrganizationSchema from './components/OrganizationSchema'
 import ProfessionalServiceSchema from './components/ProfessionalServiceSchema'
 // Schwere/ nicht-SEO-Komponenten erst clientseitig laden → schnelleres SSR, bessere TTFB
@@ -19,12 +20,12 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://319webdesign.com'),
+  metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign Pfungstadt',
     default: 'Webdesign Pfungstadt & Immobilien-Automation Hessen | 319Webdesign',
   },
-  description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen sowie spezialisierte Schnittstellen-Lösungen (onOffice) für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+  description: 'Professionelles Webdesign für KMU in Pfungstadt & Südhessen. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
   icons: {
     icon: '/browser-logo.png',
     shortcut: '/browser-logo.png',

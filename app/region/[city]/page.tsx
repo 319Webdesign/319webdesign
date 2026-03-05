@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { getCanonicalUrl } from '../../../config/seo'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Check, MapPin, ExternalLink } from 'lucide-react'
@@ -6,6 +7,7 @@ import { notFound } from 'next/navigation'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import ProzessSection from '../../components/ProzessSection'
 import LocalBusinessSchema from '../../components/LocalBusinessSchema'
 import { getCityBySlug, getAllCitySlugs } from '../../../config/cities'
 import { getProjectsByCity } from '../../../config/projects'
@@ -14,40 +16,7 @@ import {
   getCityPageTexts,
   getLocalSectionText,
 } from '../../../config/cityPageTemplate'
-
-// =============================================================================
-// ANWEISUNG: Warum Webdesign in [City] wichtig ist
-// =============================================================================
-// Dieser Abschnitt MUSS für jede Stadt individuell verfasst werden.
-// Mindestens 300 Wörter unique Content pro Stadt – keine Duplicate Content.
-// Berücksichtigen Sie: lokale Wirtschaft, Branchen, Wettbewerb, Besonderheiten.
-// =============================================================================
-
-const warumWebdesignPlaceholder: Record<
-  string,
-  { heading: string; content: string }
-> = {
-  darmstadt: {
-    heading: 'Warum Webdesign in Darmstadt wichtig ist',
-    content:
-      '[PLATZHALTER – mind. 300 Wörter] Individueller Text für Darmstadt: Wissenschaftsstadt, Tech-Hub, Hochschulen, Wirtschaftsstruktur, lokale Branchen (IT, Forschung, Handel), Wettbewerbssituation, Besonderheiten der Darmstädter Unternehmen. Dieser Text muss einzigartig sein und darf nicht von anderen Stadt-Seiten kopiert werden.',
-  },
-  pfungstadt: {
-    heading: 'Warum Webdesign in Pfungstadt wichtig ist',
-    content:
-      '[PLATZHALTER – mind. 300 Wörter] Individueller Text für Pfungstadt: Mittelzentrum, Nähe zu Darmstadt, lokale Handwerksbetriebe, Einzelhandel, Dienstleister, typische Unternehmensstruktur. Pfungstadts Besonderheiten und warum eine professionelle Website für die lokale Wirtschaft essenziell ist.',
-  },
-  griesheim: {
-    heading: 'Warum Webdesign in Griesheim wichtig ist',
-    content:
-      '[PLATZHALTER – mind. 300 Wörter] Individueller Text für Griesheim: Westlich von Darmstadt, Pendler-Standort, lokale Unternehmen, Branchenmix. Griesheim-spezifische Argumente für professionelles Webdesign.',
-  },
-  weiterstadt: {
-    heading: 'Warum Webdesign in Weiterstadt wichtig ist',
-    content:
-      '[PLATZHALTER – mind. 300 Wörter] Individueller Text für Weiterstadt: Wirtschaftsstandort, Logistik, Mittelstand, Industrie. Weiterstadt-spezifische Inhalte für die Webdesign-Entscheidung.',
-  },
-}
+import { getUniqueH1Region, getWarumWebdesignContent } from '../../../config/cityContent'
 
 export async function generateMetadata({
   params,
@@ -57,7 +26,7 @@ export async function generateMetadata({
   const city = getCityBySlug(params.city)
   if (!city) return { title: 'Stadt nicht gefunden | 319Webdesign' }
 
-  const canonicalUrl = `https://319webdesign.com/region/${city.slug}`
+  const canonicalUrl = getCanonicalUrl(`/region/${city.slug}`)
   return {
     title: `Webdesign ${city.name} | High-Performance Websites | 319Webdesign`,
     description: `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Lokale Referenzen, individuelle Beratung und moderne Websites für Unternehmen in ${city.region}.`,
@@ -84,10 +53,8 @@ export default function RegionCityPage({ params }: { params: { city: string } })
 
   const localProjects = getProjectsByCity(city.slug)
   const texts = getCityPageTexts(city)
-  const warumContent = warumWebdesignPlaceholder[city.slug] ?? {
-    heading: `Warum Webdesign in ${city.name} wichtig ist`,
-    content: `[PLATZHALTER – mind. 300 Wörter] Individueller Text für ${city.name} erforderlich. Siehe Anweisung im Quellcode.`,
-  }
+  const h1 = getUniqueH1Region(city)
+  const warumContent = getWarumWebdesignContent(city)
 
   const leistungenLinks = [
     { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
@@ -115,10 +82,14 @@ export default function RegionCityPage({ params }: { params: { city: string } })
               ]}
             />
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
-              Webdesign{' '}
               <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-                {city.name}
+                {h1.main}
               </span>
+              {h1.sub && (
+                <span className="block text-2xl md:text-3xl mt-2 text-slate-700 font-semibold">
+                  {h1.sub}
+                </span>
+              )}
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-8">
               {getHeroIntro(city)}
@@ -147,13 +118,16 @@ export default function RegionCityPage({ params }: { params: { city: string } })
           </div>
         </section>
 
-        {/* Warum Webdesign in [City] – Platzhalter für unique Content */}
+        {/* Prozess – stadt-spezifischer Content */}
+        <ProzessSection citySlug={city.slug} />
+
+        {/* Warum Webdesign + Referenzen kombiniert – weniger Überschriften */}
         <section className="py-20 px-6 bg-slate-50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
               {warumContent.heading}
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed whitespace-pre-line">
+            <p className="text-lg text-slate-700 leading-relaxed mb-12">
               {warumContent.content}
             </p>
           </div>
@@ -195,9 +169,9 @@ export default function RegionCityPage({ params }: { params: { city: string } })
                       <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
                         {project.category}
                       </span>
-                      <h3 className="text-xl font-bold text-slate-900 mt-2 group-hover:text-blue-600 transition-colors">
+                      <p className="text-xl font-bold text-slate-900 mt-2 group-hover:text-blue-600 transition-colors">
                         {project.title}
-                      </h3>
+                      </p>
                     </div>
                   </a>
                 ))}
@@ -220,11 +194,11 @@ export default function RegionCityPage({ params }: { params: { city: string } })
           </div>
         </section>
 
-        {/* Interne Verlinkung – Leistungsseiten für Autoritäts-Erbe */}
+        {/* Leistungen */}
         <section className="py-20 px-6 bg-slate-50">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
-              Leistungen für Unternehmen in {city.name}
+              Leistungen in {city.name}
             </h2>
             <p className="text-xl text-slate-600 text-center mb-12">
               Von der ersten Website bis zur langfristigen Begleitung – alles aus

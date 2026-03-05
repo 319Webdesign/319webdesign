@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { baseUrl, getCanonicalUrl } from '../../../config/seo'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Breadcrumbs from '../../components/Breadcrumbs'
@@ -17,7 +18,7 @@ export async function generateMetadata({
   const project = getProjectBySlug(params.slug)
   if (!project) return { title: 'Projekt nicht gefunden | 319Webdesign' }
 
-  const canonicalUrl = `https://319webdesign.com/portfolio/${project.slug}`
+  const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
   return {
     title: `${project.title} | ${project.category} ${project.location} | 319Webdesign`,
     description: `${project.title} – Webdesign-Referenz für ${project.category} in ${project.location}. PageSpeed ${project.lighthouseScore}/100. Von 319Webdesign.`,
@@ -28,7 +29,7 @@ export async function generateMetadata({
       url: canonicalUrl,
       images: [
         {
-          url: `https://319webdesign.com${project.imageUrl}`,
+          url: `${baseUrl}${project.imageUrl}`,
           width: 1200,
           height: 630,
           alt: `${project.title} – Webdesign ${project.location}`,

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
 import { Search, Palette, FileText, Code, Wrench, ArrowRight } from 'lucide-react'
+import { getProcessStepTexts } from '../../config/processSteps'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -11,40 +12,37 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: "easeOut" }
 }
 
-const processSteps = [
-  {
-    step: 1,
-    icon: Search,
-    title: 'Analyse & Ziel-Strategie',
-    description: 'Wir definieren Ihre konkreten Ziele und analysieren den hessischen Wettbewerb, um Sie an die Spitze zu bringen.',
-  },
-  {
-    step: 2,
-    icon: Palette,
-    title: 'Performance-Design & Branding',
-    description: 'Ich entwickle ein Design, das nicht nur Ihre Marke widerspiegelt, sondern psychologisch auf Konversion optimiert ist.',
-  },
-  {
-    step: 3,
-    icon: FileText,
-    title: 'Verkaufsstarke Inhalte',
-    description: 'Texte und Strukturen, die Besucher in ganz Hessen überzeugen und messbar zu Kunden machen.',
-  },
-  {
-    step: 4,
-    icon: Code,
-    title: 'High-End Entwicklung',
-    description: 'Mit Next.js erreiche ich Bestwerte von 99/100, damit Ihre Seite technisch fehlerfrei und blitzschnell liefert.',
-  },
-  {
-    step: 5,
-    icon: Wrench,
-    title: 'Strategische Begleitung',
-    description: 'Nach dem Launch beginnt die eigentliche Arbeit. Ich bleibe Ihr Partner für kontinuierliche Optimierung und messbaren Erfolg.',
-  },
+const stepConfig = [
+  { step: 1, icon: Search, title: 'Analyse & Ziel-Strategie', key: 'analyse' as const },
+  { step: 2, icon: Palette, title: 'Performance-Design & Branding', key: 'design' as const },
+  { step: 3, icon: FileText, title: 'Verkaufsstarke Inhalte', key: 'inhalte' as const },
+  { step: 4, icon: Code, title: 'High-End Entwicklung', key: 'entwicklung' as const },
+  { step: 5, icon: Wrench, title: 'Strategische Begleitung', key: 'begleitung' as const },
 ]
 
-export default function ProzessSection() {
+interface ProzessSectionProps {
+  /** Optional: Stadt-Slug für einzigartigen Content auf Stadt-Unterseiten */
+  citySlug?: string
+}
+
+const introTexts: Record<string, string> = {
+  darmstadt: 'Webdesign in Darmstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz in der Wissenschaftsstadt.',
+  pfungstadt: 'Webdesign in Pfungstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz vor Ort.',
+  griesheim: 'Webdesign in Griesheim – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz in der Region.',
+  weiterstadt: 'Webdesign in Weiterstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz am Wirtschaftsstandort.',
+}
+
+export default function ProzessSection({ citySlug }: ProzessSectionProps) {
+  const texts = getProcessStepTexts(citySlug)
+  const intro = citySlug && introTexts[citySlug]
+    ? introTexts[citySlug]
+    : 'Webdesign für Pfungstadt, Darmstadt und Südhessen – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz.'
+  const processSteps = stepConfig.map(({ step, icon, title, key }) => ({
+    step,
+    icon,
+    title,
+    description: texts[key],
+  }))
   const reduceMotion = useReduceMotion()
 
   const CardEl = reduceMotion ? 'div' : motion.div
@@ -63,7 +61,7 @@ export default function ProzessSection() {
             In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>.
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Ein transparenter Prozess, der auf ein klares Ziel ausgerichtet ist: Ihr Wachstum.
+            {intro}
           </p>
           </div>
         ) : (
@@ -72,7 +70,7 @@ export default function ProzessSection() {
             In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>.
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Ein transparenter Prozess, der auf ein klares Ziel ausgerichtet ist: Ihr Wachstum.
+            {intro}
           </p>
           </motion.div>
         )}
@@ -166,7 +164,7 @@ export default function ProzessSection() {
                   >
                     <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
                   </motion.div>
-                  <h3 className="text-xl font-bold mb-4 text-center">{item.title}</h3>
+                  <p className="text-xl font-bold mb-4 text-center">{item.title}</p>
                   <p className="text-slate-600 text-center text-sm leading-relaxed flex-grow">{item.description}</p>
                 </div>
               </CardEl>
@@ -183,9 +181,9 @@ export default function ProzessSection() {
               </div>
               
               <div className="relative z-10 flex flex-col items-center justify-center text-center flex-grow">
-                <h3 className="text-2xl font-bold mb-6">
+                <p className="text-2xl font-bold mb-6">
                   In 5 Schritten zu Ihrer neuen Website – jetzt starten.
-                </h3>
+                </p>
                 <LinkEl {...linkProps}>
                   <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                   <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
@@ -221,7 +219,7 @@ export default function ProzessSection() {
                   <IconEl {...iconProps} className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-6 mx-auto group-hover/process:scale-110 transition-transform duration-300">
                     <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
                   </IconEl>
-                  <h3 className="text-2xl font-bold mb-4 text-center">{item.title}</h3>
+                  <p className="text-2xl font-bold mb-4 text-center">{item.title}</p>
                   <p className="text-slate-600 text-center">{item.description}</p>
                 </div>
               </CardEl>
@@ -238,9 +236,9 @@ export default function ProzessSection() {
               </div>
               
               <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                <h3 className="text-2xl font-bold mb-6">
+                <p className="text-2xl font-bold mb-6">
                   Erstgespräch vereinbaren und gemeinsam durchstarten.
-                </h3>
+                </p>
                 <LinkEl {...linkProps}>
                   <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
                   <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">

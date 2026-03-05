@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Check, Zap, Search, Smartphone } from 'lucide-react'
 import { notFound } from 'next/navigation'
+import { getCanonicalUrl } from '../../../config/seo'
 import Breadcrumbs from '../../components/Breadcrumbs'
 
 type WarumSlug = 'umsatzstark' | 'blitzschnell' | 'lokal'
@@ -131,7 +132,7 @@ export async function generateMetadata({
   if (!page) {
     return { title: 'Seite nicht gefunden | 319Webdesign' }
   }
-  const canonicalUrl = `https://319webdesign.com/warum/${params.slug}`
+  const canonicalUrl = getCanonicalUrl(`/warum/${params.slug}`)
   return {
     title: page.metaTitle,
     description: page.metaDescription,
@@ -267,7 +268,7 @@ export default function WarumPage({ params }: { params: { slug: string } }) {
                   {item.title}
                 </h3>
                 <p className="text-slate-600 mt-1 inline-flex items-center gap-2 group-hover:text-slate-900 transition-colors">
-                  Mehr erfahren
+                  Zu {item.title}
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </p>
               </Link>

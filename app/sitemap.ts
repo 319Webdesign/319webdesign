@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 import { getAllProjectSlugs } from '../config/projects'
+import { baseUrl } from '../config/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://319webdesign.com'
   const currentDate = new Date().toISOString().split('T')[0]
 
   // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
@@ -32,6 +32,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.95,
+    },
+
+    // Immobilienmakler - Hauptseite für Makler
+    {
+      url: `${baseUrl}/immobilienmakler-webdesign`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
 
     // Leistungen Übersicht - Hauptseite

@@ -18,19 +18,19 @@ const benefits = [
     icon: CheckCircle2,
     title: 'Langfristige Unterstützung',
     description:
-      'Wir begleiten dich nicht nur beim Start, sondern optimieren deine Präsenz kontinuierlich – ideal für das langfristige Wachstum deines Web-Auftritts.',
+      'Von Darmstadt bis Pfungstadt: Wir begleiten Sie nicht nur beim Launch, sondern optimieren Ihre Präsenz dauerhaft – für messbares Wachstum in Südhessen.',
   },
   {
     icon: CheckCircle2,
     title: 'Starke Marke',
     description:
-      'Wir sorgen dafür, dass dein Unternehmen (egal ob Handwerk oder Immobilien) online sichtbar bleibt und sich deutlich vom Wettbewerb abhebt.',
+      'Ob KMU oder Immobilienmakler: Ihr Webdesign hebt Sie in Hessen ab – online sichtbar und glaubwürdig für Ihre Zielgruppe vor Ort.',
   },
   {
     icon: CheckCircle2,
     title: 'Mehr Wirkung',
     description:
-      'Damit du nur noch TOP-Aufträge, TOP-Kunden und TOP-Mitarbeiter erreichst.',
+      'Mehr Anfragen, bessere Kunden und höhere Conversion – mit Webdesign, das in Pfungstadt und der Region überzeugt.',
   },
 ]
 
@@ -52,7 +52,7 @@ export default function MehrwertSection() {
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              Für KMU: Neue Kunden über Vertrauen und Regionalität gewinnen. Für Immobilienmakler: Effizienz durch Objekt-Schnittstellen (onOffice, FlowFact), mehr Eigentümer-Anfragen und weniger manuelle Pflege. Beide Zielgruppen profitieren von einem starken Webdesign.
+              Webdesign in Pfungstadt und Südhessen: KMUs punkten mit regionaler Nähe und Vertrauen vor Ort. Immobilienmakler nutzen Immobilien-Automation – onOffice, FlowFact, OpenImmo – für mehr Mandatsanfragen und weniger manuelle Arbeit. Beide Zielgruppen profitieren von professionellem Webdesign in Hessen.
             </p>
 
             <dl className="space-y-6 mb-10">

@@ -1,11 +1,11 @@
 # robots.txt für 319Webdesign
-# https://www.319webdesign.com/robots.txt
+# Kanonische Domain: https://319webdesign.com (ohne www)
 
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://www.319webdesign.com/sitemap.xml
+# Sitemap – gleiche Domain wie Canonical
+Sitemap: https://319webdesign.com/sitemap.xml
 
 # API-Routen nicht indexieren
 Disallow: /api/

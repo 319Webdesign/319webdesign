@@ -1,16 +1,19 @@
 import type { Metadata } from 'next'
+import { getCanonicalUrl } from '../../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, Check, MapPin, Users, Building2 } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import ProzessSection from '../../components/ProzessSection'
 import { getCityBySlug, getAllCitySlugs } from '../../../config/cities'
 import {
   getHeroIntro,
   getCityPageTexts,
   getLocalSectionText,
 } from '../../../config/cityPageTemplate'
+import { getUniqueH1Webdesign } from '../../../config/cityContent'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -26,7 +29,7 @@ export async function generateMetadata({
     }
   }
 
-  const canonicalUrl = `https://319webdesign.com/webdesign/${city.slug}`
+  const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
   return {
     title: `Webdesign ${city.name} | High-Performance Websites | 319Webdesign`,
     description: `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Moderne Websites für Unternehmen in ${city.region}. Persönliche Betreuung vor Ort.`,
@@ -58,6 +61,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
   }
 
   const texts = getCityPageTexts(city)
+  const h1 = getUniqueH1Webdesign(city)
 
   const features = [
     {
@@ -114,14 +118,14 @@ export default function CityPage({ params }: { params: { city: string } }) {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
-              Webdesign{' '}
               <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-                {city.name}
+                {h1.main}
               </span>
-              <br />
-              <span className="text-3xl md:text-4xl lg:text-5xl">
-                High-Performance Websites für Ihre Region
-              </span>
+              {h1.sub && (
+                <span className="block text-2xl md:text-3xl lg:text-4xl mt-2 text-slate-700 font-semibold">
+                  {h1.sub}
+                </span>
+              )}
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-8">
@@ -164,22 +168,24 @@ export default function CityPage({ params }: { params: { city: string } }) {
           </div>
         </section>
 
-        {/* Performance Section */}
+        {/* Prozess – stadt-spezifischer Content */}
+        <ProzessSection citySlug={city.slug} />
+
+        {/* Performance Section – zusammengefasst, weniger Überschriften */}
         <section className="py-20 px-6 bg-slate-50">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
-              Performance, die überzeugt
+              Performance in {city.name}
             </h2>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
               {texts.performanceIntro}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              {/* PageSpeed Score */}
               <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                  PageSpeed Insight Score
-                </h3>
+                <p className="text-2xl font-bold mb-4 text-blue-600">
+                  PageSpeed 99/100
+                </p>
                 <div className="relative aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center border border-green-200">
                   <div className="text-center">
                     <div className="text-6xl font-bold text-green-600 mb-2">99</div>
@@ -192,11 +198,10 @@ export default function CityPage({ params }: { params: { city: string } }) {
                 </p>
               </div>
 
-              {/* LCP Vergleich */}
               <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                  Largest Contentful Paint (LCP)
-                </h3>
+                <p className="text-2xl font-bold mb-4 text-blue-600">
+                  Ladezeit unter 2 Sekunden
+                </p>
                 <div className="relative aspect-video rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center border border-slate-200">
                   <div className="text-center w-full px-6">
                     <div className="flex justify-around items-end mb-4">
@@ -228,7 +233,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
           </div>
         </section>
 
-        {/* Features Section */}
+        {/* Features – H3 zu bold p für besseres Überschriften-Verhältnis */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900">
@@ -244,9 +249,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
                   key={index}
                   className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all duration-300"
                 >
-                  <h3 className="text-xl font-bold mb-3 text-blue-600">
+                  <p className="text-xl font-bold mb-3 text-blue-600">
                     {feature.title}
-                  </h3>
+                  </p>
                   <p className="text-slate-700 leading-relaxed">
                     {feature.description}
                   </p>
@@ -277,20 +282,20 @@ export default function CityPage({ params }: { params: { city: string } }) {
           </div>
         </section>
 
-        {/* Local Section */}
+        {/* Local Section – H3 zu bold p */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              Webdesign direkt aus {city.region}
+              Webdesign aus {city.region}
             </h2>
             <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
               {city.description} {getLocalSectionText(city)}
             </p>
 
             <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 max-w-3xl mx-auto shadow-sm">
-              <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                Auch in Ihrer Nähe
-              </h3>
+              <p className="text-xl font-bold mb-4 text-blue-600">
+                Auch in Ihrer Nähe: {city.nearbyPlaces.slice(0, 3).join(', ')}
+              </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 {city.nearbyPlaces.map((place) => (
                   <span

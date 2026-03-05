@@ -72,7 +72,7 @@ export default function PortfolioSection() {
               Webdesign <span className="text-blue-600">Portfolio</span> – ausgewählte Projekte
             </h2>
             <Link href="/portfolio" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors group/link">
-              Alle Projekte ansehen
+              Webdesign-Portfolio ansehen
               <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
           </div>
@@ -82,7 +82,7 @@ export default function PortfolioSection() {
               Webdesign <span className="text-blue-600">Portfolio</span> – ausgewählte Projekte
             </h2>
             <Link href="/portfolio" className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors group/link">
-              Alle Projekte ansehen
+              Webdesign-Portfolio ansehen
               <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" />
             </Link>
           </motion.div>

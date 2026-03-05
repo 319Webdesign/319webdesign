@@ -21,6 +21,7 @@ const leistungen = [
       'Launch-Begleitung',
     ],
     color: 'blue',
+    linkText: 'Webdesign & Launch im Detail',
   },
   {
     slug: 'wachstum-seo',
@@ -36,6 +37,7 @@ const leistungen = [
       'Performance-Reports',
     ],
     color: 'green',
+    linkText: 'SEO-Strategie ansehen',
   },
   {
     slug: 'strategische-begleitung',
@@ -51,6 +53,7 @@ const leistungen = [
       'Priorisierter Support',
     ],
     color: 'purple',
+    linkText: 'Strategische Begleitung entdecken',
   },
 ]
 
@@ -145,7 +148,7 @@ export default function LeistungenPage() {
 
                   {/* Link */}
                   <div className={`inline-flex items-center gap-2 ${colors.text} font-semibold group-hover:gap-3 transition-all`}>
-                    Mehr erfahren
+                    {leistung.linkText}
                     <ArrowRight className="w-5 h-5" />
                   </div>
                 </Link>

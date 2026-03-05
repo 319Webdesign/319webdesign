@@ -19,23 +19,49 @@ function getVariantIndex(city: City): number {
 }
 
 /**
- * Erster Textabschnitt (Hero) – Keywords "Webdesign" + Stadt 2-3x organisch
- * Nutzt city.name als einzige Variable für automatische Anpassung
+ * Erster Textabschnitt (Hero) – Keywords "Webdesign" + Stadt + Südhessen mind. 2x
+ * Stadt-spezifisch: Darmstadt (Tech-KMUs, Premium-Makler), Pfungstadt (Handwerk, Maklerbüros)
  */
 export function getHeroIntro(city: City): string {
-  const variants = [
-    `Professionelles Webdesign in ${city.name} mit PageSpeed-Scores von 99/100. Als Ihr Webdesigner in ${city.name} helfe ich Unternehmen und Selbstständigen in ${city.region}, online erfolgreich zu sein – mit modernem Webdesign, das verkauft.`,
-    `Webdesign in ${city.name}, das überzeugt: PageSpeed 99/100, SEO-optimiert, conversion-fokussiert. Ich unterstütze Firmen in ${city.region} mit professionellem Webdesign in ${city.name} – von der Idee bis zum Launch.`,
-    `Als Webdesigner in ${city.name} entwickle ich High-Performance-Websites mit PageSpeed 99/100. Professionelles Webdesign in ${city.name} und ${city.region} – für Unternehmen, die online sichtbar sein wollen.`,
-    `High-Performance Webdesign für ${city.name}: 99/100 PageSpeed, lokale SEO, persönliche Betreuung. Ich bringe Webdesign in ${city.name} auf ein neues Level – für Unternehmer in ${city.region}, die online wachsen wollen.`,
-  ]
-  return variants[getVariantIndex(city)]
+  const citySpecific: Record<string, string> = {
+    darmstadt:
+      'Webdesign in Darmstadt für Tech-KMUs und Premium-Makler: Die Wissenschaftsstadt lebt von Innovation und starken Immobilien. Mit PageSpeed 99/100 unterstütze ich IT-Firmen, Forschungseinrichtungen sowie Makler von Villen und Jugendstil-Immobilien in Südhessen – online sichtbar und conversion-stark.',
+    pfungstadt:
+      'Webdesign in Pfungstadt für Handwerksbetriebe und regionale Maklerbüros: Als Ihr Webdesigner in Südhessen helfe ich lokale Betriebe und Makler vor Ort mit einer professionellen Website – persönlich, nah und mit PageSpeed 99/100. Webdesign, das Vertrauen schafft und Kunden bringt.',
+    griesheim:
+      'Webdesign in Griesheim – für Unternehmen westlich von Darmstadt: Mit professionellem Webdesign und PageSpeed 99/100 unterstütze ich Firmen in Südhessen, online gefunden zu werden. Lokale Sichtbarkeit, moderne Technik, persönliche Betreuung vor Ort.',
+    weiterstadt:
+      'Webdesign in Weiterstadt für den Mittelstand: Logistik, Industrie und Dienstleister brauchen eine starke Online-Präsenz. In Südhessen entwickle ich High-Performance-Websites mit PageSpeed 99/100 – Webdesign, das zu Ihrem Wirtschaftsstandort passt.',
+  }
+  if (citySpecific[city.slug]) return citySpecific[city.slug]
+  return `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Für Unternehmen in ${city.region} – persönliche Betreuung und moderne Websites.`
 }
 
-/**
- * 8 Text-Varianten für Duplikate – jede Stadt erhält leicht unterschiedliche Sätze
- */
-export function getCityPageTexts(city: City) {
+/** Stadt-spezifische Texte für Darmstadt (Tech, Premium-Makler) und Pfungstadt (Handwerk, Maklerbüros) */
+const citySpecificTexts: Record<string, Partial<ReturnType<typeof getCityPageTextsBase>>> = {
+  darmstadt: {
+    performanceIntro: 'In der Wissenschaftsstadt Darmstadt zählen technische Exzellenz und Performance. Ich erreiche konstant PageSpeed 99/100 – für Tech-KMUs und Makler, die mit ihrer Website überzeugen wollen.',
+    performanceWarum: 'Google belohnt schnelle Websites mit besseren Rankings. Für IT-Firmen und Premium-Makler in Darmstadt und Südhessen ist das entscheidend – Ihre Zielgruppe erwartet moderne, schnelle Webauftritte.',
+    featuresIntro: 'Webdesign für Tech-KMUs und Makler in Darmstadt: High-Performance, klare Struktur, konversionsorientiert.',
+    referenzenIntro: 'Webdesign-Projekte für Unternehmen in Darmstadt und Südhessen – von der Tech-Firma bis zum Maklerbüro.',
+    personalBetreuung: 'Persönlicher Ansprechpartner vor Ort in Darmstadt',
+    localSectionLead: `Als Webdesigner in Darmstadt kenne ich die Wissenschaftsstadt und die Anforderungen von Tech-KMUs sowie Maklern. Ob Villen, Jugendstil-Immobilien oder digitale Produkte – in {nearby} und Südhessen bin ich Ihr Partner für professionelles Webdesign.`,
+    ctaHeading: 'Bereit für Ihr Webdesign in Darmstadt?',
+    ctaParagraph: 'Kostenloses Erstgespräch – ob Tech-KMU oder Makler: Gemeinsam entwickeln wir Ihre Strategie für Darmstadt und Südhessen.',
+  },
+  pfungstadt: {
+    performanceIntro: 'Handwerksbetriebe und Maklerbüros in Pfungstadt brauchen Websites, die schnell laden und vertrauenswürdig wirken. PageSpeed 99/100 ist bei mir Standard – für mehr Sichtbarkeit in Südhessen.',
+    performanceWarum: 'Potenzielle Kunden suchen Handwerker und Makler oft mobil. Eine schnelle Seite hält Besucher bei Ihnen – in Pfungstadt und Umgebung zählt jeder Klick.',
+    featuresIntro: 'Webdesign für Handwerk und Makler in Pfungstadt: übersichtlich, vertrauenswürdig, suchmaschinenoptimiert.',
+    referenzenIntro: 'Referenzen aus Pfungstadt und der Region – Websites für Handwerksbetriebe, Makler und Dienstleister.',
+    personalBetreuung: 'Lokale Betreuung aus Pfungstadt und Südhessen',
+    localSectionLead: `In Pfungstadt und {nearby} arbeite ich mit Handwerksbetrieben und regionalen Maklerbüros. Webdesign aus der Nähe – für Unternehmen, die vor Ort bekannt sein wollen.`,
+    ctaHeading: 'Starten wir Ihr Webprojekt in Pfungstadt?',
+    ctaParagraph: 'Unverbindliches Erstgespräch – ob Handwerk oder Makler: Ich unterstütze Sie mit Webdesign in Pfungstadt und Südhessen.',
+  },
+}
+
+function getCityPageTextsBase(city: City) {
   const idx = getVariantIndex(city)
   const v = (arr: string[]) => arr[idx % arr.length]
 
@@ -132,6 +158,18 @@ export function getCityPageTexts(city: City) {
       ]),
     ],
   }
+}
+
+/**
+ * 8 Text-Varianten – stadt-spezifisch für Darmstadt/Pfungstadt, sonst Varianten
+ */
+export function getCityPageTexts(city: City) {
+  const base = getCityPageTextsBase(city)
+  const overrides = citySpecificTexts[city.slug]
+  if (overrides) {
+    return { ...base, ...overrides }
+  }
+  return base
 }
 
 /** Helper: Local-Section-Text mit nearby places */

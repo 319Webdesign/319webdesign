@@ -69,25 +69,25 @@ export default function InvestmentSection() {
     {
       icon: Server,
       title: 'High-Performance Hosting',
-      description: 'Die Basis für Ihre 99/100 Scores. Inkl. SSL, täglichen Backups und maximaler Ausfallsicherheit für Ihr Business in Hessen.',
+      description: 'SSL, tägliche Backups und maximale Stabilität – das Fundament für PageSpeed 99/100 und sicheres Webdesign in Hessen.',
       ariaLabel: 'High-Performance Hosting',
     },
     {
       icon: Wrench,
       title: 'Wachstum & Betreuung',
-      description: 'Kein Stillstand nach dem Launch. Regelmäßige Updates, Performance-Checks und strategische Anpassungen für dauerhaften Erfolg.',
+      description: 'Nach dem Go-live geht es weiter: Updates, Performance-Checks und Feintuning – so bleibt Ihr Webauftritt in Darmstadt und Südhessen auf Kurs.',
       ariaLabel: 'Wachstum & Betreuung',
     },
     {
       icon: PenTool,
       title: 'Verkaufspsychologische Texte',
-      description: 'Inhalte, die nicht nur informieren, sondern überzeugen. Wir schreiben Texte, die Ihre Zielgruppe in ganz Hessen direkt zum Handeln bewegen.',
+      description: 'Formulierungen, die Vertrauen schaffen und zum Handeln anregen. Für KMUs und Immobilienmakler in Pfungstadt und Umgebung – überzeugender Content.',
       ariaLabel: 'Verkaufspsychologische Texte',
     },
     {
       icon: Palette,
       title: 'Corporate Identity Fokus',
-      description: 'Ein konsistenter Auftritt von Pfungstadt bis Kassel. Wir entwickeln Logos und Brandings, die Vertrauen bei Ihren Kunden schaffen.',
+      description: 'Stimmiges Erscheinungsbild von Logo bis Website. Gerade vor Ort in Südhessen schafft ein klarer Look Vertrauen bei Kunden.',
       ariaLabel: 'Corporate Identity Fokus',
     },
   ]

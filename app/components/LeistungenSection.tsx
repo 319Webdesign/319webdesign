@@ -18,18 +18,21 @@ const leistungen = [
     title: 'Webdesign & Launch',
     href: '/leistungen/webdesign-launch',
     description: 'Individuelle Designs, die Ihre Zielgruppe überzeugen. Von der ersten Idee bis zum erfolgreichen Launch.',
+    linkText: 'Zum Webdesign & Launch',
   },
   {
     icon: Search,
     title: 'Wachstum & SEO',
     href: '/leistungen/wachstum-seo',
     description: 'Mehr Sichtbarkeit bei Google und organisches Wachstum für Ihr Business.',
+    linkText: 'Details zur SEO-Strategie',
   },
   {
     icon: Shield,
     title: 'Strategische Begleitung',
     href: '/leistungen/strategische-begleitung',
     description: 'Langfristige Partnerschaft für kontinuierliche Optimierung, Wartung und Weiterentwicklung.',
+    linkText: 'Mehr zur strategischen Begleitung',
   },
 ]
 
@@ -67,7 +70,7 @@ export default function LeistungenSection() {
                 href={item.href}
                 className="inline-flex items-center gap-2 text-[#3B82F6] font-semibold hover:gap-3 transition-all group/lk"
               >
-                Mehr erfahren
+                {item.linkText}
                 <ArrowRight className="w-4 h-4 group-hover/lk:translate-x-1 transition-transform" aria-hidden="true" />
               </Link>
             </CardEl>
@@ -116,7 +119,7 @@ export default function LeistungenSection() {
                   href="/leistungen"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-[#3B82F6] hover:bg-[#2563EB] text-white font-semibold rounded-lg transition-all duration-300 group/btn"
                 >
-                  Mehr erfahren
+                  Alle Leistungen im Überblick
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />
                 </Link>
               </div>

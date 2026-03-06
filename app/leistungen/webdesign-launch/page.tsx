@@ -63,9 +63,9 @@ export default function WebdesignLaunchPage() {
               <div className="w-14 h-14 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors mx-auto">
                 <Palette className="w-7 h-7 text-blue-600" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Individuelles UI/UX Design
-              </h3>
+              <p className="text-xl font-bold mb-3 text-slate-900">
+                <strong>Individuelles UI/UX Design</strong>
+              </p>
               <p className="text-slate-600 leading-relaxed">
                 Keine 08/15 Templates. Wir entwickeln ein Design, das Ihre Marke in Darmstadt einzigartig macht.
               </p>
@@ -76,9 +76,9 @@ export default function WebdesignLaunchPage() {
               <div className="w-14 h-14 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors mx-auto">
                 <Smartphone className="w-7 h-7 text-blue-600" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Mobile First Optimierung
-              </h3>
+              <p className="text-xl font-bold mb-3 text-slate-900">
+                <strong>Mobile First Optimierung</strong>
+              </p>
               <p className="text-slate-600 leading-relaxed">
                 Perfekte Darstellung auf allen Endgeräten – für Kunden, die Sie von unterwegs in Darmstadt oder Frankfurt finden.
               </p>
@@ -89,9 +89,9 @@ export default function WebdesignLaunchPage() {
               <div className="w-14 h-14 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors mx-auto">
                 <Search className="w-7 h-7 text-blue-600" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                SEO-Grundkonfiguration
-              </h3>
+              <p className="text-xl font-bold mb-3 text-slate-900">
+                <strong>SEO-Grundkonfiguration</strong>
+              </p>
               <p className="text-slate-600 leading-relaxed">
                 Wir legen den technischen Grundstein, damit Ihre Seite von Anfang an von Google in Darmstadt verstanden wird.
               </p>
@@ -102,9 +102,9 @@ export default function WebdesignLaunchPage() {
               <div className="w-14 h-14 bg-blue-500/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-500/20 transition-colors mx-auto">
                 <TrendingUp className="w-7 h-7 text-blue-600" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Verkaufspsychologische Struktur
-              </h3>
+              <p className="text-xl font-bold mb-3 text-slate-900">
+                <strong>Verkaufspsychologische Struktur</strong>
+              </p>
               <p className="text-slate-600 leading-relaxed">
                 Wir platzieren Kontaktmöglichkeiten so, dass aus Besuchern echte Anfragen für Ihr Business werden.
               </p>

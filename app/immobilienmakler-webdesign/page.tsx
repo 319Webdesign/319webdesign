@@ -89,7 +89,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                           <Icon className="w-6 h-6" aria-hidden="true" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
+                          <p className="font-bold text-slate-900 mb-2"><strong>{item.title}</strong></p>
                           <p className="text-slate-600 leading-relaxed">{item.text}</p>
                         </div>
                       </li>
@@ -231,7 +231,7 @@ export default function ImmobilienmaklerWebdesignPage() {
                     <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-50 rounded-full mb-3">
                       {project.badge}
                     </span>
-                    <h3 className="text-lg font-bold text-slate-900 mb-2">{project.title}</h3>
+                    <p className="text-lg font-bold text-slate-900 mb-2"><strong>{project.title}</strong></p>
                     <p className="text-slate-600 text-sm leading-relaxed">{project.kernleistung}</p>
                     <p className="text-slate-400 text-xs mt-4 italic">Hier könnte bald Ihr Projekt stehen.</p>
                   </div>

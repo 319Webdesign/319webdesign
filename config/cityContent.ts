@@ -11,20 +11,20 @@ import type { City } from './cities'
 export function getUniqueH1Region(city: City): { main: string; sub?: string } {
   const variants: Record<string, { main: string; sub?: string }> = {
     darmstadt: {
-      main: 'Webdesign Darmstadt',
-      sub: 'Für Tech-KMUs und Premium-Makler in der Wissenschaftsstadt',
+      main: 'Ihre Website für die Wissenschaftsstadt',
+      sub: 'Tech-Firmen & Premium-Immobilien – maßgeschneidert für Darmstadt',
     },
     pfungstadt: {
-      main: 'Webdesign Pfungstadt',
-      sub: 'Handwerksbetriebe & regionale Maklerbüros',
+      main: 'Online sichtbar in Pfungstadt',
+      sub: 'Handwerk & Makler – Websites, die vor Ort überzeugen',
     },
     griesheim: {
-      main: 'Webdesign Griesheim',
-      sub: 'Lokale Unternehmen westlich von Darmstadt',
+      main: 'Webauftritt aus der Region',
+      sub: 'Für Firmen zwischen Griesheim und Darmstadt',
     },
     weiterstadt: {
-      main: 'Webdesign Weiterstadt',
-      sub: 'Mittelstand und Industrie am Wirtschaftsstandort',
+      main: 'Digitale Präsenz für Weiterstadt',
+      sub: 'Industrie & Mittelstand – starke Websites für starke Standorte',
     },
   }
   return variants[city.slug] ?? { main: `Webdesign ${city.name}`, sub: `In ${city.region}` }
@@ -33,23 +33,53 @@ export function getUniqueH1Region(city: City): { main: string; sub?: string } {
 export function getUniqueH1Webdesign(city: City): { main: string; sub?: string } {
   const variants: Record<string, { main: string; sub?: string }> = {
     darmstadt: {
-      main: 'Webdesign Darmstadt',
-      sub: 'High-Performance Websites für Tech-Firmen und Makler in der Wissenschaftsstadt',
+      main: 'Schnelle Websites für Darmstadts Tech-Szene',
+      sub: 'IT-Firmen & Immobilienmakler – Performance, die zählt',
     },
     pfungstadt: {
-      main: 'Webdesign Pfungstadt',
-      sub: 'Professionelle Websites für Handwerk und Makler',
+      main: 'Von Pfungstadt aus online wachsen',
+      sub: 'Handwerker & Makler – Webdesign mit lokaler Nähe',
     },
     griesheim: {
-      main: 'Webdesign Griesheim',
-      sub: 'Moderne Websites für Unternehmen in der Region Darmstadt',
+      main: 'Webdesign aus Griesheim – für die Region',
+      sub: 'KMUs westlich von Darmstadt: Sichtbar, schnell, persönlich',
     },
     weiterstadt: {
-      main: 'Webdesign Weiterstadt',
-      sub: 'Starke Online-Präsenz für den Mittelstand',
+      main: 'Maßgeschneidert für Weiterstadts Wirtschaft',
+      sub: 'Logistik, Industrie, Dienstleister – Ihre digitale Visitenkarte',
     },
   }
   return variants[city.slug] ?? { main: `Webdesign ${city.name}`, sub: `High-Performance Websites für ${city.region}` }
+}
+
+/** Einzigartige Meta-Descriptions pro Stadt (Anti-Duplicate für Google) – erste 2 Sätze radikal unterschiedlich */
+export function getDescriptionWebdesign(city: City): string {
+  const variants: Record<string, string> = {
+    darmstadt:
+      'IT-Firmen und Makler in Darmstadt: Blitzschnelle Websites mit PageSpeed 99/100. Keine Standard-Templates – individuell, conversion-stark und für die Wissenschaftsstadt gemacht.',
+    pfungstadt:
+      'Handwerker und Maklerbüros in Pfungstadt vertrauen auf lokales Webdesign. Schnelle Ladezeiten, klare Struktur – Ihre Website als Vertrauensanker vor Ort.',
+    griesheim:
+      'KMUs in Griesheim und Umgebung: Moderne Webauftritte, die bei Google ranken. PageSpeed 99/100, mobile-first – entwickelt von jemandem, der die Region kennt.',
+    weiterstadt:
+      'Weiterstadts Mittelstand braucht starke Online-Präsenz. B2B-tauglich, schnell, suchmaschinenoptimiert – Webdesign für Wirtschaftsstandorte mit Anspruch.',
+  }
+  return variants[city.slug] ?? `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Moderne Websites für Unternehmen in ${city.region}.`
+}
+
+/** Einzigartige Meta-Descriptions für Region-Seiten – Anti-Duplicate */
+export function getDescriptionRegion(city: City): string {
+  const variants: Record<string, string> = {
+    darmstadt:
+      'Referenzen aus Darmstadt zeigen: Tech und Makler profitieren von High-Performance. Lokale Beratung, echte Projekte – kein Generics, sondern echte Expertise.',
+    pfungstadt:
+      'Pfungstadter Handwerk und Makler – echte Referenzen, persönliche Betreuung. Von hier aus entwickle ich Websites, die vor Ort überzeugen.',
+    griesheim:
+      'Aus Griesheim für die Region: Konkrete Webdesign-Projekte, keine leeren Versprechen. Lokale Sichtbarkeit und Performance aus einer Hand.',
+    weiterstadt:
+      'Weiterstadts Unternehmen verdienen echte Referenzen. Individuelle Beratung, lokale Präsenz – Webdesign mit Verständnis für B2B und Industrie.',
+  }
+  return variants[city.slug] ?? `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Lokale Referenzen und Beratung in ${city.region}.`
 }
 
 /**

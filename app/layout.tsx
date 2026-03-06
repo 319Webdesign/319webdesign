@@ -26,6 +26,10 @@ export const metadata: Metadata = {
     default: 'Webdesign Pfungstadt & Immobilien-Automation | 319Webdesign',
   },
   description: 'Professionelles Webdesign für KMU in Pfungstadt. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+  robots: {
+    index: true,
+    follow: true,
+  },
   icons: {
     icon: '/browser-logo.png',
     shortcut: '/browser-logo.png',

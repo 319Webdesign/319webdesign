@@ -10,9 +10,9 @@ export default function Footer() {
         {/* Prominent CTA Section */}
         <div className="mb-12 pb-12 border-b border-[rgba(255,255,255,0.05)]">
           <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              Bereit für dein Projekt?
-            </h3>
+            <p className="text-2xl md:text-3xl font-bold text-white mb-4">
+              <strong>Bereit für dein Projekt?</strong>
+            </p>
             <p className="text-slate-400 mb-6">
               Lass uns gemeinsam eine Website erstellen, die dein Business voranbringt.
             </p>
@@ -49,7 +49,7 @@ export default function Footer() {
 
           {/* Spalte 2: Navigation - Hauptseiten + Sitelinks für Leistungen */}
           <div className="space-y-4 text-center md:text-left">
-            <h4 className="text-white font-semibold text-base mb-4">Navigation</h4>
+            <p className="text-white font-semibold text-base mb-4"><strong>Navigation</strong></p>
             <ul className="space-y-3">
               <li>
                 <a 
@@ -94,7 +94,7 @@ export default function Footer() {
 
           {/* Spalte 3: Regionen */}
           <div className="space-y-4 text-center md:text-left">
-            <h4 className="text-white font-semibold text-base mb-4">Regionen</h4>
+            <p className="text-white font-semibold text-base mb-4"><strong>Regionen</strong></p>
             <ul className="space-y-3">
               <li>
                 <a 
@@ -133,7 +133,7 @@ export default function Footer() {
 
           {/* Spalte 4: Kontakt */}
           <div className="space-y-4 text-center md:text-left">
-            <h4 className="text-white font-semibold text-base mb-4">Kontakt</h4>
+            <p className="text-white font-semibold text-base mb-4"><strong>Kontakt</strong></p>
             <div className="space-y-3">
               <a 
                 href="mailto:kontakt@319webdesign.com" 
@@ -149,7 +149,7 @@ export default function Footer() {
 
           {/* Spalte 5: Social Media */}
           <div className="space-y-4 text-center md:text-left">
-            <h4 className="text-white font-semibold text-base mb-4">Social Media</h4>
+            <p className="text-white font-semibold text-base mb-4"><strong>Social Media</strong></p>
             <div className="flex items-center justify-center md:justify-start gap-4">
               <a
                 href="https://instagram.com/319webdesign"

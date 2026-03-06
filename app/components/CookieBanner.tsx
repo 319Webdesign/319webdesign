@@ -79,9 +79,9 @@ export default function CookieBanner() {
                 <Cookie className="w-5 h-5 text-blue-600" aria-hidden="true" />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                  Cookie-Einstellungen
-                </h3>
+                <p className="text-lg font-semibold text-slate-900 mb-2">
+                  <strong>Cookie-Einstellungen</strong>
+                </p>
                 <p className="text-sm text-slate-600 leading-relaxed">
                   Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. 
                   Einige sind notwendig, andere helfen uns, die Website zu verbessern.

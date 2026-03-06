@@ -92,6 +92,7 @@ export function getSeoMetadata(config: PageSeoConfig) {
   return {
     title,
     description,
+    robots: { index: true, follow: true },
     alternates: {
       canonical: canonicalUrl,
     },

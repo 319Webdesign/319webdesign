@@ -60,11 +60,11 @@ export default function LeistungenSection() {
               <div className="flex items-center justify-center w-16 h-16 bg-[#3B82F6]/10 rounded-xl mb-6 group-hover:bg-[#3B82F6]/20 transition-colors duration-300 mx-auto md:mx-0">
                 <item.icon className="w-8 h-8 text-[#3B82F6]" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-4 text-slate-900">
+              <p className="text-xl font-bold mb-4 text-slate-900">
                 <Link href={item.href} className="text-slate-900 hover:text-[#3B82F6] transition-colors focus:outline-none focus:ring-2 focus:ring-[#3B82F6] rounded">
-                  {item.title}
+                  <strong>{item.title}</strong>
                 </Link>
-              </h3>
+              </p>
               <p className="text-slate-600 leading-relaxed mb-4">{item.description}</p>
               <Link
                 href={item.href}
@@ -98,9 +98,9 @@ export default function LeistungenSection() {
 
               {/* Content Section */}
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
-                  High-Performance Websites
-                </h3>
+                <p className="text-2xl md:text-3xl font-bold mb-4 text-slate-900">
+                  <strong>High-Performance Websites</strong>
+                </p>
                 <p className="text-slate-600 leading-relaxed mb-4 text-lg">
                   <span className="text-[#3B82F6] font-semibold">59% schneller</span> als der Branchendurchschnitt – Optimiert für maximale Geschwindigkeit und beste User Experience.
                 </p>

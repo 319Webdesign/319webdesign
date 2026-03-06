@@ -13,7 +13,7 @@ import {
   getCityPageTexts,
   getLocalSectionText,
 } from '../../../config/cityPageTemplate'
-import { getUniqueH1Webdesign } from '../../../config/cityContent'
+import { getUniqueH1Webdesign, getDescriptionWebdesign } from '../../../config/cityContent'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -32,12 +32,13 @@ export async function generateMetadata({
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
   return {
     title: `Webdesign ${city.name} | High-Performance Websites | 319Webdesign`,
-    description: `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Moderne Websites für Unternehmen in ${city.region}. Persönliche Betreuung vor Ort.`,
+    description: getDescriptionWebdesign(city),
     keywords: city.keywords.join(', '),
+    robots: { index: true, follow: true },
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: `Webdesign ${city.name} | High-Performance Websites`,
-      description: `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Moderne Websites für Unternehmen in ${city.region}.`,
+      description: getDescriptionWebdesign(city),
       url: canonicalUrl,
       siteName: '319Webdesign',
       locale: 'de_DE',

@@ -156,9 +156,9 @@ export default function InvestmentSection() {
                   )}
                   
                   {/* Title */}
-                  <h3 className="text-xl md:text-2xl font-bold mb-2 text-slate-900">
-                    {bereich.title}
-                  </h3>
+                  <p className="text-xl md:text-2xl font-bold mb-2 text-slate-900">
+                    <strong>{bereich.title}</strong>
+                  </p>
                   
                   {/* Subtitle */}
                   <p className="text-blue-600 font-semibold text-sm mb-6">
@@ -185,9 +185,9 @@ export default function InvestmentSection() {
         {/* Zusatzleistungen Section */}
         {reduceMotion ? (
           <div className="mt-20 mb-16">
-          <h3 className="text-xl md:text-2xl font-bold text-center mb-10 text-slate-900">
-            Zusatzleistungen <span className="text-slate-500 font-normal text-lg">(optional)</span>
-          </h3>
+          <p className="text-xl md:text-2xl font-bold text-center mb-10 text-slate-900">
+            <strong>Zusatzleistungen</strong> <span className="text-slate-500 font-normal text-lg">(optional)</span>
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {zusatzleistungen.map((leistung, index) => {
               const IconComponent = leistung.icon
@@ -204,9 +204,9 @@ export default function InvestmentSection() {
                   </div>
                   
                   {/* Title */}
-                  <h4 className="text-base font-bold mb-3 text-slate-900">
-                    {leistung.title}
-                  </h4>
+                  <p className="text-base font-bold mb-3 text-slate-900">
+                    <strong>{leistung.title}</strong>
+                  </p>
                   
                   {/* Description */}
                   <p className="text-slate-600 text-sm leading-relaxed">
@@ -219,9 +219,9 @@ export default function InvestmentSection() {
           </div>
         ) : (
           <motion.div {...fadeInUp} className="mt-20 mb-16">
-          <h3 className="text-xl md:text-2xl font-bold text-center mb-10 text-slate-900">
-            Zusatzleistungen <span className="text-slate-500 font-normal text-lg">(optional)</span>
-          </h3>
+          <p className="text-xl md:text-2xl font-bold text-center mb-10 text-slate-900">
+            <strong>Zusatzleistungen</strong> <span className="text-slate-500 font-normal text-lg">(optional)</span>
+          </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {zusatzleistungen.map((leistung, index) => {
               const IconComponent = leistung.icon
@@ -232,7 +232,7 @@ export default function InvestmentSection() {
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4 group-hover/zusatz:bg-blue-200 transition-colors duration-300">
                     <IconComponent className="w-6 h-6 text-blue-600" aria-label={leistung.ariaLabel} />
                   </div>
-                  <h4 className="text-base font-bold mb-3 text-slate-900">{leistung.title}</h4>
+                  <p className="text-base font-bold mb-3 text-slate-900"><strong>{leistung.title}</strong></p>
                   <p className="text-slate-600 text-sm leading-relaxed">{leistung.description}</p>
                 </ZusatzEl>
               )

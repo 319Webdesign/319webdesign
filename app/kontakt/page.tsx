@@ -336,9 +336,9 @@ export default function KontaktPage() {
                     <Mail className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                      E-Mail
-                    </h3>
+                    <p className="text-lg font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                      <strong>E-Mail</strong>
+                    </p>
                     <p className="text-blue-600 group-hover:text-blue-700 transition-colors">
                       kontakt@319webdesign.com
                     </p>
@@ -356,9 +356,9 @@ export default function KontaktPage() {
                     <Phone className="w-6 h-6 text-white" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
-                      Telefon
-                    </h3>
+                    <p className="text-lg font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                      <strong>Telefon</strong>
+                    </p>
                     <p className="text-blue-600 group-hover:text-blue-700 transition-colors">
                       +49 177 3236454
                     </p>

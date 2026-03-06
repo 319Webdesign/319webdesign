@@ -25,13 +25,13 @@ function getVariantIndex(city: City): number {
 export function getHeroIntro(city: City): string {
   const citySpecific: Record<string, string> = {
     darmstadt:
-      'Webdesign in Darmstadt für Tech-KMUs und Premium-Makler: Die Wissenschaftsstadt lebt von Innovation und starken Immobilien. Mit PageSpeed 99/100 unterstütze ich IT-Firmen, Forschungseinrichtungen sowie Makler von Villen und Jugendstil-Immobilien – online sichtbar und conversion-stark.',
+      'Die Wissenschaftsstadt verdient mehr als Standard-Templates. IT-Firmen und Makler setzen auf schnelle Websites – ich liefere PageSpeed 99/100 und maßgeschneiderte Lösungen für Tech-KMUs sowie Villen- und Jugendstil-Immobilien.',
     pfungstadt:
-      'Webdesign in Pfungstadt für Handwerksbetriebe und regionale Maklerbüros: Als Ihr Webdesigner helfe ich lokale Betriebe und Makler vor Ort mit einer professionellen Website – persönlich, nah und mit PageSpeed 99/100. Webdesign, das Vertrauen schafft und Kunden bringt.',
+      'Vor Ort bekannt sein heißt online sichtbar sein. Handwerker und Maklerbüros in Pfungstadt nutzen Websites, die Vertrauen schaffen – ich entwickle sie mit Performance 99/100 und dem Blick für lokale Zielgruppen.',
     griesheim:
-      'Webdesign in Griesheim – für Unternehmen westlich von Darmstadt: Mit professionellem Webdesign und PageSpeed 99/100 unterstütze ich Firmen, online gefunden zu werden. Lokale Sichtbarkeit, moderne Technik, persönliche Betreuung vor Ort.',
+      'Zwischen Griesheim und Darmstadt konkurrieren viele Anbieter. Eine Website, die lädt und überzeugt, hebt Sie ab – PageSpeed 99/100, mobile-first und mit persönlicher Beratung aus der Region.',
     weiterstadt:
-      'Webdesign in Weiterstadt für den Mittelstand: Logistik, Industrie und Dienstleister brauchen eine starke Online-Präsenz. Mit PageSpeed 99/100 entwickle ich High-Performance-Websites – Webdesign, das zu Ihrem Wirtschaftsstandort passt.',
+      'Logistik, Industrie und Dienstleister brauchen digitale Schlagkraft. In Weiterstadt entwickle ich Websites, die B2B-Kunden überzeugen – schnell, strukturiert und mit technischem Anspruch, der zum Wirtschaftsstandort passt.',
   }
   if (citySpecific[city.slug]) return citySpecific[city.slug]
   return `Professionelles Webdesign in ${city.name} mit PageSpeed 99/100. Für Unternehmen in ${city.region} – persönliche Betreuung und moderne Websites.`

@@ -99,7 +99,7 @@ export default function KontaktSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Kontaktformular */}
           <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-            <h3 className="text-2xl font-bold mb-6">Projekt anfragen</h3>
+            <p className="text-2xl font-bold mb-6"><strong>Projekt anfragen</strong></p>
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
               {/* Vor- und Nachname in einer Zeile auf Desktop */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -290,7 +290,7 @@ export default function KontaktSection() {
                   <Phone className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-slate-900">Telefon</h3>
+                  <p className="text-xl font-bold mb-2 text-slate-900"><strong>Telefon</strong></p>
                   <a 
                     href="tel:+491773236454" 
                     className="text-blue-600 hover:text-blue-700 transition-colors text-lg font-semibold"
@@ -314,7 +314,7 @@ export default function KontaktSection() {
                   <Mail className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-slate-900">E-Mail</h3>
+                  <p className="text-xl font-bold mb-2 text-slate-900"><strong>E-Mail</strong></p>
                   <a 
                     href="mailto:kontakt@319webdesign.com" 
                     className="text-blue-600 hover:text-blue-700 transition-colors text-lg font-semibold break-all"
@@ -338,7 +338,7 @@ export default function KontaktSection() {
                   <MessageCircle className="w-7 h-7 text-white" aria-hidden="true" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-slate-900">WhatsApp</h3>
+                  <p className="text-xl font-bold mb-2 text-slate-900"><strong>WhatsApp</strong></p>
                   <a 
                     href="https://wa.me/491773236454" 
                     target="_blank"

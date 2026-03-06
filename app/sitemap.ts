@@ -3,7 +3,8 @@ import { getAllProjectSlugs } from '../config/projects'
 import { baseUrl } from '../config/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const currentDate = new Date().toISOString().split('T')[0]
+  // Vollständiger ISO-Zeitstempel für starkes Re-Crawl-Signal (lastmod)
+  const currentDate = new Date().toISOString()
 
   // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
   const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']

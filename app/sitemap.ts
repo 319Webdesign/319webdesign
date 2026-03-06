@@ -3,8 +3,8 @@ import { getAllProjectSlugs } from '../config/projects'
 import { baseUrl } from '../config/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Vollständiger ISO-Zeitstempel für starkes Re-Crawl-Signal (lastmod)
-  const currentDate = new Date().toISOString()
+  // lastmod mit festem Datum für Re-Crawl-Anreiz (Index-Optimierung)
+  const lastmod = '2026-03-06T12:00:00.000Z'
 
   // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
   const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']
@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Homepage - Höchste Priorität
     {
       url: baseUrl,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
@@ -30,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Kontakt - Sehr wichtig für Conversions
     {
       url: `${baseUrl}/kontakt`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.95,
     },
@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Immobilienmakler - Hauptseite für Makler
     {
       url: `${baseUrl}/immobilienmakler-webdesign`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Leistungen Übersicht - Hauptseite
     {
       url: `${baseUrl}/leistungen`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
@@ -54,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Leistungen Unterseiten - Wichtig für SEO
     ...leistungen.map((slug) => ({
       url: `${baseUrl}/leistungen/${slug}`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     })),
@@ -62,7 +62,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Warum-Unterseiten (Umsatzstark, Blitzschnell, Lokal)
     ...warumSlugs.map((slug) => ({
       url: `${baseUrl}/warum/${slug}`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.85,
     })),
@@ -70,7 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Portfolio - Wichtig für Vertrauensaufbau
     {
       url: `${baseUrl}/portfolio`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
@@ -78,7 +78,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Portfolio-Projekteinzelseiten – Referenzarbeiten
     ...portfolioSlugs.map((slug) => ({
       url: `${baseUrl}/portfolio/${slug}`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
@@ -86,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Stadt-Landingpages Webdesign - SEO-relevant für lokale Suche
     ...cities.map((city) => ({
       url: `${baseUrl}/webdesign/${city}`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
@@ -94,7 +94,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Region-Stadt-Landingpages - mit lokalen Referenzen
     ...cities.map((city) => ({
       url: `${baseUrl}/region/${city}`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.85,
     })),
@@ -102,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Impressum - Rechtlich notwendig, niedrige Priorität
     {
       url: `${baseUrl}/impressum`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'yearly',
       priority: 0.2,
     },
@@ -110,7 +110,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Datenschutz - Rechtlich notwendig, niedrige Priorität
     {
       url: `${baseUrl}/datenschutz`,
-      lastModified: currentDate,
+      lastModified: lastmod,
       changeFrequency: 'yearly',
       priority: 0.2,
     },

@@ -9,6 +9,7 @@ import MaklerServiceSchema from '../components/MaklerServiceSchema'
 
 const Header = dynamic(() => import('../components/Header'), { ssr: true })
 const Footer = dynamic(() => import('../components/Footer'), { ssr: true })
+const ProzessSection = dynamic(() => import('../components/ProzessSection'), { ssr: true })
 
 export const metadata: Metadata = getSeoMetadata(seoConfig.immobilienmakler)
 
@@ -122,12 +123,15 @@ export default function ImmobilienmaklerWebdesignPage() {
           </div>
         </section>
 
+        {/* Prozess – immobilienmacherspezifische Texte */}
+        <ProzessSection citySlug="immobilienmakler" />
+
         {/* Unterstützte Softwares */}
         <section className="py-20 md:py-28 px-6 bg-[#fafafa]">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-xl md:text-2xl font-semibold text-slate-500 uppercase tracking-widest text-center mb-12">
-              Unterstützte Softwares
-            </h2>
+            <p className="text-xl md:text-2xl font-semibold text-slate-500 uppercase tracking-widest text-center mb-12">
+              <strong>Unterstützte Softwares</strong>
+            </p>
             <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16">
               {softwareLogos.map((item) => (
                 <div

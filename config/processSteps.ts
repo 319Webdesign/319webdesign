@@ -13,68 +13,80 @@ export interface ProcessStepTexts {
   begleitung: string
 }
 
-/** Varianten pro Stadt – unterschiedlicher Satzbau, regionale Bezüge, Keywords */
+/** Varianten pro Kontext – radikal unterschiedlich gegen Duplicate Content (Analyse, Design, Next.js/Entwicklung) */
 const processStepVariants: Record<string, ProcessStepTexts> = {
   darmstadt: {
     analyse:
-      'Gemeinsam definieren wir Ihre Ziele – und prüfen, wie die Konkurrenz in der Wissenschaftsstadt Darmstadt auftritt. Ihr Webdesign positioniert Sie gezielt.',
+      'Die Wissenschaftsstadt verlangt technische Exzellenz. Wir prüfen Ihr Umfeld, definieren klare Ziele und positionieren Sie vor IT-Firmen und Premium-Maklern – kein Generics.',
     design:
-      'Ein Design, das Ihre Marke stärkt und Besucher zum Handeln führt. Für KMUs und Immobilienmakler in Darmstadt: psychologisch auf Konversion optimiert.',
+      'Visuelle Klarheit trifft Konversion: Farben, Typografie und Layout, die Vertrauen schaffen. Darmstadts Tech-Zielgruppe erwartet moderne, aufgeräumte Oberflächen.',
     inhalte:
-      'Starke Texte, die in Darmstadt und Umgebung überzeugen. Lokale Expertise für KMUs und Immobilienmakler – inhaltlich und suchmaschinenoptimiert.',
+      'Branchenspezifische Texte – ob Tech-KMU oder Immobilienmakler. Keywords und Mehrwert so formuliert, dass Besucher handeln statt abspringen.',
     entwicklung:
-      'Next.js und moderne Technik: PageSpeed 99/100 und schnelle Ladezeiten. Webdesign in Darmstadt, das technisch überzeugt und zuverlässig läuft.',
+      'Next.js als Fundament: Server-Side-Rendering, optimiertes Caching, PageSpeed 99/100. Eine Engine, die läuft – kein Prototyp, sondern produktionsreif.',
     begleitung:
-      'Nach dem Go-live optimieren wir kontinuierlich – für dauerhaften Erfolg. Ihr Partner für Wachstum vor Ort.',
+      'Post-Launch: Monitoring, Anpassungen und kontinuierliche Optimierung. Ihr digitaler Partner bleibt erreichbar.',
   },
   pfungstadt: {
     analyse:
-      'Wir schärfen Ihre Ziele und analysieren den Wettbewerb in Pfungstadt und Umgebung. So positionieren wir Ihr Webdesign gezielt in der Region.',
+      'Handwerker und Makler in Pfungstadt konkurrieren anders. Wir ermitteln Ihre Alleinstellungsmerkmale und wie Sie sich vom Wettbewerb vor Ort abheben.',
     design:
-      'Ein Look, der zu Ihrer Marke passt und Besucher überzeugt. Ob KMU oder Immobilienmakler in Pfungstadt: konversionsorientiert von der ersten Idee an.',
+      'Warm, vertrauenswürdig, nah am Kunden: Ein Erscheinungsbild, das zu Handwerk und regionalem Makler passt. Keine sterile Agentur-Ästhetik.',
     inhalte:
-      'Überzeugende Inhalte für Pfungstadt. Lokale Expertise für KMUs und Immobilienmakler – Texte, die Vertrauen schaffen und ranken.',
+      'Sprache, die ankommt: Nah, verständlich, ohne Fachchinesisch. Texte, die Einwohner von Pfungstadt und Umgebung überzeugen.',
     entwicklung:
-      'Technik auf Spitzenniveau: PageSpeed 99/100, schnelle Ladezeiten, stabile Performance. Webdesign in Pfungstadt, das vor Ort überzeugt.',
+      'Stabil, schnell, wartbar: Next.js-basierte Websites mit kurzen Ladezeiten. Für Betriebe, die keine Zeit für technische Probleme haben.',
     begleitung:
-      'Der Launch ist der Start. Danach begleiten wir Sie mit Optimierung und Support – für messbaren Erfolg in Pfungstadt und der Region.',
+      'Nach dem Start: Updates, Backups, Support – damit Ihre Website zuverlässig im Einsatz bleibt.',
   },
   griesheim: {
     analyse:
-      'Zuerst Ihre Ziele, dann der Blick auf die Konkurrenz in Griesheim und westlich von Darmstadt. So setzt sich Ihr Webdesign vor Ort ab.',
+      'Zwischen Griesheim und Darmstadt: Standortvorteile nutzen. Wir analysieren Ihre Zielgruppe und den regionalen Markt – nicht die gesamte Republik.',
     design:
-      'Design, das zu Ihrer Marke passt und Besucher zum Handeln bringt. Für KMUs in Griesheim und Umgebung: konversionsorientiert und zielgerichtet.',
+      'Zielgruppengerecht und professionell: Ein Design, das Pendler und lokale Kunden anspricht, ohne überladen zu wirken.',
     inhalte:
-      'Texte mit lokalem Bezug – für Griesheim. KMU und Immobilienmakler profitieren von Expertise, die vor Ort zählt.',
+      'Regional verankert: Inhalte, die Griesheim und Umgebung ansprechen. Suchmaschinen finden Sie – Kunden vertrauen Ihnen.',
     entwicklung:
-      'PageSpeed 99/100 und optimierte Performance. Webdesign in Griesheim, das technisch stabil und schnell läuft – für Ihre Sichtbarkeit.',
+      'Next.js für maximale Geschwindigkeit: Schnelle Seiten, klare Struktur. Technisch auf dem Stand, den moderne Nutzer erwarten.',
     begleitung:
-      'Nach dem Launch bleiben wir an Ihrer Seite: Updates, Optimierung und Support – für dauerhaften Erfolg in Griesheim und der Region.',
+      'Go-live ist kein Endpunkt. Wir sichern Ihre Präsenz mit regelmäßigen Updates und technischem Support.',
   },
   weiterstadt: {
     analyse:
-      'Wir legen Ihre Ziele fest und prüfen die Konkurrenz in Weiterstadt und der Region. Ihr Webdesign wird gezielt für den Standort positioniert.',
+      'B2B und Industrie brauchen andere Ansprache. Wir definieren Ihre Kernziele und analysieren, wie Wettbewerber in Weiterstadt und Logistik-Drehkreuzen auftreten.',
     design:
-      'Ein Erscheinungsbild, das Ihre Marke widerspiegelt und Besucher überzeugt. Für Unternehmen in Weiterstadt: konversionsoptimiert und lokal wirksam.',
+      'Sachlich, seriös, conversion-orientiert: Ein Design für Geschäftskunden und Partner – kein Consumer-Flair, sondern Vertrauen durch Klarheit.',
     inhalte:
-      'Verkaufsstarke Inhalte für Weiterstadt. Lokale Expertise für KMUs und Immobilienmakler – Texte, die ranken und überzeugen.',
+      'Professionelle Texte für B2B: Fachsprache, wo nötig – verständlich, immer. Inhalte, die Kooperationspartner und Kunden überzeugen.',
     entwicklung:
-      'Moderne Technik für maximale Performance: PageSpeed 99/100. Webdesign in Weiterstadt, das schnell läuft und technisch überzeugt.',
+      'Enterprise-taugliche Basis: Next.js, Performance, Skalierbarkeit. Webdesign für Unternehmen, die langfristig planen.',
     begleitung:
-      'Launch abgeschlossen – Optimierung geht weiter. Wir begleiten Sie mit Strategie und Support für Erfolg in Weiterstadt und Umgebung.',
+      'Strategische Begleitung nach dem Launch: Optimierung, neue Features, technischer Support – auf Augenhöhe.',
   },
-  /** Fallback für Startseite / allgemeine Nutzung */
+  immobilienmakler: {
+    analyse:
+      'Makler-Websites leben von Objektpräsentation und Lead-Formularen. Wir prüfen Ihre Zielgruppe, Wettbewerber und wie onOffice/FlowFact optimal genutzt werden.',
+    design:
+      'Objekte im Fokus, Vertrauen im Vordergrund: Design für Makler, das Eigentümer und Käufer anspricht – klar, professionell, konversionsstark.',
+    inhalte:
+      'Immobiliensprache mit Mehrwert: Texte für Makler, die ranken und Mandate generieren. Lokal verankert, suchmaschinenoptimiert.',
+    entwicklung:
+      'Next.js mit Schnittstellen: onOffice, FlowFact, OpenImmo – Objekte automatisiert, Ladezeiten minimal, PageSpeed 99/100.',
+    begleitung:
+      'Wartung, Updates, Support: Damit Ihre Makler-Website stets aktuell und technisch einwandfrei bleibt.',
+  },
+  /** Fallback für Startseite */
   default: {
     analyse:
-      'Zuerst schärfen wir Ihre Ziele – und prüfen, wie die Konkurrenz in Darmstadt und Pfungstadt auftritt. So positionieren wir Ihr Webdesign gezielt vor Ort.',
+      'Wir starten mit Ihren Zielen und dem Blick auf die Konkurrenz. Kein Schema F – jede Strategie wird individuell entwickelt.',
     design:
-      'Ein Look, der zu Ihrer Marke passt und Besucher zum Handeln bewegt. Ob KMU oder Immobilienmakler: konversionsorientiert von Anfang an.',
+      'Markengetreu und conversion-orientiert: Ein Look, der Besucher überzeugt und zum Handeln führt. Ob KMU oder Makler.',
     inhalte:
-      'Überzeugende Texte statt Füllwörter. Gerade für KMUs und Immobilienmakler zählt lokale Expertise – die bringen wir in Ihre Inhalte.',
+      'Texte, die ranken und überzeugen. Lokale Expertise, klare Botschaften – kein Fülltext, sondern Mehrwert für Besucher und Suchmaschinen.',
     entwicklung:
-      'Moderne Technik für Spitzenergebnisse: PageSpeed 99/100, schnelle Ladezeiten und stabile Performance – für Webdesign, das in Pfungstadt und der Region überzeugt.',
+      'Next.js als Basis: PageSpeed 99/100, schnelle Ladezeiten, stabile Performance. Technik, die im Hintergrund funktioniert.',
     begleitung:
-      'Der Launch ist erst der Start. Danach optimieren wir gemeinsam – mit Blick auf Ihre Ziele.',
+      'Launch abgeschlossen – wir bleiben dran. Optimierung, Updates und Support für dauerhaften Erfolg.',
   },
 }
 

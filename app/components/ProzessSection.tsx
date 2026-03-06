@@ -30,6 +30,7 @@ const introTexts: Record<string, string> = {
   pfungstadt: 'Webdesign in Pfungstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz vor Ort.',
   griesheim: 'Webdesign in Griesheim – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz in der Region.',
   weiterstadt: 'Webdesign in Weiterstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz am Wirtschaftsstandort.',
+  immobilienmakler: 'Immobilienmakler Webdesign – von der Analyse bis zum Launch: fünf Schritte zu Ihrer automatisierten Makler-Website.',
 }
 
 export default function ProzessSection({ citySlug }: ProzessSectionProps) {

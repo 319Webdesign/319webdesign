@@ -1,11 +1,13 @@
+import { baseUrl } from '../../config/seo'
+
 export default function ProfessionalServiceSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     name: '319Webdesign',
-    image: 'https://319webdesign.com/319.png',
-    '@id': 'https://319webdesign.com',
-    url: 'https://319webdesign.com',
+    image: `${baseUrl}/319.png`,
+    '@id': baseUrl,
+    url: baseUrl,
     telephone: '+49-177-3236454',
     address: {
       '@type': 'PostalAddress',

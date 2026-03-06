@@ -237,9 +237,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
         {/* Features – H3 zu bold p für besseres Überschriften-Verhältnis */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900">
-              Was Sie bekommen
-            </h2>
+            <p className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900">
+              <strong>Was Sie bekommen</strong>
+            </p>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
               {texts.featuresIntro}
             </p>
@@ -286,9 +286,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
         {/* Local Section – H3 zu bold p */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              Webdesign aus {city.region}
-            </h2>
+            <p className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+              <strong>Webdesign aus {city.region}</strong>
+            </p>
             <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
               {city.description} {getLocalSectionText(city)}
             </p>

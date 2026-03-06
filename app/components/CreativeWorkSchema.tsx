@@ -1,3 +1,5 @@
+import { baseUrl } from '../../config/seo'
+
 interface CreativeWorkSchemaProps {
   name: string
   description: string
@@ -14,7 +16,7 @@ export default function CreativeWorkSchema({
   image,
   url,
   authorName = '319Webdesign',
-  authorUrl = 'https://319webdesign.com',
+  authorUrl = baseUrl,
   datePublished,
 }: CreativeWorkSchemaProps) {
   const schema = {
@@ -22,7 +24,7 @@ export default function CreativeWorkSchema({
     '@type': 'CreativeWork',
     name,
     description,
-    image: image.startsWith('http') ? image : `https://319webdesign.com${image}`,
+    image: image.startsWith('http') ? image : `${baseUrl}${image}`,
     url,
     author: {
       '@type': 'Organization',

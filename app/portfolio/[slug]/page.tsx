@@ -54,7 +54,7 @@ export default function PortfolioProjectPage({
   const project = getProjectBySlug(params.slug)
   if (!project) notFound()
 
-  const pageUrl = `https://319webdesign.com/portfolio/${project.slug}`
+  const pageUrl = `${baseUrl}/portfolio/${project.slug}`
 
   return (
     <>

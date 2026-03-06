@@ -1,5 +1,5 @@
-/** Kanonische Basis-URL – konsistent für Canonical, OpenGraph und Sitemap. Kein www. */
-export const baseUrl = 'https://319webdesign.com'
+/** Kanonische Basis-URL – Self-Referencing Canonical: exakt die Domain, die indexiert werden soll. */
+export const baseUrl = 'https://www.319webdesign.com'
 
 /** Title-Template für alle Seiten: %s | 319Webdesign Pfungstadt */
 export const titleTemplate = '%s | 319Webdesign Pfungstadt'
@@ -74,10 +74,10 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   },
 }
 
-/** Erzeugt die kanonische URL: baseUrl + current-path (ohne Trailing Slash). */
-export function getCanonicalUrl(path: string): string {
-  const normalized = path === '/' ? '' : path.replace(/\/$/, '')
-  return `${baseUrl}${normalized}`
+/** Dynamischer Canonical: baseUrl + aktueller Pfad (ohne Trailing Slash). Verhindert "Nicht indexierbar / Canonicalised". */
+export function getCanonicalUrl(pathname: string): string {
+  const normalized = pathname === '/' ? '' : pathname.replace(/\/$/, '').replace(/^\//, '')
+  return normalized ? `${baseUrl}/${normalized}` : baseUrl
 }
 
 /** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt "| 319Webdesign Pfungstadt" hinzu. */

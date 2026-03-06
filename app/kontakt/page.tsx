@@ -136,7 +136,7 @@ export default function KontaktPage() {
               {...fadeInUp}
               className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm"
             >
-              <h2 className="text-3xl font-bold mb-6 text-slate-900">Kontaktformular</h2>
+              <p className="text-3xl font-bold mb-6 text-slate-900"><strong>Kontaktformular</strong></p>
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 {/* Vor- und Nachname in einer Zeile auf Desktop */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -369,7 +369,7 @@ export default function KontaktPage() {
 
               {/* Social Media */}
               <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <h2 className="text-3xl font-bold mb-6 text-slate-900">Social Media</h2>
+                <p className="text-3xl font-bold mb-6 text-slate-900"><strong>Social Media</strong></p>
                 <div className="flex flex-wrap gap-4">
                   <motion.a
                     href="https://instagram.com/319webdesign"

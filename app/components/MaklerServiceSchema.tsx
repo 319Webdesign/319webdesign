@@ -1,3 +1,5 @@
+import { baseUrl } from '../../config/seo'
+
 /**
  * Service Schema für die Immobilienmakler-Webdesign-Seite
  * Macht "Immobilien-Software-Integration" und "Webdesign" als Leistungen für Suchmaschinen explizit.
@@ -12,7 +14,7 @@ export default function MaklerServiceSchema() {
     provider: {
       '@type': 'Organization',
       name: '319Webdesign',
-      url: 'https://319webdesign.com',
+      url: baseUrl,
     },
     areaServed: {
       '@type': 'State',
@@ -49,7 +51,7 @@ export default function MaklerServiceSchema() {
         },
       ],
     },
-    url: 'https://319webdesign.com/immobilienmakler-webdesign',
+    url: `${baseUrl}/immobilienmakler-webdesign`,
   }
 
   return (

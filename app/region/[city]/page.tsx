@@ -137,9 +137,9 @@ export default function RegionCityPage({ params }: { params: { city: string } })
         {/* Lokale Referenzen */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900">
-              Lokale Referenzen aus {city.name}
-            </h2>
+            <p className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900">
+              <strong>Lokale Referenzen aus {city.name}</strong>
+            </p>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
               {texts.referenzenIntro}
             </p>
@@ -198,9 +198,9 @@ export default function RegionCityPage({ params }: { params: { city: string } })
         {/* Leistungen */}
         <section className="py-20 px-6 bg-slate-50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
-              Leistungen in {city.name}
-            </h2>
+            <p className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
+              <strong>Leistungen in {city.name}</strong>
+            </p>
             <p className="text-xl text-slate-600 text-center mb-12">
               Von der ersten Website bis zur langfristigen Begleitung – alles aus
               einer Hand.

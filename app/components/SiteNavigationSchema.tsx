@@ -47,6 +47,24 @@ export default function SiteNavigationSchema() {
         name: 'Kontakt',
         url: `${baseUrl}/kontakt`,
       },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 8,
+        name: 'Umsatzstark',
+        url: `${baseUrl}/warum/umsatzstark`,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 9,
+        name: 'Blitzschnell',
+        url: `${baseUrl}/warum/blitzschnell`,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 10,
+        name: 'Lokal',
+        url: `${baseUrl}/warum/lokal`,
+      },
     ],
   }
 

@@ -4,7 +4,7 @@ import { baseUrl } from '../config/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // lastmod mit festem Datum für Re-Crawl-Anreiz (Index-Optimierung)
-  const lastmod = '2026-03-06T12:00:00.000Z'
+  const lastmod = '2026-03-08T12:00:00.000Z'
 
   // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
   const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']
@@ -89,14 +89,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
-    })),
-
-    // Region-Stadt-Landingpages - mit lokalen Referenzen
-    ...cities.map((city) => ({
-      url: `${baseUrl}/region/${city}`,
-      lastModified: lastmod,
-      changeFrequency: 'monthly' as const,
-      priority: 0.85,
     })),
 
     // Impressum - Rechtlich notwendig, niedrige Priorität

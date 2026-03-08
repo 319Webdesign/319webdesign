@@ -95,9 +95,9 @@ export default function MaklerProblemLoesungSection() {
           <Link
             href="/immobilienmakler-webdesign"
             className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 hover:scale-105 transition-all duration-300 group"
-            aria-label="Zur Immobilienmakler-Seite – Lösungen für Makler ansehen"
+            aria-label="Webdesign für Immobilienmakler entdecken"
           >
-            Mehr für Immobilienmakler
+            Webdesign für Makler entdecken
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
           </Link>
         </div>

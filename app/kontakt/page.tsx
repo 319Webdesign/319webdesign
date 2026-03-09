@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown, ListOrdered, Clock, CheckCircle2 } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'

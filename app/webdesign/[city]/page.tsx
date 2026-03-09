@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getCanonicalUrl } from '../../../config/seo'
+import { getCanonicalUrl, truncateTitleForSeo } from '../../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, Check, MapPin, Users, Building2 } from 'lucide-react'
 import { notFound } from 'next/navigation'
@@ -25,19 +25,20 @@ export async function generateMetadata({
 
   if (!city) {
     return {
-      title: 'Stadt nicht gefunden | 319Webdesign',
+      title: 'Stadt nicht gefunden',
     }
   }
 
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
+  const pageTitle = truncateTitleForSeo(`Webdesign ${city.name} | High-Performance Websites`)
   return {
-    title: `Webdesign ${city.name} | High-Performance Websites | 319Webdesign`,
+    title: pageTitle,
     description: getDescriptionWebdesign(city),
     keywords: city.keywords.join(', '),
     robots: { index: true, follow: true },
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `Webdesign ${city.name} | High-Performance Websites`,
+      title: pageTitle,
       description: getDescriptionWebdesign(city),
       url: canonicalUrl,
       siteName: '319Webdesign',

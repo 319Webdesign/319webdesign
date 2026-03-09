@@ -3,6 +3,7 @@ import { seoConfig, getSeoMetadata } from '../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, Zap, Search, Settings } from 'lucide-react'
 import Breadcrumbs from '../components/Breadcrumbs'
+import ProzessSection from '../components/ProzessSection'
 
 export const metadata: Metadata = getSeoMetadata(seoConfig.leistungen)
 
@@ -157,6 +158,9 @@ export default function LeistungenPage() {
           </div>
         </div>
       </section>
+
+      {/* Prozess */}
+      <ProzessSection />
 
       {/* CTA Section */}
       <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">

@@ -92,35 +92,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Spalte 3: Warum 319 + Regionen */}
+          {/* Spalte 3: Regionen */}
           <div className="space-y-4 text-center md:text-left">
-            <p className="text-white font-semibold text-base mb-4"><strong>Warum 319</strong></p>
-            <ul className="space-y-3 mb-6">
-              <li>
-                <a 
-                  href="/warum/umsatzstark" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
-                >
-                  Umsatzstark
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/warum/blitzschnell" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
-                >
-                  Blitzschnell
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/warum/lokal" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
-                >
-                  Lokal
-                </a>
-              </li>
-            </ul>
             <p className="text-white font-semibold text-base mb-4"><strong>Regionen</strong></p>
             <ul className="space-y-3">
               <li>

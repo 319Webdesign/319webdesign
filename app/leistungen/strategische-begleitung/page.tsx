@@ -3,6 +3,7 @@ import { seoConfig, getSeoMetadata } from '../../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Shield, Zap } from 'lucide-react'
 import Breadcrumbs from '../../components/Breadcrumbs'
+import SicherheitPerformanceSection from './SicherheitPerformanceSection'
 
 export const metadata: Metadata = getSeoMetadata(seoConfig.wartung)
 
@@ -75,6 +76,8 @@ export default function StrategischeBegleitungPage() {
           </div>
         </div>
       </section>
+
+      <SicherheitPerformanceSection />
 
       {/* Deep Dive: Warum Wartung? */}
       <section className="py-20 px-6 bg-slate-50" aria-label="Warum professionelle Website-Wartung">
@@ -169,6 +172,7 @@ export default function StrategischeBegleitungPage() {
           </div>
         </div>
       </section>
+
     </main>
   )
 }

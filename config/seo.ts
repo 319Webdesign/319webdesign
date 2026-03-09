@@ -1,8 +1,15 @@
 /** Kanonische Basis-URL – Self-Referencing Canonical: exakt die Domain, die indexiert werden soll. */
 export const baseUrl = 'https://www.319webdesign.com'
 
-/** Title-Template für alle Seiten: %s | 319Webdesign Pfungstadt */
-export const titleTemplate = '%s | 319Webdesign Pfungstadt'
+/** SEO: Google zeigt Titel mit ~50–60 Zeichen (~600px). Gesamttitel max. 60 Zeichen. */
+export const SEO_MAX_TITLE_LENGTH = 60
+/** Suffix, den das Root-Layout an %s anhängt (muss mit app/layout.tsx template übereinstimmen). */
+export const SEO_TITLE_SUFFIX = ' | 319Webdesign'
+/** Maximale Länge für den Seitentitel-Teil (%s), damit Gesamttitel ≤ SEO_MAX_TITLE_LENGTH. */
+export const SEO_MAX_PAGE_TITLE_LENGTH = SEO_MAX_TITLE_LENGTH - SEO_TITLE_SUFFIX.length
+
+/** Title-Template für alle Seiten: %s | 319Webdesign (kurz für SERP unter ~600px) */
+export const titleTemplate = '%s | 319Webdesign'
 
 export interface PageSeoConfig {
   title: string
@@ -80,12 +87,23 @@ export function getCanonicalUrl(pathname: string): string {
   return normalized ? `${baseUrl}/${normalized}` : baseUrl
 }
 
-/** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt "| 319Webdesign Pfungstadt" hinzu. */
+/** Kürzt Titel für SEO auf max. Zeichen (Standard: Platz für Layout-Suffix), ohne Wort abzuschneiden wo möglich. */
+export function truncateTitleForSeo(title: string, maxLength: number = SEO_MAX_PAGE_TITLE_LENGTH): string {
+  const t = title.trim()
+  if (t.length <= maxLength) return t
+  const cut = t.slice(0, maxLength)
+  const lastSpace = cut.lastIndexOf(' ')
+  if (lastSpace > maxLength * 0.6) return cut.slice(0, lastSpace).trim()
+  return cut.trim()
+}
+
+/** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt " | 319Webdesign" hinzu (SERP unter ~600px). */
 export function getSeoMetadata(config: PageSeoConfig) {
   const canonicalUrl = getCanonicalUrl(config.path)
-  const title = config.title.replace(/\s*\|\s*319Webdesign\s*$/i, '').trim() || config.title.replace(/\s*\|\s*319Webdesign\s*$/i, '').trim()
+  const rawTitle = config.title.replace(/\s*\|\s*319Webdesign(\s*Pfungstadt)?\s*$/i, '').trim() || config.title
+  const title = truncateTitleForSeo(rawTitle)
   const description = config.description
-  const ogTitle = config.openGraph?.title ?? title
+  const ogTitle = truncateTitleForSeo(config.openGraph?.title ?? title)
   const ogDescription = config.openGraph?.description ?? description
   const ogImage = config.openGraph?.image ?? '/319Web_Mockup_iphone.png'
 

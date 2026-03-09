@@ -1,13 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { ArrowRight, ExternalLink } from 'lucide-react'
+import { ArrowRight, Calendar, ExternalLink } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
 import { portfolioProjects } from '../../config/projects'
+
+const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection'), { ssr: false })
 
 // Heinerfilm, da-sound und Arena Sportsbar anzeigen (ohne DemoSeite)
 const displayProjects = portfolioProjects.filter(
@@ -256,6 +259,35 @@ export default function PortfolioPage() {
               </p>
             </motion.div>
           )}
+        </div>
+      </section>
+
+      {/* Google-Bewertungen */}
+      <GoogleReviewsSection />
+
+      {/* Abschluss CTA – Social Proof & Kontaktaufforderung */}
+      <section className="py-16 md:py-24 px-6 bg-white border-t border-slate-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <motion.div
+            {...fadeInUp}
+            className="space-y-6"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
+              Wann wird Ihr Projekt mein nächstes Highlight in Darmstadt?
+            </h2>
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+              Hinter jedem dieser Projekte steckt eine individuelle Strategie. Als Ihr lokaler Partner für Webdesign Darmstadt entwickle ich nicht nur „schöne“ Webseiten – ich baue digitale Werkzeuge, die durch 99/100 Performance und lokale SEO-Optimierung echte Anfragen generieren. Vom Martinsviertel bis Eberstadt: In der Wissenschaftsstadt setze ich auf ergebnisorientierte Zusammenarbeit mit KMUs und Maklern. Starten Sie Ihre eigene Erfolgsgeschichte – ich freue mich auf Ihr Projekt.
+            </p>
+            <div className="pt-4">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/40 transition-all duration-300 hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                <Calendar className="w-5 h-5" aria-hidden />
+                Jetzt unverbindliches Erstgespräch in Darmstadt vereinbaren
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 

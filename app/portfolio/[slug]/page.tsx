@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react'
 import { notFound } from 'next/navigation'
-import { baseUrl, getCanonicalUrl } from '../../../config/seo'
+import { baseUrl, getCanonicalUrl, truncateTitleForSeo } from '../../../config/seo'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Breadcrumbs from '../../components/Breadcrumbs'
@@ -16,15 +16,16 @@ export async function generateMetadata({
   params: { slug: string }
 }): Promise<Metadata> {
   const project = getProjectBySlug(params.slug)
-  if (!project) return { title: 'Projekt nicht gefunden | 319Webdesign' }
+  if (!project) return { title: 'Projekt nicht gefunden' }
 
   const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
+  const pageTitle = truncateTitleForSeo(`${project.title} | ${project.category} ${project.location}`)
   return {
-    title: `${project.title} | ${project.category} ${project.location} | 319Webdesign`,
+    title: pageTitle,
     description: `${project.title} – Webdesign-Referenz für ${project.category} in ${project.location}. PageSpeed ${project.lighthouseScore}/100. Von 319Webdesign.`,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: `${project.title} | Webdesign ${project.location}`,
+      title: truncateTitleForSeo(`${project.title} | Webdesign ${project.location}`),
       description: `${project.task.slice(0, 150)}…`,
       url: canonicalUrl,
       images: [
@@ -151,7 +152,38 @@ export default function PortfolioProjectPage({
                 <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                   Aufgabe
                 </h2>
-                <p className="text-slate-700 leading-relaxed">{project.task}</p>
+                {project.taskDetailed ? (
+                  <div className="text-slate-700 leading-relaxed space-y-5">
+                    <div>
+                      <h3 className="font-semibold text-slate-800 mb-2">
+                        {project.taskDetailed.ausgangslageTitle}
+                      </h3>
+                      <p>{project.taskDetailed.ausgangslage}</p>
+                    </div>
+                    {project.taskDetailed.meineAufgabe && (
+                      <div>
+                        <h3 className="font-semibold text-slate-800 mb-2">
+                          {project.taskDetailed.meineAufgabeTitle}
+                        </h3>
+                        <p>{project.taskDetailed.meineAufgabe}</p>
+                      </div>
+                    )}
+                    {project.taskDetailed.kernaufgaben.length > 0 && (
+                      <div>
+                        <h3 className="font-semibold text-slate-800 mb-2">
+                          {project.taskDetailed.kernaufgabenTitle}
+                        </h3>
+                        <ul className="list-disc list-inside space-y-2 pl-1">
+                          {project.taskDetailed.kernaufgaben.map((item, i) => (
+                            <li key={i}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-slate-700 leading-relaxed">{project.task}</p>
+                )}
               </div>
 
               {/* Technische Lösung */}
@@ -159,9 +191,47 @@ export default function PortfolioProjectPage({
                 <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                   Technische Lösung
                 </h2>
-                <p className="text-slate-700 leading-relaxed">
-                  {project.technicalSolution}
-                </p>
+                {project.technicalSolutionDetailed ? (
+                  <div className="text-slate-700 leading-relaxed space-y-5">
+                    <div>
+                      <h3 className="font-semibold text-slate-800 mb-2">
+                        {project.technicalSolutionDetailed.introTitle}
+                      </h3>
+                      <p className="mb-3">
+                        {project.technicalSolutionDetailed.intro}
+                      </p>
+                      <ul className="list-disc list-inside space-y-2 pl-1">
+                        {project.technicalSolutionDetailed.points.map(
+                          (item, i) => (
+                            <li key={i}>{item}</li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                    {project.technicalSolutionDetailed.resultPoints.length >
+                      0 && (
+                      <div>
+                        <h3 className="font-semibold text-slate-800 mb-2">
+                          {project.technicalSolutionDetailed.resultTitle}
+                        </h3>
+                        <p className="mb-3">
+                          {project.technicalSolutionDetailed.resultIntro}
+                        </p>
+                        <ul className="list-disc list-inside space-y-2 pl-1">
+                          {project.technicalSolutionDetailed.resultPoints.map(
+                            (item, i) => (
+                              <li key={i}>{item}</li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <p className="text-slate-700 leading-relaxed">
+                    {project.technicalSolution}
+                  </p>
+                )}
               </div>
             </div>
           </div>

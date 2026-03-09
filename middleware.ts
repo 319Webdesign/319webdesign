@@ -17,8 +17,6 @@ const STATIC_PATHS = [
   '/datenschutz',
 ]
 
-const WARUM_SLUGS = ['umsatzstark', 'blitzschnell', 'lokal']
-
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
@@ -42,12 +40,6 @@ export function middleware(request: NextRequest) {
   // Erlaubt: Portfolio-Einzelseiten (/portfolio/heinerfilm, etc.)
   const portfolioMatch = pathname.match(/^\/portfolio\/([^/]+)$/)
   if (portfolioMatch && getAllProjectSlugs().includes(portfolioMatch[1])) {
-    return NextResponse.next()
-  }
-
-  // Erlaubt: Warum-Unterseiten (/warum/umsatzstark, etc.)
-  const warumMatch = pathname.match(/^\/warum\/([^/]+)$/)
-  if (warumMatch && WARUM_SLUGS.includes(warumMatch[1])) {
     return NextResponse.next()
   }
 

@@ -2,6 +2,10 @@ import { MetadataRoute } from 'next'
 import { getAllProjectSlugs } from '../config/projects'
 import { baseUrl } from '../config/seo'
 
+// Statische Generierung zur Build-Zeit → keine Laufzeitfehler bei Google-Crawl, behebt "Vorübergehender Verarbeitungsfehler"
+export const dynamic = 'force-static'
+export const revalidate = false
+
 export default function sitemap(): MetadataRoute.Sitemap {
   // lastmod mit festem Datum für Re-Crawl-Anreiz (Index-Optimierung)
   const lastmod = '2026-03-08T12:00:00.000Z'

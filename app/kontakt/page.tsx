@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown } from 'lucide-react'
+import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown, ListOrdered, Clock, CheckCircle2 } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
@@ -416,6 +416,134 @@ export default function KontaktPage() {
                   </motion.a>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ-Sektion – Unique Content & Vertrauen für lokale Kunden */}
+      <section className="py-16 px-6 bg-slate-50 border-t border-slate-200" aria-labelledby="faq-heading">
+        <div className="max-w-3xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-10">
+            <h2 id="faq-heading" className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">
+              Häufige Fragen
+            </h2>
+            <p className="text-slate-600">
+              Kurze Antworten für mehr Klarheit – speziell für Kleinunternehmen und Selbstständige in Darmstadt und Umgebung.
+            </p>
+          </motion.div>
+
+          <div className="space-y-3">
+            {[
+              {
+                question: 'Bieten Sie Webdesign für Kunden in Darmstadt und Umgebung an?',
+                answer: 'Ja, ich betreue Kleinunternehmen und Selbstständige in Darmstadt und der Region (z. B. Pfungstadt, Griesheim, Weiterstadt) – komplett digital oder nach Absprache auch vor Ort.',
+              },
+              {
+                question: 'Wie läuft die Zusammenarbeit ab?',
+                answer: 'Nach Ihrer Anfrage melde ich mich innerhalb von 24 Stunden für ein kurzes Erstgespräch. Danach entwickeln wir eine gemeinsame Strategie für Ihren Webauftritt, gefolgt von der Umsetzung und dem Launch.',
+              },
+              {
+                question: 'Unterstützen Sie mich auch langfristig bei meiner Webpräsenz?',
+                answer: 'Absolut. Mein Ziel ist eine langfristige Begleitung. Ich helfe Ihnen nicht nur beim Launch, sondern sorge auch danach dafür, dass Ihre Seite technisch aktuell bleibt und bei Google gefunden wird.',
+              },
+              {
+                question: 'Was kostet eine neue Website für ein Kleinunternehmen?',
+                answer: 'Da jedes Projekt individuell ist, erstelle ich nach unserem Erstgespräch ein maßgeschneidertes Angebot, das genau auf die Bedürfnisse Ihres Business zugeschnitten ist.',
+              },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                {...fadeInUp}
+                transition={{ delay: index * 0.05 }}
+                className="group"
+              >
+                <details className="group bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden hover:border-slate-300 transition-colors [&[open]]:border-blue-500/50 [&[open]]:ring-2 [&[open]]:ring-blue-500/20">
+                  <summary className="flex items-center justify-between gap-4 px-5 py-4 cursor-pointer list-none text-left font-semibold text-slate-900 text-base md:text-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-xl [&::-webkit-details-marker]:hidden">
+                    <span className="pr-2">{faq.question}</span>
+                    <ChevronDown className="w-5 h-5 flex-shrink-0 text-slate-400 transition-transform duration-200 [details[open]_&]:rotate-180" aria-hidden="true" />
+                  </summary>
+                  <div className="px-5 pb-5 pt-0">
+                    <p className="text-slate-600 leading-relaxed pl-0">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </details>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Vertrauensbildende Elemente (E-E-A-T) */}
+      <section className="py-16 px-6 bg-white border-t border-slate-200" aria-labelledby="eeat-heading">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 id="eeat-heading" className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
+              Strategisches Webdesign mit Fokus auf Resultate
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+              Von der ersten Idee in Pfungstadt bis zum erfolgreichen Launch begleite ich Kleinunternehmen mit fundierter SEO-Expertise und individueller Beratung.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {/* Ablaufplan */}
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.1 }}
+              className="bg-slate-50 rounded-2xl p-8 border border-slate-200"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                  <ListOrdered className="w-6 h-6 text-blue-600" aria-hidden="true" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">Ablaufplan</h3>
+              </div>
+              <p className="text-slate-600 mb-4">Nach Ihrer Kontaktaufnahme passiert Folgendes:</p>
+              <ul className="space-y-3" role="list">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-700"><strong>Erstgespräch</strong> – Wir besprechen Ihr Vorhaben und Ihre Ziele in einem unverbindlichen Kennenlerngespräch.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-700"><strong>Strategie</strong> – Konzept und Vorschlag: Wir legen gemeinsam den Weg und die nächsten Schritte fest.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-700"><strong>Angebot</strong> – Sie erhalten ein transparentes, auf Sie zugeschnittenes Angebot – ohne versteckte Kosten.</span>
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Verfügbarkeit */}
+            <motion.div
+              {...fadeInUp}
+              transition={{ delay: 0.2 }}
+              className="bg-slate-50 rounded-2xl p-8 border border-slate-200"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                  <Clock className="w-6 h-6 text-blue-600" aria-hidden="true" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900">Verfügbarkeit</h3>
+              </div>
+              <p className="text-slate-600 mb-4">So schnell sind wir für Sie da:</p>
+              <ul className="space-y-3" role="list">
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-700"><strong>Rückmeldung innerhalb von 24 Stunden</strong> – Auf Anfragen per Formular oder E-Mail antworten wir werktags in der Regel am selben oder nächsten Tag.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-700"><strong>Telefonisch erreichbar</strong> – Mo–Fr 9:00–18:00 Uhr für ein direktes Gespräch.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" aria-hidden="true" />
+                  <span className="text-slate-700"><strong>WhatsApp</strong> – Auch außerhalb der Bürozeiten für kurze Nachrichten erreichbar.</span>
+                </li>
+              </ul>
             </motion.div>
           </div>
         </div>

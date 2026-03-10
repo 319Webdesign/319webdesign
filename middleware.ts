@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { getAllProjectSlugs } from './config/projects'
-import { getAllCitySlugs } from './config/cities'
+import { PROJECT_SLUGS, CITY_SLUGS } from './config/middlewareSlugs'
 
 // Statische Seiten
 const STATIC_PATHS = [
@@ -28,7 +27,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/portfolio', request.url), 301)
   }
   const regionMatch = pathname.match(/^\/region\/([^/]+)$/)
-  if (regionMatch && getAllCitySlugs().includes(regionMatch[1])) {
+  if (regionMatch && CITY_SLUGS.includes(regionMatch[1])) {
     return NextResponse.redirect(new URL(`/webdesign/${regionMatch[1]}`, request.url), 301)
   }
 
@@ -39,13 +38,13 @@ export function middleware(request: NextRequest) {
 
   // Erlaubt: Portfolio-Einzelseiten (/portfolio/heinerfilm, etc.)
   const portfolioMatch = pathname.match(/^\/portfolio\/([^/]+)$/)
-  if (portfolioMatch && getAllProjectSlugs().includes(portfolioMatch[1])) {
+  if (portfolioMatch && PROJECT_SLUGS.includes(portfolioMatch[1])) {
     return NextResponse.next()
   }
 
   // Erlaubt: Webdesign-Städte (/webdesign/darmstadt, etc.)
   const webdesignMatch = pathname.match(/^\/webdesign\/([^/]+)$/)
-  if (webdesignMatch && getAllCitySlugs().includes(webdesignMatch[1])) {
+  if (webdesignMatch && CITY_SLUGS.includes(webdesignMatch[1])) {
     return NextResponse.next()
   }
 

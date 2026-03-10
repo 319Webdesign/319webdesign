@@ -198,6 +198,12 @@ export default function Footer() {
             </p>
             <div className="flex items-center justify-center gap-6">
               <a 
+                href="/sitemap.xml" 
+                className="hover:text-blue-400 transition-colors duration-300"
+              >
+                Sitemap
+              </a>
+              <a 
                 href="/impressum" 
                 className="hover:text-blue-400 transition-colors duration-300"
               >

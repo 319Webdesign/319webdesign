@@ -48,7 +48,7 @@ export default function MehrwertSection() {
           {/* Linke Spalte: Text und Vorteile */}
           <LeftEl {...leftProps}>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-slate-900 leading-tight">
-              Ihr Partner für regionalen Erfolg – digital sichtbar 💡
+              Warum 319Webdesign als Partner für Webdesign in der Region Darmstadt?
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-8">

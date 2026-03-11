@@ -50,8 +50,16 @@ export default function UeberMichSection() {
           <WrapEl {...textWrapProps}>
             {/* Große Haupt-Headline */}
             <h2 className="text-2xl md:text-4xl font-bold leading-tight text-slate-900">
-              Strategische <span className="text-blue-600">Partnerschaft</span> für Ihren digitalen Wachstum
+              Wer steckt hinter 319Webdesign?
             </h2>
+
+            {/* E-E-A-T: Gründungsjahr und Vertrauenssignale */}
+            <p className="text-slate-600 font-medium mb-4" role="doc-subtitle">
+              Seit <time dateTime="2023">2023</time> Ihr Partner für Webdesign und SEO in Pfungstadt und der Region Darmstadt.
+            </p>
+            <p className="text-slate-500 text-sm mb-4">
+              <span className="font-medium text-slate-600">Expertise & Qualität:</span> Performance-Optimierung (PageSpeed 99/100), Next.js, onOffice-Integration, DSGVO-konforme Umsetzung. <em>(Zertifikate und weitere Auszeichnungen bei Bedarf hier ergänzbar.)</em>
+            </p>
 
             {/* Prägnanter Text */}
             <div className="space-y-4 text-lg text-slate-600 leading-relaxed">

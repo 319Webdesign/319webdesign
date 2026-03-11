@@ -104,7 +104,7 @@ export default function GoogleReviewsSection() {
           className="text-center mb-14"
         >
           <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
-            Das sagen <span className="text-blue-600">Kunden</span> über 319Webdesign
+            Sind Kunden mit 319Webdesign in Darmstadt und Pfungstadt zufrieden?
           </h2>
           <p className="text-xl text-slate-600 max-w-2xl mx-auto">
             Aktuelle Google-Bewertungen aus Darmstadt und Pfungstadt.
@@ -168,11 +168,16 @@ export default function GoogleReviewsSection() {
               </div>
               {review.text && (
                 <div className="mb-3">
-                  <p
-                    className={`text-slate-600 leading-relaxed ${!isExpanded && hasLongText ? 'line-clamp-4' : ''}`}
-                  >
-                    &ldquo;{review.text}&rdquo;
-                  </p>
+                  <blockquote cite={`https://www.google.com/maps?cid=${reviewId}`} className="mb-0">
+                    <p
+                      className={`text-slate-600 leading-relaxed ${!isExpanded && hasLongText ? 'line-clamp-4' : ''}`}
+                    >
+                      &ldquo;{review.text}&rdquo;
+                    </p>
+                    <cite className="not-italic text-sm text-slate-500 mt-2 block">
+                      — {review.author_name}, Google-Bewertung ({review.relative_time_description})
+                    </cite>
+                  </blockquote>
                   {hasLongText && (
                     <button
                       type="button"
@@ -184,7 +189,6 @@ export default function GoogleReviewsSection() {
                   )}
                 </div>
               )}
-              <p className="text-sm text-slate-500">{review.relative_time_description}</p>
             </motion.article>
           )})}
         </div>

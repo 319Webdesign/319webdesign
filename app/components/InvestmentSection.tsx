@@ -99,22 +99,41 @@ export default function InvestmentSection() {
         {reduceMotion ? (
           <div className="text-center mb-16">
             <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900">
-              Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
+              Was kostet Webdesign und SEO in Darmstadt und Pfungstadt?
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Jedes Unternehmen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
+              Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange. Individuelle Lösungen und langfristige Partnerschaft mit messbaren Ergebnissen.
             </p>
           </div>
         ) : (
           <motion.div {...fadeInUp} className="text-center mb-16">
             <h2 className="text-2xl md:text-4xl font-bold mb-6 text-slate-900">
-              Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange.
+              Was kostet Webdesign und SEO in Darmstadt und Pfungstadt?
             </h2>
             <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              Jedes Unternehmen hat andere Ziele. Deshalb biete ich keine starren Preise, sondern individuelle Lösungen, die sich an Ihrem Bedarf und Ihrem Wachstum orientieren. Mein Fokus liegt auf einer langfristigen Partnerschaft, die messbare Ergebnisse liefert.
+              Maßgeschneiderte <span className="text-blue-600">Strategien</span> statt Pakete von der Stange. Jedes Unternehmen hat andere Ziele – deshalb biete ich individuelle Lösungen, die sich an Ihrem Bedarf orientieren. Langfristige Partnerschaft mit messbaren Ergebnissen.
             </p>
           </motion.div>
         )}
+
+        {/* Strukturierte Übersicht für KI/Crawler: Strategie-Pakete */}
+        <div className="overflow-x-auto max-w-4xl mx-auto mb-10" aria-label="Übersicht der Strategie-Pakete">
+          <table className="w-full border-collapse border border-slate-200 rounded-lg text-left text-sm">
+            <caption className="sr-only">Maßgeschneiderte Strategien von 319Webdesign: Launch, Scale, Partner</caption>
+            <thead>
+              <tr className="bg-slate-100">
+                <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Paket</th>
+                <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Fokus</th>
+                <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Enthalten (Auswahl)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-100"><td className="px-4 py-3 font-medium text-slate-800">Launch</td><td className="px-4 py-3 text-slate-600">Performance-Fundament &amp; Schnelligkeit</td><td className="px-4 py-3 text-slate-600">PageSpeed 99/100, Responsive Design, SEO-Grundlagen</td></tr>
+              <tr className="border-b border-slate-100"><td className="px-4 py-3 font-medium text-slate-800">Scale</td><td className="px-4 py-3 text-slate-600">Reichweite &amp; SEO-Dominanz</td><td className="px-4 py-3 text-slate-600">SEO-Strategie, monatliche Analysen, Content-Optimierung, Wartung</td></tr>
+              <tr><td className="px-4 py-3 font-medium text-slate-800">Partner</td><td className="px-4 py-3 text-slate-600">Strategische Begleitung &amp; Full-Service</td><td className="px-4 py-3 text-slate-600">Dedizierter Ansprechpartner, proaktive Optimierung, Strategie-Meetings</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         {/* Wachstums-Bereiche Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">

@@ -23,9 +23,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign',
-    default: 'Webdesign Pfungstadt & Immobilien-Automation',
+    default: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
   },
-  description: 'Professionelles Webdesign für KMU in Pfungstadt. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+  description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt. Schnelle Websites, lokale Sichtbarkeit und Immobilien-Automation für Makler.',
   robots: {
     index: true,
     follow: true,

@@ -50,7 +50,7 @@ export default function FAQSection() {
           className="text-center mb-16"
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            Häufig gestellte <span className="text-blue-600">Fragen</span>
+            Welche Fragen haben Kunden zu Webdesign und SEO in Darmstadt?
           </h2>
         </motion.div>
 

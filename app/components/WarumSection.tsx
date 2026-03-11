@@ -50,9 +50,7 @@ export default function WarumSection() {
           {/* Linke Spalte: Text und Liste */}
           <LeftEl {...leftProps}>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-slate-900 leading-tight">
-              Herausforderungen im{' '}
-              <span className="text-blue-600">digitalen Marketing</span>{' '}
-              für <strong className="text-slate-900">KMU & Immobilienmakler</strong>
+              Warum ist <span className="text-blue-600">Webdesign und digitales Marketing</span> für KMU & Immobilienmakler in Darmstadt wichtig?
             </h2>
 
             <p className="text-lg text-slate-600 leading-relaxed mb-8">

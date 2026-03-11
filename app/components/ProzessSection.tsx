@@ -59,22 +59,31 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
         {reduceMotion ? (
           <div className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>.
+            Wie läuft Webdesign bei 319Webdesign ab?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            {intro}
+            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>. {intro}
           </p>
           </div>
         ) : (
           <motion.div {...fadeInUp} className="text-center mb-16">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>.
+            Wie läuft Webdesign bei 319Webdesign ab?
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            {intro}
+            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>. {intro}
           </p>
           </motion.div>
         )}
+
+        {/* Strukturierte Prozessschritte für KI/Crawler (semantische Liste) */}
+        <ol className="list-decimal list-inside space-y-2 max-w-2xl mx-auto mb-12 text-slate-600 text-sm md:text-base" aria-label="Prozessablauf Webdesign 319Webdesign">
+          {processSteps.map((item) => (
+            <li key={item.step} className="pl-2">
+              <strong className="text-slate-900">{item.title}</strong>: {item.description}
+            </li>
+          ))}
+        </ol>
 
         <div className="relative">
           {/* SVG Connection Lines - Desktop */}

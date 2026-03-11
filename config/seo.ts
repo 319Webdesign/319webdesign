@@ -24,44 +24,44 @@ export interface PageSeoConfig {
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign Pfungstadt & Immobilien-Automation | 319Webdesign',
-    description: 'Professionelles Webdesign für KMU in Pfungstadt. onOffice-Schnittstellen für Immobilienmakler. Jetzt Sichtbarkeit erhöhen!',
+    title: 'Webdesign & SEO in Darmstadt und Pfungstadt – So werden Sie online sichtbar',
+    description: 'Sie suchen professionelles Webdesign für Ihr Unternehmen in der Region Darmstadt? 319Webdesign entwickelt schnelle, suchmaschinenoptimierte Websites für KMU und Immobilienmakler – mit PageSpeed 99/100 und lokaler Expertise in Pfungstadt.',
     path: '/',
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
     },
   },
   launch: {
-    title: 'Webdesign & Launch Darmstadt | 319Webdesign',
-    description: 'Ihr digitales Fundament – Professionelles Webdesign & Launch in Darmstadt und Pfungstadt. Von der Idee zur fertigen, conversion-optimierten Website.',
+    title: 'Webdesign & Launch in Darmstadt und Pfungstadt',
+    description: 'Wie wird aus Ihrer Idee eine fertige Website? 319Webdesign begleitet Sie vom Konzept bis zum Launch – mit Fokus auf Performance und Conversion in der Region Darmstadt.',
     path: '/leistungen/webdesign-launch',
   },
   seo: {
-    title: 'SEO Agentur Darmstadt | 319Webdesign',
-    description: 'Mehr Sichtbarkeit – Professionelle SEO-Optimierung für Unternehmen in Darmstadt und Pfungstadt.',
+    title: 'SEO für Unternehmen in Darmstadt und Pfungstadt',
+    description: 'Warum sind Sie bei Google nicht sichtbar? Wir optimieren Ihre Website für Suchanfragen in der Region – mit lokaler SEO und technischer Basis für nachhaltiges Wachstum.',
     path: '/leistungen/wachstum-seo',
   },
   wartung: {
-    title: 'Website Wartung & Support Darmstadt | 319Webdesign',
-    description: '319Webdesign – Strategische Begleitung, Wartung und Support für Ihre Website in Darmstadt und Pfungstadt.',
+    title: 'Website-Wartung und Support in Darmstadt',
+    description: 'Ihre Website soll sicher und schnell bleiben? 319Webdesign übernimmt Updates, Backups und technische Begleitung – damit Sie sich auf Ihr Geschäft konzentrieren können.',
     path: '/leistungen/strategische-begleitung',
   },
   leistungen: {
-    title: 'Leistungen | Webdesign, SEO & Wartung Darmstadt',
-    description: 'Professionelles Webdesign, SEO-Optimierung und Website-Wartung für Unternehmen in Darmstadt und Pfungstadt.',
+    title: 'Leistungen: Webdesign, SEO und Wartung in Darmstadt',
+    description: 'Was bietet 319Webdesign? Webdesign & Launch, SEO-Optimierung und strategische Website-Betreuung für KMU und Immobilienmakler in Darmstadt, Pfungstadt und Umgebung.',
     path: '/leistungen',
   },
   portfolio: {
-    title: 'Webdesign Projekte Darmstadt | 319Webdesign',
-    description: 'Referenzen von 319 – Ausgewählte Webdesign-Projekte für Unternehmen in Darmstadt und Pfungstadt.',
+    title: 'Webdesign-Referenzen aus Darmstadt und Pfungstadt',
+    description: 'An welchen Projekten arbeitet 319Webdesign? Hier finden Sie ausgewählte Websites für KMU und Makler aus der Region – von der Visitenkarte bis zur Immobilien-Plattform.',
     path: '/portfolio',
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
     },
   },
   kontakt: {
-    title: 'Jetzt Projekt starten | 319Webdesign',
-    description: 'Webdesigner in Pfungstadt – Kontaktieren Sie 319Webdesign für Ihr Webdesign-Projekt in Darmstadt und Pfungstadt.',
+    title: 'Kostenlose Erstberatung für Ihr Webdesign-Projekt',
+    description: 'Sie möchten mit 319Webdesign starten? Schreiben Sie uns – wir besprechen Ihre Ziele und Möglichkeiten für Webdesign und SEO in Darmstadt und Pfungstadt.',
     path: '/kontakt',
   },
   impressum: {

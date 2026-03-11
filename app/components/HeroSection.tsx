@@ -25,14 +25,10 @@ export default function HeroSection() {
           {/* Linke Spalte: Text und Buttons */}
           <div className="text-center lg:text-left lg:pr-8">
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-fade-in-up">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
-                319Webdesign:
-              </span>{' '}
-              <span className="text-slate-900">Webdesign für KMU & Immobilienmakler</span>
+              <span className="text-slate-900">Wer bietet Webdesign für KMU & Immobilienmakler in Darmstadt und Pfungstadt?</span>
             </h1>
-          
-            <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-            Professionelles Webdesign in Pfungstadt: Mehr Anfragen für Ihr KMU und effizientere Vermarktung für Immobilienmakler durch High-Performance Websites. Webdesign, das verkauft.
+            <p className="text-lg md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold">319Webdesign</span> – Professionelles Webdesign in Pfungstadt mit Fokus auf die Region Darmstadt: Mehr Anfragen für Ihr KMU und effizientere Vermarktung für Immobilienmakler durch High-Performance-Websites. Webdesign, das verkauft.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2 animate-fade-in-up animation-delay-200">

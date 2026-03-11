@@ -45,6 +45,10 @@ export default function Footer() {
             <p className="text-slate-400 text-sm leading-relaxed">
               Design, das überzeugt. Technik, die performt.
             </p>
+            {/* E-E-A-T: Vertrauenssignale für KI/Crawler */}
+            <p className="text-slate-500 text-xs mt-2" role="contentinfo">
+              Gründungsjahr: <time dateTime="2023">2023</time>. Standort: Pfungstadt, Region Darmstadt.
+            </p>
           </div>
 
           {/* Spalte 2: Navigation - Hauptseiten + Sitelinks für Leistungen */}

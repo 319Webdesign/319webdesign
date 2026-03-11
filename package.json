@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "start:compressed": "node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "index-urls": "node google-index-fast.js"
   },
   "dependencies": {
     "@vercel/speed-insights": "^1.3.1",

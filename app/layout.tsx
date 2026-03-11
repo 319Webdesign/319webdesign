@@ -26,9 +26,38 @@ export const metadata: Metadata = {
     default: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
   },
   description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt. Schnelle Websites, lokale Sichtbarkeit und Immobilien-Automation für Makler.',
+  keywords: ['Webdesign', 'SEO', 'Darmstadt', 'Pfungstadt', 'Website', 'Suchmaschinenoptimierung', 'Immobilienmakler', 'KMU'],
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  alternates: {
+    canonical: baseUrl,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'de_DE',
+    url: baseUrl,
+    siteName: '319Webdesign',
+    title: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
+    description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt. Schnelle Websites, lokale Sichtbarkeit und Immobilien-Automation für Makler.',
+    images: [
+      {
+        url: '/319Web_Mockup_iphone.png',
+        width: 1200,
+        height: 630,
+        alt: '319Webdesign',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
+    description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt.',
   },
   icons: {
     icon: '/browser-logo.png',

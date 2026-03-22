@@ -58,8 +58,7 @@ export default function UeberMichSection() {
               Seit <time dateTime="2023">2023</time> Ihr Partner für Webdesign und SEO in Pfungstadt und der Region Darmstadt.
             </p>
             <p className="text-slate-500 text-sm mb-4">
-              <span className="font-medium text-slate-600">Expertise & Qualität:</span> Performance-Optimierung (PageSpeed 99/100), Next.js, onOffice-Integration, DSGVO-konforme Umsetzung. <em>(Zertifikate und weitere Auszeichnungen bei Bedarf hier ergänzbar.)</em>
-            </p>
+              <span className="font-medium text-slate-600">Expertise & Qualität:</span> Performance-Optimierung (PageSpeed 99/100), Next.js, onOffice-Integration, DSGVO-konforme Umsetzung.            </p>
 
             {/* Prägnanter Text */}
             <div className="space-y-4 text-lg text-slate-600 leading-relaxed">

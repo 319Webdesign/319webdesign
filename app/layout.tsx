@@ -11,6 +11,7 @@ const WhatsAppButton = dynamic(() => import('./components/WhatsAppButton'), { ss
 import SiteNavigationSchema from './components/SiteNavigationSchema'
 import ReducedMotionProvider from './components/ReducedMotionProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({
   subsets: ['latin'],

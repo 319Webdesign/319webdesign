@@ -14,7 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']
 
   // Portfolio-Projekte (app/portfolio/[slug]/page.tsx)
-  const portfolioSlugs = getAllProjectSlugs()
+  // Demo-URL nicht in Sitemap aufnehmen, damit Google sich auf hochwertige Referenzen fokussiert.
+  const portfolioSlugs = getAllProjectSlugs().filter((slug) => slug !== 'demoseite')
 
   // Städte (aktive Cities aus app/webdesign/[city]/page.tsx)
   const cities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt']

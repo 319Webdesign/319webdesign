@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
 import { AlertTriangle, Ban, TrendingDown } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -56,7 +57,13 @@ export default function WarumSection() {
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
               Viele KMU und Immobilienmakler vernachlässigen ihr{' '}
               <span className="font-medium text-slate-700">Webdesign und digitales Marketing</span>, sei es aus Zeitmangel, fehlendem Budget oder Bedenken bezüglich der Rentabilität. Ein starkes Webdesign ist für{' '}
-              <strong className="text-slate-800">KMU & Immobilienmakler</strong> entscheidend – sonst gewinnt die Konkurrenz.
+              <Link
+                href="/immobilienmakler-webdesign"
+                className="underline decoration-slate-300 decoration-1 underline-offset-2 hover:text-blue-600 hover:decoration-blue-400 transition-colors duration-200"
+              >
+                <strong className="text-slate-800">KMU & Immobilienmakler</strong>
+              </Link>{' '}
+              entscheidend – sonst gewinnt die Konkurrenz.
             </p>
 
             <ul className="space-y-5">

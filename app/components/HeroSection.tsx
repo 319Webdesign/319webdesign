@@ -2,6 +2,7 @@
 
 import { ArrowDown, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function HeroSection() {
   return (
@@ -28,7 +29,21 @@ export default function HeroSection() {
               <span className="text-slate-900">Wer bietet Webdesign für KMU & Immobilienmakler in Darmstadt und Pfungstadt?</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold">319Webdesign</span> – Professionelles Webdesign in Pfungstadt mit Fokus auf die Region Darmstadt: Mehr Anfragen für Ihr KMU und effizientere Vermarktung für Immobilienmakler durch High-Performance-Websites. Webdesign, das verkauft.
+              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold">319Webdesign</span> – Professionelles Webdesign in Pfungstadt mit Fokus auf die Region Darmstadt: Mehr Anfragen für Ihr KMU und effizientere{' '}
+              <Link
+                href="/immobilienmakler-webdesign"
+                className="underline decoration-slate-300 decoration-1 underline-offset-2 hover:text-blue-600 hover:decoration-blue-400 transition-colors duration-200"
+              >
+                Vermarktung für Immobilienmakler
+              </Link>{' '}
+              durch{' '}
+              <Link
+                href="/leistungen/webdesign-launch"
+                className="underline decoration-slate-300 decoration-1 underline-offset-2 hover:text-blue-600 hover:decoration-blue-400 transition-colors duration-200"
+              >
+                High-Performance-Websites
+              </Link>
+              . Webdesign, das verkauft.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2 animate-fade-in-up animation-delay-200">

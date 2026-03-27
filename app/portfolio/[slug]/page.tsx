@@ -17,12 +17,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const project = getProjectBySlug(params.slug)
   if (!project) return { title: 'Projekt nicht gefunden' }
+  const isDemoProject = project.slug === 'demoseite'
 
   const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
   const pageTitle = truncateTitleForSeo(`${project.title} | ${project.category} ${project.location}`)
   return {
     title: pageTitle,
     description: `${project.title} – Webdesign-Referenz für ${project.category} in ${project.location}. PageSpeed ${project.lighthouseScore}/100. Von 319Webdesign.`,
+    robots: isDemoProject ? { index: false, follow: true } : { index: true, follow: true },
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: truncateTitleForSeo(`${project.title} | Webdesign ${project.location}`),

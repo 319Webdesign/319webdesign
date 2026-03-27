@@ -19,6 +19,19 @@ const STATIC_PATHS = [
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
+  // Kanonische URL erzwingen: keine Trailing-Slashes (außer Root) und nur lowercase.
+  if (pathname !== '/' && pathname.endsWith('/')) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname.slice(0, -1)
+    return NextResponse.redirect(url, 301)
+  }
+
+  if (pathname !== pathname.toLowerCase()) {
+    const url = request.nextUrl.clone()
+    url.pathname = pathname.toLowerCase()
+    return NextResponse.redirect(url, 301)
+  }
+
   // Redirect: alte URLs auf neue (301 permanent)
   if (pathname === '/immobilienmakler-webdesign-hessen') {
     return NextResponse.redirect(new URL('/immobilienmakler-webdesign', request.url), 301)

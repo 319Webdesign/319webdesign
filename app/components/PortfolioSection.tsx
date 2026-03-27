@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
-import { ArrowRight, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -17,6 +17,7 @@ const fadeInUp = {
 const portfolioProjects = [
   {
     id: 1,
+    slug: 'heinerfilm',
     title: 'Heinerfilm',
     category: 'Medienagentur',
     imageUrl: '/heinerfilm_header.jpeg',
@@ -24,6 +25,7 @@ const portfolioProjects = [
   },
   {
     id: 2,
+    slug: 'da-sound',
     title: 'da-sound',
     category: 'Veranstaltungstechnik',
     imageUrl: '/dasound-header.png',
@@ -31,6 +33,7 @@ const portfolioProjects = [
   },
   {
     id: 3,
+    slug: 'arena-sportsbar',
     title: 'Arena Sportsbar',
     category: 'Gastronomie',
     imageUrl: '/arena-sportsbar-header.png',
@@ -141,7 +144,7 @@ export default function PortfolioSection() {
                 const CardWrapper = reduceMotion ? 'div' : motion.div
                 const CardLink = reduceMotion ? 'a' : motion.a
                 const cardWrapperProps = reduceMotion ? { className: `flex-shrink-0 ${cardWidthClass}`, style: { scale: 1, opacity: 1 } } : { className: `flex-shrink-0 ${cardWidthClass}`, style: { scale, opacity }, transition: { duration: 0.3 } }
-                const cardLinkProps = reduceMotion ? { href: project.liveUrl || '#', target: '_blank', rel: 'noopener noreferrer', className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card' } : { href: project.liveUrl || '#', target: '_blank', rel: 'noopener noreferrer', className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card', whileHover: { scale: 1.02, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' }, whileTap: { scale: 0.98 }, transition: { type: 'spring', stiffness: 300, damping: 25 } }
+                const cardLinkProps = reduceMotion ? { href: `/portfolio/${project.slug}`, className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card' } : { href: `/portfolio/${project.slug}`, className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card', whileHover: { scale: 1.02, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' }, whileTap: { scale: 0.98 }, transition: { type: 'spring', stiffness: 300, damping: 25 } }
                 return (
                   <CardWrapper key={project.id} {...cardWrapperProps}>
                     <CardLink {...cardLinkProps}>
@@ -166,7 +169,7 @@ export default function PortfolioSection() {
                             whileHover={{ scale: 1.1 }}
                             whileTap={{ scale: 0.95 }}
                           >
-                            <ExternalLink className="w-4 h-4 text-slate-700 group-hover/card:text-blue-600 transition-colors" aria-hidden="true" />
+                            <ArrowRight className="w-4 h-4 text-slate-700 group-hover/card:text-blue-600 transition-colors" aria-hidden="true" />
                           </motion.div>
                         )}
 
@@ -213,7 +216,7 @@ export default function PortfolioSection() {
                 const CardWrapper = motion.div
                 const CardLink = motion.a
                 const cardWrapperProps = { className: `flex-shrink-0 ${cardWidthClass}`, style: { scale, opacity }, transition: { duration: 0.3 } }
-                const cardLinkProps = { href: project.liveUrl || '#', target: '_blank' as const, rel: 'noopener noreferrer', className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card', whileHover: { scale: 1.02, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' }, whileTap: { scale: 0.98 }, transition: { type: 'spring' as const, stiffness: 300, damping: 25 } }
+                const cardLinkProps = { href: `/portfolio/${project.slug}`, className: 'block relative rounded-2xl overflow-hidden shadow-xl bg-slate-100 backdrop-blur-sm cursor-pointer group/card', whileHover: { scale: 1.02, boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2)' }, whileTap: { scale: 0.98 }, transition: { type: 'spring' as const, stiffness: 300, damping: 25 } }
                 return (
                   <CardWrapper key={project.id} {...cardWrapperProps}>
                     <CardLink {...cardLinkProps}>
@@ -222,7 +225,7 @@ export default function PortfolioSection() {
                         <div className="absolute inset-0 bg-gradient-to-t from-blue-500/20 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
                         {!isMobile && (
                           <motion.div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm p-2 rounded-lg border border-slate-200 group-hover/card:border-blue-500/50 transition-all duration-300 z-10" whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-                            <ExternalLink className="w-4 h-4 text-slate-700 group-hover/card:text-blue-600 transition-colors" aria-hidden="true" />
+                            <ArrowRight className="w-4 h-4 text-slate-700 group-hover/card:text-blue-600 transition-colors" aria-hidden="true" />
                           </motion.div>
                         )}
                         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm p-4">

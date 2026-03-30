@@ -2,106 +2,79 @@ import { MetadataRoute } from 'next'
 import { getAllProjectSlugs } from '../config/projects'
 import { baseUrl } from '../config/seo'
 
-// Statische Generierung zur Build-Zeit → keine Laufzeitfehler bei Google-Crawl, behebt "Vorübergehender Verarbeitungsfehler"
+/** Statische Generierung zur Build-Zeit – bei jedem Deploy neu gebaut, dadurch aktualisiert sich lastmod. */
 export const dynamic = 'force-static'
 export const revalidate = false
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // lastmod mit festem Datum für Re-Crawl-Anreiz (Index-Optimierung)
-  const lastmod = '2026-03-08T12:00:00.000Z'
+  const lastmod = new Date()
 
-  // Leistungen – feste Unterseiten (app/leistungen/*/page.tsx)
-  const leistungen = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung']
+  const leistungenSlugs = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung'] as const
+  const localCities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt'] as const
 
-  // Portfolio-Projekte (app/portfolio/[slug]/page.tsx)
-  // Demo-URL nicht in Sitemap aufnehmen, damit Google sich auf hochwertige Referenzen fokussiert.
   const portfolioSlugs = getAllProjectSlugs().filter((slug) => slug !== 'demoseite')
 
-  // Städte (aktive Cities aus app/webdesign/[city]/page.tsx)
-  const cities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt']
-
   return [
-    // Homepage - Höchste Priorität
     {
       url: baseUrl,
       lastModified: lastmod,
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-
-    // Kontakt - Sehr wichtig für Conversions
     {
       url: `${baseUrl}/kontakt`,
       lastModified: lastmod,
       changeFrequency: 'monthly',
-      priority: 0.95,
+      priority: 0.9,
     },
-
-    // Immobilienmakler - Hauptseite für Makler
+    {
+      url: `${baseUrl}/uber-mich`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/portfolio`,
+      lastModified: lastmod,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
     {
       url: `${baseUrl}/immobilienmakler-webdesign`,
       lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-
-    // Leistungen Übersicht - Hauptseite
     {
       url: `${baseUrl}/leistungen`,
       lastModified: lastmod,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
-
-    // Leistungen Unterseiten - Wichtig für SEO
-    ...leistungen.map((slug) => ({
+    ...leistungenSlugs.map((slug) => ({
       url: `${baseUrl}/leistungen/${slug}`,
       lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     })),
-
-    // Über Mich – Vertrauen & E-E-A-T
-    {
-      url: `${baseUrl}/uber-mich`,
+    ...localCities.map((city) => ({
+      url: `${baseUrl}/webdesign/${city}`,
       lastModified: lastmod,
-      changeFrequency: 'monthly',
-      priority: 0.85,
-    },
-
-    // Portfolio - Wichtig für Vertrauensaufbau
-    {
-      url: `${baseUrl}/portfolio`,
-      lastModified: lastmod,
-      changeFrequency: 'weekly',
-      priority: 0.85,
-    },
-
-    // Portfolio-Projekteinzelseiten – Referenzarbeiten
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
     ...portfolioSlugs.map((slug) => ({
       url: `${baseUrl}/portfolio/${slug}`,
       lastModified: lastmod,
       changeFrequency: 'monthly' as const,
       priority: 0.8,
     })),
-
-    // Stadt-Landingpages Webdesign - SEO-relevant für lokale Suche
-    ...cities.map((city) => ({
-      url: `${baseUrl}/webdesign/${city}`,
-      lastModified: lastmod,
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    })),
-
-    // Impressum - Rechtlich notwendig, niedrige Priorität
     {
       url: `${baseUrl}/impressum`,
       lastModified: lastmod,
       changeFrequency: 'yearly',
       priority: 0.2,
     },
-
-    // Datenschutz - Rechtlich notwendig, niedrige Priorität
     {
       url: `${baseUrl}/datenschutz`,
       lastModified: lastmod,
@@ -110,4 +83,3 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 }
-

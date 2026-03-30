@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import { baseUrl } from '../config/seo'
+import { baseUrl, seoKeywordsBase } from '../config/seo'
 import OrganizationSchema from './components/OrganizationSchema'
 import ProfessionalServiceSchema from './components/ProfessionalServiceSchema'
 // Client-Komponenten mit SSR laden, damit Server-HTML und erste Client-Paint übereinstimmen (keine Hydration-Mismatches durch ssr: false).
@@ -24,10 +24,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign',
-    default: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
+    default: 'Webdesign & System-Integration in Südhessen',
   },
-  description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt. Schnelle Websites, lokale Sichtbarkeit und Immobilien-Automation für Makler.',
-  keywords: ['Webdesign', 'SEO', 'Darmstadt', 'Pfungstadt', 'Website', 'Suchmaschinenoptimierung', 'Immobilienmakler', 'KMU'],
+  description:
+    'Behalten Sie Ihr System, ich upgrade das Design. Webdesign Darmstadt & Pfungstadt: Next.js, onOffice-Anbindung, lokales SEO für KMU & Makler in Südhessen.',
+  keywords: [...seoKeywordsBase],
   robots: {
     index: true,
     follow: true,
@@ -44,21 +45,24 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     url: baseUrl,
     siteName: '319Webdesign',
-    title: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
-    description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt. Schnelle Websites, lokale Sichtbarkeit und Immobilien-Automation für Makler.',
+    title: 'Webdesign & System-Integration Darmstadt & Pfungstadt | 319Webdesign',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign, onOffice & Buchungstools, lokales SEO für KMU und Immobilienmakler in Südhessen.',
     images: [
       {
         url: '/319Web_Mockup_iphone.png',
         width: 1200,
         height: 630,
-        alt: '319Webdesign',
+        alt:
+          '319Webdesign – High-Performance Next.js Webdesign und System-Integration für Darmstadt, Pfungstadt und Südhessen',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Webdesign & SEO in Darmstadt und Pfungstadt – 319Webdesign',
-    description: 'Professionelles Webdesign und SEO für Unternehmen in der Region Darmstadt und Pfungstadt.',
+    title: 'Webdesign & System-Integration Darmstadt & Pfungstadt | 319Webdesign',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js, onOffice-Anbindung, lokales SEO – Darmstadt, Pfungstadt, Südhessen.',
   },
   icons: {
     icon: '/browser-logo.png',

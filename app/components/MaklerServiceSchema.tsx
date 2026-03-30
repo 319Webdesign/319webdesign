@@ -8,23 +8,41 @@ export default function MaklerServiceSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
-    name: 'Webdesign für Immobilienmakler',
+    name: 'Webdesign für Immobilienmakler mit onOffice-Integration',
     description:
-      'Professionelles Webdesign und Immobilien-Software-Integration für Makler. Automatisierte Objekt-Anbindung via onOffice, FlowFact & OpenImmo. Schnittstellen-Lösungen für maximale Effizienz.',
+      'Professionelles Webdesign und Immobilien-Software-Integration für Makler in Südhessen und Darmstadt. Schwerpunkt: onOffice-Anbindung Website (Objekte, Leads), dazu FlowFact & OpenImmo – Next.js Performance für mehr Eigentümer-Anfragen.',
     provider: {
-      '@type': 'Organization',
+      '@type': 'LocalBusiness',
+      '@id': `${baseUrl}/#organization`,
       name: '319Webdesign',
       url: baseUrl,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Pfungstadt',
+        addressRegion: 'Hessen',
+        postalCode: '64319',
+        addressCountry: 'DE',
+      },
     },
-    areaServed: {
-      '@type': 'State',
-      name: 'Deutschland',
-    },
-    serviceType: ['Webdesign', 'Immobilien-Software-Integration', 'Schnittstellen-Anbindung'],
+    areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Südhessen' },
+      { '@type': 'City', name: 'Darmstadt' },
+      { '@type': 'City', name: 'Pfungstadt' },
+    ],
+    serviceType: ['Webdesign', 'onOffice Anbindung Website', 'Immobilien-Software-Integration', 'Schnittstellen-Anbindung'],
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Leistungen für Immobilienmakler',
       itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'onOffice Website-Integration',
+            description:
+              'onOffice Anbindung Website: Objekte, Suchprofile und Lead-Daten nahtlos in Ihr Next.js Webdesign – ohne doppelte Datenpflege.',
+          },
+        },
         {
           '@type': 'Offer',
           itemOffered: {

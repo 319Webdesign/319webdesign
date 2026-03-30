@@ -4,7 +4,7 @@ import { baseUrl } from '../../config/seo'
 export default function ProfessionalServiceSchema() {
   const schema = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'ProfessionalService'],
+    '@type': ['LocalBusiness', 'ProfessionalService', 'WebDesignService'],
     '@id': `${baseUrl}/#organization`,
     name: '319Webdesign',
     alternateName: '319 Webdesign',
@@ -12,7 +12,7 @@ export default function ProfessionalServiceSchema() {
     image: [`${baseUrl}/319.png`, `${baseUrl}/319Web_Mockup_iphone.png`],
     url: baseUrl,
     description:
-      '319Webdesign ist ein auf Webdesign und technisches SEO spezialisierter Dienstleister in Pfungstadt mit Fokus auf die Region Darmstadt. Leistungen: professionelles Webdesign für KMU und Immobilienmakler, Suchmaschinenoptimierung (SEO), Website-Wartung sowie onOffice- und Immobilien-Schnittstellen. High-Performance-Websites mit PageSpeed 99/100, Mobile-First und lokale Sichtbarkeit in Darmstadt, Pfungstadt, Griesheim und Weiterstadt.',
+      '319Webdesign: High-Performance Webdesign mit Next.js (Pfungstadt) für Darmstadt, Pfungstadt und Südhessen. System-Integration (onOffice, Buchungstools), Theme-Entwicklung für Bestandssysteme, lokales SEO für KMU und Immobilienmakler. Behalten Sie Ihr System – wir liefern das neue Design.',
     telephone: '+49-177-3236454',
     email: 'kontakt@319webdesign.com',
     address: {
@@ -29,6 +29,7 @@ export default function ProfessionalServiceSchema() {
       longitude: 8.6042,
     },
     areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Südhessen' },
       { '@type': 'City', name: 'Darmstadt' },
       { '@type': 'City', name: 'Pfungstadt' },
       { '@type': 'City', name: 'Griesheim' },
@@ -40,6 +41,7 @@ export default function ProfessionalServiceSchema() {
       opens: '09:00',
       closes: '18:00',
     },
+    openingHours: 'Mo-Fr 09:00-18:00',
     sameAs: [
       'https://instagram.com/319webdesign',
       'https://www.tiktok.com/@319webdesign',
@@ -47,8 +49,22 @@ export default function ProfessionalServiceSchema() {
     foundingDate: '2023',
     founder: { '@type': 'Person', name: 'Maik Schmidt' },
     priceRange: '€€',
-    knowsAbout: ['Webdesign', 'SEO', 'Next.js', 'onOffice', 'Immobilienmakler-Websites'],
-    serviceType: ['Webdesign', 'Suchmaschinenoptimierung', 'Website-Wartung', 'Immobilien-Software-Integration'],
+    knowsAbout: [
+      'Webdesign Darmstadt',
+      'Next.js Webdesigner Südhessen',
+      'onOffice Anbindung Website',
+      'KMU Digitalisierung',
+      'Theme Entwicklung für Bestandssysteme',
+      'Lokales SEO',
+      'Immobilienmakler Webdesign',
+    ],
+    serviceType: [
+      'High-Performance Webdesign (Next.js)',
+      'System-Integration (onOffice, Buchungstools)',
+      'Suchmaschinenoptimierung',
+      'Website-Wartung',
+      'Immobilien-Software-Integration',
+    ],
   }
 
   return (

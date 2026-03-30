@@ -3,7 +3,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, CheckCircle2, ExternalLink } from 'lucide-react'
 import { notFound } from 'next/navigation'
-import { baseUrl, getCanonicalUrl, truncateTitleForSeo } from '../../../config/seo'
+import {
+  baseUrl,
+  getCanonicalUrl,
+  seoKeywordsBase,
+  truncateDescriptionForSeo,
+  truncateTitleForSeo,
+} from '../../../config/seo'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import Breadcrumbs from '../../components/Breadcrumbs'
@@ -21,26 +27,38 @@ export async function generateMetadata({
 
   const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
   const pageTitle = truncateTitleForSeo(`${project.title} | ${project.category} ${project.location}`)
+  const description = truncateDescriptionForSeo(
+    `${project.title} – Webdesign-Portfolio ${project.category} in ${project.location}. ${project.task} PageSpeed ${project.lighthouseScore}/100, Next.js Webdesign von 319Webdesign – Darmstadt, Pfungstadt, Südhessen.`,
+  )
+  const ogTitle = `${pageTitle} | 319Webdesign`
+  const ogImageAlt = `Webdesign Portfolio ${project.title} – ${project.category} in ${project.location}, 319Webdesign`
   return {
     title: pageTitle,
-    description: `${project.title} – Webdesign-Referenz für ${project.category} in ${project.location}. PageSpeed ${project.lighthouseScore}/100. Von 319Webdesign.`,
+    description,
+    keywords: [...seoKeywordsBase, project.category, project.location, 'Webdesign Referenz'],
     robots: isDemoProject ? { index: false, follow: true } : { index: true, follow: true },
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: truncateTitleForSeo(`${project.title} | Webdesign ${project.location}`),
-      description: `${project.task.slice(0, 150)}…`,
+      title: ogTitle,
+      description,
       url: canonicalUrl,
       images: [
         {
           url: `${baseUrl}${project.imageUrl}`,
           width: 1200,
           height: 630,
-          alt: `${project.title} – Webdesign ${project.location}`,
+          alt: ogImageAlt,
         },
       ],
       siteName: '319Webdesign',
       locale: 'de_DE',
       type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: [`${baseUrl}${project.imageUrl}`],
     },
   }
 }
@@ -85,7 +103,7 @@ export default function PortfolioProjectPage({
               <div className="relative aspect-video md:aspect-[21/9] rounded-2xl overflow-hidden bg-slate-200 border border-slate-200 shadow-xl mb-8">
                 <Image
                   src={project.imageUrl}
-                  alt={`${project.title} – ${project.category} ${project.location}`}
+                  alt={`Webdesign Portfolio ${project.title} – ${project.category} in ${project.location}, Next.js Referenzprojekt 319Webdesign`}
                   fill
                   priority
                   className="object-cover object-top"

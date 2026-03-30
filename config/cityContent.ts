@@ -130,3 +130,21 @@ export function getWarumWebdesignContent(city: City): { heading: string; content
     content: `Professionelles Webdesign in ${city.name} und ${city.region} hilft Unternehmen, online gefunden zu werden und Vertrauen aufzubauen. Mit PageSpeed 99/100 und lokaler SEO positionieren Sie sich vor der Konkurrenz.`,
   }
 }
+
+/** Meta-Description (150–155 Zeichen) für regionale Webdesign-Unterseiten – USP + lokale Keywords. */
+export function getMetaDescriptionWebdesignCity(city: City): string {
+  const variants: Record<string, string> = {
+    darmstadt:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Darmstadt: onOffice, Buchung, lokales SEO für KMU & Makler in Südhessen – Performance.',
+    pfungstadt:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Pfungstadt: System-Integration, lokales SEO für Handwerk & Makler in Südhessen vor Ort.',
+    griesheim:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Griesheim: lokale SEO, onOffice & Performance für KMU – Region Darmstadt, Südhessen.',
+    weiterstadt:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Weiterstadt: B2B, lokales SEO & System-Anbindung für Mittelstand in Südhessen (DE).',
+  }
+  return (
+    variants[city.slug] ??
+    `Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign ${city.name}: lokales SEO, System-Integration für KMU & Makler in ${city.region}, Südhessen.`
+  )
+}

@@ -11,81 +11,124 @@ export const SEO_MAX_PAGE_TITLE_LENGTH = SEO_MAX_TITLE_LENGTH - SEO_TITLE_SUFFIX
 /** Title-Template für alle Seiten: %s | 319Webdesign (kurz für SERP unter ~600px) */
 export const titleTemplate = '%s | 319Webdesign'
 
+/** Zentrale Keywords für Meta-Tag (ergänzt seiten-spezifische Begriffe). */
+export const seoKeywordsBase = [
+  'Webdesign Darmstadt',
+  'Pfungstadt',
+  'Südhessen',
+  'onOffice Anbindung Website',
+  'Next.js Webdesigner Südhessen',
+  'KMU Digitalisierung',
+  'Theme Entwicklung für Bestandssysteme',
+  'Lokales SEO',
+  'Immobilienmakler Webdesign',
+] as const
+
 export interface PageSeoConfig {
   title: string
   description: string
   path: string
+  /** Zusätzliche Keywords nur für diese Seite (werden mit Basis-Keywords kombiniert). */
+  keywordsExtra?: string[]
   openGraph?: {
     title?: string
     description?: string
     image?: string
+    imageAlt?: string
   }
 }
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign & SEO in Darmstadt und Pfungstadt – So werden Sie online sichtbar',
-    description: 'Sie suchen professionelles Webdesign für Ihr Unternehmen in der Region Darmstadt? 319Webdesign entwickelt schnelle, suchmaschinenoptimierte Websites für KMU und Immobilienmakler – mit PageSpeed 99/100 und lokaler Expertise in Pfungstadt.',
+    title: 'Webdesign & System-Integration in Südhessen',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Webdesign Darmstadt & Pfungstadt: Next.js, onOffice-Anbindung, lokales SEO für KMU & Makler in Südhessen.',
     path: '/',
+    keywordsExtra: ['High-Performance Webdesign', 'System-Integration'],
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
+      imageAlt:
+        '319Webdesign – Next.js Webdesign und System-Integration für Darmstadt, Pfungstadt und Südhessen',
     },
   },
   launch: {
-    title: 'Webdesign & Launch in Darmstadt und Pfungstadt',
-    description: 'Wie wird aus Ihrer Idee eine fertige Website? 319Webdesign begleitet Sie vom Konzept bis zum Launch – mit Fokus auf Performance und Conversion in der Region Darmstadt.',
+    title: 'Next.js Webdesign & Launch in Darmstadt',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Launch Darmstadt & Pfungstadt: Performance, Conversion – Systeme bleiben, Design wird neu vor Ort.',
     path: '/leistungen/webdesign-launch',
+    keywordsExtra: ['Webdesign Launch', 'Next.js'],
   },
   seo: {
-    title: 'SEO für Unternehmen in Darmstadt und Pfungstadt',
-    description: 'Warum sind Sie bei Google nicht sichtbar? Wir optimieren Ihre Website für Suchanfragen in der Region – mit lokaler SEO und technischer Basis für nachhaltiges Wachstum.',
+    title: 'Lokales SEO für KMU & Makler in Südhessen',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Lokales SEO für Darmstadt & Pfungstadt: Sichtbarkeit, strukturierte Daten, mehr Anfragen für KMU & Makler.',
     path: '/leistungen/wachstum-seo',
+    keywordsExtra: ['Google Sichtbarkeit', 'regionale SEO'],
   },
   wartung: {
-    title: 'Website-Wartung und Support in Darmstadt',
-    description: 'Ihre Website soll sicher und schnell bleiben? 319Webdesign übernimmt Updates, Backups und technische Begleitung – damit Sie sich auf Ihr Geschäft konzentrieren können.',
+    title: 'Strategische Website-Betreuung für KMU',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Wartung & Betreuung in Pfungstadt: Updates, Backups, Monitoring – Ihre Website bleibt schnell und sicher.',
     path: '/leistungen/strategische-begleitung',
+    keywordsExtra: ['Website-Wartung', 'Support'],
   },
   leistungen: {
-    title: 'Leistungen: Webdesign, SEO und Wartung in Darmstadt',
-    description: 'Was bietet 319Webdesign? Webdesign & Launch, SEO-Optimierung und strategische Website-Betreuung für KMU und Immobilienmakler in Darmstadt, Pfungstadt und Umgebung.',
+    title: 'Leistungen: Webdesign, SEO & System-Integration',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign, onOffice & Buchung: lokales SEO für KMU & Makler in Darmstadt, Pfungstadt, Südhessen.',
     path: '/leistungen',
+    keywordsExtra: ['Leistungen Webdesign'],
   },
   portfolio: {
-    title: 'Webdesign-Referenzen aus Darmstadt und Pfungstadt',
-    description: 'An welchen Projekten arbeitet 319Webdesign? Hier finden Sie ausgewählte Websites für KMU und Makler aus der Region – von der Visitenkarte bis zur Immobilien-Plattform.',
+    title: 'Portfolio: Webdesign Darmstadt & Pfungstadt',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Portfolio Webdesign Darmstadt & Pfungstadt: Next.js, PageSpeed, lokales SEO für KMU & Makler in Südhessen.',
     path: '/portfolio',
+    keywordsExtra: ['Webdesign Referenzen', 'Portfolio'],
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
+      imageAlt:
+        'Webdesign Portfolio – Projekte für KMU und Immobilienmakler in Darmstadt und Pfungstadt',
     },
   },
   kontakt: {
-    title: 'Kostenlose Erstberatung für Ihr Webdesign-Projekt',
-    description: 'Sie möchten mit 319Webdesign starten? Schreiben Sie uns – wir besprechen Ihre Ziele und Möglichkeiten für Webdesign und SEO in Darmstadt und Pfungstadt.',
+    title: 'Erstberatung Webdesign Darmstadt & Pfungstadt',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Erstberatung Webdesign Darmstadt & Pfungstadt – persönlich, transparent, Antwort meist in 24 Stunden.',
     path: '/kontakt',
+    keywordsExtra: ['Kontakt Webdesign', 'Erstberatung'],
   },
   impressum: {
     title: 'Impressum – Rechtliche Angaben | 319Webdesign',
-    description: 'Impressum und rechtliche Angaben von 319Webdesign. Kontaktinformationen und gesetzliche Hinweise gemäß TMG.',
+    description:
+      'Impressum 319Webdesign, Maik Schmidt, Nahestrasse 22, 64319 Pfungstadt – Angaben gemäß § 5 TMG, Kontakt – Webdesign Darmstadt, Pfungstadt, Südhessen (DE).',
     path: '/impressum',
+    keywordsExtra: ['Impressum'],
   },
   datenschutz: {
     title: 'Datenschutz – DSGVO-konform | 319Webdesign',
-    description: 'Datenschutzerklärung von 319Webdesign. Informationen zur Datenverarbeitung gemäß DSGVO und Ihren Rechten als Nutzer.',
+    description:
+      'Datenschutz 319Webdesign (Pfungstadt): DSGVO, Cookies, Kontaktformular, Server-Logs – Informationen zur Datenverarbeitung und Ihre Betroffenenrechte hier.',
     path: '/datenschutz',
+    keywordsExtra: ['Datenschutz'],
   },
   immobilienmakler: {
-    title: 'Webdesign für Immobilienmakler | onOffice & Schnittstellen',
-    description: 'Exklusives Webdesign für Immobilienmakler. onOffice, FlowFact & OpenImmo. Mehr Anfragen durch maximale Performance.',
+    title: 'Webdesign Makler & onOffice-Anbindung Südhessen',
+    description:
+      'Behalten Sie Ihr System, ich upgrade das Design. Immobilien-Webdesign Südhessen: onOffice-Anbindung, Objekt-Sync, Next.js Performance für mehr Eigentümer-Anfragen.',
     path: '/immobilienmakler-webdesign',
+    keywordsExtra: ['onOffice Integration', 'Immobilienmakler Website'],
   },
   ueberMich: {
-    title: 'Über Mich – Webdesign & SEO aus Pfungstadt',
+    title: 'Next.js Webdesigner Südhessen – Maik Schmidt',
     description:
-      'Maik Schmidt von 319Webdesign: Partner für schnelles Webdesign und SEO in Darmstadt, Pfungstadt und Umgebung – mit Next.js, lokaler Expertise und Fokus auf messbaren Erfolg.',
+      'Behalten Sie Ihr System, ich upgrade das Design. Maik Schmidt, Next.js Webdesigner Pfungstadt – Projekte für Darmstadt, Südhessen und KMU-Digitalisierung.',
     path: '/uber-mich',
+    keywordsExtra: ['Über 319Webdesign', 'Webdesigner Pfungstadt'],
     openGraph: {
       image: '/maik.webp',
+      imageAlt:
+        'Maik Schmidt – Next.js Webdesigner und SEO-Spezialist für Darmstadt, Pfungstadt und Südhessen',
     },
   },
 }
@@ -106,6 +149,16 @@ export function truncateTitleForSeo(title: string, maxLength: number = SEO_MAX_P
   return cut.trim()
 }
 
+/** Meta-Description auf typische SERP-Länge (~150–155 Zeichen) kürzen. */
+export function truncateDescriptionForSeo(description: string, maxLength = 155): string {
+  const t = description.trim()
+  if (t.length <= maxLength) return t
+  const cut = t.slice(0, maxLength - 1)
+  const lastSpace = cut.lastIndexOf(' ')
+  if (lastSpace > maxLength * 0.55) return `${cut.slice(0, lastSpace).trimEnd()}…`
+  return `${cut.trimEnd()}…`
+}
+
 /** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt " | 319Webdesign" hinzu (SERP unter ~600px). */
 export function getSeoMetadata(config: PageSeoConfig) {
   const canonicalUrl = getCanonicalUrl(config.path)
@@ -115,16 +168,19 @@ export function getSeoMetadata(config: PageSeoConfig) {
   const ogTitle = truncateTitleForSeo(config.openGraph?.title ?? title)
   const ogDescription = config.openGraph?.description ?? description
   const ogImage = config.openGraph?.image ?? '/319Web_Mockup_iphone.png'
+  const ogImageAlt = config.openGraph?.imageAlt ?? `${title} | 319Webdesign`
+  const keywordsList = [...seoKeywordsBase, ...(config.keywordsExtra ?? [])]
 
   return {
     title,
     description,
+    keywords: keywordsList,
     robots: { index: true, follow: true },
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: ogTitle,
+      title: `${ogTitle} | 319Webdesign`,
       description: ogDescription,
       url: canonicalUrl,
       siteName: '319Webdesign',
@@ -133,7 +189,7 @@ export function getSeoMetadata(config: PageSeoConfig) {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: ogImageAlt,
         },
       ],
       locale: 'de_DE',
@@ -141,7 +197,7 @@ export function getSeoMetadata(config: PageSeoConfig) {
     },
     twitter: {
       card: 'summary_large_image' as const,
-      title: ogTitle,
+      title: `${ogTitle} | 319Webdesign`,
       description: ogDescription,
       images: [ogImage],
     },

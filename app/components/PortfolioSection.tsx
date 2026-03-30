@@ -72,7 +72,7 @@ export default function PortfolioSection() {
                   <div className="relative h-40 shrink-0 overflow-hidden bg-slate-100 sm:h-44">
                     <Image
                       src={project.imageUrl}
-                      alt={`${project.title} – Projektvorschau`}
+                      alt={`Webdesign Portfolio ${project.title} – ${project.category} in ${project.location}, Next.js Referenz 319Webdesign Darmstadt`}
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"

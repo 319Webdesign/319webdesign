@@ -34,7 +34,7 @@ export default function TechStackSection() {
             <li key={src} className="flex w-[88px] flex-col items-center sm:w-[100px]">
               <Image
                 src={src}
-                alt=""
+                alt={`${name} Logo – Technologie-Stack für Next.js Webdesign in Darmstadt und Südhessen`}
                 width={56}
                 height={56}
                 unoptimized

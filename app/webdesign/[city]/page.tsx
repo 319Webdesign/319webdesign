@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { getCanonicalUrl, truncateTitleForSeo } from '../../../config/seo'
+import { getCanonicalUrl, seoKeywordsBase, truncateDescriptionForSeo, truncateTitleForSeo } from '../../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, Check, MapPin, Users, Building2 } from 'lucide-react'
 import { notFound } from 'next/navigation'
@@ -13,7 +13,7 @@ import {
   getCityPageTexts,
   getLocalSectionText,
 } from '../../../config/cityPageTemplate'
-import { getUniqueH1Webdesign, getDescriptionWebdesign } from '../../../config/cityContent'
+import { getUniqueH1Webdesign, getMetaDescriptionWebdesignCity } from '../../../config/cityContent'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -30,20 +30,37 @@ export async function generateMetadata({
   }
 
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
-  const pageTitle = truncateTitleForSeo(`Webdesign ${city.name} | High-Performance Websites`)
+  const pageTitle = truncateTitleForSeo(`Next.js Webdesign ${city.name} | Südhessen`)
+  const description = truncateDescriptionForSeo(getMetaDescriptionWebdesignCity(city))
+  const ogTitle = `${pageTitle} | 319Webdesign`
+  const ogImageAlt = `Next.js Webdesign ${city.name} – System-Integration und lokales SEO für KMU & Makler in Südhessen`
   return {
     title: pageTitle,
-    description: getDescriptionWebdesign(city),
-    keywords: city.keywords.join(', '),
+    description,
+    keywords: [...seoKeywordsBase, ...city.keywords],
     robots: { index: true, follow: true },
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title: pageTitle,
-      description: getDescriptionWebdesign(city),
+      title: ogTitle,
+      description,
       url: canonicalUrl,
       siteName: '319Webdesign',
       locale: 'de_DE',
       type: 'website',
+      images: [
+        {
+          url: '/319Web_Mockup_iphone.png',
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: ogTitle,
+      description,
+      images: ['/319Web_Mockup_iphone.png'],
     },
   }
 }
@@ -236,11 +253,14 @@ export default function CityPage({ params }: { params: { city: string } }) {
         </section>
 
         {/* Features – H3 zu bold p für besseres Überschriften-Verhältnis */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-white" aria-labelledby="was-sie-bekommen-heading">
           <div className="max-w-6xl mx-auto">
-            <p className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900">
-              <strong>Was Sie bekommen</strong>
-            </p>
+            <h2
+              id="was-sie-bekommen-heading"
+              className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900"
+            >
+              Was Sie bekommen
+            </h2>
             <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
               {texts.featuresIntro}
             </p>
@@ -251,9 +271,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
                   key={index}
                   className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all duration-300"
                 >
-                  <p className="text-xl font-bold mb-3 text-blue-600">
+                  <h3 className="text-xl font-bold mb-3 text-blue-600">
                     {feature.title}
-                  </p>
+                  </h3>
                   <p className="text-slate-700 leading-relaxed">
                     {feature.description}
                   </p>
@@ -285,11 +305,11 @@ export default function CityPage({ params }: { params: { city: string } }) {
         </section>
 
         {/* Local Section – H3 zu bold p */}
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-white" aria-labelledby="webdesign-region-heading">
           <div className="max-w-5xl mx-auto text-center">
-            <p className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              <strong>Webdesign aus {city.region}</strong>
-            </p>
+            <h2 id="webdesign-region-heading" className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+              Webdesign für KMU und Immobilienmakler in {city.name} und Südhessen
+            </h2>
             <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
               {city.description} {getLocalSectionText(city)}
             </p>

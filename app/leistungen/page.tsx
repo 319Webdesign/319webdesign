@@ -100,7 +100,8 @@ export default function LeistungenPage() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
-            Professionelles Webdesign in Darmstadt und Pfungstadt – alles aus einer Hand. Webdesign, das Ihre Sichtbarkeit steigert.
+            High-Performance Webdesign (Next.js), System-Integration (onOffice, Buchungstools) und lokales SEO für KMU
+            und Immobilienmakler in Darmstadt, Pfungstadt und Südhessen – aus einer Hand.
           </p>
         </div>
       </section>

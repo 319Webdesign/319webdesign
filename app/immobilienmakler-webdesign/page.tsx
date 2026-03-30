@@ -57,11 +57,12 @@ export default function ImmobilienmaklerWebdesignPage() {
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0f172a] leading-[1.1] tracking-tight mb-8">
               Webdesign für{' '}
               <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-                Immobilienmakler
+                Immobilienmakler in Südhessen
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Automatisierte Objekt-Schnittstellen, mehr Eigentümer-Anfragen und maximale Performance durch High-End Webdesign.
+              onOffice-Anbindung Website, automatisierte Objekt-Schnittstellen und Next.js Performance für Makler in
+              Darmstadt und Pfungstadt – mehr Eigentümer-Anfragen durch High-End Webdesign.
             </p>
           </div>
         </section>

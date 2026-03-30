@@ -19,7 +19,7 @@ export default function LaunchFoundation() {
       width={1920}
       height={1080}
       priority
-      alt="Webdesign Darmstadt"
+      alt="Next.js Webdesign Darmstadt und Pfungstadt – Code-Beispiel optimiertes Bild, 319Webdesign"
     />
   )
 }`

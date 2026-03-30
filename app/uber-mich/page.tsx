@@ -41,11 +41,11 @@ export default function UberMichPage() {
             <motion.div {...fadeInUp}>
               <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">319Webdesign</p>
               <h1 className="text-2xl md:text-3xl font-bold text-slate-900 tracking-tight mb-2">
-                Über Mich
+                Über Mich – Next.js Webdesigner aus Pfungstadt für Darmstadt & Südhessen
               </h1>
               <p className="text-sm md:text-base text-slate-600 max-w-2xl leading-relaxed">
-                Wer ich bin, wofür ich stehe – und warum ich Unternehmen in der Region Darmstadt und Pfungstadt
-                beim Webdesign und SEO begleite.
+                Wer ich bin, wofür ich stehe – und warum ich KMU und Immobilienmakler in Darmstadt, Pfungstadt und
+                Südhessen beim Webdesign, der System-Integration und beim lokalen SEO begleite.
               </p>
             </motion.div>
           </div>

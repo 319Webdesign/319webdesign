@@ -115,7 +115,7 @@ export default function PortfolioPage() {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto">
-            Wo Design auf Performance trifft – unsere erfolgreichsten Case Studies.
+            Wo Design auf Performance trifft – Next.js Webdesign-Referenzen aus Darmstadt, Pfungstadt und Südhessen.
           </p>
         </motion.div>
       </section>

@@ -5,7 +5,8 @@ export default function OrganizationSchema() {
     name: '319Webdesign',
     url: 'https://www.319webdesign.com',
     logo: 'https://www.319webdesign.com/319.png',
-    description: 'Professionelles Webdesign für KMU in Pfungstadt sowie Immobilien-Software-Integration für Makler.',
+    description:
+      '319Webdesign (Pfungstadt): High-Performance Next.js Webdesign für Darmstadt, Pfungstadt und Südhessen. System-Integration (onOffice, Buchungstools), lokales SEO für KMU und Immobilienmakler, Theme-Entwicklung für Bestandssysteme.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Pfungstadt',

@@ -1,7 +1,7 @@
 'use client'
 
 import { Instagram, MessageCircle } from 'lucide-react'
-import Image from 'next/image'
+import Link from 'next/link'
 
 const menuLinks = [
   { href: '/', label: 'Startseite' },
@@ -56,14 +56,12 @@ export default function Footer() {
           {/* Spalte 1: Brand */}
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start">
-              <Image
-                src="/319.png"
-                alt="319Webdesign Logo – Webdesign für KMU und Immobilienmakler in Pfungstadt und Darmstadt"
-                width={110}
-                height={110}
-                sizes="(max-width: 768px) 70px, 110px"
-                className="object-contain w-[70px] h-[70px] md:w-[110px] md:h-[110px]"
-              />
+              <Link
+                href="/"
+                className="font-bold text-2xl md:text-3xl text-white tracking-tight hover:text-blue-200 transition-colors"
+              >
+                319Webdesign
+              </Link>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
               Design, das überzeugt. Technik, die performt.

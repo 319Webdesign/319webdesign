@@ -5,22 +5,15 @@ import { usePathname, useRouter } from 'next/navigation'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLeistungenOpen, setIsLeistungenOpen] = useState(false)
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null)
-  /** Erst nach Mount: verhindert Hydration-Mismatch (usePathname() kann beim SSR abweichen) */
-  const [hasMounted, setHasMounted] = useState(false)
   const { scrollY } = useScroll()
   const pathname = usePathname()
   const router = useRouter()
-
-  useEffect(() => {
-    setHasMounted(true)
-  }, [])
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 50)
@@ -180,21 +173,9 @@ export default function Header() {
               }}
               className="relative"
             >
-              {hasMounted && pathname === '/' ? (
-                <span className="block font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">
-                  319Webdesign
-                </span>
-              ) : (
-                <Image
-                  src="/319.png"
-                  alt="319Webdesign Logo – Webdesign für KMU und Immobilienmakler in Pfungstadt und Darmstadt"
-                  width={110}
-                  height={110}
-                  sizes="(max-width: 768px) 70px, 110px"
-                  className="object-contain w-[70px] h-[70px] md:w-[110px] md:h-[110px] brightness-0"
-                  priority
-                />
-              )}
+              <span className="block font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">
+                319Webdesign
+              </span>
             </motion.div>
           </Link>
 

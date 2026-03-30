@@ -39,6 +39,10 @@ export interface PortfolioProject {
   }
   /** Erzielte Ergebnisse für Checkmarks */
   results: string[]
+  /** Tags für die Referenz-Karten auf der Startseite (Badges) */
+  homepageTags?: string[]
+  /** Kurzer Teaser-Text für die Referenz-Karte auf der Startseite */
+  homepageTeaser?: string
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -100,6 +104,9 @@ export const portfolioProjects: PortfolioProject[] = [
       'Mobile-First Design',
       'Blitzschnelle Ladezeiten',
     ],
+    homepageTags: ['Next.js', 'Performance', 'Video-SEO'],
+    homepageTeaser:
+      'Hochwertige Medienproduktion mit blitzschneller Video-Pipeline und starker regionaler Sichtbarkeit.',
   },
   {
     id: 2,
@@ -148,6 +155,9 @@ export const portfolioProjects: PortfolioProject[] = [
       'Conversion-optimierte Struktur',
       'Responsive für alle Geräte',
     ],
+    homepageTags: ['Next.js', 'SEO', 'Miet-Katalog'],
+    homepageTeaser:
+      'Großer Equipment-Katalog mit sauberer URL-Struktur und maximaler Performance für die Region.',
   },
   {
     id: 3,
@@ -199,6 +209,9 @@ export const portfolioProjects: PortfolioProject[] = [
       'Event- und Öffnungszeiten-Darstellung',
       'Mobile-optimiert',
     ],
+    homepageTags: ['Next.js', 'Animation', 'Local SEO'],
+    homepageTeaser:
+      'Premium-Gastronomie-Auftritt mit Animationen, Reservierung und lokaler Google-Sichtbarkeit.',
   },
   {
     id: 4,

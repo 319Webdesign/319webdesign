@@ -116,25 +116,6 @@ export default function InvestmentSection() {
           </motion.div>
         )}
 
-        {/* Strukturierte Übersicht für KI/Crawler: Strategie-Pakete */}
-        <div className="overflow-x-auto max-w-4xl mx-auto mb-10" aria-label="Übersicht der Strategie-Pakete">
-          <table className="w-full border-collapse border border-slate-200 rounded-lg text-left text-sm">
-            <caption className="sr-only">Maßgeschneiderte Strategien von 319Webdesign: Launch, Scale, Partner</caption>
-            <thead>
-              <tr className="bg-slate-100">
-                <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Paket</th>
-                <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Fokus</th>
-                <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Enthalten (Auswahl)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-slate-100"><td className="px-4 py-3 font-medium text-slate-800">Launch</td><td className="px-4 py-3 text-slate-600">Performance-Fundament &amp; Schnelligkeit</td><td className="px-4 py-3 text-slate-600">PageSpeed 99/100, Responsive Design, SEO-Grundlagen</td></tr>
-              <tr className="border-b border-slate-100"><td className="px-4 py-3 font-medium text-slate-800">Scale</td><td className="px-4 py-3 text-slate-600">Reichweite &amp; SEO-Dominanz</td><td className="px-4 py-3 text-slate-600">SEO-Strategie, monatliche Analysen, Content-Optimierung, Wartung</td></tr>
-              <tr><td className="px-4 py-3 font-medium text-slate-800">Partner</td><td className="px-4 py-3 text-slate-600">Strategische Begleitung &amp; Full-Service</td><td className="px-4 py-3 text-slate-600">Dedizierter Ansprechpartner, proaktive Optimierung, Strategie-Meetings</td></tr>
-            </tbody>
-          </table>
-        </div>
-
         {/* Wachstums-Bereiche Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
           {wachstumsBereiche.map((bereich, index) => {

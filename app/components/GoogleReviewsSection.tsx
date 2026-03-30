@@ -78,7 +78,7 @@ export default function GoogleReviewsSection() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
-            <p className="text-slate-600" role="status">Bewertungen werden geladen…</p>
+            <p className="text-lg text-slate-600 md:text-xl leading-relaxed" role="status">Bewertungen werden geladen…</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[1, 2, 3].map((i) => (
@@ -106,7 +106,7 @@ export default function GoogleReviewsSection() {
           <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
             Sind Kunden mit 319Webdesign in Darmstadt und Pfungstadt zufrieden?
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed md:text-xl">
             Aktuelle Google-Bewertungen aus Darmstadt und Pfungstadt.
           </p>
           {data?.rating != null && data?.userRatingsTotal != null && (

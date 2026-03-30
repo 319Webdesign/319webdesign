@@ -5,9 +5,9 @@ import './globals.css'
 import { baseUrl } from '../config/seo'
 import OrganizationSchema from './components/OrganizationSchema'
 import ProfessionalServiceSchema from './components/ProfessionalServiceSchema'
-// Schwere/ nicht-SEO-Komponenten erst clientseitig laden → schnelleres SSR, bessere TTFB
-const CookieBanner = dynamic(() => import('./components/CookieBanner'), { ssr: false })
-const WhatsAppButton = dynamic(() => import('./components/WhatsAppButton'), { ssr: false })
+// Client-Komponenten mit SSR laden, damit Server-HTML und erste Client-Paint übereinstimmen (keine Hydration-Mismatches durch ssr: false).
+const CookieBanner = dynamic(() => import('./components/CookieBanner'), { ssr: true })
+const WhatsAppButton = dynamic(() => import('./components/WhatsAppButton'), { ssr: true })
 import SiteNavigationSchema from './components/SiteNavigationSchema'
 import ReducedMotionProvider from './components/ReducedMotionProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'

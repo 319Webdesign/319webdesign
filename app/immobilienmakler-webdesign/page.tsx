@@ -9,6 +9,7 @@ import MaklerServiceSchema from '../components/MaklerServiceSchema'
 
 const Header = dynamic(() => import('../components/Header'), { ssr: true })
 const Footer = dynamic(() => import('../components/Footer'), { ssr: true })
+const WarumSection = dynamic(() => import('../components/WarumSection'), { ssr: true })
 const ProzessSection = dynamic(() => import('../components/ProzessSection'), { ssr: true })
 
 export const metadata: Metadata = getSeoMetadata(seoConfig.immobilienmakler)
@@ -64,6 +65,8 @@ export default function ImmobilienmaklerWebdesignPage() {
             </p>
           </div>
         </section>
+
+        <WarumSection />
 
         {/* Mehrwert-Sektion – Split-Layout */}
         <section className="py-24 md:py-32 px-6">

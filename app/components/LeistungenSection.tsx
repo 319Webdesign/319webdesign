@@ -49,26 +49,6 @@ export default function LeistungenSection() {
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             Welche Leistungen bietet 319Webdesign in Darmstadt und Pfungstadt?
           </h2>
-          <p className="text-lg text-slate-600 max-w-3xl mx-auto mb-4">
-            Maximale <span className="text-blue-600">Performance</span> und messbarer <span className="text-blue-600">Erfolg</span> – Zahlen lügen nicht.
-          </p>
-          {/* Strukturierte Daten für KI/Crawler: Leistungsübersicht */}
-          <div className="overflow-x-auto max-w-4xl mx-auto mb-8">
-            <table className="w-full border-collapse border border-slate-200 rounded-lg text-left text-sm">
-              <caption className="sr-only">Übersicht der Leistungen von 319Webdesign in Darmstadt und Pfungstadt</caption>
-              <thead>
-                <tr className="bg-slate-50">
-                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Leistung</th>
-                  <th scope="col" className="px-4 py-3 font-semibold text-slate-900 border-b border-slate-200">Kurzbeschreibung</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="border-b border-slate-100"><td className="px-4 py-3 text-slate-700">Webdesign &amp; Launch</td><td className="px-4 py-3 text-slate-600">Individuelle Designs, Performance-Fundament, von der Idee bis zum Launch.</td></tr>
-                <tr className="border-b border-slate-100"><td className="px-4 py-3 text-slate-700">Wachstum &amp; SEO</td><td className="px-4 py-3 text-slate-600">Mehr Sichtbarkeit bei Google, organisches Wachstum für Ihr Business.</td></tr>
-                <tr><td className="px-4 py-3 text-slate-700">Strategische Begleitung</td><td className="px-4 py-3 text-slate-600">Langfristige Partnerschaft, Wartung, Optimierung und Weiterentwicklung.</td></tr>
-              </tbody>
-            </table>
-          </div>
         </HeaderEl>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -85,7 +65,7 @@ export default function LeistungenSection() {
                   <strong>{item.title}</strong>
                 </Link>
               </p>
-              <p className="text-slate-600 leading-relaxed mb-4">{item.description}</p>
+              <p className="text-base text-slate-600 leading-relaxed mb-4">{item.description}</p>
               <Link
                 href={item.href}
                 className="inline-flex items-center gap-2 text-[#3B82F6] font-semibold hover:gap-3 transition-all group/lk"

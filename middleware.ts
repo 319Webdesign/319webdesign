@@ -11,6 +11,7 @@ const STATIC_PATHS = [
   '/leistungen/strategische-begleitung',
   '/immobilienmakler-webdesign',
   '/portfolio',
+  '/uber-mich',
   '/kontakt',
   '/impressum',
   '/datenschutz',
@@ -26,7 +27,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301)
   }
 
-  if (pathname !== pathname.toLowerCase()) {
+  // Nur HTML-Seiten kanonisieren – nicht /public-Assets: auf Linux (Vercel) stimmt der Dateiname exakt,
+  // ein Redirect auf lowercase würde z. B. 319Web_Mockup_iphone.png → 404 liefern und next/image bricht ab.
+  const looksLikeStaticAsset = /\.(ico|png|jpg|jpeg|gif|webp|svg|css|js|woff2?|txt|xml|json|map|webmanifest)$/i.test(
+    pathname
+  )
+  if (!looksLikeStaticAsset && pathname !== pathname.toLowerCase()) {
     const url = request.nextUrl.clone()
     url.pathname = pathname.toLowerCase()
     return NextResponse.redirect(url, 301)
@@ -90,5 +96,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],
+  // Nur echte API-Routen (`/api/…`), gesamtes `/_next/…`, Favicon – kein kurzes `api` (vermeidet false positives z. B. `/apix`)
+  matcher: ['/((?!api/|_next|favicon.ico).*)'],
 }

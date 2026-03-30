@@ -3,33 +3,56 @@
 import { Instagram, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
 
+const menuLinks = [
+  { href: '/', label: 'Startseite' },
+  { href: '/uber-mich', label: 'Über Mich' },
+  { href: '/leistungen', label: 'Leistungen' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/kontakt', label: 'Kontakt' },
+]
+
+const leistungenLinks = [
+  { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
+  { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
+  { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' },
+  { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign' },
+]
+
+const linkClass =
+  'text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm'
+
+const leistungenBandLinkClass =
+  'block rounded-lg border border-white/[0.06] bg-white/[0.02] px-4 py-3 text-center sm:text-left text-slate-300 text-sm font-medium hover:text-blue-400 hover:border-blue-500/25 hover:bg-white/[0.04] transition-colors duration-300'
+
 export default function Footer() {
   return (
-    <footer className="bg-[#030303] border-t border-[rgba(255,255,255,0.05)]">
-      <div className="max-w-7xl mx-auto px-6 py-10 md:py-12">
-        {/* Prominent CTA Section */}
-        <div className="mb-12 pb-12 border-b border-[rgba(255,255,255,0.05)]">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="text-2xl md:text-3xl font-bold text-white mb-4">
-              <strong>Bereit für dein Projekt?</strong>
-            </p>
-            <p className="text-slate-400 mb-6">
-              Lass uns gemeinsam eine Website erstellen, die dein Business voranbringt.
-            </p>
-            <a
-              href="/kontakt"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
-            >
-              Kostenloses Erstgespräch
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
+    <>
+      <section
+        aria-labelledby="footer-leistungen-heading"
+        className="bg-[#0a0a0c] border-t border-[rgba(255,255,255,0.06)]"
+      >
+        <div className="max-w-7xl mx-auto px-6 py-10 md:py-12">
+          <h2
+            id="footer-leistungen-heading"
+            className="text-white font-semibold text-lg md:text-xl mb-6 text-center"
+          >
+            Leistungen
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+            {leistungenLinks.map(({ href, label }) => (
+              <li key={href}>
+                <a href={href} className={leistungenBandLinkClass}>
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
+      </section>
 
-        {/* Main Footer Content - 5 Spalten */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 md:gap-8 lg:gap-8 mb-12">
+      <footer className="bg-[#030303] border-t border-[rgba(255,255,255,0.05)]">
+        <div className="max-w-7xl mx-auto px-6 py-10 md:py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-12 md:gap-10 xl:gap-8 mb-12">
           {/* Spalte 1: Brand */}
           <div className="space-y-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start">
@@ -51,48 +74,19 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Spalte 2: Navigation - Hauptseiten + Sitelinks für Leistungen */}
+          {/* Menü (wie Hauptnavigation) */}
           <div className="space-y-4 text-center md:text-left">
-            <p className="text-white font-semibold text-base mb-4"><strong>Navigation</strong></p>
+            <p className="text-white font-semibold text-base mb-4">
+              <strong>Menü</strong>
+            </p>
             <ul className="space-y-3">
-              <li>
-                <a 
-                  href="/" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
-                >
-                  Startseite
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/leistungen" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
-                >
-                  Leistungen
-                </a>
-              </li>
-              <li className="pl-3 border-l border-slate-700 space-y-2 mt-2">
-                <a href="/leistungen/webdesign-launch" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Webdesign & Launch</a>
-                <a href="/leistungen/wachstum-seo" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Wachstum & SEO</a>
-                <a href="/leistungen/strategische-begleitung" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Strategische Begleitung</a>
-                <a href="/immobilienmakler-webdesign" className="block text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm">Immobilienmakler Webdesign</a>
-              </li>
-              <li>
-                <a 
-                  href="/portfolio" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
-                >
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/kontakt" 
-                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm font-semibold"
-                >
-                  → Kontakt
-                </a>
-              </li>
+              {menuLinks.map(({ href, label }) => (
+                <li key={href}>
+                  <a href={href} className={linkClass}>
+                    {label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -198,7 +192,9 @@ export default function Footer() {
         <div className="pt-8 border-t border-[rgba(255,255,255,0.05)]">
           <div className="flex flex-col md:flex-row justify-center md:justify-between items-center gap-4 text-xs text-slate-500 text-center">
             <p>
-              &copy; {new Date().getFullYear()} 319Webdesign. Alle Rechte vorbehalten.
+              &copy;{' '}
+              <span suppressHydrationWarning>{new Date().getFullYear()}</span>{' '}
+              319Webdesign. Alle Rechte vorbehalten.
             </p>
             <div className="flex items-center justify-center gap-6">
               <a 
@@ -224,6 +220,7 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   )
 }
 

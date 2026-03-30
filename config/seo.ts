@@ -79,6 +79,15 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     description: 'Exklusives Webdesign für Immobilienmakler. onOffice, FlowFact & OpenImmo. Mehr Anfragen durch maximale Performance.',
     path: '/immobilienmakler-webdesign',
   },
+  ueberMich: {
+    title: 'Über Mich – Webdesign & SEO aus Pfungstadt',
+    description:
+      'Maik Schmidt von 319Webdesign: Partner für schnelles Webdesign und SEO in Darmstadt, Pfungstadt und Umgebung – mit Next.js, lokaler Expertise und Fokus auf messbaren Erfolg.',
+    path: '/uber-mich',
+    openGraph: {
+      image: '/maik.webp',
+    },
+  },
 }
 
 /** Dynamischer Canonical: baseUrl + aktueller Pfad (ohne Trailing Slash). Verhindert "Nicht indexierbar / Canonicalised". */

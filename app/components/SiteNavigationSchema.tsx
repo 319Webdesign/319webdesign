@@ -8,8 +8,8 @@ export default function SiteNavigationSchema() {
       {
         '@type': 'SiteNavigationElement',
         position: 1,
-        name: 'Prozess',
-        url: `${baseUrl}/#prozess`,
+        name: 'Über Mich',
+        url: `${baseUrl}/uber-mich`,
       },
       {
         '@type': 'SiteNavigationElement',

@@ -40,14 +40,14 @@ export default function WhatsAppButton() {
         onMouseLeave={() => setIsHovered(false)}
         whileHover={{ scale: 1.1, y: -4 }}
         whileTap={{ scale: 0.95 }}
-        className="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl hover:shadow-[#25D366]/50 transition-all duration-300 group"
+        className="relative flex items-center justify-center w-12 h-12 md:w-14 md:h-14 bg-[#25D366] rounded-full shadow-lg hover:shadow-xl hover:shadow-[#25D366]/50 transition-all duration-300 group"
         aria-label="WhatsApp - Jetzt Anfrage senden"
       >
         {/* WhatsApp Icon SVG */}
         <svg
           viewBox="0 0 24 24"
           fill="white"
-          className="w-7 h-7 md:w-8 md:h-8"
+          className="w-6 h-6 md:w-7 md:h-7"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
         >

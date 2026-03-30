@@ -10,7 +10,7 @@ import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
 import { portfolioProjects } from '../../config/projects'
 
-const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection'), { ssr: false })
+const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection'), { ssr: true })
 
 // Heinerfilm, da-sound und Arena Sportsbar anzeigen (ohne DemoSeite)
 const displayProjects = portfolioProjects.filter(

@@ -13,7 +13,13 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: "easeOut" }
 }
 
-export default function UeberMichSection() {
+interface UeberMichSectionProps {
+  /** Optional: Ziel für „Arbeitsweise“ (z. B. `#prozess` auf `/uber-mich` oder `"/#prozess"` von einer anderen Seite). */
+  processLinkHref?: string
+}
+
+export default function UeberMichSection({ processLinkHref }: UeberMichSectionProps) {
+  const processHref = processLinkHref ?? '#prozess'
   const reduceMotion = useReduceMotion()
   const WrapEl = reduceMotion ? 'div' : motion.div
   const wrapProps = reduceMotion ? { className: 'relative' } : { ...fadeInUp, className: 'relative' }
@@ -23,7 +29,7 @@ export default function UeberMichSection() {
   const btnProps = reduceMotion ? {} : { whileHover: { scale: 1.05 }, whileTap: { scale: 0.95 }, animate: { boxShadow: ['0 10px 25px -5px rgba(59, 130, 246, 0.5)', '0 15px 35px -5px rgba(59, 130, 246, 0.6)', '0 10px 25px -5px rgba(59, 130, 246, 0.5)' ] }, transition: { boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' } } }
 
   return (
-    <section className="pt-16 pb-12 md:pt-32 md:pb-24 px-6 bg-white">
+    <section className="pt-8 pb-12 md:pt-12 md:pb-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Bild links */}
@@ -73,7 +79,7 @@ export default function UeberMichSection() {
 
             {/* Call-to-Action Button */}
             <BtnEl {...btnWrapProps}>
-              <Link href="#prozess">
+              <Link href={processHref}>
                 <BtnEl {...btnProps} className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 group/btn cursor-pointer" aria-label="Mehr über die Arbeitsweise erfahren">
                   Mehr über meine Arbeitsweise
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" aria-hidden="true" />

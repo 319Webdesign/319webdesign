@@ -61,6 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     })),
 
+    // Über Mich – Vertrauen & E-E-A-T
+    {
+      url: `${baseUrl}/uber-mich`,
+      lastModified: lastmod,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+
     // Portfolio - Wichtig für Vertrauensaufbau
     {
       url: `${baseUrl}/portfolio`,

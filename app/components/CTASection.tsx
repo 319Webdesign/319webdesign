@@ -37,7 +37,7 @@ export default function CTASection() {
                   digitalen Vorsprung?
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-slate-600 leading-relaxed">
+              <p className="text-lg text-slate-600 leading-relaxed md:text-xl">
                 Verlieren Sie keine Kunden mehr an die Konkurrenz. Lassen Sie uns gemeinsam Ihre Website modernisieren und Ihre Angebote überzeugend präsentieren.
               </p>
             </div>

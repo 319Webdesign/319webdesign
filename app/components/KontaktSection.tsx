@@ -91,7 +91,7 @@ export default function KontaktSection() {
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
             Lassen Sie uns <span className="text-blue-600">sprechen</span>
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed md:text-xl">
             Bereit für Ihre neue Website? Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
           </p>
         </HeaderEl>

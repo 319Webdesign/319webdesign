@@ -1,12 +1,10 @@
 'use client'
 
-import { ArrowDown, ArrowRight } from 'lucide-react'
+import { ArrowDown, ArrowRight, Zap } from 'lucide-react'
 import Image from 'next/image'
-import Link from 'next/link'
-
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-28">
       {/* Animated Background - Mesh Gradient (Reduziert für Mobile) */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Weißer Hintergrund mit dezentem Blau-Akzent */}
@@ -21,54 +19,85 @@ export default function HeroSection() {
 
       {/* 2-Spalten-Grid für Desktop */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-center min-h-[80vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-start min-h-[80vh]">
           
           {/* Linke Spalte: Text und Buttons */}
           <div className="text-center lg:text-left lg:pr-8">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight animate-fade-in-up">
-              <span className="text-slate-900">Wer bietet Webdesign für KMU & Immobilienmakler in Darmstadt und Pfungstadt?</span>
+            <div className="flex justify-center lg:justify-start mb-4 animate-fade-in-up">
+              <span
+                className="inline-flex items-center gap-1.5 rounded-full border border-blue-500 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-600"
+                role="status"
+                aria-label="Technologie: Next.js"
+              >
+                <Zap className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
+                Next.js Powered
+              </span>
+            </div>
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight animate-fade-in-up">
+              <span className="text-slate-900">Webdesign für Darmstadt & Pfungstadt: Starke Websites mit System-Intelligenz</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-              <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent font-semibold">319Webdesign</span> – Professionelles Webdesign in Pfungstadt mit Fokus auf die Region Darmstadt: Mehr Anfragen für Ihr KMU und effizientere{' '}
-              <Link
-                href="/immobilienmakler-webdesign"
-                className="underline decoration-slate-300 decoration-1 underline-offset-2 hover:text-blue-600 hover:decoration-blue-400 transition-colors duration-200"
-              >
-                Vermarktung für Immobilienmakler
-              </Link>{' '}
-              durch{' '}
-              <Link
-                href="/leistungen/webdesign-launch"
-                className="underline decoration-slate-300 decoration-1 underline-offset-2 hover:text-blue-600 hover:decoration-blue-400 transition-colors duration-200"
-              >
-                High-Performance-Websites
-              </Link>
-              . Webdesign, das verkauft.
+              Vom regionalen KMU bis zum Immobilienmakler mit onOffice-Anbindung: Ich entwickle für Unternehmen in Darmstadt & Pfungstadt maßgeschneiderte High-Performance-Websites, die sich nahtlos in Ihre bestehenden Workflows einfügen.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mt-2 animate-fade-in-up animation-delay-200">
-              <a
-                href="/kontakt"
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/50 hover:shadow-blue-500/70 transition-all duration-300 inline-flex items-center gap-2 group/btn hover:scale-105 active:scale-95 will-change-transform"
-                aria-label="Zum Kontaktformular springen - Kostenlose Erstberatung"
+            <div className="mt-10 max-w-xl lg:max-w-none mx-auto lg:mx-0 animate-fade-in-up animation-delay-200">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
+                <a
+                  href="/kontakt"
+                  className="px-6 py-2.5 text-sm bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md shadow-blue-500/40 hover:shadow-lg hover:shadow-blue-500/60 transition-all duration-300 inline-flex items-center gap-2 group/btn hover:scale-[1.02] active:scale-[0.98] will-change-transform"
+                  aria-label="Zum Kontaktformular springen - Kostenlose Erstberatung"
+                >
+                  Kostenlose Erstberatung
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" aria-hidden="true" />
+                </a>
+                <a
+                  href="#leistungen"
+                  className="px-6 py-2.5 text-sm border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 inline-flex items-center gap-2 group/btn2 hover:scale-[1.02] active:scale-[0.98] will-change-transform"
+                  aria-label="Zu den Leistungen scrollen - Unsere Lösungen ansehen"
+                >
+                  Unsere Lösungen ansehen
+                  <ArrowDown className="w-3.5 h-3.5 group-hover/btn2:translate-y-0.5 transition-transform duration-300" aria-hidden="true" />
+                </a>
+              </div>
+
+              <div
+                className="mt-8 pt-6 border-t border-slate-200"
+                role="region"
+                aria-label="Performance- und Qualitätskennzahlen"
               >
-                Kostenlose Erstberatung
-                <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" aria-hidden="true" />
-              </a>
-              <a
-                href="#benefits"
-                className="px-8 py-4 border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 inline-flex items-center gap-2 group/btn2 hover:scale-105 active:scale-95 will-change-transform"
-                aria-label="Zu den Lösungen scrollen - Unsere Lösungen ansehen"
-              >
-                Unsere Lösungen ansehen
-                <ArrowDown className="w-4 h-4 group-hover/btn2:translate-y-1 transition-transform duration-300" aria-hidden="true" />
-              </a>
+                <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10 text-left">
+                  <div>
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tabular-nums tracking-tight">
+                      {'<'}100ms
+                    </p>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 mt-1 leading-snug">
+                      Time to First Byte
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tabular-nums tracking-tight">
+                      100
+                    </p>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 mt-1 leading-snug">
+                      Lighthouse Score
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tracking-tight">
+                      SEO
+                    </p>
+                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 mt-1 leading-snug">
+                      By Design
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Rechte Spalte: Porträtfoto */}
-          <div className="relative hidden lg:flex justify-end items-end h-full">
-            <div className="relative w-full h-[650px] flex items-end justify-end">
+          {/* Rechte Spalte: Porträtfoto (unten ausrichten, Zeile volle Höhe) */}
+          <div className="relative hidden lg:flex lg:flex-col lg:justify-end w-full lg:min-h-[80vh]">
+            <div className="relative w-full h-[650px] flex items-end justify-end lg:-translate-y-4">
               <Image
                 src="/maik-removebg.png"
                 alt="Webdesign für Immobilienmakler und KMU in Darmstadt und Pfungstadt – Maik Schmidt, 319Webdesign"

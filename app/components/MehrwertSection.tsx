@@ -51,7 +51,7 @@ export default function MehrwertSection() {
               Warum 319Webdesign als Partner für Webdesign in der Region Darmstadt?
             </h2>
 
-            <p className="text-lg text-slate-600 leading-relaxed mb-8">
+            <p className="text-lg text-slate-600 leading-relaxed mb-8 md:text-xl">
               Webdesign in Pfungstadt: KMUs punkten mit regionaler Nähe und Vertrauen vor Ort. Immobilienmakler nutzen Immobilien-Automation – onOffice, FlowFact, OpenImmo – für mehr Mandatsanfragen und weniger manuelle Arbeit. Beide Zielgruppen profitieren von professionellem Webdesign.
             </p>
 
@@ -71,7 +71,7 @@ export default function MehrwertSection() {
                       <dt className="font-bold text-slate-900 mb-1 uppercase text-sm tracking-wide">
                         {item.title}
                       </dt>
-                      <dd className="text-slate-600 leading-relaxed">{item.description}</dd>
+                      <dd className="text-base text-slate-600 leading-relaxed">{item.description}</dd>
                     </div>
                   </ItemEl>
                 )

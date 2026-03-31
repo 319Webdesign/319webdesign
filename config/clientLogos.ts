@@ -14,7 +14,7 @@ export const clientLogos: ClientLogo[] = [
     name: 'Heinerfilm',
     /** heller Schriftzug: CSS brightness-0 → schwarze Darstellung auf hellem Balken */
     logoSrc: '/kunden-logo/Heinerfilm_Schriftzug_weiss.png',
-    logoClass: 'brightness-0',
+    logoClass: 'grayscale brightness-0 contrast-200',
   },
   { name: 'Tierhotel', logoSrc: '/kunden-logo/tierhotel.png' },
   { name: '1klang', logoSrc: '/kunden-logo/logo.png' },

@@ -4,7 +4,7 @@ import { ArrowDown, ArrowRight, Zap } from 'lucide-react'
 import Image from 'next/image'
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-24 md:pt-28">
+    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-32 md:pt-28">
       {/* Animated Background - Mesh Gradient (Reduziert für Mobile) */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Weißer Hintergrund mit dezentem Blau-Akzent */}
@@ -33,10 +33,10 @@ export default function HeroSection() {
                 Next.js Powered
               </span>
             </div>
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight animate-fade-in-up">
+            <h1 className="text-3xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight animate-fade-in-up">
               <span className="text-slate-900">Webdesign für Darmstadt & Pfungstadt: Starke Websites mit System-Intelligenz</span>
             </h1>
-            <p className="text-lg md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
+            <p className="text-base md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
               Vom regionalen KMU bis zum Immobilienmakler mit onOffice-Anbindung: Ich entwickle für Unternehmen in Darmstadt & Pfungstadt maßgeschneiderte High-Performance-Websites, die sich nahtlos in Ihre bestehenden Workflows einfügen.
             </p>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
                 role="region"
                 aria-label="Performance- und Qualitätskennzahlen"
               >
-                <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10 text-left">
+                <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10 text-center sm:text-left">
                   <div>
                     <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tabular-nums tracking-tight">
                       {'<'}100ms

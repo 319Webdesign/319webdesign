@@ -35,7 +35,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cms.319webdesign.com',
+        hostname: 'cms.319webdesign.de',
         pathname: '/**',
       },
       {

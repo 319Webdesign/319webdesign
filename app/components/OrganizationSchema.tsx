@@ -1,10 +1,12 @@
+import { baseUrl } from '../../config/seo'
+
 export default function OrganizationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: '319Webdesign',
-    url: 'https://www.319webdesign.com',
-    logo: 'https://www.319webdesign.com/319.png',
+    url: baseUrl,
+    logo: `${baseUrl}/319.png`,
     description:
       '319Webdesign (Pfungstadt): High-Performance Next.js Webdesign für Darmstadt, Pfungstadt und Südhessen. System-Integration (onOffice, Buchungstools), lokales SEO für KMU und Immobilienmakler, Theme-Entwicklung für Bestandssysteme.',
     address: {

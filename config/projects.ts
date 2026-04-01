@@ -219,7 +219,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: 'DemoSeite',
     category: 'Handwerksbetrieb',
     imageUrl: '/headerscreen.png',
-    liveUrl: 'https://www.319webdesign.com/malerbetrieb/',
+    liveUrl: 'https://www.319webdesign.de/malerbetrieb/',
     size: 'normal',
     cities: ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt'],
     location: 'Pfungstadt',

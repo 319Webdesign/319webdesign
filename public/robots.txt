@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://www.319webdesign.com/sitemap.xml
+Sitemap: https://www.319webdesign.de/sitemap.xml

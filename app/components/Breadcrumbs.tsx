@@ -1,5 +1,7 @@
 'use client'
 
+import { baseUrl } from '../../config/seo'
+
 interface BreadcrumbItem {
   name: string
   url: string
@@ -10,8 +12,6 @@ interface BreadcrumbsProps {
 }
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  const baseUrl = 'https://www.319webdesign.com'
-  
   // JSON-LD Structured Data für Google
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

@@ -1,6 +1,6 @@
-export default function SiteNavigationSchema() {
-  const baseUrl = 'https://www.319webdesign.com'
+import { baseUrl } from '../../config/seo'
 
+export default function SiteNavigationSchema() {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',

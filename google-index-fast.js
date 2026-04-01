@@ -3,7 +3,7 @@
  *
  * Voraussetzungen:
  * 1. Service Account (service-account.json) im Projektroot
- * 2. In der Google Search Console die Property www.319webdesign.com hinzufügen und
+ * 2. In der Google Search Console die Property www.319webdesign.de hinzufügen und
  *    die E-Mail des Service Accounts als Nutzer mit Berechtigung "Eigentümer" oder "Vollzugriff" einladen
  * 3. Indexing API im GCP-Projekt aktivieren
  *
@@ -15,7 +15,7 @@ const path = require('path')
 const fs = require('fs')
 const { google } = require('googleapis')
 
-const SITEMAP_URL = 'https://www.319webdesign.com/sitemap.xml'
+const SITEMAP_URL = 'https://www.319webdesign.de/sitemap.xml'
 const KEY_FILE = path.join(__dirname, 'service-account.json')
 const DELAY_MS = 1000
 

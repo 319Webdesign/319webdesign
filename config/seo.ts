@@ -1,5 +1,5 @@
 /** Kanonische Basis-URL – Self-Referencing Canonical: exakt die Domain, die indexiert werden soll. */
-export const baseUrl = 'https://www.319webdesign.com'
+export const baseUrl = 'https://www.319webdesign.de'
 
 /** SEO: Google zeigt Titel mit ~50–60 Zeichen (~600px). Gesamttitel max. 60 Zeichen. */
 export const SEO_MAX_TITLE_LENGTH = 60

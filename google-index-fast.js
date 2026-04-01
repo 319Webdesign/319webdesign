@@ -1,11 +1,24 @@
 /**
  * Google Indexing API – URLs aus Sitemap zum Crawlen/Indexieren einreichen
  *
+ * „Neue Property“ in der Search Console:
+ * - Property verifizieren (Domain oder URL-Präfix).
+ * - Dieselbe service-account.json (GCP) nutzen; Indexing API im Projekt aktiviert lassen.
+ * - In der NEUEN Property unter „Einstellungen → Nutzer und Berechtigungen“ die
+ *   Service-Account-E-Mail als Nutzer mit „Vollzugriff“ oder „Eigentümer“ einladen.
+ * - Sitemap-URL muss zu URLs unter dieser Property passen (siehe INDEXING_SITEMAP_URL).
+ *
  * Voraussetzungen:
- * 1. Service Account (service-account.json) im Projektroot
- * 2. In der Google Search Console die Property www.319webdesign.de hinzufügen und
- *    die E-Mail des Service Accounts als Nutzer mit Berechtigung "Eigentümer" oder "Vollzugriff" einladen
+ * 1. Service-Account-JSON von Google Cloud: als service-account.json im Projektroot ODER
+ *    Pfad per INDEXING_KEY_FILE (absolut oder relativ zum aktuellen Arbeitsverzeichnis).
+ *    Nicht ins Git committen (.gitignore).
+ * 2. Service Account in jeder Search-Console-Property eingeladen, für die du URLs einreichst
  * 3. Indexing API im GCP-Projekt aktivieren
+ *
+ * Sitemap (Standard: www.319webdesign.de):
+ *   INDEXING_SITEMAP_URL=https://deine-domain.de/sitemap.xml npm run index-urls
+ * Windows PowerShell:
+ *   $env:INDEXING_SITEMAP_URL="https://deine-domain.de/sitemap.xml"; npm run index-urls
  *
  * Ausführung: npm run index-urls
  * Oder: node google-index-fast.js
@@ -15,14 +28,26 @@ const path = require('path')
 const fs = require('fs')
 const { google } = require('googleapis')
 
-const SITEMAP_URL = 'https://www.319webdesign.de/sitemap.xml'
-const KEY_FILE = path.join(__dirname, 'service-account.json')
+const DEFAULT_SITEMAP_URL = 'https://www.319webdesign.de/sitemap.xml'
+const SITEMAP_URL =
+  process.env.INDEXING_SITEMAP_URL?.trim() || DEFAULT_SITEMAP_URL
 const DELAY_MS = 1000
 
-function checkKeyFile() {
-  if (!fs.existsSync(KEY_FILE)) {
-    console.error('Fehler: service-account.json nicht gefunden unter', KEY_FILE)
-    process.exit(1)
+function resolveKeyFilePath() {
+  const fromEnv = process.env.INDEXING_KEY_FILE?.trim()
+  if (fromEnv) {
+    return path.isAbsolute(fromEnv) ? fromEnv : path.resolve(process.cwd(), fromEnv)
+  }
+  return path.join(__dirname, 'service-account.json')
+}
+
+function assertKeyFile(keyFile) {
+  if (!fs.existsSync(keyFile)) {
+    throw new Error(
+      `Service-Account-JSON fehlt: ${keyFile}\n` +
+        '  → Von GCP: APIs & Dienstleistungen → Anmeldedaten → Servicekonto → Schlüssel JSON erstellen/herunterladen.\n' +
+        '  → Datei ins Projekt legen als service-account.json oder INDEXING_KEY_FILE=/pfad/zur/datei.json setzen.'
+    )
   }
 }
 
@@ -42,10 +67,9 @@ async function fetchSitemapUrls() {
   return urls
 }
 
-async function submitUrlsToIndexingApi(urls) {
-  checkKeyFile()
+async function submitUrlsToIndexingApi(urls, keyFile) {
   const auth = new google.auth.GoogleAuth({
-    keyFile: KEY_FILE,
+    keyFile: keyFile,
     scopes: ['https://www.googleapis.com/auth/indexing'],
   })
   const authClient = await auth.getClient()
@@ -77,24 +101,21 @@ async function submitUrlsToIndexingApi(urls) {
 }
 
 async function main() {
-  console.log('--- Google Indexing API – URL-Einreichung (319webdesign) ---\n')
+  console.log('--- Google Indexing API – URL-Einreichung (319webdesign) ---')
+  const keyFile = resolveKeyFilePath()
+  assertKeyFile(keyFile)
+  console.log('Sitemap:', SITEMAP_URL)
+  console.log('Schlüssel:', keyFile, '\n')
 
-  let urls
-  try {
-    urls = await fetchSitemapUrls()
-  } catch (e) {
-    console.error('Sitemap fehlgeschlagen:', e.message)
-    process.exit(1)
-  }
+  const urls = await fetchSitemapUrls()
 
   if (urls.length === 0) {
-    console.error('Keine URLs in der Sitemap gefunden.')
-    process.exit(1)
+    throw new Error('Keine URLs in der Sitemap gefunden.')
   }
 
   console.log(`Gefunden: ${urls.length} URLs\n`)
 
-  const results = await submitUrlsToIndexingApi(urls)
+  const results = await submitUrlsToIndexingApi(urls, keyFile)
 
   console.log('\n--- Zusammenfassung ---')
   console.log('Erfolgreich:', results.success.length)
@@ -106,6 +127,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error(err)
-  process.exit(1)
+  console.error(err.message || err)
+  process.exitCode = 1
 })

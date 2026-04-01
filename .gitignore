@@ -30,6 +30,8 @@ yarn-error.log*
 # Google Cloud / Secrets (niemals committen)
 service-account.json
 *-credentials*.json
+webdesign-index-boost*.json
+*-index-boost-*.json
 
 # vercel
 .vercel

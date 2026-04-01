@@ -64,11 +64,6 @@ export const metadata: Metadata = {
     description:
       'Behalten Sie Ihr System, ich upgrade das Design. Next.js, onOffice-Anbindung, lokales SEO – Darmstadt, Pfungstadt, Südhessen.',
   },
-  icons: {
-    icon: '/browser-logo.png',
-    shortcut: '/browser-logo.png',
-    apple: '/browser-logo.png',
-  },
 }
 
 export default function RootLayout({

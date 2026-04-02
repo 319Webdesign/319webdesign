@@ -92,9 +92,9 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     },
   },
   kontakt: {
-    title: 'Erstberatung Webdesign Darmstadt & Pfungstadt',
+    title: 'Jetzt Erstberatung anfragen | Webdesign Pfungstadt & Darmstadt',
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Erstberatung Webdesign Darmstadt & Pfungstadt – persönlich, transparent, Antwort meist in 24 Stunden.',
+      'Bereit für dein Projekt? Kontaktiere 319webdesign für eine kostenlose Erstberatung in Pfungstadt & Umgebung. Jetzt Termin vereinbaren und online durchstarten!',
     path: '/kontakt',
     keywordsExtra: ['Kontakt Webdesign', 'Erstberatung'],
   },

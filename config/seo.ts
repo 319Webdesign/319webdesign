@@ -26,6 +26,8 @@ export const seoKeywordsBase = [
 
 export interface PageSeoConfig {
   title: string
+  /** Wenn true: finaler Dokumenttitel ohne Root-Template-Suffix „ | 319Webdesign“ (z. B. fertiger SERP-Titel). */
+  titleAbsolute?: boolean
   description: string
   path: string
   /** Zusätzliche Keywords nur für diese Seite (werden mit Basis-Keywords kombiniert). */
@@ -59,9 +61,9 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['Webdesign Launch', 'Next.js'],
   },
   seo: {
-    title: 'Lokales SEO für KMU & Makler in Südhessen',
+    title: 'Lokales SEO für KMU & Makler in Darmstadt',
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Lokales SEO für Darmstadt & Pfungstadt: Sichtbarkeit, strukturierte Daten, mehr Anfragen für KMU & Makler.',
+      'Sichtbarkeit, die bleibt: Strategische SEO-Optimierung für KMU & Makler in Darmstadt. Wir kombinieren sauberen Code mit blitzschnellen Ladezeiten für Top-Rankings. Jetzt mehr erfahren!',
     path: '/leistungen/wachstum-seo',
     keywordsExtra: ['Google Sichtbarkeit', 'regionale SEO'],
   },
@@ -82,7 +84,7 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   portfolio: {
     title: 'Portfolio: Webdesign Darmstadt & Pfungstadt',
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Portfolio Webdesign Darmstadt & Pfungstadt: Next.js, PageSpeed, lokales SEO für KMU & Makler in Südhessen.',
+      'Wo Design auf Performance trifft – Entdecke Next.js Webdesign-Referenzen aus Darmstadt & Pfungstadt. Projekte für Medienagenturen, Veranstaltungstechnik & Gastronomie. Jetzt inspirieren lassen!',
     path: '/portfolio',
     keywordsExtra: ['Webdesign Referenzen', 'Portfolio'],
     openGraph: {
@@ -120,9 +122,10 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['onOffice Integration', 'Immobilienmakler Website'],
   },
   ueberMich: {
-    title: 'Next.js Webdesigner Südhessen – Maik Schmidt',
+    title: 'Maik Schmidt | Ihr Webdesigner für Pfungstadt & Darmstadt',
+    titleAbsolute: true,
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Maik Schmidt, Next.js Webdesigner Pfungstadt – Projekte für Darmstadt, Südhessen und KMU-Digitalisierung.',
+      'Wer steckt hinter 319webdesign? Erfahren Sie mehr über meine Mission: High-Performance Webdesign & SEO für regionale Unternehmen. Persönlich, ehrlich & direkt aus Pfungstadt.',
     path: '/uber-mich',
     keywordsExtra: ['Über 319Webdesign', 'Webdesigner Pfungstadt'],
     openGraph: {
@@ -159,17 +162,36 @@ export function truncateDescriptionForSeo(description: string, maxLength = 155):
   return `${cut.trimEnd()}…`
 }
 
-/** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Titel ohne "| 319Webdesign" – Layout-Template fügt " | 319Webdesign" hinzu (SERP unter ~600px). */
+/** Erzeugt Next.js Metadata inkl. Canonical und OpenGraph. Standard: Titel ohne "| 319Webdesign" – Layout-Template fügt Suffix hinzu. Mit titleAbsolute: fertiger Titel für Dokument & Social. */
 export function getSeoMetadata(config: PageSeoConfig) {
   const canonicalUrl = getCanonicalUrl(config.path)
   const rawTitle = config.title.replace(/\s*\|\s*319Webdesign(\s*Pfungstadt)?\s*$/i, '').trim() || config.title
-  const title = truncateTitleForSeo(rawTitle)
+  const truncatedPageTitle = truncateTitleForSeo(rawTitle)
+
+  let title: string | { absolute: string }
+  let socialTitle: string
+
+  if (config.titleAbsolute) {
+    const absoluteT = truncateTitleForSeo(rawTitle, SEO_MAX_TITLE_LENGTH)
+    title = { absolute: absoluteT }
+    const ogOverride = config.openGraph?.title?.replace(/\s*\|\s*319Webdesign(\s*Pfungstadt)?\s*$/i, '').trim()
+    socialTitle = ogOverride
+      ? truncateTitleForSeo(ogOverride, SEO_MAX_TITLE_LENGTH)
+      : absoluteT
+  } else {
+    title = truncatedPageTitle
+    socialTitle = truncateTitleForSeo(config.openGraph?.title ?? truncatedPageTitle)
+  }
+
   const description = config.description
-  const ogTitle = truncateTitleForSeo(config.openGraph?.title ?? title)
   const ogDescription = config.openGraph?.description ?? description
   const ogImage = config.openGraph?.image ?? '/319Web_Mockup_iphone.png'
-  const ogImageAlt = config.openGraph?.imageAlt ?? `${title} | 319Webdesign`
+  const ogImageAlt =
+    config.openGraph?.imageAlt ??
+    (config.titleAbsolute ? socialTitle : `${truncatedPageTitle} | 319Webdesign`)
   const keywordsList = [...seoKeywordsBase, ...(config.keywordsExtra ?? [])]
+
+  const ogTitleFinal = config.titleAbsolute ? socialTitle : `${socialTitle} | 319Webdesign`
 
   return {
     title,
@@ -180,7 +202,7 @@ export function getSeoMetadata(config: PageSeoConfig) {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title: `${ogTitle} | 319Webdesign`,
+      title: ogTitleFinal,
       description: ogDescription,
       url: canonicalUrl,
       siteName: '319Webdesign',
@@ -197,7 +219,7 @@ export function getSeoMetadata(config: PageSeoConfig) {
     },
     twitter: {
       card: 'summary_large_image' as const,
-      title: `${ogTitle} | 319Webdesign`,
+      title: ogTitleFinal,
       description: ogDescription,
       images: [ogImage],
     },

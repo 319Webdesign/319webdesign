@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import { seoConfig, getSeoMetadata } from '../../config/seo'
+import { getProjectBySlug } from '../../config/projects'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { ArrowRight, Zap, Database, Users, Gauge, Check } from 'lucide-react'
 import Breadcrumbs from '../components/Breadcrumbs'
 import Image from 'next/image'
 import MaklerServiceSchema from '../components/MaklerServiceSchema'
+
+const maklerReferenzProject = getProjectBySlug('he-immologis')
 
 const Header = dynamic(() => import('../components/Header'), { ssr: true })
 const Footer = dynamic(() => import('../components/Footer'), { ssr: true })
@@ -172,80 +175,65 @@ export default function ImmobilienmaklerWebdesignPage() {
               Ein kleiner Einblick in meine Arbeit. Ich entwickle für meine Kunden nicht nur Webseiten, sondern digitale Verkaufsmaschinen mit direkter Software-Anbindung.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  title: 'Premium-Immobilien Darmstadt',
-                  kernleistung: 'Automatisierter Objekt-Import & Lead-Generierung',
-                  badge: 'onOffice API',
-                  image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800',
-                  details: [
-                    { icon: Database, label: 'Schnittstelle: onOffice' },
-                    { icon: Zap, label: 'Framework: Next.js' },
-                    { icon: Gauge, label: 'Ladezeit: < 0.5s' },
-                  ],
-                },
-                {
-                  title: 'Immo-Partner Darmstadt',
-                  kernleistung: 'FlowFact-Integration & Mandatsakquise',
-                  badge: 'Custom SEO',
-                  image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800',
-                  details: [
-                    { icon: Database, label: 'Schnittstelle: FlowFact' },
-                    { icon: Zap, label: 'Framework: Next.js' },
-                    { icon: Gauge, label: 'Ladezeit: < 0.5s' },
-                  ],
-                },
-                {
-                  title: 'Objektportal Rhein-Main',
-                  kernleistung: 'OpenImmo-Anbindung & Eigentümer-Portal',
-                  badge: 'OpenImmo API',
-                  image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800',
-                  details: [
-                    { icon: Database, label: 'Schnittstelle: OpenImmo' },
-                    { icon: Zap, label: 'Framework: Next.js' },
-                    { icon: Gauge, label: 'Ladezeit: < 0.5s' },
-                  ],
-                },
-              ].map((project) => (
-                <article
-                  key={project.title}
-                  className="group bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-slate-300"
+            {maklerReferenzProject ? (
+              <div className="flex justify-center">
+                <Link
+                  href={`/portfolio/${maklerReferenzProject.slug}`}
+                  className="group block w-full max-w-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 rounded-xl"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
-                    <Image
-                      src={project.image}
-                      alt={`Referenz Webdesign für Immobilienmakler - ${project.title}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Hover-Overlay mit technischen Details */}
-                    <div className="absolute inset-0 bg-slate-900/80 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <ul className="space-y-2 text-sm text-white">
-                        {project.details.map((d) => {
-                          const Icon = d.icon
-                          return (
-                            <li key={d.label} className="flex items-center gap-2">
-                              <Icon className="w-4 h-4 text-blue-400 flex-shrink-0" aria-hidden />
-                              <span>{d.label}</span>
-                            </li>
-                          )
-                        })}
-                      </ul>
+                  <article className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-slate-300">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                      <Image
+                        src={maklerReferenzProject.imageUrl}
+                        alt={`Referenz Webdesign für Immobilienmakler – ${maklerReferenzProject.title}, ${maklerReferenzProject.location}`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 36rem"
+                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-slate-900/80 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300">
+                        <ul className="space-y-2 text-sm text-white">
+                          {[
+                            { icon: Database, label: 'Schnittstelle: onOffice API (Live-Objekte)' },
+                            { icon: Database, label: 'Lead-Transfer: OpenImmo-XML → onOffice' },
+                            { icon: Zap, label: 'Stack: Next.js, Headless, Vercel Edge' },
+                            {
+                              icon: Gauge,
+                              label: `PageSpeed / Lighthouse: ${maklerReferenzProject.lighthouseScore}/100`,
+                            },
+                          ].map((d) => {
+                            const Icon = d.icon
+                            return (
+                              <li key={d.label} className="flex items-center gap-2">
+                                <Icon className="w-4 h-4 text-blue-400 flex-shrink-0" aria-hidden />
+                                <span>{d.label}</span>
+                              </li>
+                            )
+                          })}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-6">
-                    <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-50 rounded-full mb-3">
-                      {project.badge}
-                    </span>
-                    <p className="text-lg font-bold text-slate-900 mb-2"><strong>{project.title}</strong></p>
-                    <p className="text-slate-600 text-sm leading-relaxed">{project.kernleistung}</p>
-                    <p className="text-slate-400 text-xs mt-4 italic">Hier könnte bald Ihr Projekt stehen.</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+                    <div className="p-6">
+                      <span className="inline-block px-3 py-1 text-xs font-semibold text-blue-600 bg-blue-50 rounded-full mb-3">
+                        onOffice & OpenImmo
+                      </span>
+                      <p className="text-lg font-bold text-slate-900 mb-2">
+                        <strong>{maklerReferenzProject.title}</strong>
+                        <span className="block text-sm font-normal text-slate-500 mt-1">
+                          {maklerReferenzProject.location} · Rhein-Neckar
+                        </span>
+                      </p>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        {maklerReferenzProject.homepageTeaser ?? maklerReferenzProject.task}
+                      </p>
+                      <p className="text-blue-600 text-sm font-semibold mt-4 inline-flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Case Study ansehen
+                        <ArrowRight className="w-4 h-4" aria-hidden />
+                      </p>
+                    </div>
+                  </article>
+                </Link>
+              </div>
+            ) : null}
           </div>
         </section>
 

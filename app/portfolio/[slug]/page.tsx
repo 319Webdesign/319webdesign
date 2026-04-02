@@ -23,7 +23,6 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const project = getProjectBySlug(params.slug)
   if (!project) return { title: 'Projekt nicht gefunden' }
-  const isDemoProject = project.slug === 'demoseite'
 
   const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
   const pageTitle = truncateTitleForSeo(`${project.title} | ${project.category} ${project.location}`)
@@ -36,7 +35,7 @@ export async function generateMetadata({
     title: pageTitle,
     description,
     keywords: [...seoKeywordsBase, project.category, project.location, 'Webdesign Referenz'],
-    robots: isDemoProject ? { index: false, follow: true } : { index: true, follow: true },
+    robots: { index: true, follow: true },
     alternates: { canonical: canonicalUrl },
     openGraph: {
       title: ogTitle,

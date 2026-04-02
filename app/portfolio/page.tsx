@@ -10,14 +10,17 @@ import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
 import { portfolioProjects } from '../../config/projects'
 
+const MotionLink = motion(Link)
+
 const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection'), { ssr: true })
 
-// Heinerfilm, da-sound und Arena Sportsbar anzeigen (ohne DemoSeite)
-const displayProjects = portfolioProjects.filter(
-  (p) => p.slug === 'heinerfilm' || p.slug === 'da-sound' || p.slug === 'arena-sportsbar'
+const DISPLAY_SLUGS = ['heinerfilm', 'da-sound', 'he-immologis'] as const
+
+const displayProjects = DISPLAY_SLUGS.map((slug) => portfolioProjects.find((p) => p.slug === slug)).filter(
+  (p): p is NonNullable<typeof p> => p != null
 )
 
-const categories = ['Alle', 'Medienagentur', 'Veranstaltungstechnik', 'Gastronomie']
+const categories = ['Alle', 'Medienagentur', 'Veranstaltungstechnik', 'Immobilienmakler']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -146,7 +149,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Portfolio Grid - Bento Style */}
+      {/* Portfolio-Grid: drei gleich große Karten */}
       <section className="py-16 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
@@ -154,95 +157,84 @@ export default function PortfolioPage() {
             variants={staggerContainer}
             initial="initial"
             animate="whileInView"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr"
           >
-            {filteredProjects.map((project, index) => {
-              // Bento-Style Grid: unterschiedliche Größen
-              const gridClasses = {
-                wide: 'md:col-span-2', // breit (2 Spalten)
-                tall: 'md:row-span-2', // hoch (2 Zeilen)
-                normal: '', // normal (1x1)
-              }
-
+            {filteredProjects.map((project) => {
               return (
-                <Link href={`/portfolio/${project.slug}`} className="block h-full">
                 <motion.div
-                  key={`${activeFilter}-${project.id}`}
+                  key={`${activeFilter}-${project.slug}`}
                   variants={staggerItem}
                   initial="initial"
                   animate="whileInView"
-                  className={`group relative overflow-hidden rounded-2xl bg-slate-50 backdrop-blur-sm border border-slate-200 hover:border-blue-500/50 transition-all duration-500 h-full ${gridClasses[project.size]}`}
-                  style={{
-                    minHeight: project.size === 'tall' ? '500px' : project.size === 'wide' ? '300px' : '300px',
-                  }}
+                  className="h-full"
                 >
-                  {/* Image Container */}
-                  <div className="relative w-full h-full overflow-hidden">
-                    <motion.img
-                      src={project.imageUrl || '/placeholder-project.jpg'}
-                      alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`}
-                      className={`w-full h-full ${
-                        project.title === 'Arena Sportsbar' 
-                          ? 'object-contain object-center' 
-                          : 'object-cover object-center'
-                      }`}
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.6, ease: 'easeOut' }}
-                    />
+                  <MotionLink
+                    href={`/portfolio/${project.slug}`}
+                    className="group relative block h-full overflow-hidden rounded-2xl bg-slate-50 backdrop-blur-sm border border-slate-200 hover:border-blue-500/50 transition-all duration-500"
+                  >
+                    {/* Einheitliche Kartenhöhe über festes Bild-Seitenverhältnis */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden">
+                      <motion.img
+                        src={project.imageUrl || '/placeholder-project.jpg'}
+                        alt={`Webdesign Darmstadt und Pfungstadt – ${project.title} Portfolio-Projekt ${project.category} von 319Webdesign`}
+                        className="absolute inset-0 h-full w-full object-cover object-center"
+                        whileHover={{ scale: 1.1 }}
+                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                      />
 
-                    {/* Glassmorphism Overlay */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      initial={false}
-                    >
-                      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-                        <div className="space-y-3">
-                          <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-wide px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20">
-                            {project.category}
-                          </span>
-                          <h3 className="text-2xl md:text-3xl font-bold text-white">
-                            {project.title}
-                          </h3>
-                          <Link
-                            href={`/portfolio/${project.slug}`}
-                            className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 font-medium transition-colors group/link"
-                          >
-                            Projekt {project.title} ansehen
-                            <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                          </Link>
+                      {/* Glassmorphism Overlay */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/80 to-transparent backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        initial={false}
+                      >
+                        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                          <div className="space-y-3">
+                            <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-wide px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20">
+                              {project.category}
+                            </span>
+                            <h3 className="text-2xl md:text-3xl font-bold text-white">
+                              {project.title}
+                            </h3>
+                            <span className="inline-flex items-center gap-2 text-blue-400 group-hover:text-blue-300 font-medium transition-colors">
+                              Projekt {project.title} ansehen
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" aria-hidden />
+                            </span>
+                          </div>
                         </div>
+                      </motion.div>
+
+                      {/* Externe Live-URL: Button statt <a> in <a> (ungültiges HTML, Hydration-Risiko) */}
+                      <motion.button
+                        type="button"
+                        aria-label={`${project.title} – Live-Website in neuem Tab öffnen`}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          window.open(project.liveUrl, '_blank', 'noopener,noreferrer')
+                        }}
+                        className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 z-10 opacity-0 group-hover:opacity-100"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <ExternalLink className="w-5 h-5 text-blue-400" aria-hidden />
+                      </motion.button>
+
+                      {/* Category Badge (immer sichtbar) */}
+                      <div className="absolute top-4 left-4 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                        <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-wide px-3 py-1 bg-slate-900/80 backdrop-blur-sm rounded-full border border-slate-700/50">
+                          {project.category}
+                        </span>
                       </div>
-                    </motion.div>
 
-                    {/* Live-URL Button (immer sichtbar bei Hover) */}
-                    <motion.a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-sm p-3 rounded-lg border border-slate-700/50 hover:border-blue-500/50 transition-all duration-300 z-10 opacity-0 group-hover:opacity-100"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink className="w-5 h-5 text-blue-400" />
-                    </motion.a>
-
-                    {/* Category Badge (immer sichtbar) */}
-                    <div className="absolute top-4 left-4 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                      <span className="inline-block text-xs font-semibold text-blue-400 uppercase tracking-wide px-3 py-1 bg-slate-900/80 backdrop-blur-sm rounded-full border border-slate-700/50">
-                        {project.category}
-                      </span>
+                      {/* Title (immer sichtbar, aber dezent) */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 via-slate-900/70 to-transparent p-4 md:p-6 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                        <h3 className="text-lg md:text-xl font-bold text-white">
+                          {project.title}
+                        </h3>
+                      </div>
                     </div>
-
-                    {/* Title (immer sichtbar, aber dezent) */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900/90 via-slate-900/70 to-transparent p-4 md:p-6 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                      <h3 className="text-lg md:text-xl font-bold text-white">
-                        {project.title}
-                      </h3>
-                    </div>
-                  </div>
+                  </MotionLink>
                 </motion.div>
-                </Link>
               )
             })}
           </motion.div>

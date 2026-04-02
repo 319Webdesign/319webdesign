@@ -14,9 +14,7 @@ const fadeInUp = {
   transition: { duration: 0.55, ease: 'easeOut' as const },
 }
 
-const HOME_PROJECTS = portfolioProjects
-  .filter((p) => p.slug !== 'demoseite')
-  .sort((a, b) => a.id - b.id)
+const HOME_PROJECTS = portfolioProjects.slice().sort((a, b) => a.id - b.id)
 
 function teaserFor(project: PortfolioProject): string {
   if (project.homepageTeaser) return project.homepageTeaser
@@ -50,7 +48,7 @@ export default function PortfolioSection() {
           </p>
         </HeaderEl>
 
-        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3 md:gap-8">
           {HOME_PROJECTS.map((project, index) => {
             const tags = tagsFor(project)
             const teaser = teaserFor(project)

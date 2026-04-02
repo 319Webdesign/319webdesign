@@ -2,22 +2,31 @@
 
 import { useState, useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
+
+const SCROLL_THRESHOLD = 50
+
+/** motion(Link) vermeidet <a><motion.div>-Hydration-Mismatches (Server vs Client). */
+const MotionLink = motion(Link)
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isLeistungenOpen, setIsLeistungenOpen] = useState(false)
   const [closeTimeout, setCloseTimeout] = useState<NodeJS.Timeout | null>(null)
-  const { scrollY } = useScroll()
   const pathname = usePathname()
   const router = useRouter()
 
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    setIsScrolled(latest > 50)
-  })
+  // Native Scroll statt useScroll: Framer kann beim Hydratisieren eine andere Scroll-Position sehen
+  // als der Server (0) → className/animate-Mismatch. Erst nach Mount mit echter Position synchronisieren.
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   // Close mobile menu when clicking outside or on a link
   useEffect(() => {
@@ -146,9 +155,9 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-6 pt-5 pb-3 md:pt-6 md:pb-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link
+          <MotionLink
             href="/"
-            className="flex items-center group/logo"
+            className="relative flex items-center group/logo"
             onClick={(e) => {
               handleMobileLinkClick()
               // Wenn wir nicht auf der Startseite sind, scrollen wir nach dem Navigieren nach oben
@@ -164,24 +173,20 @@ export default function Header() {
                 window.scrollTo({ top: 0, behavior: 'smooth' })
               }
             }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
+            animate={{
+              scale: isScrolled ? 0.818 : 1,
+            }}
           >
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              animate={{
-                scale: isScrolled ? 0.818 : 1,
-              }}
-              className="relative"
-            >
-              <span className="block font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">
-                319Webdesign
-              </span>
-            </motion.div>
-          </Link>
+            <span className="block font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">
+              319Webdesign
+            </span>
+          </MotionLink>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link, index) => {
+            {navLinks.map((link) => {
               // Leistungen mit Dropdown
               if (link.hasDropdown) {
                 const handleMouseEnter = () => {
@@ -206,19 +211,19 @@ export default function Header() {
                     onMouseEnter={handleMouseEnter}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <Link href={link.href}>
-                      <motion.div
-                        initial={false}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
-                      >
-                        {link.label}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLeistungenOpen ? 'rotate-180' : ''}`} />
-                        <motion.span
-                          className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
-                        />
-                      </motion.div>
-                    </Link>
+                    <MotionLink
+                      href={link.href}
+                      initial={false}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
+                    >
+                      {link.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLeistungenOpen ? 'rotate-180' : ''}`} />
+                      <span
+                        className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
+                        aria-hidden
+                      />
+                    </MotionLink>
 
                     {/* Unsichtbare Brücke – fängt Hover ab, ohne Layout zu verändern */}
                     <div
@@ -265,8 +270,9 @@ export default function Header() {
                     className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
                   >
                     {link.label}
-                    <motion.span
+                    <span
                       className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
+                      aria-hidden
                     />
                   </motion.a>
                 )
@@ -274,18 +280,19 @@ export default function Header() {
 
               // Normale Links
               return (
-                <Link key={link.href} href={link.href}>
-                  <motion.div
-                    initial={false}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
-                  >
-                    {link.label}
-                    <motion.span
-                      className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
-                    />
-                  </motion.div>
-                </Link>
+                <MotionLink
+                  key={link.href}
+                  href={link.href}
+                  initial={false}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
+                >
+                  {link.label}
+                  <span
+                    className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 group-hover/nav:w-full transition-all duration-300"
+                    aria-hidden
+                  />
+                </MotionLink>
               )
             })}
             <Link
@@ -338,43 +345,37 @@ export default function Header() {
               if (link.hasDropdown) {
                 return (
                   <div key={link.href}>
-                    <Link
+                    <MotionLink
                       href={link.href}
                       onClick={handleMobileLinkClick}
+                      initial={false}
+                      animate={{
+                        opacity: isMobileMenuOpen ? 1 : 0,
+                        x: isMobileMenuOpen ? 0 : -20,
+                      }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
+                      className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 cursor-pointer font-medium"
                     >
-                      <motion.div
-                        initial={false}
-                        animate={{
-                          opacity: isMobileMenuOpen ? 1 : 0,
-                          x: isMobileMenuOpen ? 0 : -20,
-                        }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 cursor-pointer font-medium"
-                      >
-                        {link.label}
-                      </motion.div>
-                    </Link>
+                      {link.label}
+                    </MotionLink>
                     {/* Submenu Items */}
                     <div className="ml-4 space-y-1 mt-1">
                       {leistungenItems.map((item, idx) => (
-                        <Link
+                        <MotionLink
                           key={item.href}
                           href={item.href}
                           onClick={handleMobileLinkClick}
+                          initial={false}
+                          animate={{
+                            opacity: isMobileMenuOpen ? 1 : 0,
+                            x: isMobileMenuOpen ? 0 : -20,
+                          }}
+                          transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.05) }}
+                          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors duration-300 py-2 text-sm"
                         >
-                          <motion.div
-                            initial={false}
-                            animate={{
-                              opacity: isMobileMenuOpen ? 1 : 0,
-                              x: isMobileMenuOpen ? 0 : -20,
-                            }}
-                            transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.05) }}
-                            className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors duration-300 py-2 text-sm"
-                          >
-                            <span>{item.icon}</span>
-                            <span>{item.label}</span>
-                          </motion.div>
-                        </Link>
+                          <span>{item.icon}</span>
+                          <span>{item.label}</span>
+                        </MotionLink>
                       ))}
                     </div>
                     <div className="border-b border-slate-800/50 mt-2" />
@@ -404,23 +405,20 @@ export default function Header() {
 
               // Normale Links
               return (
-                <Link
+                <MotionLink
                   key={link.href}
                   href={link.href}
                   onClick={handleMobileLinkClick}
+                  initial={false}
+                  animate={{
+                    opacity: isMobileMenuOpen ? 1 : 0,
+                    x: isMobileMenuOpen ? 0 : -20,
+                  }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 border-b border-slate-200 cursor-pointer"
                 >
-                  <motion.div
-                    initial={false}
-                    animate={{
-                      opacity: isMobileMenuOpen ? 1 : 0,
-                      x: isMobileMenuOpen ? 0 : -20,
-                    }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="block text-slate-700 hover:text-blue-600 transition-colors duration-300 py-2 border-b border-slate-200 cursor-pointer"
-                  >
-                    {link.label}
-                  </motion.div>
-                </Link>
+                  {link.label}
+                </MotionLink>
               )
             })}
           </div>

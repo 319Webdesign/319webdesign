@@ -1,14 +1,29 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useSyncExternalStore } from 'react'
 import { MotionConfig } from 'framer-motion'
 
 const MOBILE_BREAKPOINT = 768
 
-const ReduceMotionContext = createContext(false)
+const ReduceMotionContext = createContext(true)
 
 export function useReduceMotion() {
   return useContext(ReduceMotionContext)
+}
+
+function subscribeNarrowViewport(onChange: () => void) {
+  const mq = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`)
+  mq.addEventListener('change', onChange)
+  return () => mq.removeEventListener('change', onChange)
+}
+
+function getNarrowViewportSnapshot() {
+  return window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`).matches
+}
+
+/** Entspricht dem früheren useState(true): SSR und Hydration nehmen „schmal“ an, kein Mismatch. */
+function getNarrowViewportServerSnapshot() {
+  return true
 }
 
 export default function ReducedMotionProvider({
@@ -16,17 +31,11 @@ export default function ReducedMotionProvider({
 }: {
   children: React.ReactNode
 }) {
-  // Initial true = Mobile-Annahme, verhindert Flackern beim ersten Paint
-  const [reduceMotion, setReduceMotion] = useState(true)
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`)
-    setReduceMotion(mediaQuery.matches)
-
-    const handler = (e: MediaQueryListEvent) => setReduceMotion(e.matches)
-    mediaQuery.addEventListener('change', handler)
-    return () => mediaQuery.removeEventListener('change', handler)
-  }, [])
+  const reduceMotion = useSyncExternalStore(
+    subscribeNarrowViewport,
+    getNarrowViewportSnapshot,
+    getNarrowViewportServerSnapshot
+  )
 
   return (
     <ReduceMotionContext.Provider value={reduceMotion}>

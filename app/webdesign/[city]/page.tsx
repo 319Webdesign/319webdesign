@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { getCanonicalUrl, seoKeywordsBase, truncateDescriptionForSeo, truncateTitleForSeo } from '../../../config/seo'
 import Link from 'next/link'
 import { ArrowRight, Check, MapPin, Users, Building2 } from 'lucide-react'
@@ -14,6 +15,19 @@ import {
   getLocalSectionText,
 } from '../../../config/cityPageTemplate'
 import { getUniqueH1Webdesign, getMetaDescriptionWebdesignCity } from '../../../config/cityContent'
+import PfungstadtWebdesignFaqJsonLd from '../../components/PfungstadtWebdesignFaqJsonLd'
+import PfungstadtRegionalTrustSection from '../../components/PfungstadtRegionalTrustSection'
+import PfungstadtLokaleWebsiteSection from '../../components/PfungstadtLokaleWebsiteSection'
+import PfungstadtDaSoundReferenzSection from '../../components/PfungstadtDaSoundReferenzSection'
+import PfungstadtZielgruppeSection from '../../components/PfungstadtZielgruppeSection'
+import PfungstadtWebdesignFaqSection from '../../components/PfungstadtWebdesignFaqSection'
+import DarmstadtWissenschaftsstadtSection from '../../components/DarmstadtWissenschaftsstadtSection'
+import DarmstadtBusinessRequirementsSection from '../../components/DarmstadtBusinessRequirementsSection'
+import DarmstadtReferenzenSection from '../../components/DarmstadtReferenzenSection'
+import DarmstadtBranchenSection from '../../components/DarmstadtBranchenSection'
+import DarmstadtEinzugsgebietSection from '../../components/DarmstadtEinzugsgebietSection'
+import DarmstadtWebdesignFaqJsonLd from '../../components/DarmstadtWebdesignFaqJsonLd'
+import DarmstadtWebdesignFaqSection from '../../components/DarmstadtWebdesignFaqSection'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -30,12 +44,33 @@ export async function generateMetadata({
   }
 
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
-  const pageTitle = truncateTitleForSeo(`Next.js Webdesign ${city.name} | Südhessen`)
-  const description = truncateDescriptionForSeo(getMetaDescriptionWebdesignCity(city))
-  const ogTitle = `${pageTitle} | 319Webdesign`
+  const pfungstadtMetaTitle =
+    'Webdesigner Pfungstadt | Individuelle Websites von 319Webdesign'
+  const darmstadtMetaTitle =
+    'Webdesigner Darmstadt – Next.js & SEO-Optimiert | 319Webdesign'
+  const pageTitle =
+    city.slug === 'pfungstadt'
+      ? pfungstadtMetaTitle
+      : city.slug === 'darmstadt'
+        ? darmstadtMetaTitle
+        : truncateTitleForSeo(`Next.js Webdesign ${city.name} | Südhessen`)
+  const metaDescriptionRaw = getMetaDescriptionWebdesignCity(city)
+  const description =
+    city.slug === 'pfungstadt' || city.slug === 'darmstadt'
+      ? metaDescriptionRaw.trim()
+      : truncateDescriptionForSeo(metaDescriptionRaw)
+  const ogTitle =
+    city.slug === 'pfungstadt' || city.slug === 'darmstadt'
+      ? pageTitle
+      : `${pageTitle} | 319Webdesign`
   const ogImageAlt = `Next.js Webdesign ${city.name} – System-Integration und lokales SEO für KMU & Makler in Südhessen`
   return {
-    title: pageTitle,
+    title:
+      city.slug === 'pfungstadt'
+        ? { absolute: pfungstadtMetaTitle }
+        : city.slug === 'darmstadt'
+          ? { absolute: darmstadtMetaTitle }
+          : pageTitle,
     description,
     keywords: [...seoKeywordsBase, ...city.keywords],
     robots: { index: true, follow: true },
@@ -117,12 +152,30 @@ export default function CityPage({ params }: { params: { city: string } }) {
 
   return (
     <>
+      {city.slug === 'pfungstadt' && <PfungstadtWebdesignFaqJsonLd />}
+      {city.slug === 'darmstadt' && <DarmstadtWebdesignFaqJsonLd />}
       <Header />
       <main className="min-h-screen bg-white pt-24">
         {/* Hero Section */}
         <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50">
           {/* Background Gradient */}
           <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
+
+          {/* Portrait rechts im Hintergrund (auf Darmstadt bewusst ohne Foto) */}
+          {city.slug !== 'darmstadt' && (
+            <div className="pointer-events-none absolute inset-y-0 right-0 z-[1] hidden w-[min(46%,28rem)] md:block lg:w-[min(42%,32rem)]">
+              <div className="relative h-full min-h-[320px] w-full translate-x-3 md:translate-x-5 lg:translate-x-6">
+                <Image
+                  src="/maik-removebg.png"
+                  alt="Maik Schmidt – Webdesigner, 319Webdesign"
+                  fill
+                  className="object-contain object-right object-bottom lg:object-center"
+                  sizes="(max-width: 768px) 0px, (max-width: 1024px) 38vw, 32rem"
+                  priority
+                />
+              </div>
+            </div>
+          )}
 
           <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
             {/* Breadcrumb mit JSON-LD Schema */}
@@ -136,18 +189,18 @@ export default function CityPage({ params }: { params: { city: string } }) {
               />
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
-              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-slate-900 leading-tight">
+              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent whitespace-pre-line">
                 {h1.main}
               </span>
               {h1.sub && (
-                <span className="block text-2xl md:text-3xl lg:text-4xl mt-2 text-slate-700 font-semibold">
+                <span className="block text-lg md:text-xl lg:text-2xl mt-2 text-slate-700 font-semibold">
                   {h1.sub}
                 </span>
               )}
             </h1>
 
-            <p className="text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto mb-8">
               {getHeroIntro(city)}
             </p>
 
@@ -187,101 +240,116 @@ export default function CityPage({ params }: { params: { city: string } }) {
           </div>
         </section>
 
+        {city.slug === 'darmstadt' && <DarmstadtWissenschaftsstadtSection />}
+        {city.slug === 'darmstadt' && <DarmstadtBusinessRequirementsSection />}
+
+        {city.slug === 'pfungstadt' && <PfungstadtRegionalTrustSection />}
+
         {/* Prozess – stadt-spezifischer Content */}
         <ProzessSection citySlug={city.slug} />
 
-        {/* Performance Section – zusammengefasst, weniger Überschriften */}
-        <section className="py-20 px-6 bg-slate-50">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
-              Performance in {city.name}
-            </h2>
-            <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
-              {texts.performanceIntro}
-            </p>
+        {city.slug === 'pfungstadt' && <PfungstadtLokaleWebsiteSection />}
+        {city.slug === 'pfungstadt' && <PfungstadtDaSoundReferenzSection />}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <p className="text-2xl font-bold mb-4 text-blue-600">
-                  PageSpeed 99/100
-                </p>
-                <div className="relative aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center border border-green-200">
-                  <div className="text-center">
-                    <div className="text-6xl font-bold text-green-600 mb-2">99</div>
-                    <div className="text-2xl text-slate-600">/100</div>
-                    <div className="text-sm text-slate-500 mt-2">PageSpeed Score</div>
-                  </div>
-                </div>
-                <p className="text-slate-700 mt-4">
-                  Durchschnittlicher Score von 99/100 für alle meine Projekte
-                </p>
-              </div>
+        {city.slug === 'darmstadt' && <DarmstadtReferenzenSection />}
 
-              <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
-                <p className="text-2xl font-bold mb-4 text-blue-600">
-                  Ladezeit unter 2 Sekunden
-                </p>
-                <div className="relative aspect-video rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center border border-slate-200">
-                  <div className="text-center w-full px-6">
-                    <div className="flex justify-around items-end mb-4">
-                      <div>
-                        <div className="text-4xl font-bold text-green-600 mb-1">1.72s</div>
-                        <div className="text-sm text-slate-600">Meine Websites</div>
-                      </div>
-                      <div className="text-slate-400 text-2xl mb-6">vs</div>
-                      <div>
-                        <div className="text-4xl font-bold text-red-500 mb-1">3.5s</div>
-                        <div className="text-sm text-slate-600">Durchschnitt</div>
-                      </div>
-                    </div>
-                    <div className="text-xs text-slate-500">Largest Contentful Paint (LCP)</div>
-                  </div>
-                </div>
-                <p className="text-slate-700 mt-4">
-                  Meine Websites laden 2x schneller als der Durchschnitt
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-8 border border-blue-200 text-center shadow-sm">
-              <p className="text-lg text-slate-700">
-                <strong className="text-blue-600">Warum ist das wichtig?</strong>{' '}
-                {texts.performanceWarum}
+        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && (
+          /* Performance Section – auf Pfungstadt & Darmstadt entfällt sie (Darmstadt: Referenzen-Sektion) */
+          <section className="py-20 px-6 bg-slate-50">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center text-slate-900">
+                Performance in {city.name}
+              </h2>
+              <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
+                {texts.performanceIntro}
               </p>
-            </div>
-          </div>
-        </section>
 
-        {/* Features – H3 zu bold p für besseres Überschriften-Verhältnis */}
-        <section className="py-20 px-6 bg-white" aria-labelledby="was-sie-bekommen-heading">
-          <div className="max-w-6xl mx-auto">
-            <h2
-              id="was-sie-bekommen-heading"
-              className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900"
-            >
-              Was Sie bekommen
-            </h2>
-            <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
-              {texts.featuresIntro}
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all duration-300"
-                >
-                  <h3 className="text-xl font-bold mb-3 text-blue-600">
-                    {feature.title}
-                  </h3>
-                  <p className="text-slate-700 leading-relaxed">
-                    {feature.description}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                  <p className="text-2xl font-bold mb-4 text-blue-600">
+                    PageSpeed 99/100
+                  </p>
+                  <div className="relative aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-green-50 to-emerald-50 flex items-center justify-center border border-green-200">
+                    <div className="text-center">
+                      <div className="text-6xl font-bold text-green-600 mb-2">99</div>
+                      <div className="text-2xl text-slate-600">/100</div>
+                      <div className="text-sm text-slate-500 mt-2">PageSpeed Score</div>
+                    </div>
+                  </div>
+                  <p className="text-slate-700 mt-4">
+                    Durchschnittlicher Score von 99/100 für alle meine Projekte
                   </p>
                 </div>
-              ))}
+
+                <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm">
+                  <p className="text-2xl font-bold mb-4 text-blue-600">
+                    Ladezeit unter 2 Sekunden
+                  </p>
+                  <div className="relative aspect-video rounded-lg overflow-hidden bg-slate-50 flex items-center justify-center border border-slate-200">
+                    <div className="text-center w-full px-6">
+                      <div className="flex justify-around items-end mb-4">
+                        <div>
+                          <div className="text-4xl font-bold text-green-600 mb-1">1.72s</div>
+                          <div className="text-sm text-slate-600">Meine Websites</div>
+                        </div>
+                        <div className="text-slate-400 text-2xl mb-6">vs</div>
+                        <div>
+                          <div className="text-4xl font-bold text-red-500 mb-1">3.5s</div>
+                          <div className="text-sm text-slate-600">Durchschnitt</div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-slate-500">Largest Contentful Paint (LCP)</div>
+                    </div>
+                  </div>
+                  <p className="text-slate-700 mt-4">
+                    Meine Websites laden 2x schneller als der Durchschnitt
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-2xl p-8 border border-blue-200 text-center shadow-sm">
+                <p className="text-lg text-slate-700">
+                  <strong className="text-blue-600">Warum ist das wichtig?</strong>{' '}
+                  {texts.performanceWarum}
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {city.slug === 'darmstadt' && <DarmstadtBranchenSection />}
+
+        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && (
+          <section className="py-20 px-6 bg-white" aria-labelledby="was-sie-bekommen-heading">
+            <div className="max-w-6xl mx-auto">
+              <h2
+                id="was-sie-bekommen-heading"
+                className="text-3xl md:text-4xl font-bold mb-4 text-center text-slate-900"
+              >
+                Was Sie bekommen
+              </h2>
+              <p className="text-xl text-slate-600 text-center mb-12 max-w-3xl mx-auto">
+                {texts.featuresIntro}
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {features.map((feature, index) => (
+                  <div
+                    key={index}
+                    className="bg-slate-50 rounded-xl p-6 border border-slate-200 hover:border-blue-500 hover:shadow-md transition-all duration-300"
+                  >
+                    <h3 className="text-xl font-bold mb-3 text-blue-600">
+                      {feature.title}
+                    </h3>
+                    <p className="text-slate-700 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Benefits Section */}
         <section className="py-20 px-6 bg-slate-50">
@@ -304,33 +372,44 @@ export default function CityPage({ params }: { params: { city: string } }) {
           </div>
         </section>
 
-        {/* Local Section – H3 zu bold p */}
-        <section className="py-20 px-6 bg-white" aria-labelledby="webdesign-region-heading">
-          <div className="max-w-5xl mx-auto text-center">
-            <h2 id="webdesign-region-heading" className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              Webdesign für KMU und Immobilienmakler in {city.name} und Südhessen
-            </h2>
-            <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-              {city.description} {getLocalSectionText(city)}
-            </p>
-
-            <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 max-w-3xl mx-auto shadow-sm">
-              <p className="text-xl font-bold mb-4 text-blue-600">
-                Auch in Ihrer Nähe: {city.nearbyPlaces.slice(0, 3).join(', ')}
+        {city.slug === 'pfungstadt' ? (
+          <PfungstadtZielgruppeSection />
+        ) : city.slug === 'darmstadt' ? (
+          <DarmstadtEinzugsgebietSection />
+        ) : (
+          <section className="py-20 px-6 bg-white" aria-labelledby="webdesign-region-heading">
+            <div className="max-w-5xl mx-auto text-center">
+              <h2
+                id="webdesign-region-heading"
+                className="text-3xl md:text-4xl font-bold mb-6 text-slate-900"
+              >
+                Webdesign für KMU und Immobilienmakler in {city.name} und Südhessen
+              </h2>
+              <p className="text-xl text-slate-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+                {city.description} {getLocalSectionText(city)}
               </p>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {city.nearbyPlaces.map((place) => (
-                  <span
-                    key={place}
-                    className="px-4 py-2 bg-white rounded-lg text-slate-700 border border-slate-200"
-                  >
-                    {place}
-                  </span>
-                ))}
+
+              <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 max-w-3xl mx-auto shadow-sm">
+                <p className="text-xl font-bold mb-4 text-blue-600">
+                  Auch in Ihrer Nähe: {city.nearbyPlaces.slice(0, 3).join(', ')}
+                </p>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  {city.nearbyPlaces.map((place) => (
+                    <span
+                      key={place}
+                      className="px-4 py-2 bg-white rounded-lg text-slate-700 border border-slate-200"
+                    >
+                      {place}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
+
+        {city.slug === 'pfungstadt' && <PfungstadtWebdesignFaqSection />}
+        {city.slug === 'darmstadt' && <DarmstadtWebdesignFaqSection />}
 
         {/* CTA Section */}
         <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">

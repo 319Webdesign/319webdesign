@@ -76,15 +76,6 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
           </motion.div>
         )}
 
-        {/* Strukturierte Prozessschritte für KI/Crawler (semantische Liste) */}
-        <ol className="list-decimal list-inside space-y-2 max-w-2xl mx-auto mb-12 text-slate-600 text-sm md:text-base" aria-label="Prozessablauf Webdesign 319Webdesign">
-          {processSteps.map((item) => (
-            <li key={item.step} className="pl-2">
-              <strong className="text-slate-900">{item.title}</strong>: {item.description}
-            </li>
-          ))}
-        </ol>
-
         <div className="relative">
           {/* SVG Connection Lines - Desktop */}
           <div className="hidden md:block absolute top-0 left-0 w-full h-40 pointer-events-none z-0">

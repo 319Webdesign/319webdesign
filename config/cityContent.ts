@@ -33,12 +33,10 @@ export function getUniqueH1Region(city: City): { main: string; sub?: string } {
 export function getUniqueH1Webdesign(city: City): { main: string; sub?: string } {
   const variants: Record<string, { main: string; sub?: string }> = {
     darmstadt: {
-      main: 'Schnelle Websites für Darmstadts Tech-Szene',
-      sub: 'IT-Firmen & Immobilienmakler – Performance, die zählt',
+      main: 'Webdesigner Darmstadt –\nWebsites die lokal gefunden werden',
     },
     pfungstadt: {
-      main: 'Von Pfungstadt aus online wachsen',
-      sub: 'Handwerker & Makler – Webdesign mit lokaler Nähe',
+      main: 'Webdesigner Pfungstadt – Websites die gefunden werden',
     },
     griesheim: {
       main: 'Webdesign aus Griesheim – für die Region',
@@ -135,9 +133,9 @@ export function getWarumWebdesignContent(city: City): { heading: string; content
 export function getMetaDescriptionWebdesignCity(city: City): string {
   const variants: Record<string, string> = {
     darmstadt:
-      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Darmstadt: onOffice, Buchung, lokales SEO für KMU & Makler in Südhessen – Performance.',
+      'Webdesigner in Darmstadt für KMU & Handwerker. Next.js-Websites mit PageSpeed 99/100 & lokalem SEO. Kostenloses Erstgespräch.',
     pfungstadt:
-      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Pfungstadt: System-Integration, lokales SEO für Handwerk & Makler in Südhessen vor Ort.',
+      'Webdesign aus Pfungstadt: Individuelle, schnelle Websites für Handwerker, Makler & KMU. PageSpeed 99/100, persönliche Betreuung vor Ort. Jetzt Erstgespräch vereinbaren.',
     griesheim:
       'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Griesheim: lokale SEO, onOffice & Performance für KMU – Region Darmstadt, Südhessen.',
     weiterstadt:

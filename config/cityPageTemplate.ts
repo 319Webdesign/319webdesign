@@ -25,9 +25,9 @@ function getVariantIndex(city: City): number {
 export function getHeroIntro(city: City): string {
   const citySpecific: Record<string, string> = {
     darmstadt:
-      'Die Wissenschaftsstadt verdient mehr als Standard-Templates. IT-Firmen und Makler setzen auf schnelle Websites – ich liefere PageSpeed 99/100 und maßgeschneiderte Lösungen für Tech-KMUs sowie Villen- und Jugendstil-Immobilien.',
+      'Als Webdesigner in Darmstadt entwickle ich individuelle Websites für Unternehmen, die in der Wissenschaftsstadt wirklich gefunden werden wollen. Für Handwerker, Makler, IT-Firmen und KMU – mit PageSpeed 99/100 und maßgeschneiderten Lösungen statt Templates.',
     pfungstadt:
-      'Vor Ort bekannt sein heißt online sichtbar sein. Handwerker und Maklerbüros in Pfungstadt nutzen Websites, die Vertrauen schaffen – ich entwickle sie mit Performance 99/100 und dem Blick für lokale Zielgruppen.',
+      'Als Webdesigner in Pfungstadt entwickle ich Websites, die lokal gefunden werden und Vertrauen schaffen. Für Handwerker, Makler und KMU in der Region – mit PageSpeed 99/100 und persönlicher Betreuung vor Ort.',
     griesheim:
       'Zwischen Griesheim und Darmstadt konkurrieren viele Anbieter. Eine Website, die lädt und überzeugt, hebt Sie ab – PageSpeed 99/100, mobile-first und mit persönlicher Beratung aus der Region.',
     weiterstadt:

@@ -40,6 +40,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
   },
+  icons: {
+    icon: [{ url: '/319-favicon.png', type: 'image/png' }],
+    shortcut: '/319-favicon.png',
+    apple: '/319-favicon.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'de_DE',

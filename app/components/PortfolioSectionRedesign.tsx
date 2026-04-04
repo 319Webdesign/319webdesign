@@ -18,9 +18,10 @@ const fadeInUp = {
   transition: { duration: 0.55, ease: 'easeOut' as const },
 }
 
-const HOME_PROJECTS = getPortfolioProjectsHomeSorted()
+const PROJECTS = getPortfolioProjectsHomeSorted()
 
-export default function PortfolioSection() {
+/** Portfolio auf /website-relaunch – 3 gleiche Karten nebeneinander (ab md). */
+export default function PortfolioSectionRedesign() {
   const reduceMotion = useReduceMotion()
   const HeaderEl = reduceMotion ? 'div' : motion.div
   const headerProps = reduceMotion
@@ -28,22 +29,27 @@ export default function PortfolioSection() {
     : { ...fadeInUp, className: 'mb-10 text-center md:mb-12' }
 
   return (
-    <section className="relative bg-white px-6 py-14 md:py-20" aria-labelledby="portfolio-home-heading">
-      <div className="mx-auto max-w-7xl">
+    <section
+      className="relative border-t border-slate-200/80 bg-gradient-to-b from-slate-50/80 to-white px-6 py-16 md:py-24"
+      aria-labelledby="relaunch-portfolio-heading"
+    >
+      <div className="relative mx-auto max-w-7xl">
         <HeaderEl {...headerProps}>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Portfolio</p>
           <h2
-            id="portfolio-home-heading"
+            id="relaunch-portfolio-heading"
             className="text-balance text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-4xl"
           >
             Referenzen aus Darmstadt &amp; Pfungstadt
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-            Ausgewählte Webdesign-Projekte – Klicken Sie auf eine Karte für Details und Live-Einblicke.
+          <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+            So können moderne Next.js-Websites aussehen – echte Projekte aus der Region, mit klarem Fokus auf
+            Performance und messbare Qualität.
           </p>
         </HeaderEl>
 
         <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3 md:gap-8">
-          {HOME_PROJECTS.map((project, index) => {
+          {PROJECTS.map((project, index) => {
             const tags = getPortfolioHomeTags(project)
             const teaser = getPortfolioHomeTeaser(project)
             const ItemEl = reduceMotion ? 'li' : motion.li
@@ -66,7 +72,7 @@ export default function PortfolioSection() {
                       src={project.imageUrl}
                       alt={`Webdesign Portfolio ${project.title} – ${project.category} in ${project.location}, Next.js Referenz 319Webdesign Darmstadt`}
                       fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       className="object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                     />
                   </div>
@@ -85,7 +91,7 @@ export default function PortfolioSection() {
                         </span>
                       ))}
                     </div>
-                    <p className="mt-3 text-base leading-relaxed text-slate-600">{teaser}</p>
+                    <p className="mt-3 flex-1 text-base leading-relaxed text-slate-600">{teaser}</p>
                   </div>
                 </Link>
               </ItemEl>

@@ -13,6 +13,7 @@ const menuLinks = [
 
 const leistungenLinks = [
   { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
+  { href: '/website-relaunch', label: 'Relaunch' },
   { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
   { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' },
   { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign' },

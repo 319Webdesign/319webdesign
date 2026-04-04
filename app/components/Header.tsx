@@ -76,10 +76,11 @@ export default function Header() {
   }, [pathname])
 
   const leistungenItems = [
-    { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch', icon: '🚀' },
-    { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO', icon: '📈' },
-    { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung', icon: '🎯' },
-    { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign', icon: '🏠' },
+    { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
+    { href: '/website-relaunch', label: 'Relaunch' },
+    { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
+    { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' },
+    { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign' },
   ]
 
   const navLinks = [
@@ -235,21 +236,18 @@ export default function Header() {
 
                     {/* Dropdown Menu – direkt unter dem Link */}
                     <div
-                      className={`absolute top-full pt-2 left-0 min-w-[240px] z-[60] transition-opacity duration-200 ${
+                      className={`absolute top-full pt-2 left-0 min-w-[300px] z-[60] transition-opacity duration-200 ${
                         isLeistungenOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                       }`}
                     >
                       <div className="bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden">
-                      {leistungenItems.map((item, idx) => (
+                      {leistungenItems.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
                           className="block px-4 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-b border-slate-100 last:border-b-0"
                         >
-                          <div className="flex items-center gap-3">
-                            <span className="text-lg">{item.icon}</span>
-                            <span>{item.label}</span>
-                          </div>
+                          {item.label}
                         </Link>
                       ))}
                       </div>
@@ -360,23 +358,25 @@ export default function Header() {
                     </MotionLink>
                     {/* Submenu Items */}
                     <div className="ml-4 space-y-1 mt-1">
-                      {leistungenItems.map((item, idx) => (
-                        <MotionLink
-                          key={item.href}
-                          href={item.href}
-                          onClick={handleMobileLinkClick}
-                          initial={false}
-                          animate={{
-                            opacity: isMobileMenuOpen ? 1 : 0,
-                            x: isMobileMenuOpen ? 0 : -20,
-                          }}
-                          transition={{ duration: 0.3, delay: (index * 0.1) + (idx * 0.05) }}
-                          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors duration-300 py-2 text-sm"
-                        >
-                          <span>{item.icon}</span>
-                          <span>{item.label}</span>
-                        </MotionLink>
-                      ))}
+                      {leistungenItems.map((item, subIndex) => {
+                        const staggerDelay = index * 0.1 + subIndex * 0.05
+                        return (
+                          <MotionLink
+                            key={item.href}
+                            href={item.href}
+                            onClick={handleMobileLinkClick}
+                            initial={false}
+                            animate={{
+                              opacity: isMobileMenuOpen ? 1 : 0,
+                              x: isMobileMenuOpen ? 0 : -20,
+                            }}
+                            transition={{ duration: 0.3, delay: staggerDelay }}
+                            className="block text-slate-600 hover:text-blue-600 transition-colors duration-300 py-2 text-sm"
+                          >
+                            {item.label}
+                          </MotionLink>
+                        )
+                      })}
                     </div>
                     <div className="border-b border-slate-800/50 mt-2" />
                   </div>

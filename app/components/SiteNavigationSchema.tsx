@@ -26,24 +26,30 @@ export default function SiteNavigationSchema() {
       {
         '@type': 'SiteNavigationElement',
         position: 4,
+        name: 'Relaunch',
+        url: `${baseUrl}/website-relaunch`,
+      },
+      {
+        '@type': 'SiteNavigationElement',
+        position: 5,
         name: 'Wachstum & SEO',
         url: `${baseUrl}/leistungen/wachstum-seo`,
       },
       {
         '@type': 'SiteNavigationElement',
-        position: 5,
+        position: 6,
         name: 'Strategische Begleitung',
         url: `${baseUrl}/leistungen/strategische-begleitung`,
       },
       {
         '@type': 'SiteNavigationElement',
-        position: 6,
+        position: 7,
         name: 'Portfolio',
         url: `${baseUrl}/portfolio`,
       },
       {
         '@type': 'SiteNavigationElement',
-        position: 7,
+        position: 8,
         name: 'Kontakt',
         url: `${baseUrl}/kontakt`,
       },

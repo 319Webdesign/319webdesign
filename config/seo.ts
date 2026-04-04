@@ -60,6 +60,13 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     path: '/leistungen/webdesign-launch',
     keywordsExtra: ['Webdesign Launch', 'Next.js'],
   },
+  websiteRelaunch: {
+    title: 'Website Relaunch Darmstadt – Alte Website modernisieren | 319Webdesign',
+    description:
+      'Ihre Website veraltet? Als Webdesigner in Darmstadt modernisiere ich bestehende Websites – Next.js und SEO-sicherer Umzug. Kostenloser Website-Check.',
+    path: '/website-relaunch',
+    keywordsExtra: ['Website Relaunch', 'Neugestaltung', 'Redesign'],
+  },
   seo: {
     title: 'Lokales SEO für KMU & Makler in Darmstadt',
     description:

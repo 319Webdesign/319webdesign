@@ -10,6 +10,7 @@ const STATIC_PATHS = [
   '/leistungen/wachstum-seo',
   '/leistungen/strategische-begleitung',
   '/immobilienmakler-webdesign',
+  '/website-relaunch',
   '/portfolio',
   '/uber-mich',
   '/kontakt',

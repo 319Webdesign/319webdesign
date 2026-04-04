@@ -218,6 +218,23 @@ export const portfolioProjects: PortfolioProject[] = [
   },
 ]
 
+/** Teaser-Text für Referenz-Karten (Startseite & Redesign-Portfolio). */
+export function getPortfolioHomeTeaser(project: PortfolioProject): string {
+  if (project.homepageTeaser) return project.homepageTeaser
+  const t = project.task.trim()
+  return t.length > 130 ? `${t.slice(0, 130).trim()}…` : t
+}
+
+/** Tags für Referenz-Karten (Startseite & Redesign-Portfolio). */
+export function getPortfolioHomeTags(project: PortfolioProject): string[] {
+  return project.homepageTags ?? ['Next.js', project.category]
+}
+
+/** Gleiche Reihenfolge wie auf der Startseite (nach id). */
+export function getPortfolioProjectsHomeSorted(): PortfolioProject[] {
+  return portfolioProjects.slice().sort((a, b) => a.id - b.id)
+}
+
 export function getProjectsByCity(citySlug: string): PortfolioProject[] {
   return portfolioProjects.filter((p) => p.cities.includes(citySlug))
 }

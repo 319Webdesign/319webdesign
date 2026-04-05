@@ -42,9 +42,9 @@ export interface PageSeoConfig {
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign & System-Integration in Südhessen',
+    title: 'Webdesigner Darmstadt & Pfungstadt – Next.js',
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Webdesign Darmstadt & Pfungstadt: Next.js, onOffice-Anbindung, lokales SEO für KMU & Makler in Südhessen.',
+      'Webdesigner aus Pfungstadt für Darmstadt & Südhessen. Next.js-Websites für KMU, Handwerker & Makler. Persönlich vor Ort. Jetzt Erstgespräch.',
     path: '/',
     keywordsExtra: ['High-Performance Webdesign', 'System-Integration'],
     openGraph: {

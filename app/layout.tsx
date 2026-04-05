@@ -24,10 +24,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign',
-    default: 'Webdesign & System-Integration in Südhessen',
+    default: 'Webdesigner Darmstadt & Pfungstadt – Next.js',
   },
   description:
-    'Behalten Sie Ihr System, ich upgrade das Design. Webdesign Darmstadt & Pfungstadt: Next.js, onOffice-Anbindung, lokales SEO für KMU & Makler in Südhessen.',
+    'Webdesigner aus Pfungstadt für Darmstadt & Südhessen. Next.js-Websites für KMU, Handwerker & Makler. Persönlich vor Ort. Jetzt Erstgespräch.',
   keywords: [...seoKeywordsBase],
   robots: {
     index: true,
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     url: baseUrl,
     siteName: '319Webdesign',
-    title: 'Webdesign & System-Integration Darmstadt & Pfungstadt | 319Webdesign',
+    title: 'Webdesigner Darmstadt & Pfungstadt – Next.js | 319Webdesign',
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign, onOffice & Buchungstools, lokales SEO für KMU und Immobilienmakler in Südhessen.',
+      'Webdesigner aus Pfungstadt für Darmstadt & Südhessen. Next.js-Websites für KMU, Handwerker & Makler. Persönlich vor Ort. Jetzt Erstgespräch.',
     images: [
       {
         url: '/319Web_Mockup_iphone.png',
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Webdesign & System-Integration Darmstadt & Pfungstadt | 319Webdesign',
+    title: 'Webdesigner Darmstadt & Pfungstadt – Next.js | 319Webdesign',
     description:
-      'Behalten Sie Ihr System, ich upgrade das Design. Next.js, onOffice-Anbindung, lokales SEO – Darmstadt, Pfungstadt, Südhessen.',
+      'Webdesigner aus Pfungstadt für Darmstadt & Südhessen. Next.js-Websites für KMU, Handwerker & Makler. Persönlich vor Ort. Jetzt Erstgespräch.',
   },
 }
 

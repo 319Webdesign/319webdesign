@@ -2,6 +2,13 @@
 const nextConfig = {
   // output: 'export' entfernt - wird für API-Routen benötigt
   trailingSlash: false,
+  // Safari & Co. fragen oft /apple-touch-icon.png an; Metadata nutzt /319-favicon.png
+  async rewrites() {
+    return [
+      { source: '/apple-touch-icon.png', destination: '/319-favicon.png' },
+      { source: '/apple-touch-icon-precomposed.png', destination: '/319-favicon.png' },
+    ]
+  },
   // Hinweis: www↔non-www Redirects in Vercel Domain-Settings konfigurieren, nicht hier (sonst Redirect-Loop)
   // GZip-Komprimierung aktiv (next start). Vercel liefert HTML/JS/CSS automatisch Brotli/GZip-komprimiert.
   compress: true,

@@ -253,6 +253,46 @@ export default function PortfolioProjectPage({
                 )}
               </div>
             </div>
+
+            {project.beforeAfterComparison && (
+              <div className="mt-16 md:mt-20 border-t border-slate-200/90 pt-14 md:pt-16">
+                {project.beforeAfterComparison.sectionTitle ? (
+                  <p className="mb-8 text-center text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 md:mb-10">
+                    {project.beforeAfterComparison.sectionTitle}
+                  </p>
+                ) : null}
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-8 lg:gap-10">
+                  <figure className="m-0 flex flex-col gap-3">
+                    <figcaption className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">
+                      {project.beforeAfterComparison.beforeLabel}
+                    </figcaption>
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+                      <Image
+                        src={project.beforeAfterComparison.beforeImageUrl}
+                        alt={`${project.title} – Website vor dem Relaunch (Vorher-Ansicht)`}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
+                  </figure>
+                  <figure className="m-0 flex flex-col gap-3">
+                    <figcaption className="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-600">
+                      {project.beforeAfterComparison.afterLabel}
+                    </figcaption>
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+                      <Image
+                        src={project.beforeAfterComparison.afterImageUrl}
+                        alt={`${project.title} – Website nach dem Relaunch (Nachher-Ansicht)`}
+                        fill
+                        className="object-cover object-top"
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
+                  </figure>
+                </div>
+              </div>
+            )}
           </div>
         </section>
 

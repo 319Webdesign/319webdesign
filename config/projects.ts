@@ -43,6 +43,14 @@ export interface PortfolioProject {
   homepageTags?: string[]
   /** Kurzer Teaser-Text für die Referenz-Karte auf der Startseite */
   homepageTeaser?: string
+  /** Optional: Vorher/Nachher-Bilder unter Aufgabe & Technische Lösung (Portfolio-Detail) */
+  beforeAfterComparison?: {
+    sectionTitle?: string
+    beforeLabel: string
+    afterLabel: string
+    beforeImageUrl: string
+    afterImageUrl: string
+  }
 }
 
 export const portfolioProjects: PortfolioProject[] = [
@@ -215,6 +223,72 @@ export const portfolioProjects: PortfolioProject[] = [
     homepageTags: ['Next.js', 'Immobilien', 'Regional-SEO'],
     homepageTeaser:
       'Immobilienmakler-Website für Weinheim & Rhein-Neckar – klar strukturiert, schnell und regional ausgerichtet.',
+  },
+  {
+    id: 4,
+    slug: 'tierhotel-rhein-main',
+    title: 'Tierhotel Rhein Main',
+    category: 'Tierhotel',
+    imageUrl: '/tierhotel-header.png',
+    liveUrl: 'https://tierhotel-rhein-main.de/',
+    size: 'normal',
+    cities: ['darmstadt', 'pfungstadt'],
+    location: 'Rhein-Main',
+    lighthouseScore: 99,
+    task:
+      'Ein etabliertes Tierhotel mit veralteter Oberfläche: fehlendes Responsive Design, schwache Nutzerführung bei der Online-Reservierung und eine Optik, die weder Professionalität noch Herzlichkeit des Betriebs widerspiegelte – Ausgangspunkt für UI/UX-Relaunch und technische Optimierung.',
+    taskDetailed: {
+      ausgangslageTitle: 'Die Ausgangslage:',
+      ausgangslage:
+        'Ein funktional etabliertes Tierhotel arbeitete mit einer Benutzeroberfläche, die optisch in den frühen 2000er-Jahren stehen geblieben war. Das Design war weder für mobile Endgeräte optimiert (Responsive Design), noch spiegelte es die Professionalität und Herzlichkeit des modernen Betriebs wider.',
+      meineAufgabeTitle: 'Meine Aufgabe',
+      meineAufgabe: '',
+      kernaufgabenTitle: 'Die Kernprobleme:',
+      kernaufgaben: [
+        'Veraltete Ästhetik: Ein starres Layout, unzeitgemäße Typografie und eine unübersichtliche Struktur wirkten auf Neukunden abschreckend.',
+        'Mangelnde Benutzerführung: Die Navigation durch die Buchungsprozesse war unintuitiv, was zu einer hohen Abbruchquote bei der Online-Reservierung führte.',
+        'Fehlende Mobile-Optimierung: Da immer mehr Kunden ihre Buchungen über Smartphones erledigen, war die fehlerhafte Darstellung auf mobilen Geräten ein geschäftsschädigendes Hindernis.',
+      ],
+    },
+    technicalSolution:
+      'Grundlegende Überarbeitung der visuellen Identität mit modernem UI/UX, Responsive Layout (Flexbox/Grid), optimierten Buchungs-CTAs und performantem Frontend – bei Erhalt der bestehenden Buchungslogik.',
+    technicalSolutionDetailed: {
+      introTitle: 'Mein Ansatz:',
+      intro:
+        'Die komplette visuelle Identität wurde grundlegend überarbeitet, um eine Brücke zwischen moderner Web-Technologie und einer vertrauenerweckenden Optik zu schlagen.',
+      points: [
+        'Modernes UI/UX Design: Entwicklung eines neuen, luftigen Layouts, das mit großzügigen Whitespaces, moderner Typografie und einer klaren Farbhierarchie arbeitet.',
+        'Fokus auf eine emotionale Bildsprache, die das Vertrauen der Tierbesitzer stärkt.',
+        'Responsive Web Design: Vollständige Überarbeitung des Themes unter Einsatz moderner CSS-Techniken (Flexbox/Grid), um eine perfekte Darstellung auf allen Endgeräten – vom Desktop-Monitor bis zum Smartphone – zu garantieren.',
+        'Optimierung der Conversion-Rate: Umgestaltung der Buchungsformulare und Call-to-Action-Elemente. Durch eine klarere Strukturierung der Eingabefelder wurde der Buchungsprozess für den Nutzer deutlich vereinfacht und beschleunigt.',
+        'Frontend-Performance: Bereinigung des CSS-Codes und Optimierung der grafischen Elemente für schnelle Ladezeiten, ohne dabei Kompromisse bei der visuellen Qualität einzugehen.',
+        'Erhalt der Logik bei neuem Look: Die besondere Herausforderung bestand darin, das neue, moderne Design nahtlos über die bestehende, komplexe Buchungslogik zu legen, ohne die gewohnten Abläufe im Hintergrund zu unterbrechen.',
+      ],
+      resultTitle: 'Ergebnis',
+      resultIntro:
+        'Eine professionelle, regionale Webpräsenz, die das Leistungsangebot des Tierhotels greifbar macht und Eltern schnell zum nächsten Schritt (Reservierung oder Kontakt) führt.',
+      resultPoints: [
+        'Starke erste Impression durch klaren Hero-Bereich und emotionale Bildsprache.',
+        'Gute Lesbarkeit und Orientierung auf allen Bildschirmgrößen.',
+        'Technische Basis für weiteres Wachstum (neue Inhalte, Aktionen, Erweiterungen).',
+      ],
+    },
+    results: [
+      'PageSpeed Score 99/100',
+      'Next.js & mobile Optimierung',
+      'Klare Struktur: Infos, Zimmer, Kontakt & Buchung',
+      'Zwei Standorte verständlich abgebildet',
+      'DSGVO-orientierte, professionelle Aufstellung',
+    ],
+    homepageTags: ['Next.js', 'Tierhotel', 'Conversion'],
+    homepageTeaser:
+      'Exklusive Tierbetreuung in der Rhein-Main-Region – vertrauensvolle Website mit klarer Buchungsführung.',
+    beforeAfterComparison: {
+      beforeLabel: 'Vorher',
+      afterLabel: 'Nachher',
+      beforeImageUrl: '/tierhotel-vorher.png',
+      afterImageUrl: '/tierhotel-header.png',
+    },
   },
 ]
 

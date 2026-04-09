@@ -48,7 +48,7 @@ export default function PortfolioSectionRedesign() {
           </p>
         </HeaderEl>
 
-        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-3 md:gap-8">
+        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
           {PROJECTS.map((project, index) => {
             const tags = getPortfolioHomeTags(project)
             const teaser = getPortfolioHomeTeaser(project)

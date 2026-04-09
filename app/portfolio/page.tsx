@@ -14,13 +14,13 @@ const MotionLink = motion(Link)
 
 const GoogleReviewsSection = dynamic(() => import('../components/GoogleReviewsSection'), { ssr: true })
 
-const DISPLAY_SLUGS = ['heinerfilm', 'da-sound', 'he-immologis'] as const
+const DISPLAY_SLUGS = ['heinerfilm', 'da-sound', 'he-immologis', 'tierhotel-rhein-main'] as const
 
 const displayProjects = DISPLAY_SLUGS.map((slug) => portfolioProjects.find((p) => p.slug === slug)).filter(
   (p): p is NonNullable<typeof p> => p != null
 )
 
-const categories = ['Alle', 'Medienagentur', 'Veranstaltungstechnik', 'Immobilienmakler']
+const categories = ['Alle', 'Medienagentur', 'Veranstaltungstechnik', 'Immobilienmakler', 'Tierhotel']
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -157,7 +157,7 @@ export default function PortfolioPage() {
             variants={staggerContainer}
             initial="initial"
             animate="whileInView"
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-fr"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr"
           >
             {filteredProjects.map((project) => {
               return (

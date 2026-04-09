@@ -13,6 +13,8 @@ export interface PortfolioProject {
   cities: string[]
   /** Ort für Einzelseite (z.B. "Darmstadt") */
   location: string
+  /** Optional: eigener Dokumenttitel-Teil vor „ | 319Webdesign“ (Meta & Tab) */
+  seoPageTitle?: string
   /** Lighthouse/PageSpeed Score */
   lighthouseScore: number
   /** Beschreibung der Aufgabenstellung */
@@ -234,6 +236,7 @@ export const portfolioProjects: PortfolioProject[] = [
     size: 'normal',
     cities: ['darmstadt', 'pfungstadt'],
     location: 'Rhein-Main',
+    seoPageTitle: 'Tierhotel Rhein Main | Modernisierung der Website',
     lighthouseScore: 99,
     task:
       'Ein etabliertes Tierhotel mit veralteter Oberfläche: fehlendes Responsive Design, schwache Nutzerführung bei der Online-Reservierung und eine Optik, die weder Professionalität noch Herzlichkeit des Betriebs widerspiegelte – Ausgangspunkt für UI/UX-Relaunch und technische Optimierung.',

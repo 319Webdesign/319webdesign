@@ -25,7 +25,9 @@ export async function generateMetadata({
   if (!project) return { title: 'Projekt nicht gefunden' }
 
   const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
-  const pageTitle = truncateTitleForSeo(`${project.title} | ${project.category} ${project.location}`)
+  const pageTitle = truncateTitleForSeo(
+    project.seoPageTitle ?? `${project.title} | ${project.category} ${project.location}`,
+  )
   const description = truncateDescriptionForSeo(
     `${project.title} – Webdesign-Portfolio ${project.category} in ${project.location}. ${project.task} PageSpeed ${project.lighthouseScore}/100, Next.js Webdesign von 319Webdesign – Darmstadt, Pfungstadt, Südhessen.`,
   )

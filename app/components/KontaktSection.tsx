@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
 import { Phone, Mail, ArrowRight, ChevronDown, MessageCircle } from 'lucide-react'
+import { trackContactFormSubmit } from '@/lib/pirschContactEvent'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -55,6 +56,7 @@ export default function KontaktSection() {
         throw new Error(data.error || 'Fehler beim Senden der Nachricht')
       }
 
+      trackContactFormSubmit('startseite')
       setFormSubmitted(true)
       setFormData({ 
         firstName: '', 

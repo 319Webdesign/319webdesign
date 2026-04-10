@@ -7,6 +7,7 @@ import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown, ListOrd
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
+import { trackContactFormSubmit } from '@/lib/pirschContactEvent'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 30 },
@@ -55,6 +56,7 @@ export default function KontaktPage() {
         throw new Error(data.error || 'Fehler beim Senden der Nachricht')
       }
 
+      trackContactFormSubmit('kontakt')
       setFormSubmitted(true)
       setFormData({ 
         firstName: '', 

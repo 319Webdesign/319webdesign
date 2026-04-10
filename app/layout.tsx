@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import Script from 'next/script'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { baseUrl, seoKeywordsBase } from '../config/seo'
@@ -85,6 +84,12 @@ export default function RootLayout({
         <SiteNavigationSchema />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          defer
+          src="https://api.pirsch.io/pa.js"
+          id="pianjs"
+          data-code="vJWT37N3h190aNHNNLe4ZWy9zexmJm6H"
+        />
       </head>
       <body className={`antialiased ${inter.className}`} suppressHydrationWarning>
         <ReducedMotionProvider>
@@ -93,12 +98,6 @@ export default function RootLayout({
           <WhatsAppButton />
           <SpeedInsights />
         </ReducedMotionProvider>
-        <Script
-          strategy="afterInteractive"
-          src="https://api.pirsch.io/pa.js"
-          id="pirschjs"
-          data-code="fEQGR8BRgUl6cO0y1QD9XcQARtYFp1Ki"
-        />
       </body>
     </html>
   )

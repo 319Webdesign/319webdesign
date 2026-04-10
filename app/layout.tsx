@@ -84,6 +84,15 @@ export default function RootLayout({
         <SiteNavigationSchema />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          defer
+          src="https://www.319webdesign.de/pa.js"
+          id="pianjs"
+          data-code="fEQGR8BRgUl6cO0y1QD9XcQARtYFp1Ki"
+          data-hit-endpoint="https://www.319webdesign.de/hit"
+          data-event-endpoint="https://www.319webdesign.de/event"
+          data-session-endpoint="https://www.319webdesign.de/session"
+        />
       </head>
       <body className={`antialiased ${inter.className}`} suppressHydrationWarning>
         <ReducedMotionProvider>

@@ -34,7 +34,7 @@ export default function HeroSection() {
               </span>
             </div>
             <h1 className="text-3xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight animate-fade-in-up">
-              <span className="text-slate-900">Webdesign für Darmstadt & Pfungstadt: Starke Websites mit System-Intelligenz</span>
+              <span className="text-slate-900">Mehr Kunden, mehr Anfragen: Professionelles Webdesign für Unternehmen in Darmstadt & Pfungstadt.</span>
             </h1>
             <p className="text-base md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
               Vom regionalen KMU bis zum Immobilienmakler mit onOffice-Anbindung: Ich entwickle für Unternehmen in Darmstadt & Pfungstadt maßgeschneiderte High-Performance-Websites, die sich nahtlos in Ihre bestehenden Workflows einfügen.

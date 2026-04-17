@@ -59,7 +59,7 @@ export default function PortfolioSection() {
               <ItemEl key={project.slug} {...itemProps}>
                 <Link
                   href={`/portfolio/${project.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-sm transition-all duration-300 hover:border-blue-200/80 hover:shadow-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                  className="group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200/90 bg-white shadow-lg shadow-slate-900/10 transition-all duration-300 hover:border-blue-200/80 hover:shadow-xl hover:shadow-slate-900/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                 >
                   <div className="relative h-40 shrink-0 overflow-hidden bg-slate-100 sm:h-44">
                     <Image

@@ -82,7 +82,7 @@ export default function Warum319WebdesignSection() {
             return (
               <CardWrap key={card.title} {...cardProps}>
                 <article
-                  className="flex h-full flex-col rounded-xl border border-slate-200/90 bg-[#f8f9fa] p-8 shadow-sm md:p-9"
+                  className="flex h-full flex-col rounded-xl border border-slate-200/90 bg-[#f8f9fa] p-8 shadow-lg shadow-slate-900/10 transition-shadow duration-300 hover:shadow-xl hover:shadow-slate-900/20 md:p-9"
                 >
                   <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-lg bg-blue-100">
                     <Icon className="h-5 w-5 text-blue-600" aria-hidden />

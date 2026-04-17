@@ -16,6 +16,7 @@ const leistungenLinks = [
   { href: '/website-relaunch', label: 'Relaunch' },
   { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
   { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' },
+  { href: '/webdesign-handwerker', label: 'Handwerker Webdesign' },
   { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign' },
 ]
 

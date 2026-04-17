@@ -45,9 +45,9 @@ export async function generateMetadata({
 
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
   const pfungstadtMetaTitle =
-    'Webdesigner Pfungstadt | Individuelle Websites von 319Webdesign'
+    'Webdesign Handwerker Pfungstadt & Darmstadt | 319Webdesign'
   const darmstadtMetaTitle =
-    'Webdesigner Darmstadt – Next.js & SEO-Optimiert | 319Webdesign'
+    'Webdesign Handwerker Darmstadt & Pfungstadt | 319Webdesign'
   const pageTitle =
     city.slug === 'pfungstadt'
       ? pfungstadtMetaTitle
@@ -63,7 +63,7 @@ export async function generateMetadata({
     city.slug === 'pfungstadt' || city.slug === 'darmstadt'
       ? pageTitle
       : `${pageTitle} | 319Webdesign`
-  const ogImageAlt = `Next.js Webdesign ${city.name} – System-Integration und lokales SEO für KMU & Makler in Südhessen`
+  const ogImageAlt = `Webdesign für Handwerker ${city.name} – Next.js, lokales SEO in Darmstadt & Pfungstadt`
   return {
     title:
       city.slug === 'pfungstadt'

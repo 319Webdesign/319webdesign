@@ -17,7 +17,7 @@ export default function DarmstadtWebdesignFaqJsonLd() {
         '@id': businessId,
         name: '319Webdesign',
         description:
-          'Webdesigner in Darmstadt und Pfungstadt. Individuelle Next.js-Websites mit PageSpeed 99/100 für KMU, Handwerker, Makler und Dienstleister.',
+          'Webdesign für Handwerker in Darmstadt und Pfungstadt: Next.js-Websites mit PageSpeed 99/100, lokalem SEO und persönlicher Betreuung – Schwerpunkt Handwerksbetriebe.',
         url: pageUrl,
         telephone: '+491773236454',
         email: 'kontakt@319webdesign.com',
@@ -62,11 +62,11 @@ export default function DarmstadtWebdesignFaqJsonLd() {
       {
         '@type': 'Service',
         serviceType: 'Webdesign',
-        name: 'Webdesign Darmstadt',
+        name: 'Webdesign Handwerker Darmstadt',
         provider: { '@id': businessId },
         areaServed: { '@type': 'City', name: 'Darmstadt' },
         description:
-          'Individuelle Next.js-Websites für Unternehmen in Darmstadt. PageSpeed 99/100, lokales SEO, persönliche Betreuung.',
+          'Websites für Handwerksbetriebe in Darmstadt: Next.js, PageSpeed 99/100, lokales SEO, klare Angebote und Erstkontakt.',
         url: pageUrl,
       },
       {

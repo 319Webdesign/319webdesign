@@ -13,6 +13,9 @@ const LeistungenSection = dynamic(() => import('./components/LeistungenSection')
 const SolutionFocusCtaSection = dynamic(() => import('./components/SolutionFocusCtaSection'), { ssr: true })
 const MaklerProblemLoesungSection = dynamic(() => import('./components/MaklerProblemLoesungSection'), { ssr: true })
 const GoogleReviewsSection = dynamic(() => import('./components/GoogleReviewsSection'), { ssr: true })
+const HandwerkerSolutionsSection = dynamic(() => import('./components/HandwerkerSolutionsSection'), {
+  ssr: true,
+})
 const PortfolioSection = dynamic(() => import('./components/PortfolioSection'), { ssr: true })
 const CTASection = dynamic(() => import('./components/CTASection'), { ssr: true })
 const FAQSection = dynamic(() => import('./components/FAQSection'), { ssr: true })
@@ -31,6 +34,7 @@ export default function Home() {
         <Warum319WebdesignSection />
         <PortfolioSection />
         <GoogleReviewsSection />
+        <HandwerkerSolutionsSection />
         <LeistungenSection />
         <SolutionFocusCtaSection />
         <MaklerProblemLoesungSection />

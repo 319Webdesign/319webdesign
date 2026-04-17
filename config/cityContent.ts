@@ -54,9 +54,9 @@ export function getUniqueH1Webdesign(city: City): { main: string; sub?: string }
 export function getDescriptionWebdesign(city: City): string {
   const variants: Record<string, string> = {
     darmstadt:
-      'IT-Firmen und Makler in Darmstadt: Blitzschnelle Websites mit PageSpeed 99/100. Keine Standard-Templates – individuell, conversion-stark und für die Wissenschaftsstadt gemacht.',
+      'Handwerksbetriebe in Darmstadt & Pfungstadt: Webdesign mit PageSpeed 99/100, lokalem SEO und klaren Angeboten – keine Standard-Templates, sondern Ihr Auftritt.',
     pfungstadt:
-      'Handwerker und Maklerbüros in Pfungstadt vertrauen auf lokales Webdesign. Schnelle Ladezeiten, klare Struktur – Ihre Website als Vertrauensanker vor Ort.',
+      'Handwerker in Pfungstadt und Darmstadt: lokales Webdesign mit schnellen Ladezeiten und klarer Struktur – Ihre Website als Vertrauensanker vor Ort.',
     griesheim:
       'KMUs in Griesheim und Umgebung: Moderne Webauftritte, die bei Google ranken. PageSpeed 99/100, mobile-first – entwickelt von jemandem, der die Region kennt.',
     weiterstadt:
@@ -133,9 +133,9 @@ export function getWarumWebdesignContent(city: City): { heading: string; content
 export function getMetaDescriptionWebdesignCity(city: City): string {
   const variants: Record<string, string> = {
     darmstadt:
-      'Webdesigner in Darmstadt für KMU & Handwerker. Next.js-Websites mit PageSpeed 99/100 & lokalem SEO. Kostenloses Erstgespräch.',
+      'Webdesign für Handwerker in Darmstadt & Pfungstadt: Next.js, PageSpeed 99/100 & lokales SEO. Kostenloses Erstgespräch – persönlich vor Ort.',
     pfungstadt:
-      'Webdesign aus Pfungstadt: Individuelle, schnelle Websites für Handwerker, Makler & KMU. PageSpeed 99/100, persönliche Betreuung vor Ort. Jetzt Erstgespräch vereinbaren.',
+      'Webdesign für Handwerker in Pfungstadt & Darmstadt: Next.js, PageSpeed 99/100, lokales SEO. Persönliche Betreuung – Erstgespräch vereinbaren.',
     griesheim:
       'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Griesheim: lokale SEO, onOffice & Performance für KMU – Region Darmstadt, Südhessen.',
     weiterstadt:

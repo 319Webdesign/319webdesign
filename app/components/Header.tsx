@@ -80,6 +80,7 @@ export default function Header() {
     { href: '/website-relaunch', label: 'Relaunch' },
     { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
     { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' },
+    { href: '/webdesign-handwerker', label: 'Webdesign für Handwerker' },
     { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign' },
   ]
 

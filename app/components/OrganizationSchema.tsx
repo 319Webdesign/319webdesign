@@ -8,7 +8,7 @@ export default function OrganizationSchema() {
     url: baseUrl,
     logo: `${baseUrl}/319.png`,
     description:
-      '319Webdesign (Pfungstadt): High-Performance Next.js Webdesign für Darmstadt, Pfungstadt und Südhessen. System-Integration (onOffice, Buchungstools), lokales SEO für KMU und Immobilienmakler, Theme-Entwicklung für Bestandssysteme.',
+      '319Webdesign (Pfungstadt): Webdesign für Handwerker in Darmstadt, Pfungstadt und Südhessen – Next.js, PageSpeed und lokales SEO. System-Integration (Buchung, Bestand), Theme-Entwicklung für bestehende Systeme.',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Pfungstadt',
@@ -51,14 +51,14 @@ export default function OrganizationSchema() {
     foundingDate: '2023',
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Webdesign Services',
+      name: 'Webdesign für Handwerker',
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
             name: 'Webdesign',
-            description: 'High-Performance Websites mit PageSpeed 99/100',
+            description: 'Websites für Handwerksbetriebe mit PageSpeed 99/100',
           },
         },
         {
@@ -66,7 +66,7 @@ export default function OrganizationSchema() {
           itemOffered: {
             '@type': 'Service',
             name: 'SEO-Optimierung',
-            description: 'Lokale und technische Suchmaschinenoptimierung',
+            description: 'Lokale SEO für Handwerker in Darmstadt und Pfungstadt',
           },
         },
         {
@@ -74,7 +74,7 @@ export default function OrganizationSchema() {
           itemOffered: {
             '@type': 'Service',
             name: 'Website-Wartung',
-            description: 'Professioneller Support und regelmäßige Updates',
+            description: 'Support und Updates für Handwerker-Websites',
           },
         },
       ],

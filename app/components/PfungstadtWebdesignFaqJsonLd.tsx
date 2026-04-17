@@ -17,7 +17,7 @@ export default function PfungstadtWebdesignFaqJsonLd() {
         '@id': businessId,
         name: '319Webdesign',
         description:
-          'Webdesign & SEO für Handwerker, Makler und KMU in Pfungstadt und Darmstadt. Individuelle Next.js-Websites mit PageSpeed 99/100.',
+          'Webdesign & SEO für Handwerker in Pfungstadt und Darmstadt: Next.js-Websites mit PageSpeed 99/100 – lokale Sichtbarkeit für Handwerksbetriebe.',
         url: pageUrl,
         telephone: '+491773236454',
         email: 'kontakt@319webdesign.com',
@@ -58,11 +58,11 @@ export default function PfungstadtWebdesignFaqJsonLd() {
       {
         '@type': 'Service',
         serviceType: 'Webdesign',
-        name: 'Webdesign Pfungstadt',
+        name: 'Webdesign Handwerker Pfungstadt',
         provider: { '@id': businessId },
         areaServed: { '@type': 'City', name: 'Pfungstadt' },
         description:
-          'Individuelle Websites für lokale Unternehmen in Pfungstadt. Next.js, PageSpeed 99/100, SEO-optimiert.',
+          'Websites für Handwerker in Pfungstadt: Next.js, PageSpeed 99/100, SEO für regionale Suchanfragen.',
         url: pageUrl,
       },
       {

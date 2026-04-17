@@ -1,10 +1,10 @@
 'use client'
 
-import { ArrowDown, ArrowRight, Zap } from 'lucide-react'
+import { ArrowDown, ArrowRight, Award, MapPin, Zap } from 'lucide-react'
 import Image from 'next/image'
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-start justify-center overflow-hidden pt-32 md:pt-28">
+    <section className="relative flex items-start justify-center overflow-hidden pt-32 md:pt-28 pb-0">
       {/* Animated Background - Mesh Gradient (Reduziert für Mobile) */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Weißer Hintergrund mit dezentem Blau-Akzent */}
@@ -19,75 +19,66 @@ export default function HeroSection() {
 
       {/* 2-Spalten-Grid für Desktop */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-8 lg:gap-12 items-start min-h-[80vh]">
+        <div className="grid grid-cols-1 items-start gap-8 min-h-[80vh] lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch lg:gap-12">
           
           {/* Linke Spalte: Text und Buttons */}
-          <div className="text-center lg:text-left lg:pr-8">
-            <div className="flex justify-center lg:justify-start mb-4 animate-fade-in-up">
-              <span
-                className="inline-flex items-center gap-1.5 rounded-full border border-blue-500 bg-blue-50 px-3 py-1.5 text-sm font-medium text-blue-600"
-                role="status"
-                aria-label="Technologie: Next.js"
-              >
-                <Zap className="h-4 w-4 shrink-0" strokeWidth={2} aria-hidden />
-                Next.js Powered
-              </span>
-            </div>
-            <h1 className="text-3xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight animate-fade-in-up">
-              <span className="text-slate-900">Mehr Kunden, mehr Anfragen: Professionelles Webdesign für Unternehmen in Darmstadt & Pfungstadt.</span>
+          <div className="min-h-0 text-center lg:pr-8 lg:pt-10 lg:text-left xl:pt-14">
+            <h1 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 md:mb-7 leading-tight animate-fade-in-up">
+              <span className="text-slate-900">Mehr regionale Sichtbarkeit und passende Aufträge</span>
             </h1>
-            <p className="text-base md:text-xl text-slate-700 mb-4 leading-relaxed max-w-xl lg:max-w-none animate-fade-in-up animation-delay-100">
-              Vom regionalen KMU bis zum Immobilienmakler mit onOffice-Anbindung: Ich entwickle für Unternehmen in Darmstadt & Pfungstadt maßgeschneiderte High-Performance-Websites, die sich nahtlos in Ihre bestehenden Workflows einfügen.
+            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl lg:max-w-none mx-auto lg:mx-0 mb-8 animate-fade-in-up animation-delay-100">
+              Warten Sie nicht auf Zufalls-Anfragen. Wir sorgen dafür, dass Ihr Betrieb in Darmstadt und Pfungstadt bei Google ganz oben steht, wenn Kunden nach Profis suchen.
             </p>
 
-            <div className="mt-10 max-w-xl lg:max-w-none mx-auto lg:mx-0 animate-fade-in-up animation-delay-200">
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start items-center">
+            <div className="max-w-xl lg:max-w-none mx-auto lg:mx-0 animate-fade-in-up animation-delay-200">
+              <div className="flex flex-col items-center gap-2 lg:items-start">
                 <a
                   href="/kontakt"
                   className="px-6 py-2.5 text-sm bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-md shadow-blue-500/40 hover:shadow-lg hover:shadow-blue-500/60 transition-all duration-300 inline-flex items-center gap-2 group/btn hover:scale-[1.02] active:scale-[0.98] will-change-transform"
-                  aria-label="Zum Kontaktformular springen - Kostenlose Erstberatung"
+                  aria-label="Jetzt Erstgespräch vereinbaren – zum Kontaktformular"
                 >
-                  Kostenlose Erstberatung
+                  Jetzt Erstgespräch vereinbaren
                   <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" aria-hidden="true" />
                 </a>
-                <a
-                  href="#leistungen"
-                  className="px-6 py-2.5 text-sm border border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300 inline-flex items-center gap-2 group/btn2 hover:scale-[1.02] active:scale-[0.98] will-change-transform"
-                  aria-label="Zu den Leistungen scrollen - Unsere Lösungen ansehen"
-                >
-                  Unsere Lösungen ansehen
-                  <ArrowDown className="w-3.5 h-3.5 group-hover/btn2:translate-y-0.5 transition-transform duration-300" aria-hidden="true" />
-                </a>
+                <p className="text-center text-sm text-slate-600 lg:text-left">
+                  Kurzer Anruf genügt:{' '}
+                  <a
+                    href="tel:+491773236454"
+                    className="font-medium text-slate-800 underline-offset-2 hover:text-blue-600 hover:underline tabular-nums transition-colors"
+                  >
+                    +49 177 3236 454
+                  </a>
+                </p>
               </div>
 
               <div
                 className="mt-8 pt-6 border-t border-slate-200"
                 role="region"
-                aria-label="Performance- und Qualitätskennzahlen"
+                aria-label="Vorteile: Sofort startklar, Top-Qualität, regionale Präsenz"
               >
-                <div className="grid grid-cols-3 gap-3 sm:gap-6 md:gap-10 text-center sm:text-left">
-                  <div>
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tabular-nums tracking-tight">
-                      {'<'}100ms
-                    </p>
-                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 mt-1 leading-snug">
-                      Time to First Byte
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tabular-nums tracking-tight">
-                      100
-                    </p>
-                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 mt-1 leading-snug">
-                      Lighthouse Score
+                <div className="grid grid-cols-3 justify-items-start gap-3 sm:gap-6 md:gap-10">
+                  <div className="flex w-fit max-w-full flex-col items-center">
+                    <div className="mb-1.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-100" aria-hidden>
+                      <Zap className="h-3.5 w-3.5 text-blue-600" strokeWidth={2} />
+                    </div>
+                    <p className="text-left text-xs font-bold leading-tight text-slate-900 sm:text-sm md:text-base">
+                      Sofort startklar
                     </p>
                   </div>
-                  <div>
-                    <p className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 tracking-tight">
-                      SEO
+                  <div className="flex w-fit max-w-full flex-col items-center">
+                    <div className="mb-1.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-100" aria-hidden>
+                      <Award className="h-3.5 w-3.5 text-blue-600" strokeWidth={2} />
+                    </div>
+                    <p className="text-left text-xs font-bold leading-tight text-slate-900 sm:text-sm md:text-base">
+                      Top-Qualität
                     </p>
-                    <p className="text-[11px] sm:text-xs md:text-sm text-slate-500 mt-1 leading-snug">
-                      By Design
+                  </div>
+                  <div className="flex w-fit max-w-full flex-col items-center">
+                    <div className="mb-1.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-blue-100" aria-hidden>
+                      <MapPin className="h-3.5 w-3.5 text-blue-600" strokeWidth={2} />
+                    </div>
+                    <p className="text-left text-xs font-bold leading-tight text-slate-900 sm:text-sm md:text-base">
+                      Regionale Präsenz
                     </p>
                   </div>
                 </div>
@@ -95,19 +86,19 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Rechte Spalte: Porträtfoto (unten ausrichten, Zeile volle Höhe) */}
-          <div className="relative hidden lg:flex lg:flex-col lg:justify-end w-full lg:min-h-[80vh]">
-            <div className="relative w-full h-[650px] flex items-end justify-end lg:-translate-y-4">
+          {/* Rechte Spalte: Porträtfoto unten bündig mit Sektionsende / Trust-Bar */}
+          <div className="relative hidden min-h-0 w-full lg:flex lg:flex-col lg:justify-end lg:self-stretch">
+            <div className="relative flex w-full flex-1 min-h-0 items-end justify-end">
               <Image
                 src="/maik-removebg.png"
                 alt="Webdesign für Immobilienmakler und KMU in Darmstadt und Pfungstadt – Maik Schmidt, 319Webdesign"
-                width={550}
-                height={650}
+                width={600}
+                height={709}
                 priority={true}
                 fetchPriority="high"
-                sizes="(max-width: 1024px) 0vw, (max-width: 1280px) 45vw, 550px"
+                sizes="(max-width: 1024px) 0vw, (max-width: 1280px) 48vw, 600px"
                 quality={80}
-                className="object-contain object-bottom h-full w-auto max-w-none"
+                className="h-full max-h-full w-auto max-w-full origin-bottom scale-[1.06] object-contain object-bottom"
               />
             </div>
           </div>

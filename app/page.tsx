@@ -7,7 +7,6 @@ import ClientTrustBar from './components/ClientTrustBar'
 
 // Code-Splitting: Below-the-fold Sektionen dynamisch laden (weniger initiales JS, besseres LCP)
 const Warum319WebdesignSection = dynamic(() => import('./components/Warum319WebdesignSection'), { ssr: true })
-const TechStackSection = dynamic(() => import('./components/TechStackSection'), { ssr: true })
 const MehrwertSection = dynamic(() => import('./components/MehrwertSection'), { ssr: true })
 const InvestmentSection = dynamic(() => import('./components/InvestmentSection'), { ssr: true })
 const LeistungenSection = dynamic(() => import('./components/LeistungenSection'), { ssr: true })
@@ -30,7 +29,6 @@ export default function Home() {
         <HeroSection />
         <ClientTrustBar />
         <Warum319WebdesignSection />
-        <TechStackSection />
         <PortfolioSection />
         <GoogleReviewsSection />
         <LeistungenSection />

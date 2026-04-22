@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
-import { Inter } from 'next/font/google'
 import './globals.css'
 import { baseUrl, seoKeywordsBase } from '../config/seo'
 import OrganizationSchema from './components/OrganizationSchema'
@@ -12,13 +11,6 @@ import SiteNavigationSchema from './components/SiteNavigationSchema'
 import ReducedMotionProvider from './components/ReducedMotionProvider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from "@vercel/analytics/next"
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
-  display: 'swap',
-  variable: '--font-inter',
-})
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -77,13 +69,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className={inter.variable} suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <head>
         <OrganizationSchema />
         <ProfessionalServiceSchema />
         <SiteNavigationSchema />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
         <script
           defer
           src="https://api.pirsch.io/pa.js"
@@ -91,7 +87,7 @@ export default function RootLayout({
           data-code="vJWT37N3h190aNHNNLe4ZWy9zexmJm6H"
         />
       </head>
-      <body className={`antialiased ${inter.className}`} suppressHydrationWarning>
+      <body className="antialiased font-sans" suppressHydrationWarning>
         <ReducedMotionProvider>
           {children}
           <CookieBanner />

@@ -45,9 +45,9 @@ export async function generateMetadata({
 
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
   const pfungstadtMetaTitle =
-    'Webdesign Handwerker Pfungstadt & Darmstadt | 319Webdesign'
+    'Webdesign Pfungstadt & Darmstadt | 319Webdesign'
   const darmstadtMetaTitle =
-    'Webdesign Handwerker Darmstadt & Pfungstadt | 319Webdesign'
+    'Webdesign Darmstadt & Pfungstadt | 319Webdesign'
   const pageTitle =
     city.slug === 'pfungstadt'
       ? pfungstadtMetaTitle
@@ -63,7 +63,7 @@ export async function generateMetadata({
     city.slug === 'pfungstadt' || city.slug === 'darmstadt'
       ? pageTitle
       : `${pageTitle} | 319Webdesign`
-  const ogImageAlt = `Webdesign für Handwerker ${city.name} – Next.js, lokales SEO in Darmstadt & Pfungstadt`
+  const ogImageAlt = `Webdesign ${city.name} – Next.js und lokales SEO in Darmstadt & Pfungstadt`
   return {
     title:
       city.slug === 'pfungstadt'
@@ -436,6 +436,15 @@ export default function CityPage({ params }: { params: { city: string } }) {
               >
                 WhatsApp schreiben
               </a>
+              {city.slug === 'darmstadt' && (
+                <Link
+                  href="/seo-darmstadt"
+                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-blue-300 text-blue-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-800 transition-all duration-300"
+                >
+                  Mehr zu SEO in Darmstadt
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              )}
             </div>
           </div>
         </section>

@@ -13,15 +13,16 @@ export const titleTemplate = '%s | 319Webdesign'
 
 /** Zentrale Keywords für Meta-Tag (ergänzt seiten-spezifische Begriffe). */
 export const seoKeywordsBase = [
-  'Handwerker Webdesign Darmstadt',
-  'Handwerker Webdesign Pfungstadt',
-  'Webdesign Handwerker Südhessen',
-  'Handwerker Website',
+  'Webdesign Darmstadt',
+  'Webdesigner Darmstadt',
+  'Webdesign Pfungstadt',
+  'Webdesigner Pfungstadt',
   'Darmstadt',
   'Pfungstadt',
   'Südhessen',
   'Next.js Webdesigner Südhessen',
-  'Lokales SEO Handwerker',
+  'Suchmaschinenoptimierung Darmstadt',
+  'SEO Experte Darmstadt',
   'Theme Entwicklung für Bestandssysteme',
   'KMU Digitalisierung',
 ] as const
@@ -44,75 +45,75 @@ export interface PageSeoConfig {
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign Handwerker Darmstadt & Pfungstadt',
+    title: 'Webdesign Darmstadt & Pfungstadt',
     description:
-      'Webdesign für Handwerker in Darmstadt & Pfungstadt: Next.js-Websites mit lokalem SEO, schnell und klar. Aus Pfungstadt – persönlich vor Ort. Jetzt Erstgespräch.',
+      'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
     path: '/',
-    keywordsExtra: ['High-Performance Webdesign', 'Handwerkerbetrieb Website'],
+    keywordsExtra: ['High-Performance Webdesign', 'Webdesigner Darmstadt'],
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
       imageAlt:
-        '319Webdesign – Webdesign für Handwerker in Darmstadt, Pfungstadt und Südhessen (Next.js)',
+        '319Webdesign – Webdesign und Suchmaschinenoptimierung in Darmstadt, Pfungstadt und Suedhessen (Next.js)',
     },
   },
   launch: {
-    title: 'Next.js Webdesign & Launch für Handwerker',
+    title: 'Next.js Webdesign & Launch in Darmstadt',
     description:
       'Neue Website für Ihren Handwerksbetrieb: Next.js Launch Darmstadt & Pfungstadt – Performance, klare Angebote, mehr Anfragen. Systeme können bestehen bleiben – Design wird neu.',
     path: '/leistungen/webdesign-launch',
-    keywordsExtra: ['Webdesign Launch', 'Next.js', 'Handwerker'],
+    keywordsExtra: ['Webdesign Launch', 'Next.js', 'Webdesign Darmstadt'],
   },
   websiteRelaunch: {
     title: 'Website Relaunch Darmstadt – Alte Website modernisieren | 319Webdesign',
     description:
-      'Website veraltet? Relaunch für Handwerker in Darmstadt & Umgebung: Next.js, SEO-sicherer Umzug, modernes Erscheinungsbild. Kostenloser Website-Check.',
+      'Website veraltet? Relaunch in Darmstadt & Umgebung: Next.js, SEO-sicherer Umzug, modernes Erscheinungsbild. Kostenloser Website-Check.',
     path: '/website-relaunch',
-    keywordsExtra: ['Website Relaunch', 'Neugestaltung', 'Handwerker'],
+    keywordsExtra: ['Website Relaunch', 'Neugestaltung', 'Webdesigner Darmstadt'],
   },
   seo: {
-    title: 'SEO für Handwerker Darmstadt & Pfungstadt',
+    title: 'Suchmaschinenoptimierung Darmstadt & Pfungstadt',
     description:
       'Bei Google gefunden werden: SEO für Handwerksbetriebe in Darmstadt und Pfungstadt – sauberer Code, schnelle Ladezeiten, regionale Sichtbarkeit. Jetzt mehr erfahren!',
     path: '/leistungen/wachstum-seo',
-    keywordsExtra: ['Google Sichtbarkeit', 'regionale SEO Handwerker'],
+    keywordsExtra: ['Google Sichtbarkeit', 'SEO Experte Darmstadt'],
   },
   wartung: {
-    title: 'Betreuung Websites Handwerker Darmstadt',
+    title: 'Website Betreuung Darmstadt',
     description:
-      'Wartung für Handwerker-Websites: Updates, Backups, Monitoring in Pfungstadt & Region – Ihre Seite bleibt schnell, sicher und aktuell.',
+      'Wartung fuer Websites: Updates, Backups, Monitoring in Pfungstadt & Region – Ihre Seite bleibt schnell, sicher und aktuell.',
     path: '/leistungen/strategische-begleitung',
-    keywordsExtra: ['Website-Wartung', 'Support', 'Handwerker'],
+    keywordsExtra: ['Website-Wartung', 'Support', 'Webdesign Darmstadt'],
   },
   leistungen: {
-    title: 'Leistungen: Webdesign & SEO für Handwerker',
+    title: 'Leistungen: Webdesign & SEO Darmstadt',
     description:
       'Next.js Webdesign, lokales SEO und Anbindung bestehender Systeme – für Handwerksbetriebe in Darmstadt, Pfungstadt und Südhessen. Übersicht aller Leistungen.',
     path: '/leistungen',
-    keywordsExtra: ['Leistungen Webdesign', 'Handwerker'],
+    keywordsExtra: ['Leistungen Webdesign', 'Webdesigner Darmstadt'],
   },
   portfolio: {
-    title: 'Portfolio Handwerker-Webdesign Darmstadt',
+    title: 'Portfolio Webdesign Darmstadt',
     description:
       'Referenzen aus der Region: Next.js Webdesign für Handwerk und lokale Betriebe in Darmstadt & Pfungstadt – Performance, die man sieht. Jetzt Projekte ansehen.',
     path: '/portfolio',
-    keywordsExtra: ['Webdesign Referenzen', 'Handwerker Portfolio'],
+    keywordsExtra: ['Webdesign Referenzen', 'Webdesigner Portfolio'],
     openGraph: {
       image: '/319Web_Mockup_iphone.png',
       imageAlt:
-        'Webdesign Portfolio – Projekte für Handwerksbetriebe in Darmstadt und Pfungstadt',
+        'Webdesign Portfolio – Projekte in Darmstadt und Pfungstadt',
     },
   },
   kontakt: {
-    title: 'Erstberatung Webdesign Handwerker Darmstadt',
+    title: 'Erstberatung Webdesign Darmstadt',
     description:
-      'Kostenlose Erstberatung für Handwerker in Pfungstadt, Darmstadt & Südhessen: Termin vereinbaren, Projekt besprechen, online mehr Aufträge gewinnen.',
+      'Kostenlose Erstberatung fuer Unternehmen in Pfungstadt, Darmstadt & Suedhessen: Termin vereinbaren, Projekt besprechen, online mehr Anfragen gewinnen.',
     path: '/kontakt',
-    keywordsExtra: ['Kontakt Webdesign', 'Erstberatung Handwerker'],
+    keywordsExtra: ['Kontakt Webdesign', 'SEO Beratung Darmstadt'],
   },
   impressum: {
     title: 'Impressum – Rechtliche Angaben | 319Webdesign',
     description:
-      'Impressum 319Webdesign (Maik Schmidt), Nahestrasse 22, 64319 Pfungstadt – Webdesign für Handwerker in Darmstadt, Pfungstadt & Südhessen, Angaben gemäß § 5 TMG.',
+      'Impressum 319Webdesign (Maik Schmidt), Nahestrasse 22, 64319 Pfungstadt – Webdesign und SEO in Darmstadt, Pfungstadt & Suedhessen, Angaben gemaess § 5 TMG.',
     path: '/impressum',
     keywordsExtra: ['Impressum'],
   },
@@ -131,24 +132,38 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['onOffice Integration', 'Immobilienmakler Website'],
   },
   webdesignHandwerker: {
-    title: 'Webdesign Handwerker Darmstadt & Südhessen',
+    title: 'Webdesign Darmstadt & Suedhessen',
     description:
-      'Webdesign für Handwerksbetriebe in Südhessen: klare Website, lokales SEO, weniger Telefon-Stress – persönlich aus Pfungstadt. Jetzt Beratung anfragen.',
+      'Webdesign fuer Unternehmen in Suedhessen: klare Website, lokales SEO, weniger Telefon-Stress – persoenlich aus Pfungstadt. Jetzt Beratung anfragen.',
     path: '/webdesign-handwerker',
-    keywordsExtra: ['Handwerker Website Darmstadt', 'Webdesign Handwerk Südhessen'],
+    keywordsExtra: ['Webdesign Darmstadt', 'Webdesigner Suedhessen'],
   },
   ueberMich: {
-    title: 'Maik Schmidt | Handwerker Webdesign Darmstadt & Pfungstadt',
+    title: 'Maik Schmidt | Webdesigner Darmstadt & Pfungstadt',
     titleAbsolute: true,
     description:
       'Über 319webdesign: Webdesign & SEO mit Fokus auf Handwerksbetriebe in Darmstadt und Pfungstadt – persönlich, ehrlich, aus Pfungstadt.',
     path: '/uber-mich',
-    keywordsExtra: ['Über 319Webdesign', 'Webdesigner Handwerker'],
+    keywordsExtra: ['Ueber 319Webdesign', 'Webdesigner Darmstadt'],
     openGraph: {
       image: '/maik.webp',
       imageAlt:
-        'Maik Schmidt – Webdesigner für Handwerker in Darmstadt, Pfungstadt und Südhessen',
+        'Maik Schmidt – Webdesigner fuer Darmstadt, Pfungstadt und Suedhessen',
     },
+  },
+  seoDarmstadt: {
+    title: 'Suchmaschinenoptimierung Darmstadt fuer KMU',
+    description:
+      'Suchmaschinenoptimierung Darmstadt fuer Kleinunternehmen: lokale SEO-Strategie, Technik und Content fuer bessere Rankings und mehr qualifizierte Anfragen.',
+    path: '/seo-darmstadt',
+    keywordsExtra: [
+      'Suchmaschinenoptimierung Darmstadt',
+      'SEO Agentur Darmstadt',
+      'Local SEO Südhessen',
+      'Webdesign und SEO Darmstadt',
+      'Google Ranking verbessern Pfungstadt',
+      'Kleinunternehmen Sichtbarkeit Google',
+    ],
   },
 }
 

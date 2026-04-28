@@ -16,10 +16,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign',
-    default: 'Webdesign Handwerker Darmstadt & Pfungstadt',
+    default: 'Webdesign Darmstadt & Pfungstadt',
   },
   description:
-    'Webdesign für Handwerker in Darmstadt & Pfungstadt: Next.js-Websites mit lokalem SEO, schnell und klar. Aus Pfungstadt – persönlich vor Ort. Jetzt Erstgespräch.',
+    'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
   keywords: [...seoKeywordsBase],
   robots: {
     index: true,
@@ -42,24 +42,24 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     url: baseUrl,
     siteName: '319Webdesign',
-    title: 'Webdesign Handwerker Darmstadt & Pfungstadt | 319Webdesign',
+    title: 'Webdesign Darmstadt & Pfungstadt | 319Webdesign',
     description:
-      'Webdesign für Handwerker in Darmstadt & Pfungstadt: Next.js-Websites mit lokalem SEO, schnell und klar. Aus Pfungstadt – persönlich vor Ort. Jetzt Erstgespräch.',
+      'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
     images: [
       {
         url: '/319Web_Mockup_iphone.png',
         width: 1200,
         height: 630,
         alt:
-          '319Webdesign – Webdesign für Handwerker in Darmstadt, Pfungstadt und Südhessen (Next.js)',
+          '319Webdesign – Webdesign und Suchmaschinenoptimierung in Darmstadt, Pfungstadt und Suedhessen (Next.js)',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Webdesign Handwerker Darmstadt & Pfungstadt | 319Webdesign',
+    title: 'Webdesign Darmstadt & Pfungstadt | 319Webdesign',
     description:
-      'Webdesign für Handwerker in Darmstadt & Pfungstadt: Next.js-Websites mit lokalem SEO, schnell und klar. Aus Pfungstadt – persönlich vor Ort. Jetzt Erstgespräch.',
+      'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
   },
 }
 

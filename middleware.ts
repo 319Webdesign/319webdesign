@@ -5,6 +5,7 @@ import { PROJECT_SLUGS, CITY_SLUGS } from './config/middlewareSlugs'
 // Statische Seiten
 const STATIC_PATHS = [
   '/',
+  '/seo-darmstadt',
   '/leistungen',
   '/leistungen/webdesign-launch',
   '/leistungen/wachstum-seo',

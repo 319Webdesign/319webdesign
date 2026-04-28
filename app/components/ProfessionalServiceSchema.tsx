@@ -12,7 +12,7 @@ export default function ProfessionalServiceSchema() {
     image: [`${baseUrl}/319.png`, `${baseUrl}/319Web_Mockup_iphone.png`],
     url: baseUrl,
     description:
-      '319Webdesign: Webdesign für Handwerker mit Next.js (Pfungstadt) – Darmstadt, Pfungstadt, Südhessen. Lokales SEO, schnelle Ladezeiten, klare Auftrittsseiten. System-Integration und Theme-Entwicklung für Bestandssysteme.',
+      '319Webdesign: Webdesign und Suchmaschinenoptimierung mit Next.js (Pfungstadt) – Darmstadt, Pfungstadt, Südhessen. Lokale SEO, schnelle Ladezeiten und klare Auftrittsseiten. System-Integration und Theme-Entwicklung für Bestandssysteme.',
     telephone: '+49-177-3236454',
     email: 'kontakt@319webdesign.com',
     address: {
@@ -50,19 +50,21 @@ export default function ProfessionalServiceSchema() {
     founder: { '@type': 'Person', name: 'Maik Schmidt' },
     priceRange: '€€',
     knowsAbout: [
-      'Handwerker Webdesign Darmstadt',
-      'Handwerker Webdesign Pfungstadt',
+      'Webdesign Darmstadt',
+      'Webdesigner Darmstadt',
+      'Webdesign Pfungstadt',
       'Next.js Webdesigner Südhessen',
-      'Lokales SEO Handwerker',
+      'Suchmaschinenoptimierung Darmstadt',
+      'SEO Experte Darmstadt',
       'Theme Entwicklung für Bestandssysteme',
       'KMU Digitalisierung',
-      'Handwerker Website',
+      'Local SEO Südhessen',
     ],
     serviceType: [
-      'Webdesign für Handwerksbetriebe (Next.js)',
+      'Webdesign für Unternehmen (Next.js)',
       'Lokale Suchmaschinenoptimierung (Darmstadt & Pfungstadt)',
       'System-Integration & Buchungstools',
-      'Website-Wartung für Handwerker',
+      'Website-Wartung für Unternehmen',
     ],
   }
 

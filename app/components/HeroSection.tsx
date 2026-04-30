@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 export default function HeroSection() {
   return (
-    <section className="relative z-10 flex items-start justify-center overflow-visible bg-blue-600 pb-0 pt-24 md:pt-20">
+    <section className="relative z-10 flex items-start justify-center overflow-visible bg-blue-600 pb-0 pt-36 md:pt-32">
       {/* Animated Background - Mesh Gradient (Reduziert für Mobile) */}
       <div className="absolute inset-0 overflow-hidden">
         {/* Blauer Hintergrund mit leichtem Highlight */}

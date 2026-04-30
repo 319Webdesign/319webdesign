@@ -48,7 +48,22 @@ function StarRating({ rating }: { rating: number }) {
   )
 }
 
-export default function GoogleReviewsSection() {
+const DEFAULT_HEADING = 'Sind Kunden mit 319Webdesign zufrieden?'
+const DEFAULT_HEADING_LOADING = 'Google-Bewertungen von Kunden'
+
+interface GoogleReviewsSectionProps {
+  /** Weniger Abstand zur Sektion darüber (z. B. unter einem CTA auf Unterseiten). */
+  compactTop?: boolean
+  /** Überschrift der Sektion (Ladezustand und Inhalt); Standard nur wenn nicht gesetzt. */
+  headingTitle?: string
+}
+
+export default function GoogleReviewsSection({
+  compactTop = false,
+  headingTitle,
+}: GoogleReviewsSectionProps) {
+  const heading = headingTitle ?? DEFAULT_HEADING
+  const headingLoading = headingTitle ?? DEFAULT_HEADING_LOADING
   const [data, setData] = useState<ApiResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [expandedIds, setExpandedIds] = useState<Set<string>>(new Set())
@@ -72,12 +87,19 @@ export default function GoogleReviewsSection() {
       .finally(() => setLoading(false))
   }, [])
 
+  const sectionOuter =
+    compactTop
+      ? 'mt-6 bg-white px-6 py-10 md:mt-10 md:py-14'
+      : 'mt-28 bg-white px-6 py-12 md:mt-40 md:py-24'
+
   if (loading) {
     return (
-      <section className="mt-28 bg-white px-6 py-12 md:mt-40 md:py-24" aria-label="Kundenbewertungen werden geladen">
+      <section className={sectionOuter} aria-label={`${headingLoading} – wird geladen`}>
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
+            <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
+              {headingLoading}
+            </h2>
             <p className="text-lg text-slate-600 md:text-xl leading-relaxed" role="status">Bewertungen werden geladen…</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -97,14 +119,14 @@ export default function GoogleReviewsSection() {
   const error = data?.error
 
   return (
-    <section className="mt-28 bg-white px-6 py-12 md:mt-40 md:py-24" id="bewertungen" aria-labelledby="reviews-heading">
+    <section className={sectionOuter} id="bewertungen" aria-labelledby="reviews-heading">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...fadeInUp}
           className="text-center mb-14"
         >
           <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
-            Sind Kunden mit 319Webdesign zufrieden?
+            {heading}
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed md:text-xl">
             Aktuelle Google-Bewertungen aus Darmstadt und Pfungstadt.

@@ -84,6 +84,13 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     path: '/leistungen/strategische-begleitung',
     keywordsExtra: ['Website-Wartung', 'Support', 'Webdesign Darmstadt'],
   },
+  unserAngebot: {
+    title: 'Unser Angebot – Webdesign, SEO & Betreuung',
+    description:
+      'Übersicht über Webdesign & Launch, Suchmaschinenoptimierung und laufende Website-Wartung für KMU in Darmstadt, Pfungstadt und Südhessen – Next.js, persönlich aus einer Hand.',
+    path: '/unser-angebot',
+    keywordsExtra: ['Webdesign Angebot', 'SEO Paket', 'Website Betreuung Darmstadt'],
+  },
   leistungen: {
     title: 'Leistungen: Webdesign & SEO Darmstadt',
     description:

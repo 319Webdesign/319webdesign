@@ -59,9 +59,9 @@ export default function HeroSection() {
                   <a
                     href="/kontakt"
                     className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-300/70 bg-amber-400 px-7 py-3 text-base font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 group/btn hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98] will-change-transform sm:w-auto"
-                    aria-label="Jetzt Erstgespräch vereinbaren – zum Kontaktformular"
+                    aria-label="Kostenlosen Angebot anfragen – zum Kontaktformular"
                   >
-                    Jetzt Erstgespräch vereinbaren
+                    Kostenlosen Angebot anfragen
                     <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" aria-hidden="true" />
                   </a>
                   <a

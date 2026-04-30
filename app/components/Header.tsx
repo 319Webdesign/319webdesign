@@ -10,6 +10,9 @@ import { leistungenDropdownPanelWidth, leistungenMenuGroups } from './headerLeis
 
 const SCROLL_THRESHOLD = 50
 
+/** Voller Blau-Hero unter dem Header: Logo & Navigation oben weiß, bis gescrollt oder Mobilmenü offen. */
+const HERO_OVERLAY_PATHS = new Set(['/', '/unser-angebot', '/seo-darmstadt'])
+
 /** motion(Link) vermeidet <a><motion.div>-Hydration-Mismatches (Server vs Client). */
 const MotionLink = motion(Link)
 
@@ -29,6 +32,11 @@ export default function Header() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  // Nach Client-Navigation Scroll der neuen Seite übernehmen (sonst bleibt z. B. isScrolled von der Vor-Seite)
+  useEffect(() => {
+    setIsScrolled(window.scrollY > SCROLL_THRESHOLD)
+  }, [pathname])
 
   // Close mobile menu when clicking outside or on a link
   useEffect(() => {
@@ -78,6 +86,7 @@ export default function Header() {
   }, [pathname])
 
   const navLinks = [
+    { href: '/unser-angebot', label: 'Unser Angebot' },
     { href: '/uber-mich', label: 'Über Mich' },
     { href: '/leistungen', label: 'Leistungen', hasDropdown: true },
     { href: '/portfolio', label: 'Portfolio' },
@@ -135,16 +144,19 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }
 
-  const isHomeTop = pathname === '/' && !isScrolled && !isMobileMenuOpen
-  const desktopNavTextClass = isHomeTop
+  const isTransparentHeroNav =
+    HERO_OVERLAY_PATHS.has(pathname) && !isScrolled && !isMobileMenuOpen
+  const desktopNavTextClass = isTransparentHeroNav
     ? 'text-white hover:text-blue-100'
     : 'text-slate-700 hover:text-blue-600'
-  const logoTextClass = isHomeTop ? 'text-white' : 'text-slate-900'
-  const mobileMenuButtonClass = isHomeTop ? 'text-white hover:text-blue-100' : 'text-slate-700 hover:text-blue-600'
-  const navCtaClass = isHomeTop
+  const logoTextClass = isTransparentHeroNav ? 'text-white' : 'text-slate-900'
+  const mobileMenuButtonClass = isTransparentHeroNav
+    ? 'text-white hover:text-blue-100'
+    : 'text-slate-700 hover:text-blue-600'
+  const navCtaClass = isTransparentHeroNav
     ? 'inline-flex items-center justify-center shrink-0 rounded-lg border border-amber-300/70 bg-amber-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98]'
     : 'inline-flex items-center justify-center shrink-0 rounded-lg px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 hover:shadow-lg hover:shadow-blue-500/55 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300'
-  const navCtaMobileClass = isHomeTop
+  const navCtaMobileClass = isTransparentHeroNav
     ? 'inline-flex items-center justify-center shrink-0 rounded-lg border border-amber-300/70 bg-amber-400 px-3 py-2 text-xs font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 active:scale-[0.98] hover:bg-amber-500 hover:border-amber-200'
     : 'inline-flex items-center justify-center shrink-0 rounded-lg px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 active:scale-[0.98] transition-transform'
 
@@ -315,11 +327,11 @@ export default function Header() {
               )
             })}
             <Link
-              href="/kontakt"
+              href="/unser-angebot"
               className={navCtaClass}
-              aria-label="Projekt anfragen – zum Kontaktformular"
+              aria-label="Kostenloses Angebot sichern – zur Seite Unser Angebot"
             >
-              Projekt anfragen
+              Kostenloses Angebot sichern
             </Link>
           </div>
 
@@ -352,12 +364,12 @@ export default function Header() {
         >
           <div className="pt-4 pb-2 space-y-2">
             <Link
-              href="/kontakt"
+              href="/unser-angebot"
               onClick={handleMobileLinkClick}
               className={`${navCtaMobileClass} mb-3 w-full`}
-              aria-label="Projekt anfragen – zum Kontaktformular"
+              aria-label="Kostenloses Angebot sichern – zur Seite Unser Angebot"
             >
-              Projekt anfragen
+              Kostenloses Angebot sichern
             </Link>
             {navLinks.map((link, index) => {
               // Leistungen mit Submenü

@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 const menuLinks = [
   { href: '/', label: 'Startseite' },
+  { href: '/unser-angebot', label: 'Unser Angebot' },
   { href: '/uber-mich', label: 'Über Mich' },
   { href: '/leistungen', label: 'Leistungen' },
   { href: '/portfolio', label: 'Portfolio' },

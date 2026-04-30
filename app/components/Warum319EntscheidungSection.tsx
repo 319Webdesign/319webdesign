@@ -97,9 +97,9 @@ export default function Warum319EntscheidungSection() {
 
         <div className="mt-12 flex justify-center md:mt-14">
           <Link
-            href="/kontakt"
+            href="/unser-angebot"
             className="inline-flex items-center justify-center rounded-lg border border-amber-300/70 bg-amber-400 px-8 py-3.5 text-base font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 hover:scale-[1.02] hover:border-amber-200 hover:bg-amber-500 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
-            aria-label="Kostenfreies Angebot anfordern – zum Kontaktformular"
+            aria-label="Kostenfreies Angebot anfordern – zur Seite Unser Angebot"
           >
             Kostenfreies Angebot anfordern
           </Link>

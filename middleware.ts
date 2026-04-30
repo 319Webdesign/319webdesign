@@ -15,6 +15,7 @@ const STATIC_PATHS = [
   '/website-relaunch',
   '/portfolio',
   '/uber-mich',
+  '/unser-angebot',
   '/kontakt',
   '/impressum',
   '/datenschutz',

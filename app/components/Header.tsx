@@ -6,6 +6,8 @@ import { motion } from 'framer-motion'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import Link from 'next/link'
 
+import { leistungenDropdownPanelWidth, leistungenMenuGroups } from './headerLeistungenMenu'
+
 const SCROLL_THRESHOLD = 50
 
 /** motion(Link) vermeidet <a><motion.div>-Hydration-Mismatches (Server vs Client). */
@@ -74,15 +76,6 @@ export default function Header() {
       setTimeout(() => scrollToElement(), 200)
     }
   }, [pathname])
-
-  const leistungenItems = [
-    { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
-    { href: '/website-relaunch', label: 'Relaunch' },
-    { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
-    { href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' },
-    { href: '/webdesign-handwerker', label: 'Webdesign für Handwerker' },
-    { href: '/immobilienmakler-webdesign', label: 'Immobilienmakler Webdesign' },
-  ]
 
   const navLinks = [
     { href: '/uber-mich', label: 'Über Mich' },
@@ -240,30 +233,44 @@ export default function Header() {
                       />
                     </MotionLink>
 
-                    {/* Unsichtbare Brücke – fängt Hover ab, ohne Layout zu verändern */}
+                    {/* Unsichtbare Brücke – gleiche Breite wie Dropdown für zuverlässigen Hover */}
                     <div
-                      className={`absolute top-full left-0 right-0 h-40 z-[55] ${
+                      className={`absolute top-full left-1/2 z-[55] h-40 -translate-x-1/2 ${
                         isLeistungenOpen ? 'pointer-events-auto' : 'pointer-events-none'
                       }`}
+                      style={{ width: leistungenDropdownPanelWidth }}
                       aria-hidden
                     />
 
-                    {/* Dropdown Menu – direkt unter dem Link */}
+                    {/* Dropdown – 3 Spalten: Überschrift + Unterlinks */}
                     <div
-                      className={`absolute top-full pt-2 left-0 min-w-[300px] z-[60] transition-opacity duration-200 ${
+                      className={`absolute top-full left-1/2 z-[60] -translate-x-1/2 pt-2 transition-opacity duration-200 ${
                         isLeistungenOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
                       }`}
+                      style={{ width: leistungenDropdownPanelWidth }}
                     >
-                      <div className="bg-white rounded-lg shadow-xl border border-slate-200 overflow-hidden">
-                      {leistungenItems.map((item) => (
-                        <Link
-                          key={item.href}
-                          href={item.href}
-                          className="block px-4 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 border-b border-slate-100 last:border-b-0"
-                        >
-                          {item.label}
-                        </Link>
-                      ))}
+                      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-xl">
+                        <div className="grid grid-cols-3 gap-8">
+                          {leistungenMenuGroups.map((group) => (
+                            <div key={group.title}>
+                              <p className="border-b border-slate-200 pb-2 text-sm font-semibold tracking-tight text-slate-900">
+                                {group.title}
+                              </p>
+                              <ul className="mt-3 space-y-0.5">
+                                {group.links.map((item) => (
+                                  <li key={item.href}>
+                                    <Link
+                                      href={item.href}
+                                      className="block rounded-md px-2 py-2 text-sm text-slate-600 transition-colors duration-200 hover:bg-blue-50 hover:text-blue-700"
+                                    >
+                                      {item.label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -370,27 +377,36 @@ export default function Header() {
                     >
                       {link.label}
                     </MotionLink>
-                    {/* Submenu Items */}
-                    <div className="ml-4 space-y-1 mt-1">
-                      {leistungenItems.map((item, subIndex) => {
-                        const staggerDelay = index * 0.1 + subIndex * 0.05
-                        return (
-                          <MotionLink
-                            key={item.href}
-                            href={item.href}
-                            onClick={handleMobileLinkClick}
-                            initial={false}
-                            animate={{
-                              opacity: isMobileMenuOpen ? 1 : 0,
-                              x: isMobileMenuOpen ? 0 : -20,
-                            }}
-                            transition={{ duration: 0.3, delay: staggerDelay }}
-                            className="block text-slate-600 hover:text-blue-600 transition-colors duration-300 py-2 text-sm"
-                          >
-                            {item.label}
-                          </MotionLink>
-                        )
-                      })}
+                    <div className="ml-2 mr-1 mt-2 space-y-4">
+                      {leistungenMenuGroups.map((group, groupIndex) => (
+                        <div key={group.title}>
+                          <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                            {group.title}
+                          </p>
+                          <div className="mt-1.5 space-y-0.5">
+                            {group.links.map((item, linkIndex) => {
+                              const subIndex = groupIndex * 10 + linkIndex
+                              const staggerDelay = index * 0.1 + subIndex * 0.04
+                              return (
+                                <MotionLink
+                                  key={item.href}
+                                  href={item.href}
+                                  onClick={handleMobileLinkClick}
+                                  initial={false}
+                                  animate={{
+                                    opacity: isMobileMenuOpen ? 1 : 0,
+                                    x: isMobileMenuOpen ? 0 : -20,
+                                  }}
+                                  transition={{ duration: 0.3, delay: staggerDelay }}
+                                  className="block rounded-md py-2 pl-1 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600"
+                                >
+                                  {item.label}
+                                </MotionLink>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      ))}
                     </div>
                     <div className="border-b border-slate-800/50 mt-2" />
                   </div>

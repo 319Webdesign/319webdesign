@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { motion } from 'framer-motion'
 import {
   AreaChart,
@@ -18,7 +18,29 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react'
-import { useReduceMotion } from './ReducedMotionProvider'
+
+function subscribePrefersReducedMotion(onStoreChange: () => void) {
+  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
+  mq.addEventListener('change', onStoreChange)
+  return () => mq.removeEventListener('change', onStoreChange)
+}
+
+function getPrefersReducedMotionSnapshot() {
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
+/** SSR: Karussell annehmen, nach Hydration ggf. auf Raster wechseln. */
+function getPrefersReducedMotionServerSnapshot() {
+  return false
+}
+
+function usePrefersReducedMotion() {
+  return useSyncExternalStore(
+    subscribePrefersReducedMotion,
+    getPrefersReducedMotionSnapshot,
+    getPrefersReducedMotionServerSnapshot
+  )
+}
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -53,7 +75,7 @@ function circularOffset(index: number, active: number): number {
 }
 
 export default function VorteileWebsiteSection() {
-  const reduceMotion = useReduceMotion()
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   return (
     <section className="relative z-10 mt-10 overflow-visible bg-blue-600 px-6 pb-10 pt-24 md:mt-14 md:pb-14 md:pt-28" aria-labelledby="vorteile-website-heading">
@@ -62,9 +84,9 @@ export default function VorteileWebsiteSection() {
         aria-hidden
       />
       <div className="mx-auto max-w-7xl">
-        <HeaderEl reduceMotion={reduceMotion} />
+        <HeaderEl reduceMotion={prefersReducedMotion} />
 
-        {reduceMotion ? (
+        {prefersReducedMotion ? (
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
             {vorteile.map((item) => (
               <StaticCard key={item.title} item={item} />

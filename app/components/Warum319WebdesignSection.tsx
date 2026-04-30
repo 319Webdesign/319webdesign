@@ -50,7 +50,7 @@ export default function Warum319WebdesignSection() {
   return (
     <section
       id="warum-319webdesign"
-      className="relative w-full bg-white py-16 md:py-24 lg:py-28"
+      className="relative mt-20 w-full bg-white py-16 md:mt-28 md:py-24 lg:py-28"
       aria-labelledby="warum-319webdesign-heading"
     >
       <div className="mx-auto w-full max-w-7xl px-6">

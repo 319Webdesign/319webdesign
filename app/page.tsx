@@ -21,6 +21,7 @@ const CTASection = dynamic(() => import('./components/CTASection'), { ssr: true 
 const FAQSection = dynamic(() => import('./components/FAQSection'), { ssr: true })
 const KontaktSection = dynamic(() => import('./components/KontaktSection'), { ssr: true })
 const Footer = dynamic(() => import('./components/Footer'), { ssr: true })
+const VorteileWebsiteSection = dynamic(() => import('./components/VorteileWebsiteSection'), { ssr: true })
 
 export const metadata: Metadata = getSeoMetadata(seoConfig.home)
 
@@ -31,6 +32,7 @@ export default function Home() {
       <main className="min-h-screen overflow-x-hidden w-full">
         <HeroSection />
         <ClientTrustBar />
+        <VorteileWebsiteSection />
         <Warum319WebdesignSection />
         <PortfolioSection />
         <GoogleReviewsSection />

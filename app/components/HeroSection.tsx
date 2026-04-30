@@ -58,7 +58,7 @@ export default function HeroSection() {
                 <div className="flex w-full flex-col items-center gap-3 sm:flex-row lg:w-auto lg:items-start">
                   <a
                     href="/kontakt"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-300/70 bg-amber-400 px-6 py-2.5 text-sm font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 group/btn hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98] will-change-transform sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-300/70 bg-amber-400 px-7 py-3 text-base font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 group/btn hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98] will-change-transform sm:w-auto"
                     aria-label="Jetzt Erstgespräch vereinbaren – zum Kontaktformular"
                   >
                     Jetzt Erstgespräch vereinbaren
@@ -66,7 +66,7 @@ export default function HeroSection() {
                   </a>
                   <a
                     href="/portfolio"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/35 bg-transparent px-6 py-2.5 text-sm font-semibold text-white/95 transition-all duration-300 hover:scale-[1.02] hover:bg-white/12 hover:text-white active:scale-[0.98] sm:w-auto"
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/35 bg-transparent px-7 py-3 text-base font-semibold text-white/95 transition-all duration-300 hover:scale-[1.02] hover:bg-white/12 hover:text-white active:scale-[0.98] sm:w-auto"
                     aria-label="Kunden-Websites ansehen – zum Portfolio"
                   >
                     Kunden-Websites ansehen

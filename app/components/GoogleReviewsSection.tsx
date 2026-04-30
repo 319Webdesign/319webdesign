@@ -74,7 +74,7 @@ export default function GoogleReviewsSection() {
 
   if (loading) {
     return (
-      <section className="mt-20 bg-slate-50 px-6 py-12 md:mt-28 md:py-24" aria-label="Kundenbewertungen werden geladen">
+      <section className="mt-28 bg-white px-6 py-12 md:mt-40 md:py-24" aria-label="Kundenbewertungen werden geladen">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">Google-Bewertungen von Kunden</h2>
@@ -97,14 +97,14 @@ export default function GoogleReviewsSection() {
   const error = data?.error
 
   return (
-    <section className="mt-20 bg-slate-50 px-6 py-12 md:mt-28 md:py-24" id="bewertungen" aria-labelledby="reviews-heading">
+    <section className="mt-28 bg-white px-6 py-12 md:mt-40 md:py-24" id="bewertungen" aria-labelledby="reviews-heading">
       <div className="max-w-6xl mx-auto">
         <motion.div
           {...fadeInUp}
           className="text-center mb-14"
         >
           <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
-            Sind Kunden mit 319Webdesign in Darmstadt und Pfungstadt zufrieden?
+            Sind Kunden mit 319Webdesign zufrieden?
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed md:text-xl">
             Aktuelle Google-Bewertungen aus Darmstadt und Pfungstadt.

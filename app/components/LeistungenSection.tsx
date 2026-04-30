@@ -43,10 +43,10 @@ export default function LeistungenSection() {
   const headerProps = reduceMotion ? { className: 'text-center mb-16' } : { ...fadeInUp, className: 'text-center mb-16' }
 
   return (
-    <section id="leistungen" className="py-12 md:py-28 lg:py-32 px-6 bg-white">
+    <section id="leistungen" className="relative z-10 overflow-visible bg-blue-600 px-6 pb-8 pt-12 md:pb-12 md:pt-28 lg:pt-32">
       <div className="max-w-7xl mx-auto">
         <HeaderEl {...headerProps}>
-          <h2 className="text-2xl md:text-4xl font-bold mb-6">
+          <h2 className="mb-6 text-2xl font-bold text-white md:text-4xl">
             Welche Leistungen bietet 319Webdesign in Darmstadt und Pfungstadt?
           </h2>
         </HeaderEl>
@@ -129,6 +129,10 @@ export default function LeistungenSection() {
           )
         })()}
       </div>
+      <div
+        className="pointer-events-none absolute -bottom-16 left-1/2 h-16 w-[150%] -translate-x-1/2 rounded-b-[100%] bg-blue-600 md:-bottom-24 md:h-24"
+        aria-hidden
+      />
     </section>
   )
 }

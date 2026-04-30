@@ -17,7 +17,7 @@ export default function SolutionFocusCtaSection() {
 
   return (
     <section
-      className="relative overflow-hidden py-16 md:py-24 lg:py-28 px-6 bg-slate-950"
+      className="relative mt-20 overflow-hidden bg-slate-950 px-6 py-16 md:mt-28 md:py-24 lg:py-28"
       aria-labelledby="solution-focus-heading"
     >
       {/* Premium mesh / radial backdrop */}

@@ -96,15 +96,15 @@
   /* Float Animation für Mockups */
   @keyframes float {
     0%, 100% {
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
     50% {
-      transform: translateY(-20px);
+      transform: translateY(-8px) scale(1.03);
     }
   }
 
   .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
     will-change: transform;
   }
 

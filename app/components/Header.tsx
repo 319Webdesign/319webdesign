@@ -142,6 +142,19 @@ export default function Header() {
     setIsMobileMenuOpen(false)
   }
 
+  const isHomeTop = pathname === '/' && !isScrolled && !isMobileMenuOpen
+  const desktopNavTextClass = isHomeTop
+    ? 'text-white hover:text-blue-100'
+    : 'text-slate-700 hover:text-blue-600'
+  const logoTextClass = isHomeTop ? 'text-white' : 'text-slate-900'
+  const mobileMenuButtonClass = isHomeTop ? 'text-white hover:text-blue-100' : 'text-slate-700 hover:text-blue-600'
+  const navCtaClass = isHomeTop
+    ? 'inline-flex items-center justify-center shrink-0 rounded-lg border border-amber-300/70 bg-amber-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98]'
+    : 'inline-flex items-center justify-center shrink-0 rounded-lg px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 hover:shadow-lg hover:shadow-blue-500/55 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300'
+  const navCtaMobileClass = isHomeTop
+    ? 'inline-flex items-center justify-center shrink-0 rounded-lg border border-amber-300/70 bg-amber-400 px-3 py-2 text-xs font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 active:scale-[0.98] hover:bg-amber-500 hover:border-amber-200'
+    : 'inline-flex items-center justify-center shrink-0 rounded-lg px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 active:scale-[0.98] transition-transform'
+
   return (
     <motion.header
       initial={false}
@@ -181,7 +194,7 @@ export default function Header() {
               scale: isScrolled ? 0.818 : 1,
             }}
           >
-            <span className="block font-bold text-2xl md:text-3xl text-slate-900 tracking-tight">
+            <span className={`block font-bold text-2xl md:text-3xl tracking-tight ${logoTextClass}`}>
               319Webdesign
             </span>
           </MotionLink>
@@ -217,7 +230,7 @@ export default function Header() {
                       href={link.href}
                       initial={false}
                       animate={{ opacity: 1, y: 0 }}
-                      className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1"
+                      className={`${desktopNavTextClass} transition-colors duration-300 relative group/nav cursor-pointer flex items-center gap-1`}
                     >
                       {link.label}
                       <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${isLeistungenOpen ? 'rotate-180' : ''}`} />
@@ -266,7 +279,7 @@ export default function Header() {
                     onClick={(e) => handleLinkClick(e, link.href)}
                     initial={false}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
+                    className={`${desktopNavTextClass} transition-colors duration-300 relative group/nav cursor-pointer`}
                   >
                     {link.label}
                     <span
@@ -284,7 +297,7 @@ export default function Header() {
                   href={link.href}
                   initial={false}
                   animate={{ opacity: 1, y: 0 }}
-                  className="text-slate-700 hover:text-blue-600 transition-colors duration-300 relative group/nav cursor-pointer"
+                  className={`${desktopNavTextClass} transition-colors duration-300 relative group/nav cursor-pointer`}
                 >
                   {link.label}
                   <span
@@ -296,7 +309,7 @@ export default function Header() {
             })}
             <Link
               href="/kontakt"
-              className="inline-flex items-center justify-center shrink-0 rounded-lg px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 hover:shadow-lg hover:shadow-blue-500/55 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+              className={navCtaClass}
               aria-label="Projekt anfragen – zum Kontaktformular"
             >
               Projekt anfragen
@@ -305,17 +318,9 @@ export default function Header() {
 
           {/* Mobile: CTA + Menü */}
           <div className="flex items-center gap-2 md:hidden">
-            <Link
-              href="/kontakt"
-              onClick={handleMobileLinkClick}
-              className="inline-flex items-center justify-center shrink-0 rounded-lg px-3 py-2 text-xs font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 active:scale-[0.98] transition-transform"
-              aria-label="Projekt anfragen – zum Kontaktformular"
-            >
-              Projekt anfragen
-            </Link>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-slate-700 hover:text-blue-600 transition-colors p-2"
+              className={`${mobileMenuButtonClass} transition-colors p-2`}
               aria-label="Menü öffnen oder schließen"
             >
               {isMobileMenuOpen ? (
@@ -339,6 +344,14 @@ export default function Header() {
           style={{ marginLeft: '-1.5rem', marginRight: '-1.5rem', paddingLeft: '1.5rem', paddingRight: '1.5rem' }}
         >
           <div className="pt-4 pb-2 space-y-2">
+            <Link
+              href="/kontakt"
+              onClick={handleMobileLinkClick}
+              className={`${navCtaMobileClass} mb-3 w-full`}
+              aria-label="Projekt anfragen – zum Kontaktformular"
+            >
+              Projekt anfragen
+            </Link>
             {navLinks.map((link, index) => {
               // Leistungen mit Submenü
               if (link.hasDropdown) {

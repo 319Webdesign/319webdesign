@@ -18,7 +18,7 @@ const fadeInUp = {
   transition: { duration: 0.55, ease: 'easeOut' as const },
 }
 
-const HOME_PROJECTS = getPortfolioProjectsHomeSorted()
+const HOME_PROJECTS = getPortfolioProjectsHomeSorted().filter((project) => project.slug !== 'da-sound')
 
 export default function PortfolioSection() {
   const reduceMotion = useReduceMotion()
@@ -28,21 +28,21 @@ export default function PortfolioSection() {
     : { ...fadeInUp, className: 'mb-10 text-center md:mb-12' }
 
   return (
-    <section className="relative bg-white px-6 py-14 md:py-20" aria-labelledby="portfolio-home-heading">
+    <section className="relative z-10 overflow-visible bg-blue-600 px-6 pb-8 pt-14 md:pb-12 md:pt-20" aria-labelledby="portfolio-home-heading">
       <div className="mx-auto max-w-7xl">
         <HeaderEl {...headerProps}>
           <h2
             id="portfolio-home-heading"
-            className="text-balance text-2xl font-bold tracking-tight text-slate-900 md:text-3xl lg:text-4xl"
+            className="text-balance text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl"
           >
-            Referenzen aus Darmstadt &amp; Pfungstadt
+            Aktuelle Kunden Websites
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+          <p className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-blue-100 md:text-xl">
             Ausgewählte Webdesign-Projekte – Klicken Sie auf eine Karte für Details und Live-Einblicke.
           </p>
         </HeaderEl>
 
-        <ul className="m-0 grid list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 lg:grid-cols-4 md:gap-8">
+        <ul className="m-0 mx-auto grid max-w-[1300px] list-none grid-cols-1 gap-6 p-0 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
           {HOME_PROJECTS.map((project, index) => {
             const tags = getPortfolioHomeTags(project)
             const teaser = getPortfolioHomeTeaser(project)
@@ -96,13 +96,17 @@ export default function PortfolioSection() {
         <div className="mt-10 flex justify-center md:mt-12">
           <Link
             href="/portfolio"
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-8 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-blue-500/60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-amber-300/70 bg-amber-400 px-8 py-3.5 font-semibold text-slate-950 shadow-lg shadow-amber-900/25 transition-all duration-300 hover:scale-[1.02] hover:border-amber-200 hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
           >
             Alle Projekte ansehen
             <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
           </Link>
         </div>
       </div>
+      <div
+        className="pointer-events-none absolute -bottom-24 left-1/2 h-24 w-[165%] -translate-x-1/2 rounded-b-[100%] bg-blue-600 md:-bottom-32 md:h-32"
+        aria-hidden
+      />
     </section>
   )
 }

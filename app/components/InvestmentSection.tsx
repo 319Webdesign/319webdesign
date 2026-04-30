@@ -93,7 +93,7 @@ export default function InvestmentSection() {
   ]
 
   return (
-    <section className="py-12 md:py-24 px-6 bg-slate-50">
+    <section className="mt-20 bg-white px-6 py-12 md:mt-28 md:py-24">
       <div className="max-w-6xl mx-auto">
         {/* Headline & Text */}
         {reduceMotion ? (

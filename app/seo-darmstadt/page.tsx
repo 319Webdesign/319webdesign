@@ -46,7 +46,7 @@ export default function SeoDarmstadtPage() {
       <main className="min-h-screen bg-white pt-24 text-slate-900 antialiased">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
-        <section className="relative overflow-hidden border-b border-slate-200/70 bg-gradient-to-br from-blue-50 via-white to-slate-50 py-16 md:py-24">
+        <section className="relative overflow-hidden bg-blue-600 py-16 md:py-24 rounded-b-[3rem] md:rounded-b-[5rem]">
           <div className="relative z-10 mx-auto max-w-5xl px-6">
             <div className="mb-8 flex justify-center md:justify-start">
               <Breadcrumbs
@@ -56,11 +56,11 @@ export default function SeoDarmstadtPage() {
                 ]}
               />
             </div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-600">SEO Agentur Darmstadt</p>
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-5xl">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-blue-100">SEO Agentur Darmstadt</p>
+            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white md:text-5xl">
               Suchmaschinenoptimierung (SEO) in Darmstadt &amp; Südhessen
             </h1>
-            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-600 md:text-xl">
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-blue-50/95 md:text-xl">
               Mehr Sichtbarkeit für Kleinunternehmen &amp; Selbstständige: Wir helfen Ihnen, in Darmstadt und der Region
               bei Google dort aufzutauchen, wo potenzielle Kunden konkret nach Leistungen suchen.
             </p>
@@ -73,7 +73,7 @@ export default function SeoDarmstadtPage() {
               </a>
               <a
                 href="tel:+491773236454"
-                className="inline-flex items-center justify-center rounded-lg border border-slate-200 bg-white px-6 py-3.5 text-base font-semibold text-slate-800 transition-colors hover:border-blue-300 hover:text-blue-700"
+                className="inline-flex items-center justify-center rounded-lg border border-blue-100/60 bg-white px-6 py-3.5 text-base font-semibold text-slate-800 transition-colors hover:border-white hover:text-blue-700"
               >
                 Direkt anrufen
               </a>

@@ -36,10 +36,10 @@ export default function Home() {
         <GoogleReviewsSection />
         <HandwerkerSolutionsSection />
         <LeistungenSection />
+        <InvestmentSection />
         <SolutionFocusCtaSection />
         <MaklerProblemLoesungSection />
         <MehrwertSection />
-        <InvestmentSection />
         <CTASection />
         <FAQSection />
         <KontaktSection />

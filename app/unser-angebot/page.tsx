@@ -7,7 +7,7 @@ export const metadata: Metadata = getSeoMetadata(seoConfig.unserAngebot)
 export default function UnserAngebotPage() {
   return (
     <main className="min-h-screen min-w-0 bg-white">
-      <section className="relative z-10 overflow-visible bg-blue-600 pb-0 pt-28 md:pt-32">
+      <section className="relative z-10 overflow-visible bg-blue-600 pb-0 pt-36 md:pt-32">
         <div className="absolute inset-0 overflow-hidden" aria-hidden>
           <div className="absolute inset-0 bg-blue-600" />
           <div
@@ -21,9 +21,9 @@ export default function UnserAngebotPage() {
 
         <div className="relative z-10 mx-auto max-w-3xl px-6 pb-12 text-center text-white md:pb-16">
           <h1 className="mb-5">
-            <span className="block text-4xl font-bold leading-[1.15] tracking-tight md:text-5xl lg:text-[3rem]">
+            <span className="block text-3xl font-bold leading-[1.15] tracking-tight md:text-5xl lg:text-[3rem]">
               Holen Sie sich jetzt Ihr{' '}
-              <span className="bg-gradient-to-r from-amber-200 to-amber-100 bg-clip-text font-bold text-transparent">
+              <span className="font-bold text-amber-400 md:bg-gradient-to-r md:from-amber-200 md:to-amber-100 md:bg-clip-text md:text-transparent">
                 unverbindliches Angebot
               </span>
             </span>

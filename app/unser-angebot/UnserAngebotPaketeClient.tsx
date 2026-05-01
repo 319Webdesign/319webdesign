@@ -28,10 +28,10 @@ export default function UnserAngebotPaketeClient() {
         paketName={gewaehltesPaket}
       />
 
-      <section className="px-6 pb-12 pt-16 md:pb-16 md:pt-24 lg:pt-32" aria-labelledby="pakete-heading">
+      <section className="px-6 pb-12 pt-28 md:pb-16 md:pt-24 lg:pt-32" aria-labelledby="pakete-heading">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-14 lg:mb-16">
           <h2 id="pakete-heading" className="text-2xl font-bold text-slate-900 md:text-3xl lg:text-4xl">
-            Was in Ihrem Paket steckt – im Detail
+            Was in Ihrem Paket steckt –<br className="md:hidden" aria-hidden /> im Detail
           </h2>
           <p className="mt-4 text-slate-600 md:text-lg">
             Drei Pakete – alle Leistungen transparent auf einen Blick.

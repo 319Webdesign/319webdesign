@@ -80,10 +80,12 @@ export default function VorteileWebsiteSection() {
   return (
     <section className="relative z-10 mt-10 overflow-visible bg-blue-600 px-6 pb-10 pt-24 md:mt-14 md:pb-14 md:pt-28" aria-labelledby="vorteile-website-heading">
       <div
-        className="pointer-events-none absolute -top-8 left-1/2 h-8 w-[150%] -translate-x-1/2 rounded-t-[100%] bg-blue-600 md:-top-10 md:h-10"
+        className="pointer-events-none absolute inset-x-0 -top-8 z-[5] h-8 overflow-x-hidden md:-top-10 md:h-10"
         aria-hidden
-      />
-      <div className="mx-auto max-w-7xl">
+      >
+        <div className="absolute bottom-0 left-1/2 h-full w-[150%] -translate-x-1/2 rounded-t-[100%] bg-blue-600" />
+      </div>
+      <div className="mx-auto min-w-0 max-w-7xl">
         <HeaderEl reduceMotion={prefersReducedMotion} />
 
         {prefersReducedMotion ? (
@@ -97,9 +99,11 @@ export default function VorteileWebsiteSection() {
         )}
       </div>
       <div
-        className="pointer-events-none absolute -bottom-16 left-1/2 h-16 w-[150%] -translate-x-1/2 rounded-b-[100%] bg-blue-600 md:-bottom-24 md:h-24"
+        className="pointer-events-none absolute inset-x-0 -bottom-16 z-[5] h-16 overflow-x-hidden md:-bottom-24 md:h-24"
         aria-hidden
-      />
+      >
+        <div className="absolute left-1/2 top-0 h-full w-[150%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
+      </div>
     </section>
   )
 }

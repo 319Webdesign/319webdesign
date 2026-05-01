@@ -95,7 +95,7 @@ export default function GoogleReviewsSection({
   if (loading) {
     return (
       <section className={sectionOuter} aria-label={`${headingLoading} – wird geladen`}>
-        <div className="max-w-6xl mx-auto">
+        <div className="mx-auto min-w-0 max-w-6xl">
           <div className="text-center mb-12">
             <h2 id="reviews-heading" className="text-2xl md:text-4xl font-bold mb-4">
               {headingLoading}
@@ -120,7 +120,7 @@ export default function GoogleReviewsSection({
 
   return (
     <section className={sectionOuter} id="bewertungen" aria-labelledby="reviews-heading">
-      <div className="max-w-6xl mx-auto">
+      <div className="mx-auto min-w-0 max-w-6xl">
         <motion.div
           {...fadeInUp}
           className="text-center mb-14"
@@ -156,7 +156,7 @@ export default function GoogleReviewsSection({
             )}
           </motion.div>
         ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid min-w-0 grid-cols-1 gap-8 md:grid-cols-3">
           {reviews.map((review, index) => {
             const reviewId = `${review.time}-${review.author_name}-${index}`
             const isExpanded = expandedIds.has(reviewId)
@@ -166,7 +166,7 @@ export default function GoogleReviewsSection({
               key={reviewId}
               {...fadeInUp}
               transition={{ ...fadeInUp.transition, delay: index * 0.1 }}
-              className="relative bg-white backdrop-blur-sm rounded-2xl border border-slate-200 p-6 hover:border-[#3b82f6]/40 transition-colors duration-300"
+              className="relative min-w-0 rounded-2xl border border-slate-200 bg-white p-6 backdrop-blur-sm transition-colors duration-300 hover:border-[#3b82f6]/40"
             >
               <Quote className="absolute top-5 right-5 w-8 h-8 text-[#3b82f6]/20" aria-hidden />
               <div className="flex items-center gap-4 mb-4">
@@ -183,8 +183,8 @@ export default function GoogleReviewsSection({
                     {review.author_name.charAt(0)}
                   </div>
                 )}
-                <div>
-                  <p className="font-semibold text-slate-900">{review.author_name}</p>
+                <div className="min-w-0">
+                  <p className="break-words font-semibold text-slate-900">{review.author_name}</p>
                   <StarRating rating={review.rating} />
                 </div>
               </div>
@@ -192,7 +192,7 @@ export default function GoogleReviewsSection({
                 <div className="mb-3">
                   <blockquote cite={`https://www.google.com/maps?cid=${reviewId}`} className="mb-0">
                     <p
-                      className={`text-slate-600 leading-relaxed ${!isExpanded && hasLongText ? 'line-clamp-4' : ''}`}
+                      className={`break-words text-slate-600 leading-relaxed ${!isExpanded && hasLongText ? 'line-clamp-4' : ''}`}
                     >
                       &ldquo;{review.text}&rdquo;
                     </p>

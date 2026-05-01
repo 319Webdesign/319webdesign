@@ -24,7 +24,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="min-h-screen overflow-x-hidden w-full">
+      <main className="min-h-screen w-full min-w-0">
         <HeroSection />
         <ClientTrustBar />
         <VorteileWebsiteSection />

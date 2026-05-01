@@ -37,13 +37,13 @@ export default function UnserAngebotPaketeClient() {
             Drei Pakete – alle Leistungen transparent auf einen Blick.
           </p>
         </div>
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-3 md:items-stretch">
+        <div className="mx-auto grid min-w-0 max-w-6xl gap-8 md:grid-cols-3 md:items-stretch">
           {pakete.map((paket) => {
             const IntroIcon = paket.featureIntro?.icon
             return (
               <article
                 key={paket.name}
-                className={`relative flex flex-col rounded-2xl border bg-white px-6 pb-8 pt-10 text-center shadow-md transition-shadow duration-300 ${
+                className={`relative flex min-w-0 flex-col rounded-2xl border bg-white px-6 pb-8 pt-10 text-center shadow-md transition-shadow duration-300 ${
                   paket.highlight
                     ? 'border-amber-300 shadow-xl shadow-amber-900/10 ring-2 ring-amber-400/40 md:z-10 md:-my-2 md:py-12'
                     : 'border-slate-200 hover:shadow-lg'
@@ -86,7 +86,7 @@ export default function UnserAngebotPaketeClient() {
                       <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-700">
                         <IntroIcon className="h-4 w-4" aria-hidden />
                       </span>
-                      <span className="pt-1 font-medium leading-snug">{paket.featureIntro.text}</span>
+                      <span className="min-w-0 break-words pt-1 font-medium leading-snug">{paket.featureIntro.text}</span>
                     </li>
                   )}
                   {paket.merkmale.map((m) => (
@@ -96,7 +96,7 @@ export default function UnserAngebotPaketeClient() {
                         strokeWidth={2.5}
                         aria-hidden
                       />
-                      <span className="pt-0.5 leading-snug">{m}</span>
+                      <span className="min-w-0 break-words pt-0.5 leading-snug">{m}</span>
                     </li>
                   ))}
                   {paket.nichtEnthalten?.map((m) => (
@@ -106,7 +106,7 @@ export default function UnserAngebotPaketeClient() {
                         strokeWidth={2}
                         aria-hidden
                       />
-                      <span className="pt-0.5 leading-snug">{m}</span>
+                      <span className="min-w-0 break-words pt-0.5 leading-snug">{m}</span>
                     </li>
                   ))}
                 </ul>

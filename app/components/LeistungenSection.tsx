@@ -44,7 +44,7 @@ export default function LeistungenSection() {
 
   return (
     <section id="leistungen" className="relative z-10 overflow-visible bg-blue-600 px-6 pb-8 pt-12 md:pb-12 md:pt-28 lg:pt-32">
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto min-w-0 max-w-7xl">
         <HeaderEl {...headerProps}>
           <h2 className="mb-6 text-2xl font-bold text-white md:text-4xl">
             Welche Leistungen bietet 319Webdesign in Darmstadt und Pfungstadt?
@@ -130,9 +130,11 @@ export default function LeistungenSection() {
         })()}
       </div>
       <div
-        className="pointer-events-none absolute -bottom-16 left-1/2 h-16 w-[150%] -translate-x-1/2 rounded-b-[100%] bg-blue-600 md:-bottom-24 md:h-24"
+        className="pointer-events-none absolute inset-x-0 -bottom-16 z-[5] h-16 overflow-x-hidden md:-bottom-24 md:h-24"
         aria-hidden
-      />
+      >
+        <div className="absolute left-1/2 top-0 h-full w-[150%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
+      </div>
     </section>
   )
 }

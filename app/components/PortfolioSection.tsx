@@ -29,7 +29,7 @@ export default function PortfolioSection() {
 
   return (
     <section className="relative z-10 overflow-visible bg-blue-600 px-6 pb-8 pt-14 md:pb-12 md:pt-20" aria-labelledby="portfolio-home-heading">
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto min-w-0 max-w-7xl">
         <HeaderEl {...headerProps}>
           <h2
             id="portfolio-home-heading"
@@ -104,9 +104,11 @@ export default function PortfolioSection() {
         </div>
       </div>
       <div
-        className="pointer-events-none absolute -bottom-24 left-1/2 h-24 w-[165%] -translate-x-1/2 rounded-b-[100%] bg-blue-600 md:-bottom-32 md:h-32"
+        className="pointer-events-none absolute inset-x-0 -bottom-24 z-[5] h-24 overflow-x-hidden md:-bottom-32 md:h-32"
         aria-hidden
-      />
+      >
+        <div className="absolute left-1/2 top-0 h-full w-[165%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
+      </div>
     </section>
   )
 }

@@ -18,8 +18,8 @@ export default function HeroSection() {
       </div>
 
       {/* 2-Spalten-Grid für Desktop */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="grid min-h-[56vh] grid-cols-1 items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch lg:gap-12">
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-7xl px-6">
+        <div className="grid min-h-[56vh] min-w-0 grid-cols-1 items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-stretch lg:gap-12">
           
           {/* Linke Spalte: Text und Buttons */}
           <div className="min-h-0 text-center lg:pr-8 lg:pt-4 lg:text-left xl:pt-8">
@@ -109,11 +109,13 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Untere Bogen-Abrundung: fließender Übergang zur nächsten Sektion */}
+      {/* Untere Bogen-Abrundung – horizontal in schmalem Clip (nicht overflow-x auf der ganzen Sektion: vermeidet nested vertical scroll) */}
       <div
-        className="pointer-events-none absolute -bottom-14 left-1/2 h-14 w-[145%] -translate-x-1/2 bg-blue-600 md:-bottom-20 md:h-20 rounded-b-[100%]"
+        className="pointer-events-none absolute inset-x-0 -bottom-14 z-[5] h-14 overflow-x-hidden md:-bottom-20 md:h-20"
         aria-hidden
-      />
+      >
+        <div className="absolute left-1/2 top-0 h-full w-[145%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
+      </div>
     </section>
   )
 }

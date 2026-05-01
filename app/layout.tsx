@@ -89,7 +89,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased font-sans" suppressHydrationWarning>
         <ReducedMotionProvider>
-          {children}
+          <div className="relative w-full min-w-0 max-w-full overflow-x-clip">{children}</div>
           <CookieBanner />
           <WhatsAppButton />
           <SpeedInsights />

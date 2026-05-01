@@ -8,17 +8,33 @@
     --color-accent-blue: #3B82F6;
   }
 
+  /* Kein horizontales Scrollen / Rubber-Band seitwärts: Breite nie über Viewport */
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden;
     width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
-  
+
+  @supports (overflow: clip) {
+    html {
+      overflow-x: clip;
+    }
+  }
+
   body {
     @apply bg-white text-slate-900;
-    overflow-x: hidden;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     position: relative;
+    overflow-x: hidden;
+  }
+
+  @supports (overflow: clip) {
+    body {
+      overflow-x: clip;
+    }
   }
 }
 

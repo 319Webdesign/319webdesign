@@ -6,7 +6,7 @@ export const metadata: Metadata = getSeoMetadata(seoConfig.unserAngebot)
 
 export default function UnserAngebotPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen min-w-0 bg-white">
       <section className="relative z-10 overflow-visible bg-blue-600 pb-0 pt-28 md:pt-32">
         <div className="absolute inset-0 overflow-hidden" aria-hidden>
           <div className="absolute inset-0 bg-blue-600" />
@@ -38,9 +38,11 @@ export default function UnserAngebotPage() {
         </div>
 
         <div
-          className="pointer-events-none absolute -bottom-14 left-1/2 h-14 w-[145%] -translate-x-1/2 rounded-b-[100%] bg-blue-600 md:-bottom-20 md:h-20"
+          className="pointer-events-none absolute inset-x-0 -bottom-14 z-[5] h-14 overflow-x-hidden md:-bottom-20 md:h-20"
           aria-hidden
-        />
+        >
+          <div className="absolute left-1/2 top-0 h-full w-[145%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
+        </div>
       </section>
 
       <UnserAngebotPaketeClient />

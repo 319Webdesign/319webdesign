@@ -7,12 +7,17 @@ const menuLinks = [
   { href: '/', label: 'Startseite' },
   { href: '/unser-angebot', label: 'Unser Angebot' },
   { href: '/uber-mich', label: 'Über Mich' },
-  { href: '/leistungen', label: 'Leistungen' },
-  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/leistungen', label: 'Leistungen für Webdesign & SEO' },
+  { href: '/portfolio', label: 'Portfolio & Referenzen' },
+  { href: '/website-relaunch', label: 'Website Relaunch' },
+  { href: '/seo-darmstadt', label: 'SEO Darmstadt' },
   { href: '/kontakt', label: 'Kontakt' },
 ]
 
 const leistungenLinks = [
+  { href: '/webdesign/darmstadt', label: 'Webdesign in Darmstadt' },
+  { href: '/webdesign/pfungstadt', label: 'Webdesign Pfungstadt' },
+  { href: '/seo-darmstadt', label: 'Lokale Suchmaschinenoptimierung (SEO)' },
   { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
   { href: '/website-relaunch', label: 'Relaunch' },
   { href: '/leistungen/wachstum-seo', label: 'Wachstum & SEO' },
@@ -100,7 +105,7 @@ export default function Footer() {
                   href="/webdesign/darmstadt" 
                   className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
-                  Darmstadt
+                  Webdesign in Darmstadt
                 </a>
               </li>
               <li>
@@ -108,7 +113,7 @@ export default function Footer() {
                   href="/webdesign/pfungstadt" 
                   className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
                 >
-                  Pfungstadt
+                  Webdesign in Pfungstadt
                 </a>
               </li>
               <li>

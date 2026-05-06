@@ -2,6 +2,8 @@
 
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
+import Link from 'next/link'
+
 export default function HeroSection() {
   return (
     <section className="relative z-10 flex items-start justify-center overflow-visible bg-blue-600 pb-0 pt-36 md:pt-32">
@@ -24,7 +26,15 @@ export default function HeroSection() {
           {/* Linke Spalte: Text und Buttons */}
           <div className="min-h-0 text-center lg:pr-8 lg:pt-4 lg:text-left xl:pt-8">
             <h1 className="mb-6 text-4xl font-bold leading-tight animate-fade-in-up md:mb-7 md:text-4xl lg:text-5xl">
-              <span className="text-white">Mehr regionale Sichtbarkeit und passende Aufträge</span>
+              <span className="text-white">
+                <Link
+                  href="/webdesign/darmstadt"
+                  className="text-white underline decoration-white/35 underline-offset-[5px] transition-colors hover:text-blue-50 hover:decoration-blue-50/80 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 rounded-sm"
+                >
+                  Webdesign in Darmstadt
+                </Link>{' '}
+                – Websites, die Kunden bringen
+              </span>
             </h1>
 
             <div className="mb-6 flex justify-center animate-fade-in-up animation-delay-100 lg:hidden">
@@ -47,29 +57,43 @@ export default function HeroSection() {
             </div>
 
             <p className="mb-8 mx-auto hidden max-w-xl text-lg leading-relaxed text-blue-50/95 animate-fade-in-up animation-delay-100 sm:block md:text-xl lg:mx-0 lg:max-w-none">
-              Warten Sie nicht auf Zufalls-Anfragen. Wir sorgen dafür, dass Ihr Betrieb in Darmstadt und Pfungstadt bei Google ganz oben steht, wenn Kunden nach Profis suchen.
+              Für Handwerksbetriebe &amp; Unternehmen: Wir entwickeln{' '}
+              <Link
+                href="/webdesign/darmstadt"
+                className="font-medium text-white underline decoration-blue-200/50 underline-offset-[3px] hover:text-white hover:decoration-white focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 rounded-sm"
+              >
+                professionelle Websites
+              </Link>
+              , die bei Google gefunden werden und dir planbar neue Anfragen liefern.
             </p>
-            <p className="mb-7 mx-auto max-w-[22rem] text-base leading-relaxed text-blue-50/95 animate-fade-in-up animation-delay-100 sm:hidden">
-              Websites, Onlineshops und Systeme, die professionell aussehen und messbar mehr Anfragen bringen.
+            <p className="mb-7 mx-auto max-w-xl text-base leading-relaxed text-blue-50/95 animate-fade-in-up animation-delay-100 sm:hidden">
+              Für Handwerksbetriebe &amp; Unternehmen: Wir entwickeln{' '}
+              <Link
+                href="/webdesign/darmstadt"
+                className="font-medium text-white underline decoration-blue-200/50 underline-offset-[3px] hover:text-white hover:decoration-white focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 rounded-sm"
+              >
+                professionelle Websites
+              </Link>
+              , die bei Google gefunden werden und dir planbar neue Anfragen liefern.
             </p>
 
             <div className="max-w-xl lg:max-w-none mx-auto lg:mx-0 animate-fade-in-up animation-delay-200">
               <div className="flex flex-col items-center gap-2 lg:items-start">
-                <div className="flex w-full flex-col items-center gap-3 sm:flex-row lg:w-auto lg:items-start">
+                <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:items-stretch lg:w-auto">
                   <a
                     href="/kontakt"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-amber-300/70 bg-amber-400 px-7 py-3 text-base font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 group/btn hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98] will-change-transform sm:w-auto"
-                    aria-label="Kostenlosen Angebot anfragen – zum Kontaktformular"
+                    className="inline-flex min-h-[2.75rem] w-full items-center justify-center gap-1.5 rounded-lg border border-amber-300/70 bg-amber-400 px-4 py-2.5 text-center text-xs font-semibold leading-tight text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 group/btn hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98] will-change-transform sm:w-auto sm:whitespace-nowrap sm:px-5 md:text-sm sm:self-stretch"
+                    aria-label="Kostenloses Erstgespräch sichern – zum Kontaktformular"
                   >
-                    Kostenlosen Angebot anfragen
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" aria-hidden="true" />
+                    <span>Kostenloses Erstgespräch sichern</span>
+                    <ArrowRight className="h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5 group-hover/btn:translate-x-0.5 transition-transform duration-300" aria-hidden="true" />
                   </a>
                   <a
                     href="/portfolio"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/35 bg-transparent px-7 py-3 text-base font-semibold text-white/95 transition-all duration-300 hover:scale-[1.02] hover:bg-white/12 hover:text-white active:scale-[0.98] sm:w-auto"
-                    aria-label="Kunden-Websites ansehen – zum Portfolio"
+                    className="inline-flex min-h-[2.75rem] w-full items-center justify-center rounded-lg border border-white/35 bg-transparent px-4 py-2.5 text-center text-xs font-semibold leading-tight text-white/95 transition-all duration-300 hover:scale-[1.02] hover:bg-white/12 hover:text-white active:scale-[0.98] sm:w-auto sm:whitespace-nowrap sm:px-5 md:text-sm sm:self-stretch"
+                    aria-label="Erfolgreiche Webdesign-Projekte im Portfolio ansehen"
                   >
-                    Kunden-Websites ansehen
+                    Erfolgreiche Webdesign-Projekte ansehen
                   </a>
                 </div>
                 <p className="text-center text-sm text-blue-100 lg:text-left">

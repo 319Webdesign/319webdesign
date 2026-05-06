@@ -45,6 +45,8 @@ export interface PortfolioProject {
   results: string[]
   /** Tags für die Referenz-Karten auf der Startseite (Badges) */
   homepageTags?: string[]
+  /** Kurze Highlight-Badges (Ergebnis/USP), z. B. „SEO optimiert“, optional + Zahlen wenn belegt */
+  homepageBadges?: string[]
   /** Kurzer Teaser-Text für die Referenz-Karte auf der Startseite */
   homepageTeaser?: string
   /** Optional: Vorher/Nachher-Bilder unter Aufgabe & Technische Lösung (Portfolio-Detail) */
@@ -120,6 +122,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Blitzschnelle Ladezeiten',
     ],
     homepageTags: ['Next.js', 'Performance', 'Video-SEO'],
+    homepageBadges: ['SEO optimiert', 'Regionale Sichtbarkeit'],
     homepageTeaser:
       'Hochwertige Medienproduktion mit blitzschneller Video-Pipeline und starker regionaler Sichtbarkeit.',
   },
@@ -174,6 +177,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Responsive für alle Geräte',
     ],
     homepageTags: ['Next.js', 'SEO', 'Miet-Katalog'],
+    homepageBadges: ['SEO optimiert', 'Großer Produktauftritt'],
     homepageTeaser:
       'Großer Equipment-Katalog mit sauberer URL-Struktur und maximaler Performance für die Region.',
   },
@@ -234,6 +238,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'Skalierbar mit dem Objektportfolio',
     ],
     homepageTags: ['Next.js', 'Immobilien', 'Regional-SEO'],
+    homepageBadges: ['SEO optimiert', 'Automatisierte Anfragen'],
     homepageTeaser:
       'Immobilienmakler-Website für Weinheim & Rhein-Neckar – klar strukturiert, schnell und regional ausgerichtet.',
   },
@@ -297,6 +302,7 @@ export const portfolioProjects: PortfolioProject[] = [
       'DSGVO-orientierte, professionelle Aufstellung',
     ],
     homepageTags: ['Next.js', 'Tierhotel', 'Conversion'],
+    homepageBadges: ['Conversion-Fokus', 'SEO optimiert'],
     homepageTeaser:
       'Exklusive Tierbetreuung in der Rhein-Main-Region – vertrauensvolle Website mit klarer Buchungsführung.',
     beforeAfterComparison: {
@@ -318,6 +324,11 @@ export function getPortfolioHomeTeaser(project: PortfolioProject): string {
 /** Tags für Referenz-Karten (Startseite & Redesign-Portfolio). */
 export function getPortfolioHomeTags(project: PortfolioProject): string[] {
   return project.homepageTags ?? ['Next.js', project.category]
+}
+
+/** Highlight-Badges für Referenz-Karten (Startseite). */
+export function getPortfolioHomeBadges(project: PortfolioProject): string[] {
+  return project.homepageBadges ?? []
 }
 
 /** Gleiche Reihenfolge wie auf der Startseite (nach id). */

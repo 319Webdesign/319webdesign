@@ -28,14 +28,27 @@ export async function POST(request: NextRequest) {
     // Unterstützung für beide Formate: altes Format (firstName/lastName/service) und neues Format (name/betreff)
     const finalName = name || (firstName && lastName ? `${firstName} ${lastName}` : '')
     const finalSubject = betreff || service || ''
-    const finalFirstName = firstName || (name ? name.split(' ')[0] : '')
-    const finalLastName = lastName || (name && name.includes(' ') ? name.split(' ').slice(1).join(' ') : '')
+
+    const trimmedName = typeof name === 'string' ? name.trim() : ''
+    const hasSplitName = Boolean(String(firstName || '').trim() || String(lastName || '').trim())
+    const isShortHomeContact =
+      trimmedName.length > 0 && !hasSplitName
 
     // Validierung
-    if (!finalName || !email || !finalSubject || !message) {
+    if (!finalName?.trim() || !email) {
       return NextResponse.json(
         { error: 'Bitte füllen Sie alle Pflichtfelder aus' },
-        { 
+        {
+          status: 400,
+          headers: corsHeaders,
+        }
+      )
+    }
+
+    if (!isShortHomeContact && (!finalSubject || !message)) {
+      return NextResponse.json(
+        { error: 'Bitte füllen Sie alle Pflichtfelder aus' },
+        {
           status: 400,
           headers: corsHeaders,
         }
@@ -152,12 +165,17 @@ export async function POST(request: NextRequest) {
     }
 
     // Eingaben escapen für Sicherheit
-    const safeFirstName = escapeHtml(finalFirstName)
-    const safeLastName = escapeHtml(finalLastName)
     const safeCompany = company ? escapeHtml(company) : 'Nicht angegeben'
     const safeEmail = escapeHtml(email)
-    const safeService = serviceLabels[finalSubject] || finalSubject
-    const safeMessage = escapeHtml(message).replace(/\n/g, '<br>')
+    const emailBetreff = isShortHomeContact
+      ? 'Kontaktformular Startseite'
+      : serviceLabels[finalSubject] || finalSubject
+    const messageBody = isShortHomeContact
+      ? (typeof message === 'string' && message.trim() ? message.trim() : 'Keine Angabe')
+      : String(message)
+    const safeService = emailBetreff
+    const safeBetreffHtml = escapeHtml(String(emailBetreff))
+    const safeMessage = escapeHtml(messageBody).replace(/\n/g, '<br>')
     const fullName = finalName
 
     // E-Mail-Inhalt
@@ -173,10 +191,10 @@ export async function POST(request: NextRequest) {
             <p><strong>Name:</strong> ${escapeHtml(fullName)}</p>
             ${company ? `<p><strong>Unternehmen:</strong> ${safeCompany}</p>` : ''}
             <p><strong>E-Mail:</strong> ${safeEmail}</p>
-            <p><strong>Betreff:</strong> ${safeService}</p>
+            <p><strong>${isShortHomeContact ? 'Anlass' : 'Betreff'}:</strong> ${safeBetreffHtml}</p>
           </div>
           <div style="background-color: #ffffff; padding: 20px; border-radius: 8px; border: 1px solid #e5e7eb;">
-            <h3 style="color: #1f2937; margin-top: 0;">Nachricht:</h3>
+            <h3 style="color: #1f2937; margin-top: 0;">${isShortHomeContact ? 'Worum geht\'s?' : 'Nachricht'}:</h3>
             <p style="color: #4b5563; white-space: pre-wrap;">${safeMessage}</p>
           </div>
         </div>
@@ -187,10 +205,10 @@ Neue Kontaktanfrage
 Name: ${fullName}
 ${company ? `Unternehmen: ${company}` : ''}
 E-Mail: ${email}
-Betreff: ${safeService}
+${isShortHomeContact ? 'Anlass' : 'Betreff'}: ${safeService}
 
-Nachricht:
-${message}
+${isShortHomeContact ? 'Worum geht\'s?' : 'Nachricht'}:
+${messageBody}
       `,
     }
 

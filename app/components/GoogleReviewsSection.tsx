@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 import { Star, Quote } from 'lucide-react'
 
 interface GoogleReview {
@@ -129,7 +130,14 @@ export default function GoogleReviewsSection({
             {heading}
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed md:text-xl">
-            Aktuelle Google-Bewertungen aus Darmstadt und Pfungstadt.
+            Aktuelle Google-Bewertungen aus{' '}
+            <Link
+              href="/webdesign/darmstadt"
+              className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+            >
+              Webdesign-Projekten in Darmstadt
+            </Link>{' '}
+            und aus der Region Pfungstadt.
           </p>
           {data?.rating != null && data?.userRatingsTotal != null && (
             <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-slate-200">

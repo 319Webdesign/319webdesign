@@ -1,8 +1,10 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import { useState } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Mail, HelpCircle, Plus, Minus } from 'lucide-react'
+import { HelpCircle, Plus, Minus } from 'lucide-react'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -11,31 +13,120 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: "easeOut" }
 }
 
-const faqData = [
+type FaqItem = {
+  id: number
+  question: string
+  answer: ReactNode
+}
+
+const faqData: FaqItem[] = [
   {
     id: 1,
     question: 'Wie lange dauert es, bis meine Website fertig ist?',
-    answer: 'Schnelligkeit ohne Qualitätsverlust. Zeit ist Geld – besonders für Selbstständige. In der Regel ist Ihre neue Website in 2 bis 4 Wochen komplett startklar. Bei umfangreicheren Projekten erstellen wir Ihnen vorab einen detaillierten Zeitplan. Unser Ziel ist es, Sie so schnell wie möglich online sichtbar zu machen, damit Sie zeitnah neue Kundenanfragen über Ihre Seite generieren können.',
+    answer:
+      'Schnelligkeit ohne Qualitätsverlust. Zeit ist Geld – besonders für Selbstständige. In der Regel ist Ihre neue Website in 2 bis 4 Wochen komplett startklar. Bei umfangreicheren Projekten erstellen wir Ihnen vorab einen detaillierten Zeitplan. Unser Ziel ist es, Sie so schnell wie möglich online sichtbar zu machen, damit Sie zeitnah neue Kundenanfragen über Ihre Seite generieren können.',
   },
   {
     id: 2,
     question: 'Was kostet eine professionelle Website?',
-    answer: 'Eine professionelle Website ist kein Kostenfaktor, sondern ein digitaler Mitarbeiter, der 24/7 für Sie verkauft. Wir bieten maßgeschneiderte Lösungen für jedes Budget – von der kompakten digitalen Visitenkarte für lokale Betriebe bis hin zum umfangreichen Firmenauftritt. Nach einem kostenlosen Erstgespräch erhalten Sie von uns ein transparentes Festpreisangebot ohne versteckte Kosten. So haben Sie von Anfang an volle Planungssicherheit.',
+    answer: (
+      <>
+        Eine professionelle Website ist kein Kostenfaktor, sondern ein digitaler Mitarbeiter, der 24/7 für Sie verkauft.
+        Wir bieten maßgeschneiderte Lösungen für jedes Budget – von der kompakten digitalen Visitenkarte für lokale
+        Betriebe bis hin zum umfangreichen Firmenauftritt. Nach einem{' '}
+        <Link
+          href="/kontakt"
+          className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800"
+        >
+          kostenlosen Erstgespräch zur Kontaktaufnahme
+        </Link>{' '}
+        erhalten Sie von uns ein transparentes Festpreisangebot ohne versteckte Kosten. So haben Sie von Anfang an volle
+        Planungssicherheit.
+      </>
+    ),
   },
   {
     id: 3,
     question: 'Kann ich meine Website später selbst bearbeiten?',
-    answer: 'Absolut! Wir bauen Ihre Website so auf, dass Sie die volle Kontrolle behalten. Ob Sie Öffnungszeiten ändern, neue Bilder hochladen oder Blogbeiträge verfassen möchten: Dank eines intuitiven Systems können Sie kleine Anpassungen ganz ohne Programmierkenntnisse selbst vornehmen. Natürlich erhalten Sie von uns eine kurze Einweisung, damit Sie sich sofort sicher fühlen.',
+    answer:
+      'Absolut! Wir bauen Ihre Website so auf, dass Sie die volle Kontrolle behalten. Ob Sie Öffnungszeiten ändern, neue Bilder hochladen oder Blogbeiträge verfassen möchten: Dank eines intuitiven Systems können Sie kleine Anpassungen ganz ohne Programmierkenntnisse selbst vornehmen. Natürlich erhalten Sie von uns eine kurze Einweisung, damit Sie sich sofort sicher fühlen.',
   },
   {
     id: 4,
     question: 'Ist meine Website auch für Smartphones optimiert?',
-    answer: 'Ja, garantiert. Da heutzutage über 60 % der Nutzer in der Region Darmstadt mit dem Smartphone nach Dienstleistern suchen, nutzen wir konsequentes Mobile-First-Design. Ihre Website passt sich automatisch an jedes Endgerät an – ob iPhone, Android-Tablet oder Desktop-PC. Das sorgt nicht nur für begeisterte Besucher, sondern ist auch ein entscheidender Faktor für Ihr Ranking bei Google.',
+    answer: (
+      <>
+        Ja, garantiert. Da heutzutage über 60&nbsp;% der Nutzer in der Region Darmstadt mit dem Smartphone nach
+        Dienstleistern suchen, nutzen wir konsequentes Mobile-First-Design. Ihre Website passt sich automatisch an jedes
+        Endgerät an – ob iPhone, Android-Tablet oder Desktop-PC. Das sorgt nicht nur für begeisterte Besucher, sondern
+        ist auch ein entscheidender Faktor für Ihr{' '}
+        <Link
+          href="/seo-darmstadt"
+          className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800"
+        >
+          Ranking bei Google und lokale SEO
+        </Link>
+        .
+      </>
+    ),
   },
   {
     id: 5,
     question: 'Bietet ihr auch Wartung und Support an?',
-    answer: 'Wir lassen Sie nach dem Launch nicht allein. Technik entwickelt sich ständig weiter – deshalb kümmern wir uns auf Wunsch um Sicherheits-Updates, regelmäßige Backups und die technische Performance. So bleibt Ihre Seite sicher und blitzschnell, während Sie sich voll und ganz auf Ihr Kerngeschäft in Pfungstadt und Umgebung konzentrieren können. Wir sind Ihr lokaler Partner, der bei Fragen immer nur einen Anruf entfernt ist.',
+    answer: (
+      <>
+        Wir lassen Sie nach dem Launch nicht allein. Technik entwickelt sich ständig weiter – deshalb kümmern wir uns
+        auf Wunsch um Sicherheits-Updates, regelmäßige Backups und die technische Performance. So bleibt Ihre Seite
+        sicher und blitzschnell, während Sie sich voll und ganz auf Ihr Kerngeschäft in{' '}
+        <Link
+          href="/webdesign/pfungstadt"
+          className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800"
+        >
+          Pfungstadt und Umgebung
+        </Link>{' '}
+        konzentrieren können. Wir sind Ihr lokaler Partner, der bei Fragen immer nur einen Anruf entfernt ist.
+      </>
+    ),
+  },
+  {
+    id: 6,
+    question: 'Bringt mir eine neue Website wirklich mehr Kunden?',
+    answer: (
+      <div className="space-y-3 [&>*]:block">
+        <span>Ja – wenn sie richtig aufgebaut ist.</span>
+        <span>
+          Der Fokus liegt nicht nur auf Design, sondern auf klarer Struktur,{' '}
+          <Link
+            href="/seo-darmstadt"
+            className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800"
+          >
+            lokalen Suchbegriffen und Suchmaschinenoptimierung
+          </Link>{' '}
+          sowie einfachen Kontaktwegen.
+        </span>
+        <span>Ziel ist immer: mehr qualifizierte Anfragen – nicht nur Besucher.</span>
+      </div>
+    ),
+  },
+  {
+    id: 7,
+    question: 'Ich habe schon eine Website – lohnt sich ein Relaunch?',
+    answer: (
+      <div className="space-y-3 [&>*]:block">
+        <span>In vielen Fällen ja.</span>
+        <span>Oft liegt das Problem nicht im Angebot, sondern darin, wie es online präsentiert wird.</span>
+        <span>
+          Ein{' '}
+          <Link
+            href="/website-relaunch"
+            className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800"
+          >
+            professioneller Website Relaunch
+          </Link>{' '}
+          kann dafür sorgen, dass aus Besuchern endlich Anfragen werden.
+        </span>
+      </div>
+    ),
   },
 ]
 
@@ -50,7 +141,14 @@ export default function FAQSection() {
           className="text-center mb-16"
         >
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            Welche Fragen haben Kunden zu Webdesign und SEO in Darmstadt?
+            Welche Fragen haben Kunden zu{' '}
+            <Link
+              href="/webdesign/darmstadt"
+              className="text-blue-700 underline decoration-blue-200 underline-offset-[4px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+            >
+              Webdesign und SEO in Darmstadt
+            </Link>
+            ?
           </h2>
         </motion.div>
 
@@ -95,7 +193,11 @@ export default function FAQSection() {
                         className="overflow-hidden"
                         id={`faq-answer-${faq.id}`}
                       >
-                        <div className="px-6 pb-4 text-slate-600 leading-relaxed">
+                        <div
+                          className={`px-6 pb-4 text-slate-600 leading-relaxed ${
+                            typeof faq.answer === 'string' ? 'whitespace-pre-line' : ''
+                          }`}
+                        >
                           {faq.answer}
                         </div>
                       </motion.div>
@@ -106,32 +208,32 @@ export default function FAQSection() {
             })}
           </div>
 
-          {/* Contact Card */}
-          <div
-            className="bg-white backdrop-blur-sm rounded-2xl border border-slate-200 p-8 shadow-xl h-fit"
-          >
+          {/* CTA-Karte */}
+          <div className="h-fit rounded-2xl border border-slate-200 bg-white p-8 shadow-xl backdrop-blur-sm">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mb-6">
-                <HelpCircle className="w-8 h-8 text-white" aria-hidden="true" />
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600">
+                <HelpCircle className="h-8 w-8 text-white" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-slate-900">
-                Deine Frage war nicht dabei?
+              <h3 className="mb-6 text-balance text-xl font-bold text-slate-900">
+                Noch unsicher, ob sich eine neue Website für Sie lohnt? Unser{' '}
+                <Link
+                  href="/leistungen"
+                  className="text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800"
+                >
+                  Leistungsüberblick für Webdesign &amp; SEO
+                </Link>{' '}
+                schafft Transparenz.
               </h3>
-              <p className="text-slate-600 mb-6">
-                Dann schreib uns einfach – wir helfen dir gerne weiter.
-              </p>
-              <a
-                href="mailto:kontakt@319webdesign.com"
-                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors group/email"
+              <Link
+                href="/kontakt"
+                className="inline-flex w-full max-w-sm items-center justify-center rounded-xl border border-amber-300/70 bg-amber-400 px-6 py-3.5 text-base font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all hover:border-amber-200 hover:bg-amber-500 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2"
               >
-                <Mail className="w-5 h-5 group-hover/email:translate-x-1 transition-transform" aria-hidden="true" />
-                <span className="break-all">kontakt@319webdesign.com</span>
-                </a>
-              </div>
+                Kostenloses Erstgespräch sichern
+              </Link>
             </div>
           </div>
         </div>
-      </section>
-    )
-  }
-
+      </div>
+    </section>
+  )
+}

@@ -1,326 +1,231 @@
-'use client'
-
-import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { motion } from 'framer-motion'
+import type { ReactNode } from 'react'
+import Link from 'next/link'
 import {
-  AreaChart,
-  BarChart3,
-  Briefcase,
-  ChevronLeft,
-  ChevronRight,
-  Mail,
-  MapPin,
-  Palette,
-  PenTool,
-  ShieldCheck,
+  ArrowRight,
+  BadgeEuro,
+  Info,
+  LayoutList,
+  Phone,
+  Search,
+  Sparkles,
   TrendingUp,
-  Users,
-  Wrench,
   Zap,
+  type LucideIcon,
 } from 'lucide-react'
 
-function subscribePrefersReducedMotion(onStoreChange: () => void) {
-  const mq = window.matchMedia('(prefers-reduced-motion: reduce)')
-  mq.addEventListener('change', onStoreChange)
-  return () => mq.removeEventListener('change', onStoreChange)
+type Benefit = {
+  headline: string
+  body: ReactNode
+  micro: string
+  icon: LucideIcon
+  featured?: boolean
 }
 
-function getPrefersReducedMotionSnapshot() {
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
+/** Erste Reihe Desktop: Highlight mittig. */
+const benefits: Benefit[] = [
+  {
+    headline: 'Bei Google sichtbar in Darmstadt',
+    body: (
+      <>
+        Sauberer Aufbau und Inhalte auf{' '}
+        <Link
+          href="/seo-darmstadt"
+          className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+        >
+          lokale Suchbegriffe
+        </Link>{' '}
+        ausgerichtet – damit dich Kunden finden, wenn sie aktiv einen Anbieter suchen.
+      </>
+    ),
+    micro: 'Regionale Relevanz statt beliebigem Template-Text.',
+    icon: Search,
+  },
+  {
+    headline: 'Mehr Anfragen statt nur Besucher',
+    body:
+      'Klare Botschaften und sichtbare Kontaktwege: Die Seite soll konkret Anfragen auslösen – nicht nur Traffic ohne Ende.',
+    micro: 'Ausrichtung auf Handwerk und lokale Dienstleister.',
+    icon: TrendingUp,
+    featured: true,
+  },
+  {
+    headline: 'Klare Struktur, die Kunden führt',
+    body:
+      'Leistungen, Ablauf und Kontakt auf einen Blick – weniger Orientierungsstress, weniger Absprünge, mehr qualifizierte Kontakte.',
+    micro: 'Nutzerführung statt überfrachteter Startseiten.',
+    icon: LayoutList,
+  },
+  {
+    headline: 'Schnelle Ladezeiten ohne Absprünge',
+    body:
+      'Schlanke Technik und optimierte Medien. Auf dem Smartphone entscheidet Tempo oft über bleiben oder wegklicken.',
+    micro: 'Technik, die Nutzer und Suchmaschinen erwarten.',
+    icon: Zap,
+  },
+  {
+    headline: 'Weniger unnötige Anrufe durch klare Infos',
+    body:
+      'Zeiten, Gebiet und FAQs stehen online – wer anruft, ist häufig schon informiert und weiter im Entscheidungsprozess.',
+    micro: 'Mehr Zeit für echte Aufträge.',
+    icon: Info,
+  },
+  {
+    headline: 'Festpreise und nachvollziehbare Schritte',
+    body:
+      'Du weißt vor dem Start, was enthalten ist und wie wir arbeiten – transparent statt stundenbasierter Überraschungen.',
+    micro: 'Investition planbar, Projektablauf nachvollziehbar.',
+    icon: BadgeEuro,
+  },
+]
 
-/** SSR: Karussell annehmen, nach Hydration ggf. auf Raster wechseln. */
-function getPrefersReducedMotionServerSnapshot() {
-  return false
-}
+function BenefitCard({ benefit }: { benefit: Benefit }) {
+  const Icon = benefit.icon
+  const featured = benefit.featured === true
 
-function usePrefersReducedMotion() {
-  return useSyncExternalStore(
-    subscribePrefersReducedMotion,
-    getPrefersReducedMotionSnapshot,
-    getPrefersReducedMotionServerSnapshot
+  if (featured) {
+    return (
+      <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-amber-400/60 bg-gradient-to-b from-white via-white to-amber-50/90 p-7 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_24px_48px_-12px_rgba(15,23,42,0.28),0_0_0_1px_rgba(251,191,36,0.15)] transition-[transform,box-shadow] duration-300 md:p-8 lg:hover:-translate-y-1 lg:hover:shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_32px_64px_-16px_rgba(15,23,42,0.35)]">
+        <div
+          className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-amber-400/25 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
+          aria-hidden
+        />
+        <div className="relative mb-4 flex items-start justify-between gap-3">
+          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 shadow-lg shadow-amber-900/25 ring-1 ring-white/40">
+            <Icon className="h-7 w-7" strokeWidth={2} aria-hidden />
+          </div>
+          <span className="inline-flex items-center gap-1 rounded-full border border-amber-600/15 bg-amber-400/20 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-amber-950">
+            <Sparkles className="h-3 w-3" aria-hidden />
+            Kernnutzen
+          </span>
+        </div>
+        <h3 className="relative mb-3 text-lg font-bold leading-snug tracking-tight text-slate-950 md:text-xl">
+          {benefit.headline}
+        </h3>
+        <p className="relative mb-5 flex-1 text-[0.9375rem] leading-relaxed text-slate-700 md:text-base">
+          {benefit.body}
+        </p>
+        <p className="relative mt-auto border-t border-amber-300/50 pt-4 text-xs font-medium leading-snug text-slate-600 md:text-sm">
+          {benefit.micro}
+        </p>
+      </article>
+    )
+  }
+
+  return (
+    <article className="group flex h-full flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-[0_2px_8px_rgba(15,23,42,0.04),0_16px_40px_-12px_rgba(15,23,42,0.12)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-amber-200/90 hover:shadow-[0_8px_24px_-8px_rgba(251,191,36,0.28),0_24px_48px_-16px_rgba(15,23,42,0.14)] md:p-7 lg:p-8">
+      <div className="mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-600/[0.07] ring-1 ring-blue-600/[0.12] transition-colors duration-300 group-hover:bg-blue-600/[0.11]">
+        <Icon className="h-6 w-6 text-blue-600" strokeWidth={1.75} aria-hidden />
+      </div>
+      <h3 className="mb-3 text-base font-semibold leading-snug tracking-tight text-slate-900 md:text-lg">
+        {benefit.headline}
+      </h3>
+      <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-600 md:text-[0.9375rem]">{benefit.body}</p>
+      <p className="mt-auto border-t border-slate-100 pt-4 text-xs font-medium leading-snug text-slate-500 md:text-sm">
+        {benefit.micro}
+      </p>
+    </article>
   )
-}
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true, margin: '-80px' },
-  transition: { duration: 0.5, ease: 'easeOut' as const },
-}
-
-const vorteile = [
-  { icon: PenTool, title: 'Professionelles Erscheinungsbild' },
-  { icon: Users, title: 'Gewinnung von Neukunden' },
-  { icon: Mail, title: 'Gewinnung von Mitarbeitern' },
-  { icon: BarChart3, title: 'Langfristige Betreuung Ihrer Website' },
-  { icon: Briefcase, title: 'Mehr Zeit für Ihr Geschäft' },
-  { icon: ShieldCheck, title: '100% DSGVO konform' },
-  { icon: Zap, title: 'Extreme Ladegeschwindigkeit' },
-  { icon: MapPin, title: 'Regionale Expertise vor Ort' },
-  { icon: Wrench, title: 'Sorglos-Paket durch Wartung' },
-  { icon: Palette, title: 'Individuelles Design statt Baukasten' },
-  { icon: AreaChart, title: 'Messbare Ergebnisse' },
-  { icon: TrendingUp, title: 'Nachhaltiges Wachstum' },
-] as const
-
-const LEN = vorteile.length
-
-/** Kürzester Abstand auf dem Kreis (z. B. 5→0 ist +1 statt -5). */
-function circularOffset(index: number, active: number): number {
-  let d = index - active
-  if (d > LEN / 2) d -= LEN
-  if (d < -LEN / 2) d += LEN
-  return d
 }
 
 export default function VorteileWebsiteSection() {
-  const prefersReducedMotion = usePrefersReducedMotion()
-
   return (
-    <section className="relative z-10 mt-10 overflow-visible bg-blue-600 px-6 pb-10 pt-24 md:mt-14 md:pb-14 md:pt-28" aria-labelledby="vorteile-website-heading">
-      <div
-        className="pointer-events-none absolute inset-x-0 -top-8 z-[5] h-8 overflow-x-hidden md:-top-10 md:h-10"
-        aria-hidden
-      >
-        <div className="absolute bottom-0 left-1/2 h-full w-[150%] -translate-x-1/2 rounded-t-[100%] bg-blue-600" />
-      </div>
-      <div className="mx-auto min-w-0 max-w-7xl">
-        <HeaderEl reduceMotion={prefersReducedMotion} />
-
-        {prefersReducedMotion ? (
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:gap-5">
-            {vorteile.map((item) => (
-              <StaticCard key={item.title} item={item} />
-            ))}
-          </div>
-        ) : (
-          <VorteileCarousel />
-        )}
-      </div>
-      <div
-        className="pointer-events-none absolute inset-x-0 -bottom-16 z-[5] h-16 overflow-x-hidden md:-bottom-24 md:h-24"
-        aria-hidden
-      >
-        <div className="absolute left-1/2 top-0 h-full w-[150%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
-      </div>
-    </section>
-  )
-}
-
-function HeaderEl({ reduceMotion }: { reduceMotion: boolean }) {
-  const HeaderWrap = reduceMotion ? 'header' : motion.header
-  const props = reduceMotion ? {} : fadeInUp
-  return (
-    <HeaderWrap {...props} className="mx-auto mb-2 max-w-3xl text-center md:mb-3">
-      <h2 id="vorteile-website-heading" className="text-balance text-4xl font-bold tracking-tight text-white md:text-5xl">
-        Welche Vorteile hat eine Website von 319Webdesign
-      </h2>
-    </HeaderWrap>
-  )
-}
-
-function StaticCard({ item }: { item: (typeof vorteile)[number] }) {
-  const Icon = item.icon
-
-  return (
-    <div className="h-full">
-      <article className="group flex h-full flex-col items-center rounded-xl border border-slate-200/90 bg-white px-4 py-5 text-center shadow-md shadow-blue-950/15 transition-colors duration-300 hover:border-amber-300 hover:bg-amber-400 hover:shadow-lg hover:shadow-amber-900/25 md:px-5 md:py-6">
-        <div className="mb-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-amber-100 transition-colors duration-300 group-hover:bg-white/25 md:h-12 md:w-12">
-          <Icon className="h-[22px] w-[22px] text-amber-500 transition-colors duration-300 group-hover:text-white md:h-6 md:w-6" aria-hidden />
-        </div>
-        <p className="text-sm font-bold leading-snug text-slate-900 transition-colors duration-300 group-hover:text-white md:text-base">{item.title}</p>
-      </article>
-    </div>
-  )
-}
-
-function VorteileCarousel() {
-  const regionRef = useRef<HTMLDivElement>(null)
-  const [activeIndex, setActiveIndex] = useState(0)
-
-  const goPrev = useCallback(() => {
-    setActiveIndex((i) => (i - 1 + LEN) % LEN)
-  }, [])
-
-  const goNext = useCallback(() => {
-    setActiveIndex((i) => (i + 1) % LEN)
-  }, [])
-
-  useEffect(() => {
-    const el = regionRef.current
-    if (!el) return
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault()
-        goPrev()
-      } else if (e.key === 'ArrowRight') {
-        e.preventDefault()
-        goNext()
-      }
-    }
-
-    el.addEventListener('keydown', onKeyDown)
-    return () => el.removeEventListener('keydown', onKeyDown)
-  }, [goPrev, goNext])
-
-  return (
-    <div
-      ref={regionRef}
-      tabIndex={0}
-      role="region"
-      aria-roledescription="Karussell"
-      aria-label="Vorteile einer Website – mit Pfeiltasten oder Wischen steuern"
-      className="relative -mt-1 mx-auto max-w-6xl select-none outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 rounded-lg md:-mt-2"
+    <section
+      className="relative z-10 mt-10 overflow-visible bg-white px-6 pb-12 pt-16 md:mt-14 md:pb-16 md:pt-20"
+      aria-labelledby="vorteile-website-heading"
     >
-      <motion.div
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        dragElastic={0.12}
-        dragSnapToOrigin
-        onDragEnd={(_, info) => {
-          const threshold = 48
-          if (info.offset.x < -threshold || info.velocity.x < -380) goNext()
-          else if (info.offset.x > threshold || info.velocity.x > 380) goPrev()
-        }}
-        className="relative h-[320px] cursor-grab touch-pan-x active:cursor-grabbing sm:h-[360px] md:h-[400px]"
-        style={{ perspective: 1200 }}
-      >
-        <div className="absolute inset-0 flex items-center justify-center [transform-style:preserve-3d]">
-          {vorteile.map((item, index) => {
-            const offset = circularOffset(index, activeIndex)
-            const Icon = item.icon
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_45%_at_50%_-5%,rgba(37,99,235,0.055),transparent_58%),radial-gradient(ellipse_55%_35%_at_100%_100%,rgba(251,191,36,0.06),transparent_45%)]"
+        aria-hidden
+      />
 
-            const isCenter = offset === 0
-            const isNeighbor = Math.abs(offset) === 1
-
-            let x = 0
-            let scale = 0.72
-            let rotateY = 0
-            let opacity = 0
-            let zIndex = 0
-
-            if (isCenter) {
-              x = 0
-              scale = 1
-              rotateY = 0
-              opacity = 1
-              zIndex = 20
-            } else if (offset === -1) {
-              x = -298
-              scale = 0.82
-              rotateY = 22
-              opacity = 1
-              zIndex = 10
-            } else if (offset === 1) {
-              x = 298
-              scale = 0.82
-              rotateY = -22
-              opacity = 1
-              zIndex = 10
-            } else if (Math.abs(offset) === 2) {
-              opacity = 0
-              scale = 0.5
-              x = offset < 0 ? -485 : 485
-              rotateY = offset < 0 ? 40 : -40
-              zIndex = 0
-            } else {
-              opacity = 0
-              scale = 0.45
-              x = 0
-              rotateY = 0
-              zIndex = 0
-            }
-
-            return (
-              <motion.article
-                key={item.title}
-                layout
-                initial={false}
-                animate={{
-                  x,
-                  y: -36,
-                  scale,
-                  rotateY,
-                  opacity,
-                  zIndex,
-                }}
-                transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-                onClick={() => {
-                  if (offset === -1) goPrev()
-                  else if (offset === 1) goNext()
-                }}
-                className={`absolute w-[min(94vw,320px)] rounded-2xl border px-6 py-8 text-center shadow-lg sm:w-[min(92vw,360px)] md:w-[400px] md:px-8 md:py-10 ${
-                  isCenter
-                    ? 'border-amber-300/90 bg-amber-400 shadow-xl shadow-amber-950/35'
-                    : 'border-white/25 bg-white/95 shadow-blue-950/20'
-                } ${isNeighbor ? 'cursor-pointer hover:border-amber-200/80' : ''}`}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  backfaceVisibility: 'hidden',
-                  pointerEvents: isCenter || isNeighbor ? 'auto' : 'none',
-                }}
-                aria-current={isCenter ? 'true' : undefined}
-              >
-                <div
-                  className={`mx-auto mb-5 flex h-14 w-14 shrink-0 items-center justify-center rounded-full md:mb-6 md:h-16 md:w-16 ${
-                    isCenter ? 'bg-white/20 ring-2 ring-white/35' : 'bg-amber-50'
-                  }`}
-                >
-                  <Icon
-                    className={`h-7 w-7 md:h-9 md:w-9 ${isCenter ? 'text-white' : 'text-amber-500'}`}
-                    aria-hidden
-                  />
-                </div>
-                <p
-                  className={`font-bold leading-snug ${isCenter ? 'text-base text-white md:text-lg' : 'text-sm text-slate-900 md:text-base'}`}
-                >
-                  {item.title}
-                </p>
-              </motion.article>
-            )
-          })}
-        </div>
-      </motion.div>
-
-      <div className="mx-auto -mt-7 grid w-full max-w-[min(94vw,340px)] grid-cols-3 items-center gap-1 sm:-mt-9 sm:max-w-[min(92vw,400px)] md:-mt-11 md:max-w-[440px]">
-        <div className="flex justify-end pe-2 md:pe-3">
-          <button
-            type="button"
-            onClick={goPrev}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-400"
-            aria-label="Vorherige Karte"
+      <div className="relative z-10 mx-auto min-w-0 max-w-7xl">
+        <header className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
+          <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-700 md:text-xs">
+            Strategie · Technik · Anfragen
+          </p>
+          <h2
+            id="vorteile-website-heading"
+            className="text-balance text-3xl font-bold tracking-[-0.02em] text-slate-900 md:text-4xl lg:text-[2.5rem] lg:leading-[1.12]"
           >
-            <ChevronLeft className="h-6 w-6" aria-hidden />
-          </button>
-        </div>
-        <div className="flex justify-center gap-2" role="tablist" aria-label="Kartenposition">
-          {vorteile.map((_, i) => (
-            <button
-              key={i}
-              type="button"
-              role="tab"
-              aria-selected={i === activeIndex}
-              aria-label={`Karte ${i + 1} von ${LEN}`}
-              onClick={() => setActiveIndex(i)}
-              className={`h-2.5 rounded-full transition-all ${
-                i === activeIndex ? 'w-8 bg-amber-400' : 'w-2.5 bg-white/35 hover:bg-white/55'
-              }`}
-            />
+            So bringt dir deine Website messbar mehr Kunden
+          </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-slate-600 md:mt-6 md:text-lg md:leading-relaxed">
+            Wir entwickeln Websites für{' '}
+            <Link
+              href="/webdesign/darmstadt"
+              className="font-semibold text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+            >
+              Unternehmen in Darmstadt
+            </Link>
+            , die <span className="font-semibold text-blue-700">bei Google gefunden werden</span> und{' '}
+            <span className="font-semibold text-blue-700">konkrete Anfragen</span> liefern – ohne leere Versprechen.
+          </p>
+        </header>
+
+        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
+          {benefits.map((b) => (
+            <BenefitCard key={b.headline} benefit={b} />
           ))}
         </div>
-        <div className="flex justify-start ps-2 md:ps-3">
-          <button
-            type="button"
-            onClick={goNext}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/40 bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-400"
-            aria-label="Nächste Karte"
-          >
-            <ChevronRight className="h-6 w-6" aria-hidden />
-          </button>
-        </div>
+
+        <aside
+          id="vorteile-cta"
+          className="relative mx-auto mt-14 max-w-2xl md:mt-16"
+          aria-labelledby="vorteile-cta-heading"
+        >
+          <div
+            className="pointer-events-none absolute -inset-3 rounded-[1.6rem] bg-blue-600/10 blur-2xl md:-inset-4 md:rounded-[2rem]"
+            aria-hidden
+          />
+          <div className="relative overflow-hidden rounded-[1.25rem] border border-blue-500/25 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 p-8 shadow-[0_24px_48px_-12px_rgba(30,58,138,0.35)] md:rounded-3xl md:p-10">
+            <div
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_85%_0%,rgba(251,191,36,0.12),transparent_50%)]"
+              aria-hidden
+            />
+            <div className="relative">
+              <h3 id="vorteile-cta-heading" className="sr-only">
+                Nächster Schritt
+              </h3>
+              <p className="text-center text-sm font-medium leading-relaxed text-blue-50 md:text-base">
+                Kurzes Gespräch, klare Einordnung deiner Situation –{' '}
+                <span className="text-white">ohne Verpflichtung</span>.
+              </p>
+              <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+                <Link
+                  href="/kontakt"
+                  className="group inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-gradient-to-b from-amber-400 to-amber-500 px-7 py-4 text-base font-semibold text-slate-950 shadow-[0_1px_0_rgba(255,255,255,0.5)_inset,0_12px_28px_-6px_rgba(251,191,36,0.55)] ring-1 ring-amber-300/80 transition-[transform,filter] hover:brightness-[1.03] hover:shadow-[0_1px_0_rgba(255,255,255,0.55)_inset,0_16px_36px_-8px_rgba(251,191,36,0.6)] focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-200 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700 sm:flex-none sm:min-w-[240px]"
+                  aria-describedby="vorteile-cta-footnote"
+                >
+                  Kostenloses Erstgespräch
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </Link>
+                <Link
+                  href="/portfolio"
+                  className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/40 bg-white/10 px-6 py-4 text-base font-semibold text-white transition-colors hover:border-white/55 hover:bg-white/18 focus-visible:outline focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-700 sm:flex-none"
+                >
+                  Erfolgreiche Projekte im Portfolio
+                </Link>
+              </div>
+              <p
+                id="vorteile-cta-footnote"
+                className="mt-6 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center text-xs text-blue-100/95 md:text-sm"
+              >
+                <span>Direkt und persönlich aus Darmstadt & Umgebung</span>
+                <span className="hidden sm:inline text-blue-300/70" aria-hidden>
+                  ·
+                </span>
+                <a
+                  href="tel:+491773236454"
+                  className="inline-flex items-center gap-1.5 font-medium text-white underline-offset-4 hover:underline tabular-nums"
+                >
+                  <Phone className="h-3.5 w-3.5 shrink-0 opacity-90" aria-hidden />
+                  +49 177 3236 454
+                </a>
+              </p>
+            </div>
+          </div>
+        </aside>
       </div>
-    </div>
+    </section>
   )
 }

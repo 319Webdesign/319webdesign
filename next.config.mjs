@@ -3,6 +3,9 @@ const nextConfig = {
   // output: 'export' entfernt - wird für API-Routen benötigt
   trailingSlash: false,
   // Safari & Co. fragen oft /apple-touch-icon.png an; Metadata nutzt /319-favicon.png
+  async redirects() {
+    return [{ source: '/ueber-mich', destination: '/uber-mich', permanent: true }]
+  },
   async rewrites() {
     return [
       { source: '/apple-touch-icon.png', destination: '/319-favicon.png' },

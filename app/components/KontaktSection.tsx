@@ -1,9 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
-import { Phone, Mail, ArrowRight, ChevronDown, MessageCircle } from 'lucide-react'
+import { Phone, Mail, ArrowRight, MessageCircle } from 'lucide-react'
 import { trackContactFormSubmit } from '@/lib/pirschContactEvent'
 
 const fadeInUp = {
@@ -18,12 +19,9 @@ export default function KontaktSection() {
   const HeaderEl = reduceMotion ? 'div' : motion.div
   const headerProps = reduceMotion ? { className: 'text-center mb-16' } : { ...fadeInUp, className: 'text-center mb-16' }
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    company: '',
+    name: '',
     email: '',
-    service: '',
-    message: '',
+    topic: '',
     privacyAccepted: false
   })
   const [formSubmitted, setFormSubmitted] = useState(false)
@@ -47,7 +45,12 @@ export default function KontaktSection() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name.trim(),
+          email: formData.email.trim(),
+          message: formData.topic.trim(),
+          privacyAccepted: formData.privacyAccepted,
+        }),
       })
 
       const data = await response.json()
@@ -58,14 +61,11 @@ export default function KontaktSection() {
 
       trackContactFormSubmit('startseite')
       setFormSubmitted(true)
-      setFormData({ 
-        firstName: '', 
-        lastName: '', 
-        company: '', 
-        email: '', 
-        service: '', 
-        message: '', 
-        privacyAccepted: false 
+      setFormData({
+        name: '',
+        email: '',
+        topic: '',
+        privacyAccepted: false
       })
       setTimeout(() => {
         setFormSubmitted(false)
@@ -77,7 +77,7 @@ export default function KontaktSection() {
     }
   }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
   }
@@ -91,80 +91,56 @@ export default function KontaktSection() {
       <div className="max-w-6xl mx-auto">
         <HeaderEl {...headerProps}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            Lassen Sie uns <span className="text-blue-600">sprechen</span>
+            In 30 Minuten zu <span className="text-blue-600">mehr Anfragen</span> über Ihre Website
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed md:text-xl">
-            Bereit für Ihre neue Website? Kontaktieren Sie uns für ein unverbindliches Beratungsgespräch.
+            In einem kurzen Gespräch zeigen wir Ihnen, wie Ihre Website mehr Anfragen generieren kann – kostenlos und
+            unverbindlich. Vor dem Termin hilft oft eine erste Einordnung: Auf der Seite zu{' '}
+            <Link
+              href="/webdesign/darmstadt"
+              className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
+            >
+              Webdesign in Darmstadt
+            </Link>{' '}
+            finden Sie Schwerpunkte und Projektbeispiele aus der Region.
           </p>
         </HeaderEl>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Kontaktformular */}
           <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
-            <p className="text-2xl font-bold mb-6"><strong>Projekt anfragen</strong></p>
+            <p className="text-2xl font-bold mb-6"><strong>Jetzt unverbindlich Website-Projekt starten</strong></p>
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-              {/* Vor- und Nachname in einer Zeile auf Desktop */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-slate-700">
-                    Vorname <span className="text-red-400" aria-label="Pflichtfeld">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
-                    placeholder="Max"
-                    aria-required="true"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-slate-700">
-                    Nachname <span className="text-red-400" aria-label="Pflichtfeld">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
-                    placeholder="Mustermann"
-                    aria-required="true"
-                  />
-                </div>
-              </div>
-
               <div>
-                <label htmlFor="company" className="block text-sm font-medium mb-2 text-slate-700">
-                  Name des Unternehmens
+                <label htmlFor="contact-name" className="block text-sm font-medium mb-2 text-slate-700">
+                  Name <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
                 <input
                   type="text"
-                  id="company"
-                  name="company"
-                  value={formData.company}
+                  id="contact-name"
+                  name="name"
+                  value={formData.name}
                   onChange={handleInputChange}
+                  required
+                  autoComplete="name"
                   className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
-                  placeholder="Musterfirma GmbH (optional)"
+                  placeholder="Vor- und Nachname"
+                  aria-required="true"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2 text-slate-700">
+                <label htmlFor="contact-email" className="block text-sm font-medium mb-2 text-slate-700">
                   E-Mail-Adresse <span className="text-red-400" aria-label="Pflichtfeld">*</span>
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id="contact-email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  autoComplete="email"
                   className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 placeholder:text-slate-500"
                   placeholder="ihre@email.de"
                   aria-required="true"
@@ -172,43 +148,17 @@ export default function KontaktSection() {
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium mb-2 text-slate-700">
-                  Wie kann ich Ihnen helfen? <span className="text-red-400" aria-label="Pflichtfeld">*</span>
-                </label>
-                <div className="relative">
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full px-4 py-3 pr-10 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-slate-900 appearance-none cursor-pointer"
-                    aria-required="true"
-                  >
-                    <option value="" disabled className="bg-white">Bitte wählen Sie eine Option</option>
-                    <option value="neue-website" className="bg-white">Neue Website erstellen</option>
-                    <option value="website-optimieren" className="bg-white">Bestehende Website optimieren</option>
-                    <option value="seo" className="bg-white">SEO & Sichtbarkeit</option>
-                    <option value="sonstiges" className="bg-white">Sonstiges</option>
-                  </select>
-                  <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" aria-hidden="true" />
-                </div>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 text-slate-700">
-                  Beschreiben Sie kurz Ihr Vorhaben <span className="text-red-400" aria-label="Pflichtfeld">*</span>
+                <label htmlFor="contact-topic" className="block text-sm font-medium mb-2 text-slate-700">
+                  Worum geht&apos;s? <span className="text-slate-400 font-normal">(optional)</span>
                 </label>
                 <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
+                  id="contact-topic"
+                  name="topic"
+                  value={formData.topic}
                   onChange={handleInputChange}
-                  required
-                  rows={5}
+                  rows={4}
                   className="w-full px-4 py-3 bg-white border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all resize-none text-slate-900 placeholder:text-slate-500"
-                  placeholder="Erzählen Sie uns von Ihrem Projekt..."
-                  aria-required="true"
+                  placeholder="Kurz beschreiben, womit wir helfen können …"
                 />
               </div>
 
@@ -271,11 +221,32 @@ export default function KontaktSection() {
                   'Nachricht gesendet!'
                 ) : (
                   <>
-                    Absenden
+                    Jetzt unverbindlich anfragen
                     <ArrowRight className="w-4 h-4 group-hover/submit:translate-x-1 transition-transform" aria-hidden="true" />
                   </>
                 )}
               </motion.button>
+
+              <ul className="mt-5 space-y-2 text-sm text-slate-600 list-none p-0 m-0" aria-label="Vorteile der Kontaktaufnahme">
+                <li className="flex gap-2">
+                  <span className="text-emerald-600 shrink-0" aria-hidden>
+                    ✓
+                  </span>
+                  <span>Antwort innerhalb von 24h</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald-600 shrink-0" aria-hidden>
+                    ✓
+                  </span>
+                  <span>Kostenlos &amp; unverbindlich</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald-600 shrink-0" aria-hidden>
+                    ✓
+                  </span>
+                  <span>Kein Spam</span>
+                </li>
+              </ul>
             </form>
           </div>
 

@@ -54,8 +54,15 @@ export default function SolutionFocusCtaSection() {
 
             <p className="text-lg text-slate-300 leading-relaxed max-w-xl md:text-xl">
               Sie lieben Ihre gewohnten Workflows in onOffice oder Ihrem Buchungstool, aber Ihre Website wirkt wie aus
-              der Zeit gefallen? Ich erstelle moderne High-Performance-Frontends, die sich nahtlos an Ihre bestehende
-              Software anbinden. Behalten Sie Ihre Logik – ich schenke Ihnen den Look, der verkauft.
+              der Zeit gefallen? Für einen durchdachten{' '}
+              <Link
+                href="/website-relaunch"
+                className="font-medium text-white underline decoration-blue-400/70 underline-offset-[4px] hover:text-blue-50 hover:decoration-blue-50 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-300 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-sm"
+              >
+                Website Relaunch
+              </Link>{' '}
+              erstelle ich moderne High-Performance-Frontends, die sich nahtlos an Ihre bestehende Software anbinden.
+              Behalten Sie Ihre Logik – ich schenke Ihnen den Look, der verkauft.
             </p>
 
             <div>

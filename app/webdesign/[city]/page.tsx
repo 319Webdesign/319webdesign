@@ -28,6 +28,7 @@ import DarmstadtBranchenSection from '../../components/DarmstadtBranchenSection'
 import DarmstadtEinzugsgebietSection from '../../components/DarmstadtEinzugsgebietSection'
 import DarmstadtWebdesignFaqJsonLd from '../../components/DarmstadtWebdesignFaqJsonLd'
 import DarmstadtWebdesignFaqSection from '../../components/DarmstadtWebdesignFaqSection'
+import DarmstadtWebdesignHeroSection from '../../components/DarmstadtWebdesignHeroSection'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -106,7 +107,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
   }
 
   const texts = getCityPageTexts(city)
-  const h1 = getUniqueH1Webdesign(city)
+  const h1 = city.slug !== 'darmstadt' ? getUniqueH1Webdesign(city) : null
 
   const features = [
     {
@@ -146,90 +147,95 @@ export default function CityPage({ params }: { params: { city: string } }) {
       {city.slug === 'pfungstadt' && <PfungstadtWebdesignFaqJsonLd />}
       {city.slug === 'darmstadt' && <DarmstadtWebdesignFaqJsonLd />}
       <Header />
-      <main className="min-h-screen bg-white pt-24">
-        {/* Hero Section */}
-        <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50">
-          {/* Background Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
+      <main className="min-h-screen bg-white">
+        {city.slug === 'darmstadt' ? (
+          <DarmstadtWebdesignHeroSection city={city} />
+        ) : (
+            <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50 pt-24">
+              {/* Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
 
-          {/* Portrait rechts im Hintergrund (auf Darmstadt bewusst ohne Foto) */}
-          {city.slug !== 'darmstadt' && (
-            <div className="pointer-events-none absolute inset-y-0 right-0 z-[1] hidden w-[min(46%,28rem)] md:block lg:w-[min(42%,32rem)]">
-              <div className="relative h-full min-h-[320px] w-full translate-x-3 md:translate-x-5 lg:translate-x-6">
-                <Image
-                  src="/maik-removebg.png"
-                  alt="Maik Schmidt – Webdesigner, 319Webdesign"
-                  fill
-                  className="object-contain object-right object-bottom lg:object-center"
-                  sizes="(max-width: 768px) 0px, (max-width: 1024px) 38vw, 32rem"
-                  priority
-                />
-              </div>
-            </div>
-          )}
-
-          <div className="relative z-10 max-w-6xl mx-auto px-6 py-20 text-center">
-            {/* Breadcrumb mit JSON-LD Schema */}
-            <div className="flex justify-center">
-              <Breadcrumbs
-                items={[
-                  { name: 'Startseite', url: '/' },
-                  { name: 'Webdesign & Launch', url: '/leistungen/webdesign-launch' },
-                  { name: city.name, url: `/webdesign/${city.slug}` },
-                ]}
-              />
-            </div>
-
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-slate-900 leading-tight">
-              <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent whitespace-pre-line">
-                {h1.main}
-              </span>
-              {h1.sub && (
-                <span className="block text-lg md:text-xl lg:text-2xl mt-2 text-slate-700 font-semibold">
-                  {h1.sub}
-                </span>
-              )}
-            </h1>
-
-            <p className="text-lg md:text-xl text-slate-600 max-w-4xl mx-auto mb-8">
-              {getHeroIntro(city)}
-            </p>
-
-            {/* Location Info */}
-            <div className="flex flex-wrap items-center justify-center gap-6 text-slate-700 mb-10">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-5 h-5 text-blue-600" />
-                <span>{city.name}, {city.region}</span>
-              </div>
-              {city.population && (
-                <div className="flex items-center gap-2">
-                  <Users className="w-5 h-5 text-blue-600" />
-                  <span>{city.population} Einwohner</span>
+              {/* Portrait rechts im Hintergrund */}
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-[1] hidden w-[min(46%,28rem)] md:block lg:w-[min(42%,32rem)]">
+                <div className="relative h-full min-h-[320px] w-full translate-x-3 md:translate-x-5 lg:translate-x-6">
+                  <Image
+                    src="/maik-removebg.png"
+                    alt="Maik Schmidt – Webdesigner, 319Webdesign"
+                    fill
+                    className="object-contain object-right object-bottom lg:object-center"
+                    sizes="(max-width: 768px) 0px, (max-width: 1024px) 38vw, 32rem"
+                    priority
+                  />
                 </div>
-              )}
-              <div className="flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-blue-600" />
-                <span>{texts.personalBetreuung}</span>
               </div>
-            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
-              >
-                Kostenloses Erstgespräch
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                href="/leistungen"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300"
-              >
-                Leistungen ansehen
-              </Link>
-            </div>
-          </div>
-        </section>
+              <div className="relative z-10 mx-auto max-w-6xl px-6 py-20 text-center">
+                <div className="flex justify-center">
+                  <Breadcrumbs
+                    items={[
+                      { name: 'Startseite', url: '/' },
+                      { name: 'Webdesign & Launch', url: '/leistungen/webdesign-launch' },
+                      { name: city.name, url: `/webdesign/${city.slug}` },
+                    ]}
+                  />
+                </div>
+
+                {h1 && (
+                  <>
+                    <h1 className="mb-6 text-2xl font-bold leading-tight text-slate-900 md:text-3xl lg:text-4xl">
+                      <span className="whitespace-pre-line bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
+                        {h1.main}
+                      </span>
+                      {h1.sub && (
+                        <span className="mt-2 block text-lg font-semibold text-slate-700 md:text-xl lg:text-2xl">
+                          {h1.sub}
+                        </span>
+                      )}
+                    </h1>
+
+                    <p className="mx-auto mb-8 max-w-4xl text-lg text-slate-600 md:text-xl">
+                      {getHeroIntro(city)}
+                    </p>
+
+                    <div className="mb-10 flex flex-wrap items-center justify-center gap-6 text-slate-700">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-5 w-5 text-blue-600" />
+                        <span>
+                          {city.name}, {city.region}
+                        </span>
+                      </div>
+                      {city.population && (
+                        <div className="flex items-center gap-2">
+                          <Users className="h-5 w-5 text-blue-600" />
+                          <span>{city.population} Einwohner</span>
+                        </div>
+                      )}
+                      <div className="flex items-center gap-2">
+                        <Building2 className="h-5 w-5 text-blue-600" />
+                        <span>{texts.personalBetreuung}</span>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+                      <Link
+                        href="/kontakt"
+                        className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 px-8 py-4 font-semibold text-white shadow-lg shadow-blue-500/30 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50"
+                      >
+                        Kostenloses Erstgespräch
+                        <ArrowRight className="h-5 w-5" />
+                      </Link>
+                      <Link
+                        href="/leistungen"
+                        className="inline-flex items-center gap-2 rounded-lg border-2 border-slate-300 px-8 py-4 font-semibold text-slate-700 transition-all duration-300 hover:border-blue-500 hover:text-blue-600"
+                      >
+                        Leistungen ansehen
+                      </Link>
+                    </div>
+                  </>
+                )}
+              </div>
+            </section>
+        )}
 
         {city.slug === 'darmstadt' && <DarmstadtWissenschaftsstadtSection />}
         {city.slug === 'darmstadt' && <DarmstadtBusinessRequirementsSection />}

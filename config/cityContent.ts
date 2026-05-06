@@ -33,7 +33,7 @@ export function getUniqueH1Region(city: City): { main: string; sub?: string } {
 export function getUniqueH1Webdesign(city: City): { main: string; sub?: string } {
   const variants: Record<string, { main: string; sub?: string }> = {
     darmstadt: {
-      main: 'Webdesign Darmstadt –\nWebsites die lokal gefunden werden',
+      main: 'Webdesign Darmstadt:\nmehr Sichtbarkeit & Kundenanfragen',
     },
     pfungstadt: {
       main: 'Webdesigner Pfungstadt – Websites die gefunden werden',

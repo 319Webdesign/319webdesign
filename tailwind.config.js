@@ -17,6 +17,15 @@ module.exports = {
       fontFamily: {
         sans: ['Geist', 'system-ui', 'sans-serif'],
       },
+      keyframes: {
+        'hero-float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        'hero-float': 'hero-float 6s ease-in-out infinite',
+      },
     },
   },
   plugins: [],

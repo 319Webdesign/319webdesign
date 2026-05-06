@@ -11,7 +11,12 @@ import { leistungenDropdownPanelWidth, leistungenMenuGroups } from './headerLeis
 const SCROLL_THRESHOLD = 50
 
 /** Voller Blau-Hero unter dem Header: Logo & Navigation oben weiß, bis gescrollt oder Mobilmenü offen. */
-const HERO_OVERLAY_PATHS = new Set(['/', '/unser-angebot', '/seo-darmstadt'])
+const HERO_OVERLAY_PATHS = new Set([
+  '/',
+  '/unser-angebot',
+  '/seo-darmstadt',
+  '/webdesign/darmstadt',
+])
 
 /** motion(Link) vermeidet <a><motion.div>-Hydration-Mismatches (Server vs Client). */
 const MotionLink = motion(Link)

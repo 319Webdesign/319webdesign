@@ -44,33 +44,24 @@ export async function generateMetadata({
   }
 
   const canonicalUrl = getCanonicalUrl(`/webdesign/${city.slug}`)
-  const pfungstadtMetaTitle =
-    'Webdesign Pfungstadt & Darmstadt | 319Webdesign'
-  const darmstadtMetaTitle =
-    'Webdesign Darmstadt & Pfungstadt | 319Webdesign'
+  const absoluteMetaTitles: Record<string, string> = {
+    pfungstadt: 'Webdesign Pfungstadt | Moderne Websites für Betriebe',
+    darmstadt: 'Webdesign Darmstadt | Websites die Kunden bringen',
+    griesheim: 'Webdesign Griesheim | Moderne Websites für Unternehmen',
+    weiterstadt: 'Webdesign Weiterstadt | Websites die Kunden bringen',
+  }
+  const absoluteTitle = absoluteMetaTitles[city.slug]
   const pageTitle =
-    city.slug === 'pfungstadt'
-      ? pfungstadtMetaTitle
-      : city.slug === 'darmstadt'
-        ? darmstadtMetaTitle
-        : truncateTitleForSeo(`Next.js Webdesign ${city.name} | Südhessen`)
+    absoluteTitle ?? truncateTitleForSeo(`Next.js Webdesign ${city.name} | Südhessen`)
   const metaDescriptionRaw = getMetaDescriptionWebdesignCity(city)
   const description =
     city.slug === 'pfungstadt' || city.slug === 'darmstadt'
       ? metaDescriptionRaw.trim()
       : truncateDescriptionForSeo(metaDescriptionRaw)
-  const ogTitle =
-    city.slug === 'pfungstadt' || city.slug === 'darmstadt'
-      ? pageTitle
-      : `${pageTitle} | 319Webdesign`
+  const ogTitle = absoluteTitle ?? `${pageTitle} | 319Webdesign`
   const ogImageAlt = `Webdesign ${city.name} – Next.js und lokales SEO in Darmstadt & Pfungstadt`
   return {
-    title:
-      city.slug === 'pfungstadt'
-        ? { absolute: pfungstadtMetaTitle }
-        : city.slug === 'darmstadt'
-          ? { absolute: darmstadtMetaTitle }
-          : pageTitle,
+    title: absoluteTitle ? { absolute: absoluteTitle } : pageTitle,
     description,
     keywords: [...seoKeywordsBase, ...city.keywords],
     robots: { index: true, follow: true },

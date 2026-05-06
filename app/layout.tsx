@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import './globals.css'
-import { baseUrl, seoKeywordsBase } from '../config/seo'
+import { baseUrl, seoConfig, seoKeywordsBase } from '../config/seo'
 import OrganizationSchema from './components/OrganizationSchema'
 import ProfessionalServiceSchema from './components/ProfessionalServiceSchema'
 // Client-Komponenten mit SSR laden, damit Server-HTML und erste Client-Paint übereinstimmen (keine Hydration-Mismatches durch ssr: false).
@@ -16,10 +16,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
     template: '%s | 319Webdesign',
-    default: 'Webdesign Darmstadt & Pfungstadt',
+    default: seoConfig.home.title,
   },
-  description:
-    'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
+  description: seoConfig.home.description,
   keywords: [...seoKeywordsBase],
   robots: {
     index: true,
@@ -42,9 +41,8 @@ export const metadata: Metadata = {
     locale: 'de_DE',
     url: baseUrl,
     siteName: '319Webdesign',
-    title: 'Webdesign Darmstadt & Pfungstadt | 319Webdesign',
-    description:
-      'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
+    title: seoConfig.home.title,
+    description: seoConfig.home.description,
     images: [
       {
         url: '/319Web_Mockup_iphone.png',
@@ -57,9 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Webdesign Darmstadt & Pfungstadt | 319Webdesign',
-    description:
-      'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
+    title: seoConfig.home.title,
+    description: seoConfig.home.description,
   },
 }
 

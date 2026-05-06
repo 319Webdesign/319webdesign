@@ -13,8 +13,10 @@ export interface PortfolioProject {
   cities: string[]
   /** Ort für Einzelseite (z.B. "Darmstadt") */
   location: string
-  /** Optional: eigener Dokumenttitel-Teil vor „ | 319Webdesign“ (Meta & Tab) */
+  /** Optional: fester Meta-/Dokumenttitel (wird auf SERP-Länge gekürzt). */
   seoPageTitle?: string
+  /** Optional: eigene Meta-Description (wird ggf. auf typische SERP-Länge gekürzt). */
+  seoMetaDescription?: string
   /** Lighthouse/PageSpeed Score */
   lighthouseScore: number
   /** Beschreibung der Aufgabenstellung */
@@ -66,6 +68,9 @@ export const portfolioProjects: PortfolioProject[] = [
     size: 'normal',
     cities: ['darmstadt', 'pfungstadt'],
     location: 'Darmstadt',
+    seoPageTitle: 'Webdesign Medienagentur Darmstadt | Heinerfilm Projekt',
+    seoMetaDescription:
+      'Moderne Website für eine Medienagentur aus Darmstadt: klare Struktur, starke Performance und optimale Präsentation der Leistungen – entwickelt von 319webdesign.',
     lighthouseScore: 99,
     task:
       'Heinerfilm benötigte eine präsentable Website, die ihre Medienproduktionen und Dienstleistungen professionell präsentiert. Die Seite sollte schnell laden, mobil optimiert sein und potenzielle Kunden aus der Region ansprechen.',
@@ -128,6 +133,9 @@ export const portfolioProjects: PortfolioProject[] = [
     size: 'normal',
     cities: ['pfungstadt', 'darmstadt'],
     location: 'Pfungstadt',
+    seoPageTitle: 'Webdesign Veranstaltungstechnik Pfungstadt | da-sound',
+    seoMetaDescription:
+      'Website für Veranstaltungstechnik aus Pfungstadt: modern, übersichtlich und auf Kundenanfragen ausgelegt – für mehr Sichtbarkeit und bessere Präsentation.',
     lighthouseScore: 99,
     task:
       'da-sound als Anbieter für Veranstaltungstechnik benötigte eine Website, die Equipment, Referenzen und Kontaktmöglichkeiten übersichtlich präsentiert. Ziel war eine schnelle, professionelle Online-Präsenz für die Region.',
@@ -179,6 +187,9 @@ export const portfolioProjects: PortfolioProject[] = [
     size: 'normal',
     cities: [],
     location: 'Weinheim',
+    seoPageTitle: 'Webdesign Immobilienmakler Weinheim | HE immologis',
+    seoMetaDescription:
+      'Hochperformante Website für einen Immobilienmakler in Weinheim: modernes Design, onOffice-Anbindung und optimiert für mehr Eigentümer-Anfragen.',
     lighthouseScore: 99,
     task:
       'Hochperformante Web-Lösung mit exklusivem Design und nahtloser onOffice-Anbindung: Automatisierung von Objektveröffentlichung und Interessentenanfragen für HE immologis im Raum Rhein-Neckar.',
@@ -236,7 +247,9 @@ export const portfolioProjects: PortfolioProject[] = [
     size: 'normal',
     cities: ['darmstadt', 'pfungstadt'],
     location: 'Rhein-Main',
-    seoPageTitle: 'Tierhotel Rhein Main | Modernisierung der Website',
+    seoPageTitle: 'Webdesign Tierhotel Rhein-Main | Website Relaunch',
+    seoMetaDescription:
+      'Relaunch für ein Tierhotel im Rhein-Main-Gebiet: modernes Design, mobile Optimierung und bessere Nutzerführung für mehr Buchungsanfragen.',
     lighthouseScore: 99,
     task:
       'Ein etabliertes Tierhotel mit veralteter Oberfläche: fehlendes Responsive Design, schwache Nutzerführung bei der Online-Reservierung und eine Optik, die weder Professionalität noch Herzlichkeit des Betriebs widerspiegelte – Ausgangspunkt für UI/UX-Relaunch und technische Optimierung.',

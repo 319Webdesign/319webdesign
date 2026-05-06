@@ -3,6 +3,8 @@ export const baseUrl = 'https://www.319webdesign.de'
 
 /** SEO: Google zeigt Titel mit ~50–60 Zeichen (~600px). Gesamttitel max. 60 Zeichen. */
 export const SEO_MAX_TITLE_LENGTH = 60
+/** Längere Deckungsgrenze für fertige Dokumenttitel (`titleAbsolute`), z. B. zwei Aussagen mit „|“. */
+export const SEO_MAX_ABSOLUTE_TITLE_LENGTH = 70
 /** Suffix, den das Root-Layout an %s anhängt (muss mit app/layout.tsx template übereinstimmen). */
 export const SEO_TITLE_SUFFIX = ' | 319Webdesign'
 /** Maximale Länge für den Seitentitel-Teil (%s), damit Gesamttitel ≤ SEO_MAX_TITLE_LENGTH. */
@@ -45,9 +47,10 @@ export interface PageSeoConfig {
 
 export const seoConfig: Record<string, PageSeoConfig> = {
   home: {
-    title: 'Webdesign Darmstadt & Pfungstadt',
+    title: 'Webdesign Darmstadt & Pfungstadt | Mehr Kunden durch deine Website',
+    titleAbsolute: true,
     description:
-      'Webdesign und SEO in Darmstadt & Pfungstadt: Next.js-Websites mit lokaler Suchmaschinenoptimierung, schnell und klar. Aus Pfungstadt – persoenlich vor Ort. Jetzt Erstgespraech.',
+      'Moderne Websites, die verkaufen statt nur gut aussehen: 319Webdesign erstellt schnelle, SEO-optimierte Webseiten für Unternehmen in Darmstadt & Pfungstadt. Jetzt kostenlos anfragen.',
     path: '/',
     keywordsExtra: ['High-Performance Webdesign', 'Webdesigner Darmstadt'],
     openGraph: {
@@ -57,30 +60,34 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     },
   },
   launch: {
-    title: 'Next.js Webdesign & Launch in Darmstadt',
+    title: 'Webdesign Darmstadt | Neue Website die Kunden bringt',
+    titleAbsolute: true,
     description:
-      'Neue Website für Ihren Handwerksbetrieb: Next.js Launch Darmstadt & Pfungstadt – Performance, klare Angebote, mehr Anfragen. Systeme können bestehen bleiben – Design wird neu.',
+      'Neue Website statt Baukasten: Wir erstellen moderne, schnelle Webseiten für Unternehmen in Darmstadt & Pfungstadt – klar strukturiert, SEO-optimiert und auf Anfragen ausgelegt.',
     path: '/leistungen/webdesign-launch',
     keywordsExtra: ['Webdesign Launch', 'Next.js', 'Webdesign Darmstadt'],
   },
   websiteRelaunch: {
-    title: 'Website Relaunch Darmstadt – Alte Website modernisieren | 319Webdesign',
+    title: 'Website Relaunch Darmstadt | Mehr Anfragen statt alte Seite',
+    titleAbsolute: true,
     description:
-      'Website veraltet? Relaunch in Darmstadt & Umgebung: Next.js, SEO-sicherer Umzug, modernes Erscheinungsbild. Kostenloser Website-Check.',
+      'Deine Website ist veraltet? Wir relaunchen sie modern, schnell und SEO-sicher – für Unternehmen in Darmstadt & Umgebung. Jetzt kostenlosen Website-Check sichern.',
     path: '/website-relaunch',
     keywordsExtra: ['Website Relaunch', 'Neugestaltung', 'Webdesigner Darmstadt'],
   },
   seo: {
-    title: 'Suchmaschinenoptimierung Darmstadt & Pfungstadt',
+    title: 'SEO Darmstadt | Mehr Sichtbarkeit & Kundenanfragen',
+    titleAbsolute: true,
     description:
-      'Bei Google gefunden werden: SEO für Handwerksbetriebe in Darmstadt und Pfungstadt – sauberer Code, schnelle Ladezeiten, regionale Sichtbarkeit. Jetzt mehr erfahren!',
+      'Bei Google gefunden werden: Lokale SEO für Unternehmen in Darmstadt & Pfungstadt – bessere Rankings, mehr Sichtbarkeit und planbar neue Anfragen.',
     path: '/leistungen/wachstum-seo',
     keywordsExtra: ['Google Sichtbarkeit', 'SEO Experte Darmstadt'],
   },
   wartung: {
-    title: 'Website Betreuung Darmstadt',
+    title: 'Website Betreuung Darmstadt | Wartung & Sicherheit',
+    titleAbsolute: true,
     description:
-      'Wartung fuer Websites: Updates, Backups, Monitoring in Pfungstadt & Region – Ihre Seite bleibt schnell, sicher und aktuell.',
+      'Laufende Betreuung für deine Website: Updates, Backups und Monitoring für Unternehmen in Darmstadt & Pfungstadt – sicher, schnell und immer aktuell.',
     path: '/leistungen/strategische-begleitung',
     keywordsExtra: ['Website-Wartung', 'Support', 'Webdesign Darmstadt'],
   },
@@ -92,16 +99,18 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['Webdesign Angebot', 'SEO Paket', 'Website Betreuung Darmstadt'],
   },
   leistungen: {
-    title: 'Leistungen: Webdesign & SEO Darmstadt',
+    title: 'Webdesign & SEO Darmstadt | Alle Leistungen im Überblick',
+    titleAbsolute: true,
     description:
-      'Next.js Webdesign, lokales SEO und Anbindung bestehender Systeme – für Handwerksbetriebe in Darmstadt, Pfungstadt und Südhessen. Übersicht aller Leistungen.',
+      'Webdesign, SEO und Website-Betreuung für Unternehmen in Darmstadt & Pfungstadt – moderne Websites, die sichtbar sind und neue Kunden bringen.',
     path: '/leistungen',
     keywordsExtra: ['Leistungen Webdesign', 'Webdesigner Darmstadt'],
   },
   portfolio: {
-    title: 'Portfolio Webdesign Darmstadt',
+    title: 'Webdesign Referenzen Darmstadt | Erfolgreiche Projekte',
+    titleAbsolute: true,
     description:
-      'Referenzen aus der Region: Next.js Webdesign für Handwerk und lokale Betriebe in Darmstadt & Pfungstadt – Performance, die man sieht. Jetzt Projekte ansehen.',
+      'Echte Ergebnisse statt leere Versprechen: Entdecke Webdesign-Projekte für Unternehmen aus Darmstadt & Pfungstadt – modern, schnell und auf Anfragen optimiert.',
     path: '/portfolio',
     keywordsExtra: ['Webdesign Referenzen', 'Webdesigner Portfolio'],
     openGraph: {
@@ -111,9 +120,10 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     },
   },
   kontakt: {
-    title: 'Erstberatung Webdesign Darmstadt',
+    title: 'Webdesign Beratung Darmstadt | Kostenloses Erstgespräch',
+    titleAbsolute: true,
     description:
-      'Kostenlose Erstberatung fuer Unternehmen in Pfungstadt, Darmstadt & Suedhessen: Termin vereinbaren, Projekt besprechen, online mehr Anfragen gewinnen.',
+      'Starte dein Projekt: Kostenlose Erstberatung für Unternehmen in Darmstadt & Pfungstadt – Website analysieren, Potenziale erkennen und mehr Anfragen gewinnen.',
     path: '/kontakt',
     keywordsExtra: ['Kontakt Webdesign', 'SEO Beratung Darmstadt'],
   },
@@ -139,17 +149,18 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['onOffice Integration', 'Immobilienmakler Website'],
   },
   webdesignHandwerker: {
-    title: 'Webdesign Darmstadt & Suedhessen',
+    title: 'Webdesign für Handwerker Darmstadt | Mehr Anfragen',
+    titleAbsolute: true,
     description:
-      'Webdesign fuer Unternehmen in Suedhessen: klare Website, lokales SEO, weniger Telefon-Stress – persoenlich aus Pfungstadt. Jetzt Beratung anfragen.',
+      'Websites für Handwerker, die Kunden bringen: Klare Struktur, lokale SEO und weniger Telefon-Stress – für Betriebe in Darmstadt & Pfungstadt.',
     path: '/webdesign-handwerker',
     keywordsExtra: ['Webdesign Darmstadt', 'Webdesigner Suedhessen'],
   },
   ueberMich: {
-    title: 'Maik Schmidt | Webdesigner Darmstadt & Pfungstadt',
+    title: 'Webdesigner Darmstadt | Maik Schmidt – 319webdesign',
     titleAbsolute: true,
     description:
-      'Über 319webdesign: Webdesign & SEO mit Fokus auf Handwerksbetriebe in Darmstadt und Pfungstadt – persönlich, ehrlich, aus Pfungstadt.',
+      'Persönliches Webdesign für Handwerksbetriebe in Darmstadt & Pfungstadt – direkt, ehrlich und mit Fokus auf Websites, die Kunden bringen.',
     path: '/uber-mich',
     keywordsExtra: ['Ueber 319Webdesign', 'Webdesigner Darmstadt'],
     openGraph: {
@@ -159,9 +170,10 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     },
   },
   seoDarmstadt: {
-    title: 'Suchmaschinenoptimierung Darmstadt fuer KMU',
+    title: 'Suchmaschinenoptimierung Darmstadt | Mehr Kunden',
+    titleAbsolute: true,
     description:
-      'Suchmaschinenoptimierung Darmstadt fuer Kleinunternehmen: lokale SEO-Strategie, Technik und Content fuer bessere Rankings und mehr qualifizierte Anfragen.',
+      'Lokale SEO für Unternehmen in Darmstadt: bessere Rankings, mehr Sichtbarkeit und planbar neue Kundenanfragen durch klare Strategie und Technik.',
     path: '/seo-darmstadt',
     keywordsExtra: [
       'Suchmaschinenoptimierung Darmstadt',
@@ -210,11 +222,11 @@ export function getSeoMetadata(config: PageSeoConfig) {
   let socialTitle: string
 
   if (config.titleAbsolute) {
-    const absoluteT = truncateTitleForSeo(rawTitle, SEO_MAX_TITLE_LENGTH)
+    const absoluteT = truncateTitleForSeo(rawTitle, SEO_MAX_ABSOLUTE_TITLE_LENGTH)
     title = { absolute: absoluteT }
     const ogOverride = config.openGraph?.title?.replace(/\s*\|\s*319Webdesign(\s*Pfungstadt)?\s*$/i, '').trim()
     socialTitle = ogOverride
-      ? truncateTitleForSeo(ogOverride, SEO_MAX_TITLE_LENGTH)
+      ? truncateTitleForSeo(ogOverride, SEO_MAX_ABSOLUTE_TITLE_LENGTH)
       : absoluteT
   } else {
     title = truncatedPageTitle

@@ -133,9 +133,9 @@ export function getWarumWebdesignContent(city: City): { heading: string; content
 export function getMetaDescriptionWebdesignCity(city: City): string {
   const variants: Record<string, string> = {
     darmstadt:
-      'Webdesign für Handwerker in Darmstadt & Pfungstadt: Next.js, PageSpeed 99/100 & lokales SEO. Kostenloses Erstgespräch – persönlich vor Ort.',
+      'Professionelles Webdesign für Unternehmen in Darmstadt: schnelle, moderne Websites mit lokalem SEO – für mehr Sichtbarkeit und planbare Anfragen.',
     pfungstadt:
-      'Webdesign für Handwerker in Pfungstadt & Darmstadt: Next.js, PageSpeed 99/100, lokales SEO. Persönliche Betreuung – Erstgespräch vereinbaren.',
+      'Webdesign für Unternehmen in Pfungstadt: schnelle Websites, lokale Sichtbarkeit und klare Strukturen – für mehr Anfragen und weniger Aufwand.',
     griesheim:
       'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Griesheim: lokale SEO, onOffice & Performance für KMU – Region Darmstadt, Südhessen.',
     weiterstadt:

@@ -7,6 +7,7 @@ import {
   baseUrl,
   getCanonicalUrl,
   seoKeywordsBase,
+  SEO_MAX_ABSOLUTE_TITLE_LENGTH,
   truncateDescriptionForSeo,
   truncateTitleForSeo,
 } from '../../../config/seo'
@@ -25,16 +26,17 @@ export async function generateMetadata({
   if (!project) return { title: 'Projekt nicht gefunden' }
 
   const canonicalUrl = getCanonicalUrl(`/portfolio/${project.slug}`)
-  const pageTitle = truncateTitleForSeo(
-    project.seoPageTitle ?? `${project.title} | ${project.category} ${project.location}`,
-  )
+  const rawMetaTitle =
+    project.seoPageTitle ?? `${project.title} | ${project.category} ${project.location}`
+  const documentTitle = truncateTitleForSeo(rawMetaTitle, SEO_MAX_ABSOLUTE_TITLE_LENGTH)
+  const descriptionTemplate = `${project.title} – Webdesign-Portfolio ${project.category} in ${project.location}. ${project.task} PageSpeed ${project.lighthouseScore}/100, Next.js Webdesign von 319Webdesign – Darmstadt, Pfungstadt, Südhessen.`
   const description = truncateDescriptionForSeo(
-    `${project.title} – Webdesign-Portfolio ${project.category} in ${project.location}. ${project.task} PageSpeed ${project.lighthouseScore}/100, Next.js Webdesign von 319Webdesign – Darmstadt, Pfungstadt, Südhessen.`,
+    project.seoMetaDescription?.trim() || descriptionTemplate,
   )
-  const ogTitle = `${pageTitle} | 319Webdesign`
+  const ogTitle = documentTitle
   const ogImageAlt = `Webdesign Portfolio ${project.title} – ${project.category} in ${project.location}, 319Webdesign`
   return {
-    title: pageTitle,
+    title: { absolute: documentTitle },
     description,
     keywords: [...seoKeywordsBase, project.category, project.location, 'Webdesign Referenz'],
     robots: { index: true, follow: true },

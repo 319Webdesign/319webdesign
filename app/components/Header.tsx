@@ -14,7 +14,6 @@ const SCROLL_THRESHOLD = 50
 const HERO_OVERLAY_PATHS = new Set([
   '/',
   '/unser-angebot',
-  '/seo-darmstadt',
   '/webdesign/darmstadt',
 ])
 
@@ -151,13 +150,21 @@ export default function Header() {
 
   const isTransparentHeroNav =
     HERO_OVERLAY_PATHS.has(pathname) && !isScrolled && !isMobileMenuOpen
+  const navDefaultDarkClass =
+    pathname === '/seo-darmstadt'
+      ? 'text-black hover:text-blue-700'
+      : 'text-slate-700 hover:text-blue-600'
   const desktopNavTextClass = isTransparentHeroNav
     ? 'text-white hover:text-blue-100'
-    : 'text-slate-700 hover:text-blue-600'
-  const logoTextClass = isTransparentHeroNav ? 'text-white' : 'text-slate-900'
+    : navDefaultDarkClass
+  const logoTextClass = isTransparentHeroNav
+    ? 'text-white'
+    : pathname === '/seo-darmstadt'
+      ? 'text-black'
+      : 'text-slate-900'
   const mobileMenuButtonClass = isTransparentHeroNav
     ? 'text-white hover:text-blue-100'
-    : 'text-slate-700 hover:text-blue-600'
+    : navDefaultDarkClass
   const navCtaClass = isTransparentHeroNav
     ? 'inline-flex items-center justify-center shrink-0 rounded-lg border border-amber-300/70 bg-amber-400 px-4 py-2.5 text-sm font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 hover:scale-[1.02] hover:bg-amber-500 hover:border-amber-200 active:scale-[0.98]'
     : 'inline-flex items-center justify-center shrink-0 rounded-lg px-4 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 shadow-md shadow-blue-500/35 hover:shadow-lg hover:shadow-blue-500/55 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300'

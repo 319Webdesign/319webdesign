@@ -6,7 +6,7 @@ import { darmstadtWebdesignFaqItems } from '../../config/darmstadtWebdesignFaq'
 export default function DarmstadtWebdesignFaqSection() {
   return (
     <section
-      className="border-t border-slate-200 bg-slate-50 px-6 py-16 md:py-20"
+      className="bg-white px-6 py-16 md:py-20"
       aria-labelledby="darmstadt-webdesign-faq-heading"
     >
       <div className="mx-auto max-w-3xl">

@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { Clapperboard, Flower2 } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Clapperboard, Flower2 } from 'lucide-react'
 
 /**
  * Lokale Referenzen Heinerfilm & 1klang – nur /webdesign/darmstadt.
@@ -8,7 +9,7 @@ import { Clapperboard, Flower2 } from 'lucide-react'
 export default function DarmstadtReferenzenSection() {
   return (
     <section
-      className="border-t border-slate-200 bg-white py-20 md:py-24 px-6"
+      className="bg-white py-20 md:py-24 px-6"
       aria-labelledby="darmstadt-referenzen-heading"
     >
       <div className="mx-auto max-w-6xl">
@@ -16,13 +17,12 @@ export default function DarmstadtReferenzenSection() {
           id="darmstadt-referenzen-heading"
           className="mb-5 text-center text-3xl font-bold leading-tight text-slate-900 md:text-4xl"
         >
-          Referenzen aus <strong>Darmstadt</strong>: <strong>Heinerfilm</strong> &amp;{' '}
-          <strong>1klang Massage</strong>
+          Jedes Unternehmen braucht eine Website, die zur eigenen Zielgruppe passt.
         </h2>
 
         <p className="mx-auto mb-14 max-w-3xl text-center text-lg leading-relaxed text-slate-700 md:text-xl">
-          Zwei Beispiele aus <strong>Darmstadt</strong> zeigen, was lokales Webdesign mit Wirkung
-          bedeutet:
+          Ob Medienagentur, Wellness oder lokaler Dienstleister — gutes Webdesign verbindet Design,
+          Vertrauen und lokale Sichtbarkeit.
         </p>
 
         <div className="mb-14 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-8 lg:gap-10">
@@ -96,11 +96,15 @@ export default function DarmstadtReferenzenSection() {
           </article>
         </div>
 
-        <p className="mx-auto max-w-3xl border-t border-slate-200 pt-12 text-center text-lg leading-relaxed text-slate-700 md:text-xl">
-          Beide Projekte zeigen: Webdesign ist keine Einheitslösung. Es geht darum, die Identität und die
-          Ziele eines Unternehmens digital zu übersetzen — und dabei nicht auf Performance und
-          Auffindbarkeit zu verzichten.
-        </p>
+        <div className="mx-auto flex flex-col items-center">
+          <Link
+            href="/kontakt"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-amber-300/70 bg-amber-400 px-8 py-4 text-base font-semibold text-slate-950 shadow-md shadow-amber-900/25 transition-all duration-300 hover:scale-[1.02] hover:border-amber-200 hover:bg-amber-500 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 active:scale-[0.98]"
+          >
+            Kostenloses Erstgespräch sichern
+            <ArrowRight className="h-5 w-5 shrink-0" aria-hidden />
+          </Link>
+        </div>
       </div>
     </section>
   )

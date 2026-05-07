@@ -17,15 +17,15 @@ export interface ProcessStepTexts {
 const processStepVariants: Record<string, ProcessStepTexts> = {
   darmstadt: {
     analyse:
-      'Die Wissenschaftsstadt verlangt technische Exzellenz. Wir prüfen Ihr Umfeld, definieren klare Ziele und positionieren Sie vor IT-Firmen und Premium-Maklern – kein Generics.',
+      'Wir prüfen Ihre aktuelle Website, Zielgruppe und lokale Sichtbarkeit.',
     design:
-      'Visuelle Klarheit trifft Konversion: Farben, Typografie und Layout, die Vertrauen schaffen. Darmstadts Tech-Zielgruppe erwartet moderne, aufgeräumte Oberflächen.',
+      'Wir planen Inhalte, Nutzerführung und SEO für Darmstadt & Umgebung.',
     inhalte:
-      'Branchenspezifische Texte – ob Tech-KMU oder Immobilienmakler. Keywords und Mehrwert so formuliert, dass Besucher handeln statt abspringen.',
+      'Ihre Website bekommt ein klares Design und Texte, die Anfragen auslösen.',
     entwicklung:
-      'Next.js als Fundament: Server-Side-Rendering, optimiertes Caching, PageSpeed 99/100. Eine Engine, die läuft – kein Prototyp, sondern produktionsreif.',
+      'Schnelle, mobil optimierte Website mit sauberer Struktur und SEO-Basis.',
     begleitung:
-      'Post-Launch: Monitoring, Anpassungen und kontinuierliche Optimierung. Ihr digitaler Partner bleibt erreichbar.',
+      'Nach dem Start bleiben wir erreichbar und optimieren bei Bedarf weiter.',
   },
   pfungstadt: {
     analyse:

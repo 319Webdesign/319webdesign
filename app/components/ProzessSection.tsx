@@ -3,7 +3,10 @@
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
 import { Search, Palette, FileText, Code, Wrench, ArrowRight } from 'lucide-react'
-import { getProcessStepTexts } from '../../config/processSteps'
+import {
+  getProcessStepTexts,
+  type ProcessStepKey,
+} from '../../config/processSteps'
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -25,8 +28,15 @@ interface ProzessSectionProps {
   citySlug?: string
 }
 
+const darmstadtStepTitles: Record<ProcessStepKey, string> = {
+  analyse: 'Kostenlose Website-Analyse',
+  design: 'Strategie & Seitenstruktur',
+  inhalte: 'Design & Inhalte',
+  entwicklung: 'Technische Umsetzung',
+  begleitung: 'Launch & Betreuung',
+}
+
 const introTexts: Record<string, string> = {
-  darmstadt: 'Webdesign in Darmstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz in der Wissenschaftsstadt.',
   pfungstadt: 'Webdesign in Pfungstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz vor Ort.',
   griesheim: 'Webdesign in Griesheim – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz in der Region.',
   weiterstadt: 'Webdesign in Weiterstadt – in fünf Schritten zu Ihrer sichtbaren Online-Präsenz am Wirtschaftsstandort.',
@@ -41,44 +51,63 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
   const processSteps = stepConfig.map(({ step, icon, title, key }) => ({
     step,
     icon,
-    title,
+    title:
+      citySlug === 'darmstadt' ? darmstadtStepTitles[key] : title,
     description: texts[key],
   }))
+  const sectionHeading =
+    citySlug === 'darmstadt'
+      ? 'So läuft Ihr Webdesign-Projekt in Darmstadt ab'
+      : 'Wie läuft Webdesign bei 319Webdesign ab?'
   const reduceMotion = useReduceMotion()
 
   const CardEl = reduceMotion ? 'div' : motion.div
-  const cardProps = reduceMotion ? {} : { whileHover: { y: -5, transition: { duration: 0.3 } } }
+  const cardProps = reduceMotion ? {} : { whileHover: { y: -3, transition: { duration: 0.3 } } }
   const IconEl = reduceMotion ? 'div' : motion.div
   const iconProps = reduceMotion ? {} : { whileHover: { rotate: [0, -5, 5, 0] }, transition: { duration: 0.5 } }
   const LinkEl = reduceMotion ? 'a' : motion.a
   const linkProps = reduceMotion ? { href: '/kontakt', className: 'group relative inline-block', 'aria-label': 'Zum Kontaktformular springen - Erstgespräch vereinbaren' } : { href: '/kontakt', whileHover: { scale: 1.05, y: -2 }, whileTap: { scale: 0.95 }, animate: { boxShadow: ['0 10px 25px -5px rgba(59, 130, 246, 0.3)', '0 15px 35px -5px rgba(59, 130, 246, 0.4)', '0 10px 25px -5px rgba(59, 130, 246, 0.3)' ] }, transition: { boxShadow: { duration: 2, repeat: Infinity, ease: 'easeInOut' } }, className: 'group relative inline-block', 'aria-label': 'Zum Kontaktformular springen - Erstgespräch vereinbaren' }
 
   return (
-    <section id="prozess" className="py-12 md:py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="prozess" className="py-12 md:py-20 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
         {reduceMotion ? (
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            Wie läuft Webdesign bei 319Webdesign ab?
+            {sectionHeading}
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>. {intro}
+            {citySlug === 'darmstadt' ? (
+              'Klarer Ablauf, feste Ansprechpartner und transparente Schritte – von der ersten Analyse bis zur fertigen Website.'
+            ) : (
+              <>
+                In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen{' '}
+                <span className="text-blue-600">Marktvorsprung</span>. {intro}
+              </>
+            )}
           </p>
           </div>
         ) : (
-          <motion.div {...fadeInUp} className="text-center mb-16">
+          <motion.div {...fadeInUp} className="text-center mb-10 md:mb-12">
           <h2 className="text-2xl md:text-4xl font-bold mb-6">
-            Wie läuft Webdesign bei 319Webdesign ab?
+            {sectionHeading}
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen <span className="text-blue-600">Marktvorsprung</span>. {intro}
+            {citySlug === 'darmstadt' ? (
+              'Klarer Ablauf, feste Ansprechpartner und transparente Schritte – von der ersten Analyse bis zur fertigen Website.'
+            ) : (
+              <>
+                In 5 strategischen <span className="text-blue-600">Schritten</span> zu Ihrem digitalen{' '}
+                <span className="text-blue-600">Marktvorsprung</span>. {intro}
+              </>
+            )}
           </p>
           </motion.div>
         )}
 
         <div className="relative">
           {/* SVG Connection Lines - Desktop */}
-          <div className="hidden md:block absolute top-0 left-0 w-full h-40 pointer-events-none z-0">
+          <div className="hidden md:block absolute top-0 left-0 w-full h-32 pointer-events-none z-0">
             <svg className="w-full h-full" viewBox="0 0 1200 160" preserveAspectRatio="none">
               <defs>
                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -138,35 +167,35 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
           </div>
 
           {/* Desktop: 3-Column Grid with 2 rows */}
-          <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2 gap-8 items-stretch mt-40">
+          <div className="hidden md:grid md:grid-cols-3 md:grid-rows-2 gap-5 lg:gap-6 items-stretch mt-28 md:mt-32">
             {processSteps.map((item) => (
               <CardEl
                 key={item.step}
                 {...cardProps}
-                className="bg-slate-50 backdrop-blur-sm pt-12 pb-8 px-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/process relative overflow-visible h-full flex flex-col"
+                className="bg-slate-50 backdrop-blur-sm pt-9 pb-6 px-5 rounded-xl border border-slate-200/90 shadow-md hover:border-blue-400/40 hover:shadow-md hover:shadow-blue-500/10 transition-all duration-300 group/process relative overflow-visible h-full flex flex-col"
               >
                 {/* Glow Effect on Hover */}
-                <div className="absolute inset-0 opacity-0 group-hover/process:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
-                  <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]" />
+                <div className="absolute inset-0 opacity-0 group-hover/process:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl">
+                  <div className="absolute inset-0 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.12)]" />
                 </div>
                 
                 {/* Step Badge */}
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-sm px-4 py-1.5 rounded-full shadow-lg shadow-blue-500/30">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-md shadow-blue-500/25">
                     {String(item.step).padStart(2, '0')}
                   </div>
                 </div>
                 
                 <div className="relative z-10 flex flex-col flex-grow">
                   <motion.div 
-                    className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-6 mx-auto group-hover/process:scale-110 transition-transform duration-300"
+                    className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 shadow-md shadow-amber-900/20 ring-1 ring-white/35 mb-4 mx-auto group-hover/process:scale-[1.06] transition-transform duration-300"
                     whileHover={{ rotate: [0, -5, 5, 0] }}
                     transition={{ duration: 0.5 }}
                   >
-                    <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
+                    <item.icon className="w-6 h-6 text-slate-950" aria-hidden="true" strokeWidth={2} />
                   </motion.div>
-                  <p className="text-xl font-bold mb-4 text-center">{item.title}</p>
-                  <p className="text-slate-600 text-center text-sm leading-relaxed flex-grow">{item.description}</p>
+                  <p className="text-base md:text-lg font-bold mb-2.5 text-center leading-snug">{item.title}</p>
+                  <p className="text-slate-600 text-center text-xs md:text-sm leading-relaxed flex-grow">{item.description}</p>
                 </div>
               </CardEl>
             ))}
@@ -174,20 +203,20 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
             {/* CTA Card */}
             <CardEl
               {...cardProps}
-              className="bg-slate-50 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/cta relative overflow-visible h-full flex flex-col"
+              className="bg-slate-50 backdrop-blur-sm px-5 py-6 rounded-xl border border-slate-200/90 shadow-md hover:border-blue-400/40 hover:shadow-md hover:shadow-blue-500/10 transition-all duration-300 group/cta relative overflow-visible h-full flex flex-col"
             >
               {/* Glow Effect on Hover */}
-              <div className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
-                <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]" />
+              <div className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl">
+                <div className="absolute inset-0 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.12)]" />
               </div>
               
               <div className="relative z-10 flex flex-col items-center justify-center text-center flex-grow">
-                <p className="text-2xl font-bold mb-6">
-                  In 5 Schritten zu Ihrer neuen Website – jetzt starten.
+                <p className="text-lg md:text-xl font-bold mb-4 leading-snug">
+                  Bereit für mehr Anfragen über Ihre Website?
                 </p>
                 <LinkEl {...linkProps}>
-                  <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
-                  <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
+                  <div className="absolute inset-0 bg-blue-500 rounded-lg blur-lg opacity-15 group-hover:opacity-25 transition-opacity" />
+                  <div className="relative px-6 py-3.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-base rounded-lg shadow-md shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300 inline-flex items-center gap-2">
                     Erstgespräch vereinbaren
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>
@@ -197,31 +226,31 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
           </div>
 
           {/* Mobile: Vertical Layout */}
-          <div className="md:hidden space-y-8">
+          <div className="md:hidden space-y-5">
             {processSteps.map((item) => (
               <CardEl
                 key={item.step}
                 {...cardProps}
-                className="bg-slate-50 backdrop-blur-sm pt-12 pb-8 px-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/process relative overflow-visible"
+                className="bg-slate-50 backdrop-blur-sm pt-9 pb-6 px-5 rounded-xl border border-slate-200/90 shadow-md hover:border-blue-400/40 hover:shadow-md hover:shadow-blue-500/10 transition-all duration-300 group/process relative overflow-visible"
               >
                 {/* Glow Effect on Hover */}
-                <div className="absolute inset-0 opacity-0 group-hover/process:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
-                  <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]" />
+                <div className="absolute inset-0 opacity-0 group-hover/process:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl">
+                  <div className="absolute inset-0 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.12)]" />
                 </div>
                 
                 {/* Step Badge */}
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20">
-                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-sm px-4 py-1.5 rounded-full shadow-lg shadow-blue-500/30">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-20">
+                  <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-xs px-3 py-1 rounded-full shadow-md shadow-blue-500/25">
                     {String(item.step).padStart(2, '0')}
                   </div>
                 </div>
                 
                 <div className="relative z-10">
-                  <IconEl {...iconProps} className="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl mb-6 mx-auto group-hover/process:scale-110 transition-transform duration-300">
-                    <item.icon className="w-8 h-8 text-white" aria-hidden="true" />
+                  <IconEl {...iconProps} className="flex items-center justify-center w-12 h-12 rounded-lg bg-gradient-to-br from-amber-400 to-amber-500 text-slate-950 shadow-md shadow-amber-900/20 ring-1 ring-white/35 mb-4 mx-auto group-hover/process:scale-[1.06] transition-transform duration-300">
+                    <item.icon className="w-6 h-6 text-slate-950" aria-hidden="true" strokeWidth={2} />
                   </IconEl>
-                  <p className="text-2xl font-bold mb-4 text-center">{item.title}</p>
-                  <p className="text-slate-600 text-center">{item.description}</p>
+                  <p className="text-lg font-bold mb-2.5 text-center leading-snug">{item.title}</p>
+                  <p className="text-slate-600 text-center text-sm leading-relaxed">{item.description}</p>
                 </div>
               </CardEl>
             ))}
@@ -229,20 +258,20 @@ export default function ProzessSection({ citySlug }: ProzessSectionProps) {
             {/* CTA Card Mobile */}
             <CardEl
               {...cardProps}
-              className="bg-slate-50 backdrop-blur-sm p-8 rounded-2xl border border-slate-200 shadow-lg hover:border-blue-500/50 hover:shadow-blue-500/20 transition-all duration-300 group/cta relative overflow-visible"
+              className="bg-slate-50 backdrop-blur-sm px-5 py-6 rounded-xl border border-slate-200/90 shadow-md hover:border-blue-400/40 hover:shadow-md hover:shadow-blue-500/10 transition-all duration-300 group/cta relative overflow-visible"
             >
               {/* Glow Effect on Hover */}
-              <div className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl">
-                <div className="absolute inset-0 rounded-2xl shadow-[0_0_30px_rgba(59,130,246,0.2)]" />
+              <div className="absolute inset-0 opacity-0 group-hover/cta:opacity-100 transition-opacity duration-300 pointer-events-none rounded-xl">
+                <div className="absolute inset-0 rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.12)]" />
               </div>
               
               <div className="relative z-10 flex flex-col items-center justify-center text-center">
-                <p className="text-2xl font-bold mb-6">
-                  Erstgespräch vereinbaren und gemeinsam durchstarten.
+                <p className="text-lg font-bold mb-4 leading-snug">
+                  Bereit für mehr Anfragen über Ihre Website?
                 </p>
                 <LinkEl {...linkProps}>
-                  <div className="absolute inset-0 bg-blue-500 rounded-xl blur-lg opacity-20 group-hover:opacity-30 transition-opacity" />
-                  <div className="relative px-8 py-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg rounded-xl shadow-md shadow-blue-500/30 group-hover:shadow-blue-500/50 transition-all duration-300 inline-flex items-center gap-2">
+                  <div className="absolute inset-0 bg-blue-500 rounded-lg blur-lg opacity-15 group-hover:opacity-25 transition-opacity" />
+                  <div className="relative px-6 py-3.5 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold text-base rounded-lg shadow-md shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-all duration-300 inline-flex items-center gap-2">
                     Erstgespräch vereinbaren
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
                   </div>

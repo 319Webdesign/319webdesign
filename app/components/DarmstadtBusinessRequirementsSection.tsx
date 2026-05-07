@@ -28,7 +28,7 @@ const bentoLift =
 export default function DarmstadtBusinessRequirementsSection() {
   return (
     <section
-      className="relative overflow-hidden border-b border-slate-200/60 bg-gradient-to-b from-slate-50 via-white to-blue-50/[0.35] px-6 py-20 md:py-28"
+      className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-blue-50/[0.35] px-6 py-20 md:py-28"
       aria-labelledby="darmstadt-business-requirements-heading"
     >
       <div

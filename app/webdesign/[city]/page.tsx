@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { getCanonicalUrl, seoKeywordsBase, truncateDescriptionForSeo, truncateTitleForSeo } from '../../../config/seo'
 import Link from 'next/link'
-import { ArrowRight, Check, MapPin, Users, Building2 } from 'lucide-react'
+import { ArrowRight, MapPin, Users, Building2 } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
@@ -25,10 +25,10 @@ import DarmstadtWissenschaftsstadtSection from '../../components/DarmstadtWissen
 import DarmstadtBusinessRequirementsSection from '../../components/DarmstadtBusinessRequirementsSection'
 import DarmstadtReferenzenSection from '../../components/DarmstadtReferenzenSection'
 import DarmstadtBranchenSection from '../../components/DarmstadtBranchenSection'
-import DarmstadtEinzugsgebietSection from '../../components/DarmstadtEinzugsgebietSection'
 import DarmstadtWebdesignFaqJsonLd from '../../components/DarmstadtWebdesignFaqJsonLd'
 import DarmstadtWebdesignFaqSection from '../../components/DarmstadtWebdesignFaqSection'
 import DarmstadtWebdesignHeroSection from '../../components/DarmstadtWebdesignHeroSection'
+import DarmstadtClosingCtaSection from '../../components/DarmstadtClosingCtaSection'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -134,12 +134,6 @@ export default function CityPage({ params }: { params: { city: string } }) {
       title: 'Wartung & Support',
       description: 'Schneller Service bei Fragen und Problemen',
     },
-  ]
-
-  const benefits = [
-    ...texts.benefits,
-    'Moderne Technologien (Next.js, React)',
-    'Barrierefreie Umsetzung (WCAG)',
   ]
 
   return (
@@ -348,32 +342,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
           </section>
         )}
 
-        {/* Benefits Section */}
-        <section className="py-20 px-6 bg-slate-50">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-slate-900">
-              Ihre Vorteile
-            </h2>
+        {city.slug === 'pfungstadt' && <PfungstadtZielgruppeSection />}
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {benefits.map((benefit, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-4 bg-white rounded-lg p-6 border border-slate-200 hover:shadow-md transition-shadow"
-                >
-                  <Check className="w-6 h-6 text-blue-600 flex-shrink-0 mt-1" />
-                  <p className="text-lg text-slate-700">{benefit}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {city.slug === 'pfungstadt' ? (
-          <PfungstadtZielgruppeSection />
-        ) : city.slug === 'darmstadt' ? (
-          <DarmstadtEinzugsgebietSection />
-        ) : (
+        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && (
           <section className="py-20 px-6 bg-white" aria-labelledby="webdesign-region-heading">
             <div className="max-w-5xl mx-auto text-center">
               <h2
@@ -408,43 +379,37 @@ export default function CityPage({ params }: { params: { city: string } }) {
         {city.slug === 'pfungstadt' && <PfungstadtWebdesignFaqSection />}
         {city.slug === 'darmstadt' && <DarmstadtWebdesignFaqSection />}
 
-        {/* CTA Section */}
-        <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-              {texts.ctaHeading}
-            </h2>
-            <p className="text-xl text-slate-700 mb-8 max-w-2xl mx-auto">
-              {texts.ctaParagraph}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/kontakt"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
-              >
-                Jetzt Kontakt aufnehmen
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a
-                href="https://wa.me/491773236454"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300"
-              >
-                WhatsApp schreiben
-              </a>
-              {city.slug === 'darmstadt' && (
+        {city.slug === 'darmstadt' ? (
+          <DarmstadtClosingCtaSection />
+        ) : (
+          <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
+                {texts.ctaHeading}
+              </h2>
+              <p className="text-xl text-slate-700 mb-8 max-w-2xl mx-auto">
+                {texts.ctaParagraph}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link
-                  href="/seo-darmstadt"
-                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-blue-300 text-blue-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-800 transition-all duration-300"
+                  href="/kontakt"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 transition-all duration-300 hover:scale-105"
                 >
-                  Mehr zu SEO in Darmstadt
+                  Jetzt Kontakt aufnehmen
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-              )}
+                <a
+                  href="https://wa.me/491773236454"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 border-2 border-slate-300 text-slate-700 font-semibold rounded-lg hover:border-blue-500 hover:text-blue-600 transition-all duration-300"
+                >
+                  WhatsApp schreiben
+                </a>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
       <Footer />
     </>

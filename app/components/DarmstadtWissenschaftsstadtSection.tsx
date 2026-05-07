@@ -6,7 +6,7 @@ import Image from 'next/image'
 export default function DarmstadtWissenschaftsstadtSection() {
   return (
     <section
-      className="border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white px-6 py-16 md:py-20"
+      className="bg-gradient-to-b from-slate-50 to-white px-6 py-16 md:py-20"
       aria-labelledby="darmstadt-wissenschaftsstadt-heading"
     >
       <div className="mx-auto max-w-6xl">

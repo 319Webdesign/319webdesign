@@ -91,47 +91,139 @@ export default function KontaktPage() {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative min-h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 via-transparent to-transparent" />
-
-        <motion.div
-          {...fadeInUp}
-          className="relative z-10 max-w-5xl mx-auto px-6 text-center"
-        >
-          <div className="flex justify-center mb-8">
-            <Breadcrumbs
-              items={[
-                { name: 'Startseite', url: '/' },
-                { name: 'Kontakt', url: '/kontakt' },
-              ]}
-            />
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-900 leading-tight">
-            <span className="bg-gradient-to-r from-blue-500 to-blue-600 bg-clip-text text-transparent">
-              Lass uns dein Projekt starten.
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_14%_18%,rgba(59,130,246,0.14)_0%,transparent_42%),radial-gradient(circle_at_82%_20%,rgba(59,130,246,0.08)_0%,transparent_40%),radial-gradient(circle_at_78%_78%,rgba(251,191,36,0.08)_0%,transparent_42%)]" />
+        <div className="relative z-10 mx-auto grid max-w-7xl gap-10 px-6 pb-12 pt-10 md:pb-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:items-center lg:gap-14">
+          <motion.div {...fadeInUp} className="space-y-6">
+            <div className="opacity-70">
+              <Breadcrumbs
+                items={[
+                  { name: 'Startseite', url: '/' },
+                  { name: 'Kontakt', url: '/kontakt' },
+                ]}
+              />
+            </div>
+            <span className="inline-flex rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-blue-700">
+              Kostenlose Erstberatung
             </span>
-          </h1>
-        </motion.div>
-      </section>
+            <h1 className="max-w-2xl text-balance text-4xl font-bold leading-tight text-slate-900 md:text-5xl lg:text-[3.1rem]">
+              Lassen Sie uns über Ihre neue Website sprechen.
+            </h1>
+            <p className="max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+              Ob neue Website, Relaunch oder bessere Sichtbarkeit bei Google: In einem kostenlosen Erstgespräch klären
+              wir, welche Lösung zu Ihrem Unternehmen passt.
+            </p>
 
-      {/* Lokaler Bezug */}
-      <section className="py-8 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            {...fadeInUp}
-            className="text-center"
-          >
-            <p className="text-xl md:text-2xl text-slate-600">
-              Deine Webdesign Agentur für <span className="text-blue-600 font-semibold">Pfungstadt</span>,{' '}
-              <span className="text-blue-600 font-semibold">Darmstadt</span> und{' '}
-              <span className="text-blue-600 font-semibold">der Region</span>.
+            <ul className="flex flex-wrap gap-2.5">
+              {[
+                'Persönlich & unverbindlich',
+                'Antwort meist innerhalb von 24 Stunden',
+                'Für Darmstadt, Pfungstadt & Südhessen',
+              ].map((point) => (
+                <li
+                  key={point}
+                  className="rounded-full border border-slate-200 bg-white/90 px-3.5 py-2 text-sm font-medium text-slate-700 shadow-sm shadow-slate-200/70 backdrop-blur"
+                >
+                  {point}
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="#kontaktformular"
+                className="inline-flex w-full items-center justify-center rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/35 sm:w-auto"
+              >
+                Projekt anfragen
+              </Link>
+              <a
+                href="tel:+491773236454"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 font-semibold text-slate-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700 hover:shadow-md hover:shadow-blue-100 sm:w-auto"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                Direkt anrufen
+              </a>
+            </div>
+            <p className="text-sm text-slate-500">
+              Keine Verpflichtung. Keine Verkaufsshow. Nur eine ehrliche Einschätzung.
             </p>
           </motion.div>
+
+          <motion.aside
+            {...fadeInUp}
+            transition={{ ...fadeInUp.transition, delay: 0.1 }}
+            className="relative"
+          >
+            <div className="pointer-events-none absolute -inset-4 rounded-[2rem] bg-blue-500/10 blur-2xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-white/60 bg-white/80 p-6 shadow-[0_22px_60px_-24px_rgba(15,23,42,0.35)] backdrop-blur-xl md:p-8">
+              <div className="mb-5 flex items-center justify-between gap-3">
+                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">So läuft es ab</p>
+                <span className="rounded-full border border-amber-200 bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700">
+                  Kostenloses Erstgespräch
+                </span>
+              </div>
+
+              <ol className="space-y-3">
+                {[
+                  { label: 'Anfrage senden', icon: Mail, highlight: true },
+                  { label: 'Rückmeldung erhalten', icon: Clock, highlight: false },
+                  { label: 'Lösung besprechen', icon: CheckCircle2, highlight: false },
+                ].map((step, index) => (
+                  <li
+                    key={step.label}
+                    className={`flex items-center gap-3 rounded-xl border px-4 py-3 ${
+                      step.highlight
+                        ? 'border-amber-200 bg-amber-50/70'
+                        : 'border-slate-200 bg-white/90'
+                    }`}
+                  >
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-sm font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <step.icon className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                    <span className="font-medium text-slate-700">{step.label}</span>
+                  </li>
+                ))}
+              </ol>
+
+              <div className="mt-6 space-y-3 rounded-2xl border border-slate-200/80 bg-white/90 p-4">
+                <a
+                  href="mailto:kontakt@319webdesign.com"
+                  className="flex items-center gap-3 text-sm text-slate-700 transition-colors hover:text-blue-700"
+                >
+                  <Mail className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  kontakt@319webdesign.com
+                </a>
+                <a
+                  href="tel:+491773236454"
+                  className="flex items-center gap-3 text-sm text-slate-700 transition-colors hover:text-blue-700"
+                >
+                  <Phone className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  +49 177 3236454
+                </a>
+                <a
+                  href="https://wa.me/491773236454"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-sm text-slate-700 transition-colors hover:text-blue-700"
+                >
+                  <MessageCircle className="h-4 w-4 text-blue-600" aria-hidden="true" />
+                  WhatsApp möglich
+                </a>
+              </div>
+            </div>
+          </motion.aside>
+        </div>
+
+        <div className="relative z-10 px-6 pb-8">
+          <p className="mx-auto max-w-7xl text-center text-sm text-slate-500">
+            Füllen Sie einfach das Formular aus - ich melde mich persönlich zurück.
+          </p>
         </div>
       </section>
 
       {/* Kontakt-Bereich */}
-      <section className="py-16 px-6 bg-slate-50">
+      <section id="kontaktformular" className="py-16 px-6 bg-slate-50">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Kontaktformular - Links */}

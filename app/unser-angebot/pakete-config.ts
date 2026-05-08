@@ -1,78 +1,64 @@
-import type { LucideIcon } from 'lucide-react'
-import { FileText, Infinity, Layers } from 'lucide-react'
-
 export type Paket = {
   name: string
   subtitle: string
   preisAb: number
   highlight: boolean
   badge?: string
-  featureIntro?: { icon: LucideIcon; text: string }
-  merkmale: readonly string[]
-  nichtEnthalten?: readonly string[]
+  geeignetFuer: string
+  enthalten: readonly string[]
+  ctaLabel: string
 }
 
 export const pakete: Paket[] = [
   {
-    name: 'Basic',
-    subtitle: 'Ideal für Freiberufler & Kleinunternehmen',
+    name: 'Start',
+    subtitle: 'Für kleine Unternehmen, die professionell online gehen möchten.',
     preisAb: 749,
     highlight: false,
-    featureIntro: { icon: FileText, text: '1 Seite' },
-    merkmale: [
-      'Website-Erstellung',
+    geeignetFuer: 'Einzelunternehmer, kleine Dienstleister und einfache Firmenwebsites',
+    enthalten: [
+      '1 Seite',
       'Individuelles Design',
-      'Langfristige Betreuung',
+      'Mobile Optimierung',
+      'Kontaktmöglichkeit',
+      'DSGVO-Basis',
       'Persönlicher Ansprechpartner',
-      'DSGVO',
-      'Impressum & Datenschutz',
     ],
-    nichtEnthalten: [
-      'SEO-Optimierung',
-      'Texterstellung',
-      'Google Top-Platzierungen',
-      'Ausführliche Statistiken',
-      'Individuelle Funktionen',
-    ],
+    ctaLabel: 'Start-Paket anfragen',
   },
   {
-    name: 'Standard',
-    subtitle: 'Das beliebteste Paket für wachsende Unternehmen',
+    name: 'Wachstum',
+    subtitle: 'Für Unternehmen, die sichtbar werden und mehr Anfragen gewinnen möchten.',
     preisAb: 1199,
-    badge: 'Am beliebtesten',
+    badge: 'Am häufigsten gewählt',
     highlight: true,
-    featureIntro: { icon: Layers, text: '+ Bis zu 5 Unterseiten' },
-    merkmale: [
-      'Website-Erstellung',
-      'Individuelles Design',
-      'Langfristige Betreuung',
+    geeignetFuer: 'Lokale Unternehmen, die professioneller auftreten und online mehr Anfragen gewinnen möchten',
+    enthalten: [
+      'Bis zu 5 Unterseiten',
+      'Individuelle Seitenstruktur',
+      'Lokale SEO-Basis',
+      'Conversionstarke Inhalte',
+      'Schnelle Ladezeiten',
+      'DSGVO-Basis',
       'Persönlicher Ansprechpartner',
-      'DSGVO',
-      'Impressum & Datenschutz',
-      'SEO-Optimierung',
-      'Texterstellung',
-      'Individuelle Funktionen',
     ],
-    nichtEnthalten: ['Google Top-Platzierungen', 'Ausführliche Statistiken'],
+    ctaLabel: 'Wachstums-Paket anfragen',
   },
   {
     name: 'Premium',
-    subtitle: 'All-Inclusive für mittelständische & große Unternehmen',
+    subtitle: 'Für größere Anforderungen, individuelle Strukturen und langfristige Strategie.',
     preisAb: 1499,
     highlight: false,
-    featureIntro: { icon: Infinity, text: 'Unbegrenzte Seitenanzahl' },
-    merkmale: [
-      'Website-Erstellung',
-      'Individuelles Design',
-      'Langfristige Betreuung',
-      'Persönlicher Ansprechpartner',
-      'DSGVO',
-      'Impressum & Datenschutz',
+    geeignetFuer: 'Unternehmen mit größerem Umfang, mehreren Leistungen oder individuellen Anforderungen',
+    enthalten: [
+      'Individuelle Seitenanzahl',
+      'Umfangreiche Seitenstruktur',
       'SEO-Optimierung',
-      'Texterstellung',
-      'Individuelle Funktionen',
-      'Google Top-Platzierungen',
-      'Ausführliche Statistiken',
+      'Performance-Optimierung',
+      'System-Anbindungen möglich',
+      'Strategische Beratung',
+      'Langfristige Begleitung',
     ],
+    ctaLabel: 'Premium-Paket anfragen',
   },
 ]

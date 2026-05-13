@@ -25,6 +25,13 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const { firstName, lastName, name, company, email, service, betreff, message, privacyAccepted } = body
 
+    // Honeypot: unsichtbares Feld; Bots füllen es oft aus. Gleiche Antwort wie Erfolg, damit nichts auffällt.
+    const honeypot =
+      typeof body.website === 'string' ? body.website.trim() : String(body.website ?? '').trim()
+    if (honeypot) {
+      return NextResponse.json({ success: true }, { status: 200, headers: corsHeaders })
+    }
+
     // Unterstützung für beide Formate: altes Format (firstName/lastName/service) und neues Format (name/betreff)
     const finalName = name || (firstName && lastName ? `${firstName} ${lastName}` : '')
     const finalSubject = betreff || service || ''

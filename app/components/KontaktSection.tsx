@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
@@ -27,6 +27,7 @@ export default function KontaktSection() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const websiteHoneypotRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -50,6 +51,7 @@ export default function KontaktSection() {
           email: formData.email.trim(),
           message: formData.topic.trim(),
           privacyAccepted: formData.privacyAccepted,
+          website: websiteHoneypotRef.current?.value ?? '',
         }),
       })
 
@@ -111,6 +113,15 @@ export default function KontaktSection() {
           <div className="bg-slate-50 p-8 rounded-xl border border-slate-200">
             <p className="text-2xl font-bold mb-6"><strong>Jetzt unverbindlich Website-Projekt starten</strong></p>
             <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+              <input
+                ref={websiteHoneypotRef}
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
               <div>
                 <label htmlFor="contact-name" className="block text-sm font-medium mb-2 text-slate-700">
                   Name <span className="text-red-400" aria-label="Pflichtfeld">*</span>

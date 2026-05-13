@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown, ListOrdered, Clock, CheckCircle2 } from 'lucide-react'
@@ -29,6 +29,7 @@ export default function KontaktPage() {
   const [formSubmitted, setFormSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const websiteHoneypotRef = useRef<HTMLInputElement>(null)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -47,7 +48,10 @@ export default function KontaktPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          website: websiteHoneypotRef.current?.value ?? '',
+        }),
       })
 
       const data = await response.json()
@@ -233,6 +237,15 @@ export default function KontaktPage() {
             >
               <p className="text-3xl font-bold mb-6 text-slate-900"><strong>Kontaktformular</strong></p>
               <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                <input
+                  ref={websiteHoneypotRef}
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
                 {/* Vor- und Nachname in einer Zeile auf Desktop */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>

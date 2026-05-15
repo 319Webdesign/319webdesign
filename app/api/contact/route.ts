@@ -167,6 +167,7 @@ export async function POST(request: NextRequest) {
     const serviceLabels: { [key: string]: string } = {
       'neue-website': 'Neue Website erstellen',
       'website-optimieren': 'Bestehende Website optimieren',
+      'website-betreuung': 'Website-Betreuung',
       'seo': 'SEO & Sichtbarkeit',
       'sonstiges': 'Sonstiges'
     }

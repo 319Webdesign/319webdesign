@@ -49,6 +49,9 @@ export function middleware(request: NextRequest) {
   if (pathname === '/referenzen' || pathname === '/referenzen/') {
     return NextResponse.redirect(new URL('/portfolio', request.url), 301)
   }
+  if (pathname === '/unsere-angebote') {
+    return NextResponse.redirect(new URL('/unser-angebot', request.url), 301)
+  }
   const regionMatch = pathname.match(/^\/region\/([^/]+)$/)
   if (regionMatch && CITY_SLUGS.includes(regionMatch[1])) {
     return NextResponse.redirect(new URL(`/webdesign/${regionMatch[1]}`, request.url), 301)

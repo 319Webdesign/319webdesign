@@ -84,12 +84,21 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['Google Sichtbarkeit', 'SEO Experte Darmstadt'],
   },
   wartung: {
-    title: 'Website Betreuung Darmstadt | Wartung & Sicherheit',
-    titleAbsolute: true,
+    /** Kurz gehalten wegen Layout-Titel-Suffix „ | 319Webdesign“ (≤44 Zeichen Seitenanteil). */
+    title: 'Website-Betreuung Darmstadt – Wartung/Pflege',
     description:
-      'Laufende Betreuung für deine Website: Updates, Backups und Monitoring für Unternehmen in Darmstadt & Pfungstadt – sicher, schnell und immer aktuell.',
+      'Website-Betreuung in Darmstadt & Umgebung: Wartung, Sicherheit, Backups, kleine Änderungen und laufende Pflege für Unternehmen – ab 79 €/Monat.',
     path: '/leistungen/strategische-begleitung',
-    keywordsExtra: ['Website-Wartung', 'Support', 'Webdesign Darmstadt'],
+    keywordsExtra: [
+      'Website Betreuung Darmstadt',
+      'Website Wartung Darmstadt',
+      'Website Pflege Darmstadt',
+      'Website Betreuung Pfungstadt',
+      'WordPress Wartung Darmstadt',
+      'Website Support Unternehmen',
+      'Website Wartungsvertrag',
+      'Webdesign Betreuung Darmstadt',
+    ],
   },
   unserAngebot: {
     title: 'Unser Angebot – Webdesign, SEO & Betreuung',
@@ -149,12 +158,26 @@ export const seoConfig: Record<string, PageSeoConfig> = {
     keywordsExtra: ['onOffice Integration', 'Immobilienmakler Website'],
   },
   webdesignHandwerker: {
-    title: 'Webdesign für Handwerker Darmstadt | Mehr Anfragen',
+    title: 'Webdesign für Handwerker Darmstadt | 319Webdesign',
     titleAbsolute: true,
     description:
-      'Websites für Handwerker, die Kunden bringen: Klare Struktur, lokale SEO und weniger Telefon-Stress – für Betriebe in Darmstadt & Pfungstadt.',
+      'Webdesign für Handwerker in Darmstadt & Südhessen: moderne Websites für mehr Anfragen, Vertrauen und Bewerbungen. Kostenlosen Website-Check anfragen.',
     path: '/webdesign-handwerker',
-    keywordsExtra: ['Webdesign Darmstadt', 'Webdesigner Suedhessen'],
+    keywordsExtra: [
+      'Webdesign Handwerker',
+      'Webdesign für Handwerker',
+      'Handwerker Website erstellen lassen',
+      'Website für Handwerksbetrieb',
+      'Webdesign Darmstadt Handwerker',
+      'Website Relaunch Handwerker',
+      'Handwerker Website SEO',
+      'Website für Elektriker',
+      'Website für Gartenbau',
+      'Website für Maler',
+      'Website für Sanitärbetrieb',
+      'Website für Dachdecker',
+      'Webdesign Südhessen',
+    ],
   },
   ueberMich: {
     title: 'Webdesigner Darmstadt | Maik Schmidt – 319webdesign',

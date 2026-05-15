@@ -43,18 +43,18 @@ const leistungen = [
   {
     slug: 'strategische-begleitung',
     icon: Settings,
-    title: 'Strategische Begleitung',
-    subtitle: 'Langfristige Partnerschaft für Ihren Erfolg',
+    title: 'Website-Betreuung',
+    subtitle: 'Wartung, Pflege & kleine Änderungen',
     description:
-      'Umfassende Website-Betreuung: Wartung, Optimierung, Support und kontinuierliche Weiterentwicklung für nachhaltigen Erfolg.',
+      'Monatliche Website-Betreuung für Unternehmen in Darmstadt & Umgebung: sicher, aktuell und mit direktem Ansprechpartner – ab 79 €/Monat.',
     features: [
-      'Technische Wartung',
-      'Performance-Monitoring',
-      'Strategische Beratung',
-      'Priorisierter Support',
+      'Technische Pflege & Updates',
+      'Backups & Sicherheit',
+      'Kleine Änderungen inklusive',
+      'Persönlicher Support',
     ],
     color: 'purple',
-    linkText: 'Strategische Begleitung entdecken',
+    linkText: 'Betreuung & Pakete ansehen',
   },
 ]
 

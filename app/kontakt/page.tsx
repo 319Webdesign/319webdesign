@@ -331,6 +331,7 @@ export default function KontaktPage() {
                       <option value="" disabled className="bg-white">Bitte wählen Sie eine Option</option>
                       <option value="neue-website" className="bg-white">Neue Website erstellen</option>
                       <option value="website-optimieren" className="bg-white">Bestehende Website optimieren</option>
+                      <option value="website-betreuung" className="bg-white">Website-Betreuung</option>
                       <option value="seo" className="bg-white">SEO & Sichtbarkeit</option>
                       <option value="sonstiges" className="bg-white">Sonstiges</option>
                     </select>

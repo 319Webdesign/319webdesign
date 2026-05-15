@@ -44,7 +44,7 @@ export default function SiteNavigationSchema() {
       {
         '@type': 'SiteNavigationElement',
         position: 7,
-        name: 'Strategische Begleitung',
+        name: 'Website-Betreuung',
         url: `${baseUrl}/leistungen/strategische-begleitung`,
       },
       {

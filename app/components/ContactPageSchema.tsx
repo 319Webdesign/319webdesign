@@ -23,7 +23,7 @@ const schema = {
     { '@type': 'State' as const, name: 'Hessen' },
   ],
   description:
-    'Webdesign für Handwerker in Darmstadt, Pfungstadt und Südhessen – Erstberatung, Launch und SEO. Strategische Begleitung für Handwerksbetriebe und regionale Betriebe.',
+    'Webdesign für Handwerker in Darmstadt, Pfungstadt und Südhessen – Erstberatung, Launch und SEO. Website-Betreuung und Wartung für Handwerksbetriebe und regionale Betriebe.',
   contactPoint: {
     '@type': 'ContactPoint' as const,
     contactType: 'customer service',

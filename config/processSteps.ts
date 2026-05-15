@@ -61,7 +61,7 @@ const processStepVariants: Record<string, ProcessStepTexts> = {
     entwicklung:
       'Enterprise-taugliche Basis: Next.js, Performance, Skalierbarkeit. Webdesign für Unternehmen, die langfristig planen.',
     begleitung:
-      'Strategische Begleitung nach dem Launch: Optimierung, neue Features, technischer Support – auf Augenhöhe.',
+      'Website-Betreuung nach dem Launch: Wartung, kleine Verbesserungen und technischer Support – direkt und auf Augenhöhe.',
   },
   immobilienmakler: {
     analyse:

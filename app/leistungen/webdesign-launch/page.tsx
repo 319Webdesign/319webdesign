@@ -220,10 +220,10 @@ export default function WebdesignLaunchPage() {
               className="bg-white rounded-xl p-8 border border-slate-200 hover:border-blue-500 hover:shadow-lg transition-all duration-300 group"
             >
               <h3 className="text-2xl font-bold mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
-                Strategische Begleitung
+                Website-Betreuung
               </h3>
               <p className="text-slate-600 group-hover:text-blue-600 transition-colors inline-flex items-center gap-2">
-                Zur strategischen Begleitung
+                Zur Website-Betreuung
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </p>
             </Link>

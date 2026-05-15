@@ -4,7 +4,10 @@ const nextConfig = {
   trailingSlash: false,
   // Safari & Co. fragen oft /apple-touch-icon.png an; Metadata nutzt /319-favicon.png
   async redirects() {
-    return [{ source: '/ueber-mich', destination: '/uber-mich', permanent: true }]
+    return [
+      { source: '/ueber-mich', destination: '/uber-mich', permanent: true },
+      { source: '/unsere-angebote', destination: '/unser-angebot', permanent: true },
+    ]
   },
   async rewrites() {
     return [

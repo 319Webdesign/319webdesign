@@ -20,7 +20,7 @@ const stepConfig = [
   { step: 2, icon: Palette, title: 'Performance-Design & Branding', key: 'design' as const },
   { step: 3, icon: FileText, title: 'Verkaufsstarke Inhalte', key: 'inhalte' as const },
   { step: 4, icon: Code, title: 'High-End Entwicklung', key: 'entwicklung' as const },
-  { step: 5, icon: Wrench, title: 'Strategische Begleitung', key: 'begleitung' as const },
+  { step: 5, icon: Wrench, title: 'Website-Betreuung', key: 'begleitung' as const },
 ]
 
 interface ProzessSectionProps {

@@ -21,7 +21,7 @@ export const leistungenMenuGroups: LeistungenMenuGroup[] = [
   },
   {
     title: 'Wartung',
-    links: [{ href: '/leistungen/strategische-begleitung', label: 'Strategische Begleitung' }],
+    links: [{ href: '/leistungen/strategische-begleitung', label: 'Website-Betreuung' }],
   },
 ]
 

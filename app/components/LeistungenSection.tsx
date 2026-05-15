@@ -29,10 +29,11 @@ const leistungen = [
   },
   {
     icon: Shield,
-    title: 'Strategische Begleitung',
+    title: 'Website-Betreuung',
     href: '/leistungen/strategische-begleitung',
-    description: 'Langfristige Partnerschaft für kontinuierliche Optimierung, Wartung und Weiterentwicklung.',
-    linkText: 'Mehr zur strategischen Begleitung',
+    description:
+      'Laufende Pflege, Sicherheit und kleine Änderungen – damit Ihre Website nach dem Launch zuverlässig bleibt.',
+    linkText: 'Website-Betreuung & Pakete',
   },
 ]
 

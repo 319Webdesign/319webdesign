@@ -24,7 +24,7 @@ export default function ImpressumPage() {
             </h1>
             
             <div className="prose prose-invert prose-lg max-w-none space-y-8">
-              {/* Angaben gemäß § 5 TMG */}
+              {/* Angaben gemäß § 5 DDG */}
               <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -33,7 +33,7 @@ export default function ImpressumPage() {
                 className="bg-slate-900/50 rounded-2xl p-6 md:p-8 border border-slate-800"
               >
                 <h2 className="text-2xl md:text-3xl font-bold mb-6 text-white">
-                  Angaben gemäß § 5 TMG
+                  Angaben gemäß § 5 DDG
                 </h2>
                 <div className="space-y-4 text-slate-300">
                   <div className="bg-slate-800/50 rounded-lg p-4 border border-slate-700">
@@ -108,7 +108,7 @@ export default function ImpressumPage() {
                 </h2>
                 <div className="space-y-4 text-slate-300 leading-relaxed">
                   <p>
-                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+                    Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
                   </p>
                   <p>
                     Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.

@@ -139,7 +139,7 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   impressum: {
     title: 'Impressum – Rechtliche Angaben | 319Webdesign',
     description:
-      'Impressum 319Webdesign (Maik Schmidt), Nahestrasse 22, 64319 Pfungstadt – Webdesign und SEO in Darmstadt, Pfungstadt & Suedhessen, Angaben gemaess § 5 TMG.',
+      'Impressum 319Webdesign (Maik Schmidt), Nahestrasse 22, 64319 Pfungstadt – Webdesign und SEO in Darmstadt, Pfungstadt & Suedhessen, Angaben gemaess § 5 DDG.',
     path: '/impressum',
     keywordsExtra: ['Impressum'],
   },

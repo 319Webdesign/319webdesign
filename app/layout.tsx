@@ -83,6 +83,17 @@ export default function RootLayout({
           id="pianjs"
           data-code="vJWT37N3h190aNHNNLe4ZWy9zexmJm6H"
         />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-2F2YJSZXG5" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-2F2YJSZXG5');
+            `,
+          }}
+        />
       </head>
       <body className="antialiased font-sans" suppressHydrationWarning>
         <ReducedMotionProvider>

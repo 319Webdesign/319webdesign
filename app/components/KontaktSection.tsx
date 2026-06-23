@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { useReduceMotion } from './ReducedMotionProvider'
 import { Phone, Mail, ArrowRight, MessageCircle } from 'lucide-react'
+import { trackGtagContactConversion } from '@/lib/gtagContactEvent'
 import { trackContactFormSubmit } from '@/lib/pirschContactEvent'
 
 const fadeInUp = {
@@ -62,6 +63,7 @@ export default function KontaktSection() {
       }
 
       trackContactFormSubmit('startseite')
+      trackGtagContactConversion()
       setFormSubmitted(true)
       setFormData({
         name: '',

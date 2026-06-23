@@ -7,6 +7,7 @@ import { Mail, Phone, ArrowRight, Instagram, MessageCircle, ChevronDown, ListOrd
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Breadcrumbs from '../components/Breadcrumbs'
+import { trackGtagContactConversion } from '@/lib/gtagContactEvent'
 import { trackContactFormSubmit } from '@/lib/pirschContactEvent'
 
 const fadeInUp = {
@@ -61,6 +62,7 @@ export default function KontaktPage() {
       }
 
       trackContactFormSubmit('kontakt')
+      trackGtagContactConversion()
       setFormSubmitted(true)
       setFormData({ 
         firstName: '', 

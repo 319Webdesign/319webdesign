@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { LucideIcon } from 'lucide-react'
 import Link from 'next/link'
 import {
   ArrowRight,
@@ -10,14 +10,14 @@ import {
   Sparkles,
   TrendingUp,
   Zap,
-  type LucideIcon,
 } from 'lucide-react'
 
 type Benefit = {
   headline: string
-  body: ReactNode
+  body: string
   micro: string
   icon: LucideIcon
+  href: string
   featured?: boolean
 }
 
@@ -25,20 +25,11 @@ type Benefit = {
 const benefits: Benefit[] = [
   {
     headline: 'Bei Google sichtbar in Darmstadt',
-    body: (
-      <>
-        Sauberer Aufbau und Inhalte auf{' '}
-        <Link
-          href="/seo-darmstadt"
-          className="font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 rounded-sm"
-        >
-          lokale Suchbegriffe
-        </Link>{' '}
-        ausgerichtet – damit dich Kunden finden, wenn sie aktiv einen Anbieter suchen.
-      </>
-    ),
+    body:
+      'Sauberer Aufbau und Inhalte auf lokale Suchbegriffe ausgerichtet – damit dich Kunden finden, wenn sie aktiv einen Anbieter suchen.',
     micro: 'Regionale Relevanz statt beliebigem Template-Text.',
     icon: Search,
+    href: '/seo-darmstadt',
   },
   {
     headline: 'Mehr Anfragen statt nur Besucher',
@@ -47,6 +38,7 @@ const benefits: Benefit[] = [
     micro: 'Ausrichtung auf Handwerk und lokale Dienstleister.',
     icon: TrendingUp,
     featured: true,
+    href: '/leistungen/wachstum-seo',
   },
   {
     headline: 'Klare Struktur, die Kunden führt',
@@ -54,6 +46,7 @@ const benefits: Benefit[] = [
       'Leistungen, Ablauf und Kontakt auf einen Blick – weniger Orientierungsstress, weniger Absprünge, mehr qualifizierte Kontakte.',
     micro: 'Nutzerführung statt überfrachteter Startseiten.',
     icon: LayoutList,
+    href: '/leistungen/webdesign-launch',
   },
   {
     headline: 'Schnelle Ladezeiten ohne Absprünge',
@@ -61,6 +54,7 @@ const benefits: Benefit[] = [
       'Schlanke Technik und optimierte Medien. Auf dem Smartphone entscheidet Tempo oft über bleiben oder wegklicken.',
     micro: 'Technik, die Nutzer und Suchmaschinen erwarten.',
     icon: Zap,
+    href: '/website-relaunch',
   },
   {
     headline: 'Weniger unnötige Anrufe durch klare Infos',
@@ -68,6 +62,7 @@ const benefits: Benefit[] = [
       'Zeiten, Gebiet und FAQs stehen online – wer anruft, ist häufig schon informiert und weiter im Entscheidungsprozess.',
     micro: 'Mehr Zeit für echte Aufträge.',
     icon: Info,
+    href: '/leistungen/strategische-begleitung',
   },
   {
     headline: 'Festpreise und nachvollziehbare Schritte',
@@ -75,6 +70,7 @@ const benefits: Benefit[] = [
       'Du weißt vor dem Start, was enthalten ist und wie wir arbeiten – transparent statt stundenbasierter Überraschungen.',
     micro: 'Investition planbar, Projektablauf nachvollziehbar.',
     icon: BadgeEuro,
+    href: '/unser-angebot',
   },
 ]
 
@@ -84,7 +80,11 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
 
   if (featured) {
     return (
-      <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-amber-400/60 bg-gradient-to-b from-white via-white to-amber-50/90 p-7 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_24px_48px_-12px_rgba(15,23,42,0.28),0_0_0_1px_rgba(251,191,36,0.15)] transition-[transform,box-shadow] duration-300 md:p-8 lg:hover:-translate-y-1 lg:hover:shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_32px_64px_-16px_rgba(15,23,42,0.35)]">
+      <Link
+        href={benefit.href}
+        className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-amber-400/60 bg-gradient-to-b from-white via-white to-amber-50/90 p-7 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_24px_48px_-12px_rgba(15,23,42,0.28),0_0_0_1px_rgba(251,191,36,0.15)] transition-[transform,box-shadow] duration-300 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 md:p-8 lg:hover:-translate-y-1 lg:hover:shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_32px_64px_-16px_rgba(15,23,42,0.35)]"
+        aria-label={`${benefit.headline} – mehr erfahren`}
+      >
         <div
           className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-amber-400/25 blur-3xl transition-opacity duration-500 group-hover:opacity-90"
           aria-hidden
@@ -104,15 +104,23 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
         <p className="relative mb-5 flex-1 text-[0.9375rem] leading-relaxed text-slate-700 md:text-base">
           {benefit.body}
         </p>
-        <p className="relative mt-auto border-t border-amber-300/50 pt-4 text-xs font-medium leading-snug text-slate-600 md:text-sm">
-          {benefit.micro}
+        <p className="relative mt-auto flex items-center justify-between gap-2 border-t border-amber-300/50 pt-4 text-xs font-medium leading-snug text-slate-600 md:text-sm">
+          <span>{benefit.micro}</span>
+          <ArrowRight
+            className="h-4 w-4 shrink-0 text-amber-700 transition-transform duration-300 group-hover:translate-x-0.5"
+            aria-hidden
+          />
         </p>
-      </article>
+      </Link>
     )
   }
 
   return (
-    <article className="group flex h-full flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-[0_2px_8px_rgba(15,23,42,0.04),0_16px_40px_-12px_rgba(15,23,42,0.12)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-amber-200/90 hover:shadow-[0_8px_24px_-8px_rgba(251,191,36,0.28),0_24px_48px_-16px_rgba(15,23,42,0.14)] md:p-7 lg:p-8">
+    <Link
+      href={benefit.href}
+      className="group flex h-full flex-col rounded-3xl border border-slate-200/90 bg-white p-7 shadow-[0_2px_8px_rgba(15,23,42,0.04),0_16px_40px_-12px_rgba(15,23,42,0.12)] transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-amber-200/90 hover:shadow-[0_8px_24px_-8px_rgba(251,191,36,0.28),0_24px_48px_-16px_rgba(15,23,42,0.14)] focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 md:p-7 lg:p-8"
+      aria-label={`${benefit.headline} – mehr erfahren`}
+    >
       <div className="mb-5 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-600/[0.07] ring-1 ring-blue-600/[0.12] transition-colors duration-300 group-hover:bg-blue-600/[0.11]">
         <Icon className="h-6 w-6 text-blue-600" strokeWidth={1.75} aria-hidden />
       </div>
@@ -120,10 +128,14 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
         {benefit.headline}
       </h3>
       <p className="mb-4 flex-1 text-sm leading-relaxed text-slate-600 md:text-[0.9375rem]">{benefit.body}</p>
-      <p className="mt-auto border-t border-slate-100 pt-4 text-xs font-medium leading-snug text-slate-500 md:text-sm">
-        {benefit.micro}
+      <p className="mt-auto flex items-center justify-between gap-2 border-t border-slate-100 pt-4 text-xs font-medium leading-snug text-slate-500 md:text-sm">
+        <span>{benefit.micro}</span>
+        <ArrowRight
+          className="h-4 w-4 shrink-0 text-blue-600 transition-transform duration-300 group-hover:translate-x-0.5"
+          aria-hidden
+        />
       </p>
-    </article>
+    </Link>
   )
 }
 

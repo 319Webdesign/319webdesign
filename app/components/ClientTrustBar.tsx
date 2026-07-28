@@ -5,7 +5,7 @@ import { clientLogos } from '../../config/clientLogos'
 export default function ClientTrustBar() {
   return (
     <section
-      className="relative mt-16 w-full bg-white py-16 md:mt-24 md:py-24 lg:py-28"
+      className="relative z-10 mt-0 w-full bg-white pb-16 pt-10 md:pb-24 md:pt-14 lg:pb-28 lg:pt-16"
       aria-labelledby="client-trust-heading"
     >
       <div className="w-full max-w-7xl mx-auto px-6">

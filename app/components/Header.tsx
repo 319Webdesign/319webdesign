@@ -14,6 +14,7 @@ const SCROLL_THRESHOLD = 50
 const HERO_OVERLAY_PATHS = new Set([
   '/',
   '/webdesign/darmstadt',
+  '/unser-angebot',
 ])
 
 /** motion(Link) vermeidet <a><motion.div>-Hydration-Mismatches (Server vs Client). */

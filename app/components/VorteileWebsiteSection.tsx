@@ -142,14 +142,9 @@ function BenefitCard({ benefit }: { benefit: Benefit }) {
 export default function VorteileWebsiteSection() {
   return (
     <section
-      className="relative z-10 mt-10 overflow-visible bg-white px-6 pb-12 pt-16 md:mt-14 md:pb-16 md:pt-20"
+      className="relative z-10 w-full overflow-visible bg-white px-6 pb-12 pt-16 md:pb-16 md:pt-20"
       aria-labelledby="vorteile-website-heading"
     >
-      <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_75%_45%_at_50%_-5%,rgba(37,99,235,0.055),transparent_58%),radial-gradient(ellipse_55%_35%_at_100%_100%,rgba(251,191,36,0.06),transparent_45%)]"
-        aria-hidden
-      />
-
       <div className="relative z-10 mx-auto min-w-0 max-w-7xl">
         <header className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
           <p className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-blue-700 md:text-xs">

@@ -208,8 +208,8 @@ export default function FAQSection() {
             })}
           </div>
 
-          {/* CTA-Karte */}
-          <div className="h-fit rounded-2xl border border-slate-200 bg-white p-8 shadow-xl backdrop-blur-sm">
+          {/* CTA-Karte – sticky beim Scrollen der FAQ-Liste */}
+          <div className="h-fit self-start rounded-2xl border border-slate-200 bg-white p-8 shadow-xl backdrop-blur-sm md:sticky md:top-28">
             <div className="flex flex-col items-center text-center">
               <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-blue-600">
                 <HelpCircle className="h-8 w-8 text-white" aria-hidden="true" />

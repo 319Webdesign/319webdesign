@@ -13,7 +13,7 @@ export const pakete: Paket[] = [
   {
     name: 'Start',
     subtitle: 'Für kleine Unternehmen, die professionell online gehen möchten.',
-    preisAb: 749,
+    preisAb: 999,
     highlight: false,
     geeignetFuer: 'Einzelunternehmer, kleine Dienstleister und einfache Firmenwebsites',
     enthalten: [
@@ -29,7 +29,7 @@ export const pakete: Paket[] = [
   {
     name: 'Wachstum',
     subtitle: 'Für Unternehmen, die sichtbar werden und mehr Anfragen gewinnen möchten.',
-    preisAb: 1199,
+    preisAb: 1299,
     badge: 'Am häufigsten gewählt',
     highlight: true,
     geeignetFuer: 'Lokale Unternehmen, die professioneller auftreten und online mehr Anfragen gewinnen möchten',
@@ -47,7 +47,7 @@ export const pakete: Paket[] = [
   {
     name: 'Premium',
     subtitle: 'Für größere Anforderungen, individuelle Strukturen und langfristige Strategie.',
-    preisAb: 1499,
+    preisAb: 1699,
     highlight: false,
     geeignetFuer: 'Unternehmen mit größerem Umfang, mehreren Leistungen oder individuellen Anforderungen',
     enthalten: [

@@ -38,8 +38,9 @@ export async function POST(request: NextRequest) {
 
     const trimmedName = typeof name === 'string' ? name.trim() : ''
     const hasSplitName = Boolean(String(firstName || '').trim() || String(lastName || '').trim())
+    // Kurzform nur ohne Betreff/Service (z. B. Startseiten-Kontakt). Lead-Magnete mit service zählen als Vollformular.
     const isShortHomeContact =
-      trimmedName.length > 0 && !hasSplitName
+      trimmedName.length > 0 && !hasSplitName && !String(finalSubject || '').trim()
 
     // Validierung
     if (!finalName?.trim() || !email) {
@@ -186,12 +187,17 @@ export async function POST(request: NextRequest) {
     const safeMessage = escapeHtml(messageBody).replace(/\n/g, '<br>')
     const fullName = finalName
 
+    const isWebsiteCheck =
+      String(emailBetreff).includes('Website-Check') || String(finalSubject).includes('Website-Check')
+
     // E-Mail-Inhalt
     const mailOptions = {
       from: process.env.SMTP_FROM || process.env.SMTP_USER,
       to: 'kontakt@319webdesign.com',
       replyTo: email,
-      subject: `Neue Kontaktanfrage von ${fullName}`,
+      subject: isWebsiteCheck
+        ? `Anfrage: Kostenloser Website-Check – ${fullName}`
+        : `Neue Kontaktanfrage von ${fullName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #3b82f6;">Neue Kontaktanfrage</h2>

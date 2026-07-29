@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic'
 import Header from './components/Header'
 import HeroSection from './components/HeroSection'
 import ClientTrustBar from './components/ClientTrustBar'
+import WebsiteCheckLeadMagnet from './components/WebsiteCheckLeadMagnet'
 
 // Code-Splitting: Below-the-fold Sektionen dynamisch laden (weniger initiales JS, besseres LCP)
 const SolutionFocusCtaSection = dynamic(() => import('./components/SolutionFocusCtaSection'), { ssr: true })
@@ -36,6 +37,7 @@ export default function Home() {
         <LokaleWebdesignSeoSection />
         <SolutionFocusCtaSection />
         <FAQSection />
+        <WebsiteCheckLeadMagnet />
         <KontaktSection />
         <Footer />
       </main>

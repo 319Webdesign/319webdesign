@@ -20,8 +20,14 @@ const fadeInUp = {
 
 const HOME_PROJECTS = getPortfolioProjectsHomeSorted().filter((project) => project.slug !== 'da-sound')
 
-export default function PortfolioSection() {
+type PortfolioSectionProps = {
+  /** `light` = weißer Hintergrund (z. B. Stadt-Landingpages), Default = blauer Startseiten-Look */
+  variant?: 'default' | 'light'
+}
+
+export default function PortfolioSection({ variant = 'default' }: PortfolioSectionProps) {
   const reduceMotion = useReduceMotion()
+  const isLight = variant === 'light'
   const HeaderEl = reduceMotion ? 'div' : motion.div
   const headerProps = reduceMotion
     ? { className: 'mb-10 text-center md:mb-12' }
@@ -29,7 +35,9 @@ export default function PortfolioSection() {
 
   return (
     <section
-      className="relative z-10 overflow-visible bg-blue-600 px-6 pb-8 pt-14 md:pb-12 md:pt-20"
+      className={`relative z-10 overflow-visible px-6 pb-8 pt-14 md:pb-12 md:pt-20 ${
+        isLight ? 'bg-white' : 'bg-blue-600'
+      }`}
       aria-labelledby="portfolio-home-heading"
       aria-describedby="portfolio-home-sub"
     >
@@ -37,18 +45,26 @@ export default function PortfolioSection() {
         <HeaderEl {...headerProps}>
           <h2
             id="portfolio-home-heading"
-            className="mx-auto max-w-4xl text-balance text-2xl font-bold tracking-tight text-white md:text-3xl lg:text-4xl"
+            className={`mx-auto max-w-4xl text-balance text-2xl font-bold tracking-tight md:text-3xl lg:text-4xl ${
+              isLight ? 'text-slate-900' : 'text-white'
+            }`}
           >
             Ergebnisse aus der Praxis – Websites, die Kunden bringen
           </h2>
           <p
             id="portfolio-home-sub"
-            className="mx-auto mt-3 max-w-2xl text-lg leading-relaxed text-blue-100 md:mt-4 md:text-xl"
+            className={`mx-auto mt-3 max-w-2xl text-lg leading-relaxed md:mt-4 md:text-xl ${
+              isLight ? 'text-slate-600' : 'text-blue-100'
+            }`}
           >
             Ausgewählte{' '}
             <Link
               href="/webdesign/darmstadt"
-              className="font-medium text-white underline decoration-blue-200/80 underline-offset-[3px] hover:text-blue-50 hover:decoration-blue-50 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-200 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600 rounded-sm"
+              className={
+                isLight
+                  ? 'rounded-sm font-medium text-blue-700 underline decoration-blue-200 underline-offset-[3px] hover:text-blue-800 hover:decoration-blue-400 focus-visible:outline focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
+                  : 'rounded-sm font-medium text-white underline decoration-blue-200/80 underline-offset-[3px] hover:text-blue-50 hover:decoration-blue-50 focus-visible:outline focus-visible:ring-2 focus-visible:ring-amber-200 focus-visible:ring-offset-2 focus-visible:ring-offset-blue-600'
+              }
             >
               Webdesign-Projekte aus Darmstadt
             </Link>{' '}
@@ -131,12 +147,14 @@ export default function PortfolioSection() {
           </Link>
         </div>
       </div>
-      <div
-        className="pointer-events-none absolute inset-x-0 -bottom-24 z-[5] h-24 overflow-x-hidden md:-bottom-32 md:h-32"
-        aria-hidden
-      >
-        <div className="absolute left-1/2 top-0 h-full w-[165%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
-      </div>
+      {!isLight ? (
+        <div
+          className="pointer-events-none absolute inset-x-0 -bottom-24 z-[5] h-24 overflow-x-hidden md:-bottom-32 md:h-32"
+          aria-hidden
+        >
+          <div className="absolute left-1/2 top-0 h-full w-[165%] -translate-x-1/2 rounded-b-[100%] bg-blue-600" />
+        </div>
+      ) : null}
     </section>
   )
 }

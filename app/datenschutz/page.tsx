@@ -69,8 +69,8 @@ export default function DatenschutzPage() {
                     </p>
                     <p className="mt-3">
                       <strong className="text-white">Anschrift:</strong><br />
-                      Nahestrasse 22<br />
-                      64319 Pfungstadt<br />
+                      Weserstrasse 4<br />
+                      65468 Trebur<br />
                       Deutschland
                     </p>
                     <p className="mt-3">

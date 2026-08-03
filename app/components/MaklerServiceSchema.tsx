@@ -18,9 +18,10 @@ export default function MaklerServiceSchema() {
       url: baseUrl,
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Pfungstadt',
+        streetAddress: 'Weserstrasse 4',
+        addressLocality: 'Trebur',
         addressRegion: 'Hessen',
-        postalCode: '64319',
+        postalCode: '65468',
         addressCountry: 'DE',
       },
     },

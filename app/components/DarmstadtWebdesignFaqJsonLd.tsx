@@ -24,16 +24,16 @@ export default function DarmstadtWebdesignFaqJsonLd() {
         foundingDate: '2023',
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Nahestrasse 22',
-          addressLocality: 'Pfungstadt',
+          streetAddress: 'Weserstrasse 4',
+          addressLocality: 'Trebur',
           addressRegion: 'Hessen',
-          postalCode: '64319',
+          postalCode: '65468',
           addressCountry: 'DE',
         },
         geo: {
           '@type': 'GeoCoordinates',
-          latitude: 49.8075,
-          longitude: 8.6008,
+          latitude: 49.9244,
+          longitude: 8.4089,
         },
         areaServed: [
           { '@type': 'City', name: 'Darmstadt' },

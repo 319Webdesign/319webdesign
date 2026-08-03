@@ -10,7 +10,7 @@ import type { City } from './cities'
 
 /** Index für Varianten-Auswahl (0-3) – neue Städte erhalten über Slug-Hash eine Variante */
 function getVariantIndex(city: City): number {
-  const order = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt']
+  const order = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt', 'trebur']
   const idx = order.indexOf(city.slug)
   if (idx >= 0) return idx
   // Neue Städte: deterministischer Hash für konsistente Varianten

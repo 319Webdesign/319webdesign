@@ -65,6 +65,7 @@ const workflowSteps = [
 ]
 
 const regions = [
+  { label: 'Trebur', href: '/webdesign/trebur' },
   { label: 'Pfungstadt', href: '/webdesign/pfungstadt' },
   { label: 'Darmstadt', href: '/webdesign/darmstadt' },
   { label: 'Griesheim', href: '/webdesign/griesheim' },

@@ -67,6 +67,36 @@ export const cities: Record<string, City> = {
     population: '26.000',
     nearbyPlaces: ['Darmstadt', 'Griesheim', 'Mörfelden-Walldorf', 'Erzhausen'],
   },
+  trebur: {
+    slug: 'trebur',
+    name: 'Trebur',
+    region: 'Rhein-Main',
+    description:
+      'Trebur liegt im Kreis Groß-Gerau zwischen Mainz, Rüsselsheim und Darmstadt – mit den Ortsteilen Astheim und Geinsheim sowie kurzen Wegen in die gesamte Rhein-Main-Region.',
+    keywords: [
+      'Webdesign Trebur',
+      'Webdesigner Trebur',
+      'Website erstellen Trebur',
+      'Homepage Trebur',
+      'Internetagentur Trebur',
+      'SEO Trebur',
+      'Astheim',
+      'Geinsheim',
+      'Groß-Gerau',
+      'Nauheim',
+      'Rüsselsheim',
+      'Ginsheim-Gustavsburg',
+    ],
+    population: '13.000',
+    nearbyPlaces: [
+      'Astheim',
+      'Geinsheim',
+      'Groß-Gerau',
+      'Nauheim',
+      'Rüsselsheim',
+      'Ginsheim-Gustavsburg',
+    ],
+  },
 }
 
 export const getAllCitySlugs = (): string[] => {

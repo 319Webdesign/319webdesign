@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastmod = new Date()
 
   const leistungenSlugs = ['webdesign-launch', 'wachstum-seo', 'strategische-begleitung'] as const
-  const localCities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt'] as const
+  const localCities = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt', 'trebur'] as const
 
   const portfolioSlugs = getAllProjectSlugs()
 

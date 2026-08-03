@@ -19,8 +19,11 @@ export const seoKeywordsBase = [
   'Webdesigner Darmstadt',
   'Webdesign Pfungstadt',
   'Webdesigner Pfungstadt',
+  'Webdesign Trebur',
+  'Webdesigner Trebur',
   'Darmstadt',
   'Pfungstadt',
+  'Trebur',
   'Südhessen',
   'Next.js Webdesigner Südhessen',
   'Suchmaschinenoptimierung Darmstadt',
@@ -139,7 +142,7 @@ export const seoConfig: Record<string, PageSeoConfig> = {
   impressum: {
     title: 'Impressum – Rechtliche Angaben | 319Webdesign',
     description:
-      'Impressum 319Webdesign (Maik Schmidt), Nahestrasse 22, 64319 Pfungstadt – Webdesign und SEO in Darmstadt, Pfungstadt & Suedhessen, Angaben gemaess § 5 DDG.',
+      'Impressum 319Webdesign (Maik Schmidt), Weserstrasse 4, 65468 Trebur – Webdesign und SEO in Darmstadt, Pfungstadt & Suedhessen, Angaben gemaess § 5 DDG.',
     path: '/impressum',
     keywordsExtra: ['Impressum'],
   },

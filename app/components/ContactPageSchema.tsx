@@ -13,7 +13,9 @@ const schema = {
   logo: `${baseUrl}/319.png`,
   address: {
     '@type': 'PostalAddress' as const,
-    addressLocality: 'Pfungstadt',
+    streetAddress: 'Weserstrasse 4',
+    addressLocality: 'Trebur',
+    postalCode: '65468',
     addressRegion: 'Hessen',
     addressCountry: 'DE',
   },

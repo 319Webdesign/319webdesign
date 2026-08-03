@@ -17,16 +17,16 @@ export default function ProfessionalServiceSchema() {
     email: 'kontakt@319webdesign.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Nahestrasse 22',
-      addressLocality: 'Pfungstadt',
-      postalCode: '64319',
+      streetAddress: 'Weserstrasse 4',
+      addressLocality: 'Trebur',
+      postalCode: '65468',
       addressRegion: 'Hessen',
       addressCountry: 'DE',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 49.8028,
-      longitude: 8.6042,
+      latitude: 49.9244,
+      longitude: 8.4089,
     },
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Südhessen' },

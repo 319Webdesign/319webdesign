@@ -17,6 +17,7 @@ const menuLinks = [
 const leistungenLinks = [
   { href: '/webdesign/darmstadt', label: 'Webdesign in Darmstadt' },
   { href: '/webdesign/pfungstadt', label: 'Webdesign Pfungstadt' },
+  { href: '/webdesign/trebur', label: 'Webdesign Trebur' },
   { href: '/seo-darmstadt', label: 'Lokale Suchmaschinenoptimierung (SEO)' },
   { href: '/leistungen/webdesign-launch', label: 'Webdesign & Launch' },
   { href: '/website-relaunch', label: 'Relaunch' },
@@ -76,7 +77,7 @@ export default function Footer() {
             </p>
             {/* E-E-A-T: Vertrauenssignale für KI/Crawler */}
             <p className="text-slate-500 text-xs mt-2" role="contentinfo">
-              Gründungsjahr: <time dateTime="2023">2023</time>. Standort: Pfungstadt, Region Darmstadt.
+              Gründungsjahr: <time dateTime="2023">2023</time>. Standort: Trebur, Region Darmstadt.
             </p>
           </div>
 
@@ -100,6 +101,14 @@ export default function Footer() {
           <div className="space-y-4 text-center md:text-left">
             <p className="text-white font-semibold text-base mb-4"><strong>Regionen</strong></p>
             <ul className="space-y-3">
+              <li>
+                <a 
+                  href="/webdesign/trebur" 
+                  className="text-slate-400 hover:text-blue-400 transition-colors duration-300 text-sm"
+                >
+                  Webdesign in Trebur
+                </a>
+              </li>
               <li>
                 <a 
                   href="/webdesign/darmstadt" 

@@ -11,8 +11,10 @@ export default function OrganizationSchema() {
       '319Webdesign (Pfungstadt): Webdesign und Suchmaschinenoptimierung in Darmstadt, Pfungstadt und Südhessen – Next.js, PageSpeed und lokale SEO. System-Integration (Buchung, Bestand) und Theme-Entwicklung für bestehende Systeme.',
     address: {
       '@type': 'PostalAddress',
-      addressLocality: 'Pfungstadt',
-      addressRegion: 'Deutschland',
+      streetAddress: 'Weserstrasse 4',
+      addressLocality: 'Trebur',
+      postalCode: '65468',
+      addressRegion: 'Hessen',
       addressCountry: 'DE',
     },
     contactPoint: {

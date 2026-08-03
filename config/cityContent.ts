@@ -140,6 +140,8 @@ export function getMetaDescriptionWebdesignCity(city: City): string {
       'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Griesheim: lokale SEO, onOffice & Performance für KMU – Region Darmstadt, Südhessen.',
     weiterstadt:
       'Behalten Sie Ihr System, ich upgrade das Design. Next.js Webdesign Weiterstadt: B2B, lokales SEO & System-Anbindung für Mittelstand in Südhessen (DE).',
+    trebur:
+      'Professionelles Webdesign in Trebur. Individuelle Webseiten für Unternehmen und Handwerksbetriebe. Modern, schnell und suchmaschinenoptimiert.',
   }
   return (
     variants[city.slug] ??

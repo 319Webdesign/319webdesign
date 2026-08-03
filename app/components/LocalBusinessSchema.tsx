@@ -25,16 +25,16 @@ export default function LocalBusinessSchema({
     telephone: '+49-177-3236454',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Nahestrasse 22',
-      addressLocality: 'Pfungstadt',
-      postalCode: '64319',
-      addressRegion: 'Deutschland',
+      streetAddress: 'Weserstrasse 4',
+      addressLocality: 'Trebur',
+      postalCode: '65468',
+      addressRegion: 'Hessen',
       addressCountry: 'DE',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 49.8028,
-      longitude: 8.6042,
+      latitude: 49.9244,
+      longitude: 8.4089,
     },
     areaServed,
     openingHoursSpecification: {

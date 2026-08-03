@@ -4,4 +4,4 @@
  * Bei neuen Portfolio-Projekten oder Städten: hier die Arrays anpassen (und in projects.ts/cities.ts).
  */
 export const PROJECT_SLUGS: string[] = ['heinerfilm', 'da-sound', 'he-immologis', 'tierhotel-rhein-main']
-export const CITY_SLUGS: string[] = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt']
+export const CITY_SLUGS: string[] = ['darmstadt', 'pfungstadt', 'griesheim', 'weiterstadt', 'trebur']

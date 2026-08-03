@@ -29,6 +29,19 @@ import DarmstadtWebdesignFaqJsonLd from '../../components/DarmstadtWebdesignFaqJ
 import DarmstadtWebdesignFaqSection from '../../components/DarmstadtWebdesignFaqSection'
 import DarmstadtWebdesignHeroSection from '../../components/DarmstadtWebdesignHeroSection'
 import DarmstadtClosingCtaSection from '../../components/DarmstadtClosingCtaSection'
+import TreburWebdesignHeroSection from '../../components/TreburWebdesignHeroSection'
+import TreburTrustSection from '../../components/TreburTrustSection'
+import TreburWarumSection from '../../components/TreburWarumSection'
+import TreburLeistungenSection from '../../components/TreburLeistungenSection'
+import TreburMidCtaSection from '../../components/TreburMidCtaSection'
+import TreburWarumWebsiteSection from '../../components/TreburWarumWebsiteSection'
+import TreburHandwerkerSection from '../../components/TreburHandwerkerSection'
+import TreburProzessSection from '../../components/TreburProzessSection'
+import TreburReferenzenSection from '../../components/TreburReferenzenSection'
+import TreburLokalerBereichSection from '../../components/TreburLokalerBereichSection'
+import TreburWebdesignFaqSection from '../../components/TreburWebdesignFaqSection'
+import TreburWebdesignFaqJsonLd from '../../components/TreburWebdesignFaqJsonLd'
+import TreburClosingCtaSection from '../../components/TreburClosingCtaSection'
 
 // Generate Metadata
 export async function generateMetadata({
@@ -50,17 +63,21 @@ export async function generateMetadata({
     darmstadt: 'Webdesign Darmstadt | Websites die Kunden bringen',
     griesheim: 'Webdesign Griesheim | Moderne Websites für Unternehmen',
     weiterstadt: 'Webdesign Weiterstadt | Websites die Kunden bringen',
+    trebur: 'Webdesign Trebur | Moderne Webseiten für Unternehmen | 319Webdesign',
   }
   const absoluteTitle = absoluteMetaTitles[city.slug]
   const pageTitle =
     absoluteTitle ?? truncateTitleForSeo(`Next.js Webdesign ${city.name} | Südhessen`)
   const metaDescriptionRaw = getMetaDescriptionWebdesignCity(city)
   const description =
-    city.slug === 'pfungstadt' || city.slug === 'darmstadt'
+    city.slug === 'pfungstadt' || city.slug === 'darmstadt' || city.slug === 'trebur'
       ? metaDescriptionRaw.trim()
       : truncateDescriptionForSeo(metaDescriptionRaw)
   const ogTitle = absoluteTitle ?? `${pageTitle} | 319Webdesign`
-  const ogImageAlt = `Webdesign ${city.name} – Next.js und lokales SEO in Darmstadt & Pfungstadt`
+  const ogImageAlt =
+    city.slug === 'trebur'
+      ? 'Webdesign Trebur – moderne Websites für Unternehmen und Handwerksbetriebe in der Rhein-Main-Region'
+      : `Webdesign ${city.name} – Next.js und lokales SEO in Darmstadt & Pfungstadt`
   return {
     title: absoluteTitle ? { absolute: absoluteTitle } : pageTitle,
     description,
@@ -107,7 +124,8 @@ export default function CityPage({ params }: { params: { city: string } }) {
   }
 
   const texts = getCityPageTexts(city)
-  const h1 = city.slug !== 'darmstadt' ? getUniqueH1Webdesign(city) : null
+  const h1 =
+    city.slug !== 'darmstadt' && city.slug !== 'trebur' ? getUniqueH1Webdesign(city) : null
 
   const features = [
     {
@@ -140,10 +158,13 @@ export default function CityPage({ params }: { params: { city: string } }) {
     <>
       {city.slug === 'pfungstadt' && <PfungstadtWebdesignFaqJsonLd />}
       {city.slug === 'darmstadt' && <DarmstadtWebdesignFaqJsonLd />}
+      {city.slug === 'trebur' && <TreburWebdesignFaqJsonLd />}
       <Header />
       <main className="min-h-screen bg-white">
         {city.slug === 'darmstadt' ? (
           <DarmstadtWebdesignHeroSection city={city} />
+        ) : city.slug === 'trebur' ? (
+          <TreburWebdesignHeroSection city={city} />
         ) : (
             <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-slate-50 pt-24">
               {/* Background Gradient */}
@@ -236,15 +257,27 @@ export default function CityPage({ params }: { params: { city: string } }) {
 
         {city.slug === 'pfungstadt' && <PfungstadtRegionalTrustSection />}
 
+        {city.slug === 'trebur' && <TreburTrustSection />}
+        {city.slug === 'trebur' && <TreburWarumSection />}
+        {city.slug === 'trebur' && <TreburLeistungenSection />}
+        {city.slug === 'trebur' && <TreburMidCtaSection />}
+        {city.slug === 'trebur' && <TreburWarumWebsiteSection />}
+        {city.slug === 'trebur' && <TreburHandwerkerSection />}
+
         {/* Prozess – stadt-spezifischer Content */}
-        <ProzessSection citySlug={city.slug} />
+        {city.slug === 'trebur' ? (
+          <TreburProzessSection />
+        ) : (
+          <ProzessSection citySlug={city.slug} />
+        )}
 
         {city.slug === 'pfungstadt' && <PfungstadtLokaleWebsiteSection />}
         {city.slug === 'pfungstadt' && <PfungstadtDaSoundReferenzSection />}
 
         {city.slug === 'darmstadt' && <DarmstadtReferenzenSection />}
+        {city.slug === 'trebur' && <TreburReferenzenSection />}
 
-        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && (
+        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && city.slug !== 'trebur' && (
           /* Performance Section – auf Pfungstadt & Darmstadt entfällt sie (Darmstadt: Referenzen-Sektion) */
           <section className="py-20 px-6 bg-slate-50">
             <div className="max-w-6xl mx-auto">
@@ -310,7 +343,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
 
         {city.slug === 'darmstadt' && <DarmstadtBranchenSection />}
 
-        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && (
+        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && city.slug !== 'trebur' && (
           <section className="py-20 px-6 bg-white" aria-labelledby="was-sie-bekommen-heading">
             <div className="max-w-6xl mx-auto">
               <h2
@@ -343,8 +376,9 @@ export default function CityPage({ params }: { params: { city: string } }) {
         )}
 
         {city.slug === 'pfungstadt' && <PfungstadtZielgruppeSection />}
+        {city.slug === 'trebur' && <TreburLokalerBereichSection />}
 
-        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && (
+        {city.slug !== 'pfungstadt' && city.slug !== 'darmstadt' && city.slug !== 'trebur' && (
           <section className="py-20 px-6 bg-white" aria-labelledby="webdesign-region-heading">
             <div className="max-w-5xl mx-auto text-center">
               <h2
@@ -378,9 +412,12 @@ export default function CityPage({ params }: { params: { city: string } }) {
 
         {city.slug === 'pfungstadt' && <PfungstadtWebdesignFaqSection />}
         {city.slug === 'darmstadt' && <DarmstadtWebdesignFaqSection />}
+        {city.slug === 'trebur' && <TreburWebdesignFaqSection />}
 
         {city.slug === 'darmstadt' ? (
           <DarmstadtClosingCtaSection />
+        ) : city.slug === 'trebur' ? (
+          <TreburClosingCtaSection />
         ) : (
           <section className="py-20 px-6 bg-gradient-to-br from-blue-50 via-blue-100/50 to-slate-50">
             <div className="max-w-4xl mx-auto text-center">

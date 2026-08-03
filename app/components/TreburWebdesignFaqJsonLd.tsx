@@ -1,14 +1,13 @@
 import { baseUrl } from '../../config/seo'
-import { pfungstadtWebdesignFaqItems } from '../../config/pfungstadtWebdesignFaq'
+import { treburWebdesignFaqItems } from '../../config/treburWebdesignFaq'
 
 const businessId = `${baseUrl}/#business`
-const pageUrl = `${baseUrl}/webdesign/pfungstadt`
+const pageUrl = `${baseUrl}/webdesign/trebur`
 
 /**
- * FAQPage + LocalBusiness + Service für /webdesign/pfungstadt (Rich-Snippet-tauglich).
- * JSON-LD im Dokument (Google akzeptiert body; Next App Router: kein beforeInteractive außerhalb Root-Layout).
+ * FAQPage + LocalBusiness + Service für /webdesign/trebur.
  */
-export default function PfungstadtWebdesignFaqJsonLd() {
+export default function TreburWebdesignFaqJsonLd() {
   const schema = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -17,7 +16,7 @@ export default function PfungstadtWebdesignFaqJsonLd() {
         '@id': businessId,
         name: '319Webdesign',
         description:
-          'Webdesign & SEO für Handwerker in Pfungstadt und Darmstadt: Next.js-Websites mit PageSpeed 99/100 – lokale Sichtbarkeit für Handwerksbetriebe.',
+          'Webdesign und SEO in Trebur und der Rhein-Main-Region: moderne Websites für Unternehmen und Handwerksbetriebe – schnell, suchmaschinenoptimiert und persönlich betreut.',
         url: pageUrl,
         telephone: '+491773236454',
         email: 'kontakt@319webdesign.com',
@@ -36,11 +35,15 @@ export default function PfungstadtWebdesignFaqJsonLd() {
           longitude: 8.4089,
         },
         areaServed: [
-          { '@type': 'City', name: 'Pfungstadt' },
+          { '@type': 'City', name: 'Trebur' },
+          { '@type': 'City', name: 'Astheim' },
+          { '@type': 'City', name: 'Geinsheim' },
+          { '@type': 'City', name: 'Groß-Gerau' },
+          { '@type': 'City', name: 'Nauheim' },
+          { '@type': 'City', name: 'Rüsselsheim' },
+          { '@type': 'City', name: 'Ginsheim-Gustavsburg' },
           { '@type': 'City', name: 'Darmstadt' },
-          { '@type': 'City', name: 'Griesheim' },
-          { '@type': 'City', name: 'Weiterstadt' },
-          { '@type': 'City', name: 'Eberstadt' },
+          { '@type': 'City', name: 'Pfungstadt' },
         ],
         priceRange: '€€',
         openingHoursSpecification: {
@@ -57,17 +60,40 @@ export default function PfungstadtWebdesignFaqJsonLd() {
       },
       {
         '@type': 'Service',
-        serviceType: 'Webdesign',
-        name: 'Webdesign Handwerker Pfungstadt',
+        serviceType: 'Webdesign und SEO',
+        name: 'Webdesign Trebur',
         provider: { '@id': businessId },
-        areaServed: { '@type': 'City', name: 'Pfungstadt' },
+        areaServed: { '@type': 'City', name: 'Trebur' },
         description:
-          'Websites für Handwerker in Pfungstadt: Next.js, PageSpeed 99/100, SEO für regionale Suchanfragen.',
+          'Professionelles Webdesign in Trebur: individuelle Webseiten für Unternehmen und Handwerksbetriebe – modern, schnell und suchmaschinenoptimiert.',
         url: pageUrl,
       },
       {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Startseite',
+            item: baseUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Webdesign & Launch',
+            item: `${baseUrl}/leistungen/webdesign-launch`,
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: 'Trebur',
+            item: pageUrl,
+          },
+        ],
+      },
+      {
         '@type': 'FAQPage',
-        mainEntity: pfungstadtWebdesignFaqItems.map((item) => ({
+        mainEntity: treburWebdesignFaqItems.map((item) => ({
           '@type': 'Question',
           name: item.question,
           acceptedAnswer: {

@@ -101,6 +101,7 @@ export default function RootLayout({
           <CookieBanner />
           <WhatsAppButton />
           <SpeedInsights />
+          <Analytics />
         </ReducedMotionProvider>
       </body>
     </html>
